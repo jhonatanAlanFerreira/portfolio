@@ -28,7 +28,7 @@ export default function TechCarousel() {
           {icons.map((icon, index) => (
             <div
               key={index}
-              className="flex items-center justify-center w-20 h-20 grayscale"
+              className="flex items-center justify-center w-15 h-15 grayscale"
             >
               {icon && React.cloneElement(icon, { size: 40 })}
             </div>
@@ -40,7 +40,7 @@ export default function TechCarousel() {
           {icons.map((icon, index) => (
             <div
               key={index}
-              className="flex items-center justify-center w-20 h-20 grayscale"
+              className="flex items-center justify-center w-15 h-15 grayscale"
             >
               {icon && React.cloneElement(icon, { size: 40 })}
             </div>

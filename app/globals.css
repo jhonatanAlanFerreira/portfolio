@@ -8,6 +8,8 @@ body {
     display: flex;
     overflow: hidden;
     white-space: nowrap;
+    height: 6.5rem;
+    transition: height 0.5s ease-in-out;
 }
 
 .marquee__item {
@@ -28,5 +30,14 @@ body {
 
     to {
         transform: translateX(-100%);
+    }
+}
+
+.marquee:hover {
+    height: 100%;
+
+    .marquee__item {
+        display: none;
+        animation: none;
     }
 }
