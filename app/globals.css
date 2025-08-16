@@ -10,6 +10,7 @@ body {
     white-space: nowrap;
     height: 6.5rem;
     transition: height 0.5s ease-in-out;
+    width: 100%;
 }
 
 .marquee__item {
@@ -35,6 +36,8 @@ body {
 
 .marquee:hover {
     height: 100%;
+    max-width: none !important;
+    width: 100%;
 
     .marquee__item {
         display: none;
