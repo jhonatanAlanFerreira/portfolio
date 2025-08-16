@@ -3,3 +3,30 @@
 body {
     background-image: url("/background.png");
 }
+
+.marquee {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.marquee__item {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: marquee-content;
+    animation-timing-function: linear;
+}
+
+.marquee:hover .marquee__item {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-content {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
