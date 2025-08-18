@@ -38,25 +38,37 @@ export default function TechCarousel() {
       <p className="text-white absolute pl-4 pt-2 text-[11px] tracking-widest font-semibold uppercase text-slate-300 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
         Tech Stack
       </p>
-
-      {[0, 1].map((i) => (
-        <div
-          key={i}
-          ref={i === 0 ? firstItemRef : null}
-          className="marquee__item text-white pt-8"
-        >
-          <div className="flex">
-            {icons.map((icon, index) => (
+      <div ref={firstItemRef} className="marquee__item text-white pt-8">
+        <div className="items_map">
+          {icons.map((icon, index) => (
+            <div key={index} className="flex flex-row">
               <div
                 key={index}
                 className="flex items-center justify-center w-15 h-15 grayscale"
               >
                 {icon && React.cloneElement(icon, { size: 40 })}
               </div>
-            ))}
-          </div>
+              <span className="tech-name group-hover:opacity-100 select-none text-white font-medium text-sm content-center">
+                Name Placeholder
+              </span>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+      <div className="marquee__item text-white pt-8 second_list">
+        <div className="items_map">
+          {icons.map((icon, index) => (
+            <div key={index} className="flex flex-row">
+              <div
+                key={index}
+                className="flex items-center justify-center w-15 h-15 grayscale"
+              >
+                {icon && React.cloneElement(icon, { size: 40 })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

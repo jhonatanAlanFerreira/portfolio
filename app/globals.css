@@ -20,10 +20,6 @@ body {
     animation-timing-function: linear;
 }
 
-.marquee:hover .marquee__item {
-    animation-play-state: paused;
-}
-
 @keyframes marquee-content {
     from {
         transform: translateX(0%);
@@ -38,9 +34,36 @@ body {
     height: 100%;
     max-width: none !important;
     width: 100%;
+    overflow: auto;
 
     .marquee__item {
-        display: none;
         animation: none;
     }
+
+    .items_map {
+        flex-direction: column;
+    }
+
+    .second_list {
+        opacity: 0;
+    }
+
+    .tech-name {
+        opacity: 1;
+        position: relative;
+    }
+}
+
+.items_map {
+    display: flex;
+    flex-direction: row;
+}
+
+.second_list {
+    opacity: 1;
+}
+
+.tech-name {
+    opacity: 0;
+    position: absolute;
 }

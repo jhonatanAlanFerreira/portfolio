@@ -12,7 +12,7 @@ export default function Home() {
             <h1 className="text-white text-3xl font-bold">Jhonatan Ferreira</h1>
             <p className="text-gray-500">Full Stack Developer</p>
           </div>
-          <div className="w-full py-2 px-2 flex-1 place-items-center">
+          <div className="w-full py-2 px-2 flex-1 place-items-center overflow-hidden">
             <TechCarousel></TechCarousel>
           </div>
         </div>
