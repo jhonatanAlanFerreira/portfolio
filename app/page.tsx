@@ -16,7 +16,7 @@ export default function Home() {
               <p className="text-gray-500">Full Stack Developer</p>
             </div>
           </div>
-          <div className="w-full px-2 flex-1 place-items-center overflow-hidden z-10">
+          <div className="w-full px-2 mb-1 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel></TechCarousel>
           </div>
           <div className="w-full absolute h-10 bottom-0"></div>
