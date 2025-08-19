@@ -35,10 +35,10 @@ export default function TechCarousel() {
       style={{ maxWidth: maxWidth }}
       className="marquee rounded-xl shadow-sm bg-gradient-to-b from-transparent to-slate-700/70 hover:to-slate-600/70 border border-slate-600 hover:border-slate-400 transition-colors duration-300"
     >
-      <p className="text-white absolute pl-4 pt-2 text-[11px] tracking-widest font-semibold uppercase text-slate-300 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
+      <p className="tech_stack text-white absolute pl-4 pt-2 text-[11px] tracking-widest font-semibold uppercase text-slate-300 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
         Tech Stack
       </p>
-      <div ref={firstItemRef} className="marquee__item text-white pt-8">
+      <div ref={firstItemRef} className="marquee__item text-white">
         <div className="items_map">
           {icons.map((icon, index) => (
             <div
@@ -58,7 +58,7 @@ export default function TechCarousel() {
           ))}
         </div>
       </div>
-      <div className="marquee__item text-white pt-8 second_list">
+      <div className="marquee__item text-white second_list">
         <div className="items_map">
           {icons.map((icon, index) => (
             <div key={index} className="flex flex-row">
