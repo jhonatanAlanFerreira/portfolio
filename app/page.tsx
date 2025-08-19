@@ -1,9 +1,10 @@
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
+import { GrGithub } from "react-icons/gr";
 
 export default function Home() {
   return (
     <div className="flex h-screen">
-      <aside className="flex flex-1 bg-black/30 backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
+      <aside className="flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
         <div className="w-full flex flex-col gap-9 items-center">
           <div className="flex flex-col items-center pt-10">
             <div className="overflow-hidden rounded-full h-30 w-30 border-2 border-white shadow-md">
@@ -18,8 +19,11 @@ export default function Home() {
           </div>
           <div className="w-full px-2 mb-1 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel></TechCarousel>
+            <div className="flex flex-col w-full pt-4"></div>
           </div>
-          <div className="w-full absolute h-10 bottom-0"></div>
+          <div className="grayscale size-4/5 absolute h-10 bottom-0 border-t border-slate-600">
+            <GrGithub className="text-sky-400" />
+          </div>
         </div>
       </aside>
       <main className="flex flex-3">

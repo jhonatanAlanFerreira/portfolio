@@ -33,9 +33,9 @@ export default function TechCarousel() {
     <div
       ref={marqueeRef}
       style={{ maxWidth: maxWidth }}
-      className="marquee rounded-xl shadow-sm bg-gradient-to-b from-transparent to-slate-700/70 hover:to-slate-600/70 border border-slate-600 hover:border-slate-400 transition-colors duration-300"
+      className="marquee rounded-md shadow-sm bg-gradient-to-b from-black/10 to-slate-800/30 hover:from-black hover:to-slate-800 transition-colors duration-300"
     >
-      <p className="tech_stack text-white absolute pl-4 pt-2 text-[11px] tracking-widest font-semibold uppercase text-slate-300 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
+      <p className="tech_stack text-white/30 pl-1 absolute pt-2 text-[11px] tracking-widest font-semibold uppercase text-slate-300 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
         Tech Stack
       </p>
       <div ref={firstItemRef} className="marquee__item text-white">
