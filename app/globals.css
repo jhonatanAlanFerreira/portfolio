@@ -36,6 +36,8 @@ body {
     max-width: none !important;
     width: 100%;
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 116, 139, 0.6) transparent;
 
     .marquee__item {
         animation: none;
@@ -76,4 +78,21 @@ body {
 
 .tech_stack {
     opacity: 1;
+}
+
+.marquee::-webkit-scrollbar {
+    height: 6px;
+}
+
+.marquee::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.marquee::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: rgba(100, 116, 139, 0.6);
+}
+
+.marquee:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(148, 163, 184, 0.7);
 }
