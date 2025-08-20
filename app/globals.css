@@ -10,20 +10,6 @@ body {
     overflow: hidden;
 }
 
-.marquee {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-}
-
-.marquee__item {
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
-    animation-name: marquee-content;
-    animation-timing-function: linear;
-    padding-top: 2rem;
-}
-
 @keyframes marquee-content {
     from {
         transform: translateX(0%);
