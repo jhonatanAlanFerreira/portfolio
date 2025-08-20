@@ -20,61 +20,19 @@ body {
     }
 }
 
-.marquee:hover {
-    height: 100%;
-    max-width: none !important;
-    width: 100%;
-    overflow: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(100, 116, 139, 0.6) transparent;
-
-    .marquee__item {
-        animation: none;
-        padding: 0.5rem !important;
-        width: 95%;
-    }
-
-    .items_map {
-        flex-direction: column;
-    }
-
-    .second_list {
-        display: none;
-    }
-
-    .tech-name {
-        display: inline-block;
-        position: relative;
-    }
-
-    .tech_stack {
-        display: none;
-    }
-}
-
-.items_map {
-    display: flex;
-    flex-direction: row;
-}
-
-.tech-name {
-    display: none;
-    position: absolute;
-}
-
-.marquee::-webkit-scrollbar {
+.gray-scroll::-webkit-scrollbar {
     height: 6px;
 }
 
-.marquee::-webkit-scrollbar-track {
+.gray-scroll::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.marquee::-webkit-scrollbar-thumb {
+.gray-scroll::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background-color: rgba(100, 116, 139, 0.6);
 }
 
-.marquee:hover::-webkit-scrollbar-thumb {
+.gray-scroll:hover::-webkit-scrollbar-thumb {
     background-color: rgba(148, 163, 184, 0.7);
 }

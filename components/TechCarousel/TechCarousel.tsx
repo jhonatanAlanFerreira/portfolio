@@ -11,12 +11,12 @@ import {
 
 export default function TechCarousel() {
   const icons = [
-    <FaReact className="text-sky-400" />,
-    <FaNodeJs className="text-green-500" />,
-    <FaAngular className="text-red-500" />,
-    <FaHtml5 className="text-orange-500" />,
-    <FaCss3Alt className="text-blue-500" />,
-    <FaJsSquare className="text-yellow-400" />,
+    { icon: <FaReact className="text-sky-400" />, name: "React" },
+    { icon: <FaNodeJs className="text-green-500" />, name: "Node.js" },
+    { icon: <FaAngular className="text-red-500" />, name: "Angular" },
+    { icon: <FaHtml5 className="text-orange-500" />, name: "HTML5" },
+    { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS3" },
+    { icon: <FaJsSquare className="text-yellow-400" />, name: "JavaScript" },
   ];
 
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -32,44 +32,40 @@ export default function TechCarousel() {
   return (
     <div
       ref={marqueeRef}
-      style={{ maxWidth: maxWidth }}
-      className="marquee flex overflow-hidden w-full rounded-md bg-gradient-to-b from-black/10 to-slate-800/10 hover:from-gray-950/30 hover:to-black"
+      style={{ maxWidth }}
+      className="gray-scroll group flex overflow-hidden whitespace-nowrap h-26 w-full rounded-md bg-gradient-to-b from-black/10 to-slate-800/10 hover:from-gray-950/30 hover:to-black transition-[height] duration-100 hover:h-full hover:overflow-auto"
     >
-      <p className="tech_stack pl-1 absolute pt-2 text-[11px] font-semibold text-gray-500 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
+      <p className="pl-1 absolute pt-2 text-[11px] font-semibold text-gray-500 tracking-widest after:block after:h-px after:w-8 after:mt-1 after:bg-slate-600/40 group-hover:hidden">
         TECH STACK
       </p>
+
       <div
         ref={firstItemRef}
-        className="marquee__item text-white pt-8 [animation:marquee-content_10s_linear_infinite]"
+        className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:animate-none group-hover:p-2 group-hover:w-[95%]"
       >
-        <div className="items_map">
-          {icons.map((icon, index) => (
+        <div className="flex flex-row group-hover:flex-col">
+          {icons.map((tech, index) => (
             <div
               key={index}
               className="flex flex-row grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110"
             >
-              <div
-                key={index}
-                className="flex items-center justify-center w-15 h-15"
-              >
-                {icon && React.cloneElement(icon, { size: 40 })}
+              <div className="flex items-center justify-center w-15 h-15">
+                {React.cloneElement(tech.icon, { size: 40 })}
               </div>
-              <span className="tech-name font-medium content-center">
-                Name Placeholder
+              <span className="hidden group-hover:inline-block relative font-medium text-sm text-white content-center">
+                {tech.name}
               </span>
             </div>
           ))}
         </div>
       </div>
-      <div className="marquee__item text-white second_list pt-8 [animation:marquee-content_10s_linear_infinite]">
-        <div className="items_map">
-          {icons.map((icon, index) => (
+
+      <div className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:hidden">
+        <div className="flex flex-row">
+          {icons.map((tech, index) => (
             <div key={index} className="flex flex-row">
-              <div
-                key={index}
-                className="flex items-center justify-center w-15 h-15 grayscale"
-              >
-                {icon && React.cloneElement(icon, { size: 40 })}
+              <div className="flex items-center justify-center w-15 h-15 grayscale">
+                {React.cloneElement(tech.icon, { size: 40 })}
               </div>
             </div>
           ))}
