@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import { BsRegex } from "react-icons/bs";
+import { DiScrum } from "react-icons/di";
 import {
   FaReact,
   FaNodeJs,
@@ -7,16 +9,51 @@ import {
   FaHtml5,
   FaCss3Alt,
   FaJsSquare,
+  FaDocker,
+  FaGitAlt,
+  FaFigma,
+  FaLinux,
+  FaPhp,
 } from "react-icons/fa";
+import { RiRemixRunFill } from "react-icons/ri";
+import {
+  SiTypescript,
+  SiTailwindcss,
+  SiMongodb,
+  SiPostgresql,
+  SiGraphql,
+  SiLaravel,
+  SiNextdotjs,
+  SiMysql,
+} from "react-icons/si";
 
 export default function TechCarousel() {
   const icons = [
     { icon: <FaReact className="text-sky-400" />, name: "React" },
-    { icon: <FaNodeJs className="text-green-500" />, name: "Node.js" },
+    {
+      icon: <FaNodeJs className="text-green-500" />,
+      name: "Node.js",
+    },
     { icon: <FaAngular className="text-red-500" />, name: "Angular" },
-    { icon: <FaHtml5 className="text-orange-500" />, name: "HTML5" },
-    { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS3" },
+    { icon: <FaHtml5 className="text-orange-400" />, name: "HTML5" },
+    { icon: <FaCss3Alt className="text-blue-400" />, name: "CSS3" },
     { icon: <FaJsSquare className="text-yellow-400" />, name: "JavaScript" },
+    { icon: <SiTypescript className="text-blue-600" />, name: "TypeScript" },
+    { icon: <SiTailwindcss className="text-sky-500" />, name: "Tailwind CSS" },
+    { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" },
+    { icon: <SiPostgresql className="text-blue-700" />, name: "PostgreSQL" },
+    { icon: <SiGraphql className="text-pink-500" />, name: "GraphQL" },
+    { icon: <FaPhp className="text-indigo-500" />, name: "PHP" },
+    { icon: <SiLaravel className="text-red-600" />, name: "Laravel" },
+    { icon: <SiNextdotjs className="text-sky-300" />, name: "Next.js" },
+    { icon: <RiRemixRunFill className="text-purple-500" />, name: "Remix" },
+    { icon: <FaDocker className="text-blue-400" />, name: "Docker" },
+    { icon: <FaGitAlt className="text-orange-500" />, name: "Git" },
+    { icon: <FaLinux className="text-gray-400" />, name: "Linux" },
+    { icon: <FaFigma className="text-pink-500" />, name: "Figma" },
+    { icon: <DiScrum className="text-yellow-400" />, name: "Agile / Scrum" },
+    { icon: <BsRegex className="text-teal-400" />, name: "Regex" },
+    { icon: <SiMysql className="text-blue-500" />, name: "MySQL" },
   ];
 
   const marqueeRef = useRef<HTMLDivElement>(null);
