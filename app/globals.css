@@ -6,23 +6,13 @@ body {
         radial-gradient(circle, hsla(0, 0%, 80%, 0.1) 1px, transparent 1px);
     background-position: 0 0, 0.5rem 0.5rem;
     background-size: 1rem 1rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-color: #000;
-    z-index: -1;
     overflow: hidden;
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.05));
 }
 
 .marquee {
     display: flex;
     overflow: hidden;
-    white-space: nowrap;
-    height: 6.5rem;
-    transition: height 0.1s ease-in-out;
     width: 100%;
 }
 
@@ -67,12 +57,12 @@ body {
     }
 
     .tech-name {
-        opacity: 1;
+        display: inline-block;
         position: relative;
     }
 
     .tech_stack {
-        opacity: 0;
+        display: none;
     }
 }
 
@@ -81,17 +71,9 @@ body {
     flex-direction: row;
 }
 
-.second_list {
-    opacity: 1;
-}
-
 .tech-name {
-    opacity: 0;
+    display: none;
     position: absolute;
-}
-
-.tech_stack {
-    opacity: 1;
 }
 
 .marquee::-webkit-scrollbar {

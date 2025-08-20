@@ -33,17 +33,17 @@ export default function TechCarousel() {
     <div
       ref={marqueeRef}
       style={{ maxWidth: maxWidth }}
-      className="marquee rounded-md shadow-sm bg-gradient-to-b from-black/10 to-slate-800/10 hover:from-gray-950/30 hover:to-black transition-colors duration-300"
+      className="marquee rounded-md bg-gradient-to-b from-black/10 to-slate-800/10 hover:from-gray-950/30 hover:to-black"
     >
-      <p className="tech_stack pl-1 absolute pt-2 text-[11px] tracking-widest font-semibold uppercase text-gray-500 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
-        Tech Stack
+      <p className="tech_stack pl-1 absolute pt-2 text-[11px] font-semibold text-gray-500 after:block after:h-[1px] after:w-8 after:mt-1 after:bg-slate-600/40">
+        TECH STACK
       </p>
       <div ref={firstItemRef} className="marquee__item text-white">
         <div className="items_map">
           {icons.map((icon, index) => (
             <div
               key={index}
-              className="flex flex-row  grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110"
+              className="flex flex-row grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110"
             >
               <div
                 key={index}
@@ -51,7 +51,7 @@ export default function TechCarousel() {
               >
                 {icon && React.cloneElement(icon, { size: 40 })}
               </div>
-              <span className="tech-name group-hover:opacity-100 select-none text-white font-medium text-sm content-center">
+              <span className="tech-name font-medium content-center">
                 Name Placeholder
               </span>
             </div>
