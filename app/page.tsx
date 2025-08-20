@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className="flex h-screen">
       <aside className="flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
-        <div className="w-full flex flex-col gap-9 items-center">
-          <div className="flex flex-col items-center pt-10">
+        <div className="w-full flex flex-col gap-4 items-center">
+          <div className="flex flex-col items-center pt-5">
             <div className="overflow-hidden rounded-full h-30 w-30 border-2 border-white shadow-md">
               <img src="profile.png" alt="Profile Picture" />
             </div>
@@ -38,16 +38,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="grayscale size-5/6 absolute h-13 bottom-0 border-t border-slate-800/50">
+          <div className="grayscale size-5/6 absolute h-15 bottom-0 border-t border-slate-800/50">
             <div className="flex justify-around pt-2">
               <div className="p-2 rounded-lg bg-slate-950/80 transition group">
-                <GrGithub className="text-sky-400" />
+                <GrGithub size={25} className="text-sky-400" />
               </div>
               <div className="p-2 rounded-lg bg-slate-950/80 transition group">
-                <MdEmail className="text-sky-400" />
+                <MdEmail size={25} className="text-sky-400" />
               </div>
               <div className="p-2 rounded-lg bg-slate-950/80 transition group">
-                <PiLinkedinLogo className="text-sky-400" />
+                <PiLinkedinLogo size={25} className="text-sky-400" />
               </div>
             </div>
           </div>
