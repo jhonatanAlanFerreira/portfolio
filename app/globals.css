@@ -1,15 +1,5 @@
 @import "tailwindcss";
 
-body {
-    background:
-        radial-gradient(circle, hsla(0, 0%, 80%, 0.1) 1px, transparent 1px),
-        radial-gradient(circle, hsla(0, 0%, 80%, 0.1) 1px, transparent 1px);
-    background-position: 0 0, 0.5rem 0.5rem;
-    background-size: 1rem 1rem;
-    background-color: #000;
-    overflow: hidden;
-}
-
 @keyframes marquee-content {
     from {
         transform: translateX(0%);
