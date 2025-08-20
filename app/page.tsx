@@ -1,5 +1,7 @@
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
 import { GrGithub } from "react-icons/gr";
+import { MdEmail } from "react-icons/md";
+import { PiLinkedinLogo } from "react-icons/pi";
 
 export default function Home() {
   return (
@@ -19,10 +21,35 @@ export default function Home() {
           </div>
           <div className="w-full px-2 mb-1 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel></TechCarousel>
-            <div className="flex flex-col w-full pt-4"></div>
+            <div className="flex flex-col w-full pt-4 text-sm">
+              <div className="space-y-1 font-medium text-gray-400">
+                <div className="flex justify-between">
+                  <span>Location:</span>
+                  <span className="text-white/80">Brazil</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Languages:</span>
+                  <span className="text-white/80">English / Portuguese</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Experience:</span>
+                  <span className="text-white/80">6 years full-stack</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grayscale size-4/5 absolute h-10 bottom-0 border-t border-slate-600">
-            <GrGithub className="text-sky-400" />
+          <div className="grayscale size-5/6 absolute h-13 bottom-0 border-t border-slate-800/50">
+            <div className="flex justify-around pt-2">
+              <div className="p-2 rounded-lg bg-slate-950/80 transition group">
+                <GrGithub className="text-sky-400" />
+              </div>
+              <div className="p-2 rounded-lg bg-slate-950/80 transition group">
+                <MdEmail className="text-sky-400" />
+              </div>
+              <div className="p-2 rounded-lg bg-slate-950/80 transition group">
+                <PiLinkedinLogo className="text-sky-400" />
+              </div>
+            </div>
           </div>
         </div>
       </aside>
