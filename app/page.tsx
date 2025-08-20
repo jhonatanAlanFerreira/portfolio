@@ -19,7 +19,7 @@ export default function Home() {
               <p className="text-gray-500">Full Stack Developer</p>
             </div>
           </div>
-          <div className="w-full px-2 mb-1 flex-1 place-items-center overflow-hidden z-10">
+          <div className="w-full px-2 mb-3 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel></TechCarousel>
             <div className="flex flex-col w-full pt-4 text-sm">
               <div className="space-y-1 font-medium text-gray-400">
