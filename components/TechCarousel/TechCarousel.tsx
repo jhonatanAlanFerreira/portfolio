@@ -29,31 +29,116 @@ import {
 
 export default function TechCarousel() {
   const icons = [
-    { icon: <FaReact className="text-sky-400" />, name: "React" },
+    {
+      icon: <FaReact className="text-sky-400" />,
+      name: "React",
+      link: "https://react.dev/",
+    },
     {
       icon: <FaNodeJs className="text-green-500" />,
       name: "Node.js",
+      link: "https://nodejs.org/en/docs",
     },
-    { icon: <FaAngular className="text-red-500" />, name: "Angular" },
-    { icon: <FaHtml5 className="text-orange-400" />, name: "HTML5" },
-    { icon: <FaCss3Alt className="text-blue-400" />, name: "CSS3" },
-    { icon: <FaJsSquare className="text-yellow-400" />, name: "JavaScript" },
-    { icon: <SiTypescript className="text-blue-600" />, name: "TypeScript" },
-    { icon: <SiTailwindcss className="text-sky-500" />, name: "Tailwind CSS" },
-    { icon: <SiMongodb className="text-green-600" />, name: "MongoDB" },
-    { icon: <SiPostgresql className="text-blue-700" />, name: "PostgreSQL" },
-    { icon: <SiGraphql className="text-pink-500" />, name: "GraphQL" },
-    { icon: <FaPhp className="text-indigo-500" />, name: "PHP" },
-    { icon: <SiLaravel className="text-red-600" />, name: "Laravel" },
-    { icon: <SiNextdotjs className="text-sky-300" />, name: "Next.js" },
-    { icon: <RiRemixRunFill className="text-purple-500" />, name: "Remix" },
-    { icon: <FaDocker className="text-blue-400" />, name: "Docker" },
-    { icon: <FaGitAlt className="text-orange-500" />, name: "Git" },
-    { icon: <FaLinux className="text-gray-400" />, name: "Linux" },
-    { icon: <FaFigma className="text-pink-500" />, name: "Figma" },
-    { icon: <DiScrum className="text-yellow-400" />, name: "Agile / Scrum" },
-    { icon: <BsRegex className="text-teal-400" />, name: "Regex" },
-    { icon: <SiMysql className="text-blue-500" />, name: "MySQL" },
+    {
+      icon: <FaAngular className="text-red-500" />,
+      name: "Angular",
+      link: "https://angular.io/docs",
+    },
+    {
+      icon: <FaHtml5 className="text-orange-400" />,
+      name: "HTML5",
+      link: "https://developer.mozilla.org/docs/Web/HTML",
+    },
+    {
+      icon: <FaCss3Alt className="text-blue-400" />,
+      name: "CSS3",
+      link: "https://developer.mozilla.org/docs/Web/CSS",
+    },
+    {
+      icon: <FaJsSquare className="text-yellow-400" />,
+      name: "JavaScript",
+      link: "https://developer.mozilla.org/docs/Web/JavaScript",
+    },
+    {
+      icon: <SiTypescript className="text-blue-600" />,
+      name: "TypeScript",
+      link: "https://www.typescriptlang.org/docs/",
+    },
+    {
+      icon: <SiTailwindcss className="text-sky-500" />,
+      name: "Tailwind CSS",
+      link: "https://tailwindcss.com/docs",
+    },
+    {
+      icon: <SiMongodb className="text-green-600" />,
+      name: "MongoDB",
+      link: "https://www.mongodb.com/docs/",
+    },
+    {
+      icon: <SiPostgresql className="text-blue-700" />,
+      name: "PostgreSQL",
+      link: "https://www.postgresql.org/docs/",
+    },
+    {
+      icon: <SiGraphql className="text-pink-500" />,
+      name: "GraphQL",
+      link: "https://graphql.org/learn/",
+    },
+    {
+      icon: <FaPhp className="text-indigo-500" />,
+      name: "PHP",
+      link: "https://www.php.net/docs.php",
+    },
+    {
+      icon: <SiLaravel className="text-red-600" />,
+      name: "Laravel",
+      link: "https://laravel.com/docs",
+    },
+    {
+      icon: <SiNextdotjs className="text-sky-300" />,
+      name: "Next.js",
+      link: "https://nextjs.org/docs",
+    },
+    {
+      icon: <RiRemixRunFill className="text-purple-500" />,
+      name: "Remix",
+      link: "https://remix.run/docs",
+    },
+    {
+      icon: <FaDocker className="text-blue-400" />,
+      name: "Docker",
+      link: "https://docs.docker.com/",
+    },
+    {
+      icon: <FaGitAlt className="text-orange-500" />,
+      name: "Git",
+      link: "https://git-scm.com/doc",
+    },
+    {
+      icon: <FaLinux className="text-gray-400" />,
+      name: "Linux",
+      link: "https://www.kernel.org/doc/html/latest/",
+    },
+    {
+      icon: <FaFigma className="text-pink-500" />,
+      name: "Figma",
+      link: "https://help.figma.com/hc/en-us",
+    },
+    {
+      icon: <DiScrum className="text-yellow-400" />,
+      name: "Agile / Scrum",
+      link: "https://www.scrum.org/resources/scrum-guide",
+    },
+    {
+      icon: <BsRegex className="text-teal-400" />,
+      name: "Regex",
+      link: "https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_expressions",
+    },
+    {
+      icon: <SiMysql className="text-blue-500" />,
+      name: "MySQL",
+      link: "https://dev.mysql.com/doc/",
+    },
   ];
 
   const marqueeRef = useRef<HTMLDivElement>(null);
@@ -82,9 +167,12 @@ export default function TechCarousel() {
       >
         <div className="flex flex-row group-hover:flex-col">
           {icons.map((tech, index) => (
-            <div
+            <a
               key={index}
-              className="flex flex-row grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110"
+              href={tech.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-row grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110 cursor-pointer relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-slate-800 after:transition-all after:duration-300 hover:after:w-full"
             >
               <div className="flex items-center justify-center w-15 h-15">
                 {React.cloneElement(tech.icon, { size: 40 })}
@@ -92,7 +180,7 @@ export default function TechCarousel() {
               <span className="hidden group-hover:inline-block relative font-medium text-sm text-white content-center">
                 {tech.name}
               </span>
-            </div>
+            </a>
           ))}
         </div>
       </div>
