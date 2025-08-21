@@ -70,7 +70,7 @@ export default function TechCarousel() {
     <div
       ref={marqueeRef}
       style={{ maxWidth }}
-      className="gray-scroll group flex overflow-hidden whitespace-nowrap h-26 w-full rounded-md bg-gradient-to-b from-black/10 to-slate-800/10 hover:from-gray-950 hover:to-black transition-[height] duration-50 hover:h-full hover:overflow-auto"
+      className="gray-scroll group flex overflow-hidden whitespace-nowrap h-26 w-full rounded-md bg-gradient-to-b from-black/10 to-slate-800/10 hover:from-slate-800/10 hover:to-black transition-[height] duration-50 hover:h-full hover:overflow-auto backdrop-blur-md"
     >
       <p className="pl-1 absolute pt-2 text-[11px] font-semibold text-gray-500 tracking-widest after:block after:h-px after:w-8 after:mt-1 after:bg-slate-600/40 group-hover:hidden">
         TECH STACK
