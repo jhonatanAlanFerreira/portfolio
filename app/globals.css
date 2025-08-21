@@ -11,7 +11,8 @@
 }
 
 .gray-scroll::-webkit-scrollbar {
-    height: 6px;
+    height: 1rem;
+    width: 0.5rem;
 }
 
 .gray-scroll::-webkit-scrollbar-track {
