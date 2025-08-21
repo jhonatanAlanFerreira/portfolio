@@ -15,6 +15,7 @@ import {
   FaLinux,
   FaPhp,
 } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 import { RiRemixRunFill } from "react-icons/ri";
 import {
   SiTypescript,
@@ -172,13 +173,17 @@ export default function TechCarousel() {
               href={tech.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-row grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110 cursor-pointer relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-slate-800 after:transition-all after:duration-300 hover:after:w-full"
+              className="group/link flex flex-row items-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110 cursor-pointer relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-slate-800 after:transition-all after:duration-300 hover:after:w-full"
             >
               <div className="flex items-center justify-center w-15 h-15">
                 {React.cloneElement(tech.icon, { size: 40 })}
               </div>
-              <span className="hidden group-hover:inline-block relative font-medium text-sm text-white content-center">
+              <span className="hidden w-full justify-between group-hover:flex items-center gap-1 relative font-medium text-sm text-white content-center">
                 {tech.name}
+                <FiExternalLink
+                  size={14}
+                  className="opacity-70 hidden group-hover/link:flex"
+                />
               </span>
             </a>
           ))}
