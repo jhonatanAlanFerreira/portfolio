@@ -28,6 +28,10 @@ export default function Home() {
                   <span className="text-white/80">Brazil</span>
                 </div>
                 <div className="flex justify-between">
+                  <span>Timezone:</span>
+                  <span className="text-white/80">UTC-3</span>
+                </div>
+                <div className="flex justify-between">
                   <span>Languages:</span>
                   <span className="text-white/80">English / Portuguese</span>
                 </div>
