@@ -71,8 +71,8 @@ export default function Home() {
       <main className="flex flex-3">
         <section className="w-full">
           <div className="flex flex-col">
-            <div className="flex flex-row">
-              <h2 className="text-white text-nowrap">My Projects</h2>
+            <div className="flex flex-row py-5 px-8">
+              <h2 className="text-white text-nowrap text-3xl">My Projects</h2>
               <SelectBar></SelectBar>
             </div>
             <Projects></Projects>
