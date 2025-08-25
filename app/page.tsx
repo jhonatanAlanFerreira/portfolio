@@ -1,3 +1,5 @@
+import Projects from "@/components/pageComponents/Projects";
+import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
@@ -67,7 +69,15 @@ export default function Home() {
         </div>
       </aside>
       <main className="flex flex-3">
-        <section></section>
+        <section className="w-full">
+          <div className="flex flex-col">
+            <div className="flex flex-row">
+              <h2 className="text-white text-nowrap">My Projects</h2>
+              <SelectBar></SelectBar>
+            </div>
+            <Projects></Projects>
+          </div>
+        </section>
       </main>
     </div>
   );
