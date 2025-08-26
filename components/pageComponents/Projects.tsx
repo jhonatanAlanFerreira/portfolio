@@ -8,13 +8,13 @@ export default function Projects() {
               <div className="w-full h-4/5 rounded-lg bg-slate-800/10"></div>
             </div>
             <div className="flex-3 text-gray-400">
-              <h3 className="text-xl">Financial Manager</h3>
+              <h3 className="text-xl font-medium">Financial Manager</h3>
               <p className="text-white/80 text-sm pb-4">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
                 faucibus ex sapien vitae pellentesque sem placerat. In id cursus
                 mi pretium tellus duis convallis.{" "}
               </p>
-              <h3 className="text-xl">Tech Stack</h3>
+              <h3 className="text-xl font-medium">Tech Stack</h3>
             </div>
           </div>
         </div>
