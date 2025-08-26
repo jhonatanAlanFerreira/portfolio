@@ -72,7 +72,7 @@ export default function Home() {
         <section className="w-full">
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
-              <h2 className="text-white text-nowrap text-3xl">My Projects</h2>
+              <h2 className="text-white text-nowrap text-3xl">Projects</h2>
               <SelectBar></SelectBar>
             </div>
             <div className="overflow-auto flex flex-1 px-8 gray-scroll mb-4">
