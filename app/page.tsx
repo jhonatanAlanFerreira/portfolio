@@ -44,7 +44,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="grayscale size-5/6 relative h-15 bottom-0 border-t border-slate-800/50">
+          <div className="grayscale size-5/6 relative h-15 bottom-0 border-t border-gray-400/90">
             <div className="flex justify-around pt-2">
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
                 <GrGithub
@@ -70,12 +70,14 @@ export default function Home() {
       </aside>
       <main className="flex flex-3">
         <section className="w-full">
-          <div className="flex flex-col">
+          <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
               <h2 className="text-white text-nowrap text-3xl">My Projects</h2>
               <SelectBar></SelectBar>
             </div>
-            <Projects></Projects>
+            <div className="overflow-auto flex flex-1 px-8 gray-scroll mb-4">
+              <Projects></Projects>
+            </div>
           </div>
         </section>
       </main>
