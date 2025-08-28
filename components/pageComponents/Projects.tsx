@@ -1,6 +1,8 @@
 import { BiFullscreen } from "react-icons/bi";
 import { projectIcons } from "./ProjectIcons";
 import React from "react";
+import { GrGithub } from "react-icons/gr";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function Projects() {
   return (
@@ -28,7 +30,7 @@ export default function Projects() {
                 </div>
               </div>
             </div>
-            <div className="flex-3 text-gray-400">
+            <div className="flex flex-col flex-3 text-gray-400">
               <h3 className="text-xl font-medium">Financial Manager</h3>
               <p className="text-white/80 text-sm pb-4">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
@@ -51,6 +53,24 @@ export default function Projects() {
                     </div>
                   </a>
                 ))}
+              </div>
+              <div className="flex flex-1 justify-end items-end grayscale">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://github.com/jhonatanAlanFerreira/financial_manager_remix"
+                  className="h-10 group relative inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-900/50 overflow-hidden"
+                >
+                  <span className="flex items-center gap-2 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+                    <GrGithub className="text-white w-5 h-5" />
+                    Code
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 translate-x-12 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                    <GrGithub className="text-white w-5 h-5" />
+                    Code
+                    <BsArrowRight className="w-5 h-5 text-white" />
+                  </span>
+                </a>
               </div>
             </div>
           </div>
