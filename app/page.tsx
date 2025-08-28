@@ -11,7 +11,7 @@ export default function Home() {
       <aside className="flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
         <div className="w-full flex flex-col gap-4 items-center">
           <div className="flex flex-col items-center pt-5">
-            <div className="overflow-hidden rounded-full h-30 w-30 border-2 border-white shadow-md">
+            <div className="overflow-hidden rounded-sm h-30 w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">
               <img src="profile.png" alt="Profile Picture" />
             </div>
             <div className="flex flex-col items-center">
