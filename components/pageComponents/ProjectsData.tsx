@@ -23,11 +23,12 @@ import {
   SiLaravel,
   SiNextdotjs,
   SiMysql,
+  SiBootstrap,
 } from "react-icons/si";
 
 export const ProjectsData = [
   {
-    name: "Financial Manager",
+    name: "Financial Manager (2025)",
     language: "English",
     gif: "/financial_manager.gif",
     gifAlt: "Finalcial Manager Screen Recorded",
@@ -93,6 +94,60 @@ export const ProjectsData = [
         icon: <FaGitAlt className="text-orange-500" />,
         name: "Git",
         link: "https://git-scm.com/doc",
+      },
+    ],
+  },
+  {
+    name: "Git Search (2022)",
+    language: "Portuguese",
+    gif: "/git_search.png",
+    gifAlt: "Git Search Screen",
+    img: "/git_search.png",
+    imgAlt: "Git Search Screen",
+    sourceCode: "https://github.com/jhonatanAlanFerreira/Git-Search",
+    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                mi pretium tellus duis convallis.`,
+    stackIcons: [
+      {
+        icon: <FaReact className="text-sky-400" />,
+        name: "React",
+        link: "https://react.dev/",
+      },
+      {
+        icon: <FaNodeJs className="text-green-500" />,
+        name: "Node.js",
+        link: "https://nodejs.org/en/docs",
+      },
+      {
+        icon: <FaHtml5 className="text-orange-400" />,
+        name: "HTML5",
+        link: "https://developer.mozilla.org/docs/Web/HTML",
+      },
+      {
+        icon: <FaCss3Alt className="text-blue-400" />,
+        name: "CSS3",
+        link: "https://developer.mozilla.org/docs/Web/CSS",
+      },
+      {
+        icon: <FaJsSquare className="text-yellow-400" />,
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/docs/Web/JavaScript",
+      },
+      {
+        icon: <FaGitAlt className="text-orange-500" />,
+        name: "Git",
+        link: "https://git-scm.com/doc",
+      },
+      {
+        icon: <BsRegex className="text-teal-400" />,
+        name: "Regex",
+        link: "https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_expressions",
+      },
+      {
+        icon: <SiBootstrap className="text-purple-600" />,
+        name: "Bootstrap",
+        link: "https://getbootstrap.com/docs/",
       },
     ],
   },
