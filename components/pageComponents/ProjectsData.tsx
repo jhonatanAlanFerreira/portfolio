@@ -105,6 +105,55 @@ export const ProjectsData = [
     ],
   },
   {
+    name: "Microservices Dotnet (2023)",
+    language: "English",
+    gif: null,
+    gifAlt: "",
+    img: null,
+    imgAlt: "",
+    sourceCode: "https://github.com/jhonatanAlanFerreira/microservices-dotnet6",
+    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                mi pretium tellus duis convallis.`,
+    stackIcons: [
+      {
+        icon: <FaHtml5 className="text-orange-400" />,
+        name: "HTML5",
+        link: "https://developer.mozilla.org/docs/Web/HTML",
+      },
+      {
+        icon: <FaCss3Alt className="text-blue-400" />,
+        name: "CSS3",
+        link: "https://developer.mozilla.org/docs/Web/CSS",
+      },
+      {
+        icon: <FaJsSquare className="text-yellow-400" />,
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/docs/Web/JavaScript",
+      },
+      {
+        icon: <FaDocker className="text-blue-400" />,
+        name: "Docker",
+        link: "https://docs.docker.com/",
+      },
+      {
+        icon: <FaGitAlt className="text-orange-500" />,
+        name: "Git",
+        link: "https://git-scm.com/doc",
+      },
+      {
+        icon: <SiMysql className="text-blue-500" />,
+        name: "MySQL",
+        link: "https://dev.mysql.com/doc/",
+      },
+      {
+        icon: <SiBootstrap className="text-purple-600" />,
+        name: "Bootstrap",
+        link: "https://getbootstrap.com/docs/",
+      },
+    ],
+  },
+  {
     name: "Git Search (2022)",
     language: "Portuguese",
     gif: "/git_search.png",

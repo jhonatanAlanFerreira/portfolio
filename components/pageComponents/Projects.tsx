@@ -24,27 +24,29 @@ export default function Projects() {
             className="w-full h-80 bg-black rounded-lg  border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 transition-colors duration-300"
           >
             <div className="flex h-full gap-5 p-4">
-              <div className="flex-2">
-                <div className="w-full max-h-full p-4 content-center rounded-lg bg-slate-800/10 opacity-50 hover:opacity-100 group">
-                  <img
-                    className="group-hover:hidden max-h-50"
-                    src={pd.img}
-                    alt={pd.imgAlt}
-                  />
-                  <img
-                    className="hidden group-hover:flex max-h-50"
-                    src={pd.gif}
-                    alt={pd.gifAlt}
-                  />
-                  <div className="flex justify-end mt-3">
-                    <BiFullscreen
-                      size={25}
-                      className="text-gray-400/50 opacity-0 group-hover:opacity-100 cursor-pointer"
-                      onClick={() => openProjectModal(pd.gif, pd.gifAlt)}
-                    ></BiFullscreen>
+              {pd.img && (
+                <div className="flex-2">
+                  <div className="w-full max-h-full p-4 content-center rounded-lg bg-slate-800/10 opacity-50 hover:opacity-100 group">
+                    <img
+                      className="group-hover:hidden max-h-50"
+                      src={pd.img}
+                      alt={pd.imgAlt}
+                    />
+                    <img
+                      className="hidden group-hover:flex max-h-50"
+                      src={pd.gif}
+                      alt={pd.gifAlt}
+                    />
+                    <div className="flex justify-end mt-3">
+                      <BiFullscreen
+                        size={25}
+                        className="text-gray-400/50 opacity-0 group-hover:opacity-100 cursor-pointer"
+                        onClick={() => openProjectModal(pd.gif, pd.gifAlt)}
+                      ></BiFullscreen>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
               <div className="flex flex-col space-y-5 flex-3 text-gray-400">
                 <div>
                   <h3 className="text-xl font-medium">{pd.name}</h3>
