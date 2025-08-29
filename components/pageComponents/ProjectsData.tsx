@@ -28,6 +28,7 @@ import {
 export const ProjectsData = [
   {
     name: "Financial Manager",
+    language: "English",
     gif: "/financial_manager.gif",
     gifAlt: "Finalcial Manager Screen Recorded",
     img: "/financial_manager.png",
