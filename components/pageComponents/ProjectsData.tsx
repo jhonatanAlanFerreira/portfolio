@@ -1,5 +1,4 @@
 import { BsRegex } from "react-icons/bs";
-import { DiScrum } from "react-icons/di";
 import {
   FaReact,
   FaNodeJs,
@@ -9,19 +8,13 @@ import {
   FaJsSquare,
   FaDocker,
   FaGitAlt,
-  FaFigma,
-  FaLinux,
-  FaPhp,
 } from "react-icons/fa";
 import { RiRemixRunFill } from "react-icons/ri";
 import {
   SiTypescript,
   SiTailwindcss,
   SiMongodb,
-  SiPostgresql,
   SiGraphql,
-  SiLaravel,
-  SiNextdotjs,
   SiMysql,
   SiBootstrap,
   SiPrisma,
@@ -29,7 +22,6 @@ import {
   SiSqlite,
   SiReact,
 } from "react-icons/si";
-import { TbSql } from "react-icons/tb";
 
 export const ProjectsData = [
   {
