@@ -23,6 +23,7 @@ import {
   SiLaravel,
   SiNextdotjs,
   SiMysql,
+  SiBootstrap,
 } from "react-icons/si";
 
 export const icons = [
@@ -135,5 +136,10 @@ export const icons = [
     icon: <SiMysql className="text-blue-500" />,
     name: "MySQL",
     link: "https://dev.mysql.com/doc/",
+  },
+  {
+    icon: <SiBootstrap className="text-purple-600" />,
+    name: "Bootstrap",
+    link: "https://getbootstrap.com/docs/",
   },
 ];
