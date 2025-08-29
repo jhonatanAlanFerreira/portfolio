@@ -27,6 +27,7 @@ import {
   SiExpress,
   SiPrisma,
 } from "react-icons/si";
+import { TbSql } from "react-icons/tb";
 
 export const icons = [
   {
@@ -153,5 +154,10 @@ export const icons = [
     icon: <SiPrisma className="text-cyan-600" />,
     name: "Prisma",
     link: "https://www.prisma.io/docs",
+  },
+  {
+    icon: <TbSql className="text-blue-600" />,
+    name: "SQL",
+    link: "https://www.w3schools.com/sql/",
   },
 ];
