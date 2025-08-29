@@ -102,17 +102,17 @@ export default function Projects() {
       {projectModal.img && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="relative bg-black/98 rounded-lg shadow-xl w-full h-full flex justify-between">
-            <div className="flex items-center justify-center w-full">
+            <div className="flex items-center justify-center w-full p-4">
               <img
                 src={projectModal.img}
                 alt={projectModal.imgAlt}
-                className="rounded-lg max-h-[70vh] object-contain"
+                className="rounded-lg h-full object-contain"
               />
             </div>
             <div>
               <button
                 onClick={() => setProjectModal({ img: null, imgAlt: "" })}
-                className="cursor-pointer text-gray-500 hover:text-gray-800 text-4xl mr-3"
+                className="cursor-pointer text-gray-200 hover:text-gray-400 hover:scale-110 text-4xl mr-3"
               >
                 &times;
               </button>
