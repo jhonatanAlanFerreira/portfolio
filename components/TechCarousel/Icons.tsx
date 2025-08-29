@@ -24,6 +24,8 @@ import {
   SiNextdotjs,
   SiMysql,
   SiBootstrap,
+  SiExpress,
+  SiPrisma,
 } from "react-icons/si";
 
 export const icons = [
@@ -141,5 +143,15 @@ export const icons = [
     icon: <SiBootstrap className="text-purple-600" />,
     name: "Bootstrap",
     link: "https://getbootstrap.com/docs/",
+  },
+  {
+    icon: <SiExpress className="text-gray-800" />,
+    name: "Express",
+    link: "https://expressjs.com/",
+  },
+  {
+    icon: <SiPrisma className="text-cyan-600" />,
+    name: "Prisma",
+    link: "https://www.prisma.io/docs",
   },
 ];

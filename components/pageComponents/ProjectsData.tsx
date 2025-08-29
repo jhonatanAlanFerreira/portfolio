@@ -24,6 +24,8 @@ import {
   SiNextdotjs,
   SiMysql,
   SiBootstrap,
+  SiPrisma,
+  SiExpress,
 } from "react-icons/si";
 
 export const ProjectsData = [
@@ -95,6 +97,11 @@ export const ProjectsData = [
         name: "Git",
         link: "https://git-scm.com/doc",
       },
+      {
+        icon: <SiPrisma className="text-cyan-600" />,
+        name: "Prisma",
+        link: "https://www.prisma.io/docs",
+      },
     ],
   },
   {
@@ -148,6 +155,70 @@ export const ProjectsData = [
         icon: <SiBootstrap className="text-purple-600" />,
         name: "Bootstrap",
         link: "https://getbootstrap.com/docs/",
+      },
+    ],
+  },
+  {
+    name: "Developer Manager (2022)",
+    language: "Portuguese",
+    gif: "/developer_manager.png",
+    gifAlt: "Developer Manager Screen",
+    img: "/developer_manager.png",
+    imgAlt: "Developer Manager Screen",
+    sourceCode: "https://github.com/jhonatanAlanFerreira/Developer-Manager",
+    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                mi pretium tellus duis convallis.`,
+    stackIcons: [
+      {
+        icon: <FaNodeJs className="text-green-500" />,
+        name: "Node.js",
+        link: "https://nodejs.org/en/docs",
+      },
+      {
+        icon: <FaAngular className="text-red-500" />,
+        name: "Angular",
+        link: "https://angular.io/docs",
+      },
+      {
+        icon: <FaHtml5 className="text-orange-400" />,
+        name: "HTML5",
+        link: "https://developer.mozilla.org/docs/Web/HTML",
+      },
+      {
+        icon: <FaCss3Alt className="text-blue-400" />,
+        name: "CSS3",
+        link: "https://developer.mozilla.org/docs/Web/CSS",
+      },
+      {
+        icon: <SiTypescript className="text-blue-600" />,
+        name: "TypeScript",
+        link: "https://www.typescriptlang.org/docs/",
+      },
+      {
+        icon: <SiMongodb className="text-green-600" />,
+        name: "MongoDB",
+        link: "https://www.mongodb.com/docs/",
+      },
+      {
+        icon: <FaDocker className="text-blue-400" />,
+        name: "Docker",
+        link: "https://docs.docker.com/",
+      },
+      {
+        icon: <FaGitAlt className="text-orange-500" />,
+        name: "Git",
+        link: "https://git-scm.com/doc",
+      },
+      {
+        icon: <SiBootstrap className="text-purple-600" />,
+        name: "Bootstrap",
+        link: "https://getbootstrap.com/docs/",
+      },
+      {
+        icon: <SiExpress className="text-gray-800" />,
+        name: "Express",
+        link: "https://expressjs.com/",
       },
     ],
   },
