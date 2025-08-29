@@ -26,7 +26,10 @@ import {
   SiBootstrap,
   SiPrisma,
   SiExpress,
+  SiSqlite,
+  SiReact,
 } from "react-icons/si";
+import { TbSql } from "react-icons/tb";
 
 export const ProjectsData = [
   {
@@ -101,6 +104,56 @@ export const ProjectsData = [
         icon: <SiPrisma className="text-cyan-600" />,
         name: "Prisma",
         link: "https://www.prisma.io/docs",
+      },
+    ],
+  },
+  {
+    name: "React Native Simple Todo (2025)",
+    language: "English",
+    gif: null,
+    gifAlt: "",
+    img: null,
+    imgAlt: "",
+    sourceCode:
+      "https://github.com/jhonatanAlanFerreira/react-native-simple-to-do",
+    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                mi pretium tellus duis convallis.`,
+    stackIcons: [
+      {
+        icon: <SiReact className="text-cyan-400" />,
+        name: "React Native",
+        link: "https://reactnative.dev/docs/getting-started",
+      },
+      {
+        icon: <FaCss3Alt className="text-blue-400" />,
+        name: "CSS3",
+        link: "https://developer.mozilla.org/docs/Web/CSS",
+      },
+      {
+        icon: <FaJsSquare className="text-yellow-400" />,
+        name: "JavaScript",
+        link: "https://developer.mozilla.org/docs/Web/JavaScript",
+      },
+      {
+        icon: <SiTypescript className="text-blue-600" />,
+        name: "TypeScript",
+        link: "https://www.typescriptlang.org/docs/",
+      },
+      {
+        icon: <SiTailwindcss className="text-sky-500" />,
+        name: "NativeWind",
+        link: "https://www.nativewind.dev/",
+      },
+      {
+        icon: <SiSqlite className="text-blue-500" />,
+        name: "SQLite",
+        link: "https://www.sqlite.org/docs.html",
+      },
+      {
+        icon: <FaGitAlt className="text-orange-500" />,
+        name: "Git",
+        link: "https://git-scm.com/doc",
       },
     ],
   },
