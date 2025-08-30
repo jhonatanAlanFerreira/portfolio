@@ -4,15 +4,16 @@ import React, { useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { BsArrowRight } from "react-icons/bs";
 import { ProjectsData } from "./ProjectsData";
+import ImageCarousel from "../ImageCarousel/ImageCarousel";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{
-    img: string | null;
+    imgs: string[];
     imgAlt: string;
-  }>({ img: null, imgAlt: "" });
+  }>({ imgs: [], imgAlt: "" });
 
-  const openProjectModal = (img: string, imgAlt: string) => {
-    setProjectModal({ img, imgAlt });
+  const openProjectModal = (imgs: string[], imgAlt: string) => {
+    setProjectModal({ imgs, imgAlt });
   };
 
   return (
@@ -32,17 +33,24 @@ export default function Projects() {
                       src={pd.img}
                       alt={pd.imgAlt}
                     />
-                    <img
-                      className="hidden group-hover:flex max-h-50"
-                      src={pd.gif}
-                      alt={pd.gifAlt}
-                    />
-                    <div className="flex justify-end mt-3">
+                    <div className="hidden group-hover:flex">
+                      <ImageCarousel
+                        imgClasses="max-h-50"
+                        gifs={pd.gifs}
+                        gifAlt={pd.gifAlt}
+                      ></ImageCarousel>
+                    </div>
+                    <div
+                      onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
+                      className="flex justify-start gap-1 mt-3 w-fit cursor-pointer"
+                    >
                       <BiFullscreen
                         size={25}
-                        className="text-gray-400/50 opacity-0 group-hover:opacity-100 cursor-pointer"
-                        onClick={() => openProjectModal(pd.gif, pd.gifAlt)}
+                        className="text-gray-400/50 opacity-0 group-hover:opacity-100"
                       ></BiFullscreen>
+                      <span className="text-gray-400 hidden group-hover:flex">
+                        Full Screen
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -101,19 +109,19 @@ export default function Projects() {
         ))}
       </div>
 
-      {projectModal.img && (
+      {projectModal.imgs.length && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div className="relative bg-black/98 rounded-lg shadow-xl w-full h-full flex justify-between">
             <div className="flex items-center justify-center w-full p-4">
-              <img
-                src={projectModal.img}
-                alt={projectModal.imgAlt}
-                className="rounded-lg h-full object-contain"
-              />
+              <ImageCarousel
+                imgClasses="max-h-140"
+                gifs={projectModal.imgs}
+                gifAlt={projectModal.imgAlt}
+              ></ImageCarousel>
             </div>
             <div>
               <button
-                onClick={() => setProjectModal({ img: null, imgAlt: "" })}
+                onClick={() => setProjectModal({ imgs: [], imgAlt: "" })}
                 className="cursor-pointer text-gray-200 hover:text-gray-400 hover:scale-110 text-4xl mr-3"
               >
                 &times;

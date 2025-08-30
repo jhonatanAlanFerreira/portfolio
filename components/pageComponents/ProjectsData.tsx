@@ -10,7 +10,7 @@ export const ProjectsData = [
   {
     name: "Financial Manager (2025)",
     language: "English",
-    gif: "/financial_manager.gif",
+    gifs: ["/financial_manager.gif", "/financial_manager_login.gif"],
     gifAlt: "Finalcial Manager Screen Recorded",
     img: "/financial_manager.png",
     imgAlt: "Finalcial Manager Screen",
@@ -24,7 +24,7 @@ export const ProjectsData = [
   {
     name: "React Native Simple Todo (2025)",
     language: "English",
-    gif: null,
+    gifs: [],
     gifAlt: "",
     img: null,
     imgAlt: "",
@@ -38,7 +38,7 @@ export const ProjectsData = [
   {
     name: "Microservices Dotnet (2023)",
     language: "English",
-    gif: null,
+    gifs: [],
     gifAlt: "",
     img: null,
     imgAlt: "",
@@ -51,7 +51,7 @@ export const ProjectsData = [
   {
     name: "Git Search (2022)",
     language: "Portuguese",
-    gif: "/git_search.png",
+    gifs: ["/git_search.png"],
     gifAlt: "Git Search Screen",
     img: "/git_search.png",
     imgAlt: "Git Search Screen",
@@ -64,7 +64,7 @@ export const ProjectsData = [
   {
     name: "Developer Manager (2022)",
     language: "Portuguese",
-    gif: "/developer_manager.png",
+    gifs: ["/developer_manager.png"],
     gifAlt: "Developer Manager Screen",
     img: "/developer_manager.png",
     imgAlt: "Developer Manager Screen",
