@@ -1,11 +1,20 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { PageSections } from "@/types/PageTypes";
 
-export default function SelectBar() {
-  const [active, setActive] = useState("PROJECTS");
+export default function SelectBar({
+  onChange,
+}: {
+  onChange: (tab: PageSections) => void;
+}) {
+  const [active, setActive] = useState<PageSections>("PROJECTS");
+  const tabs: PageSections[] = ["PROJECTS", "WORK", "CONTACT", "WIDGETS"];
 
-  const tabs = ["PROJECTS", "WORK", "CONTACT", "WIDGETS"];
+  const onClick = (tab: PageSections) => {
+    setActive(tab);
+    onChange(tab);
+  };
 
   return (
     <div className="flex justify-end items-center w-full">
@@ -13,7 +22,7 @@ export default function SelectBar() {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActive(tab)}
+            onClick={() => onClick(tab)}
             className={`bg-slate-800/10 relative cursor-pointer px-5 py-2 rounded-xl text-xs font-semibold tracking-wider transition-all duration-300
               ${
                 active === tab

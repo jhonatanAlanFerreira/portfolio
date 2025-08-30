@@ -1,11 +1,34 @@
+"use client";
 import Projects from "@/components/pageComponents/Projects";
+import Work from "@/components/pageComponents/Work";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
+import { PageSections, SectionFragments } from "@/types/PageTypes";
+import { useRef } from "react";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
 
 export default function Home() {
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const workRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
+  const widgetRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollToFragment = (fragmentName: PageSections) => {
+    const sectionFragments: SectionFragments = {
+      PROJECTS: projectsRef,
+      WORK: workRef,
+      CONTACT: contactRef,
+      WIDGETS: widgetRef,
+    };
+
+    sectionFragments[fragmentName].current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="flex h-screen">
       <aside className="flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
@@ -73,10 +96,15 @@ export default function Home() {
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
               <h2 className="text-white text-nowrap text-3xl">Projects</h2>
-              <SelectBar></SelectBar>
+              <SelectBar onChange={scrollToFragment}></SelectBar>
             </div>
-            <div className="overflow-auto flex flex-1 px-8 gray-scroll mb-4">
-              <Projects></Projects>
+            <div className="overflow-auto flex flex-col flex-1 px-8 gray-scroll mb-4">
+              <div ref={projectsRef}>
+                <Projects></Projects>
+              </div>
+              <div ref={workRef}>
+                <Work></Work>
+              </div>
             </div>
           </div>
         </section>
