@@ -4,18 +4,22 @@ import Work from "@/components/pageComponents/Work";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
 import { PageSections, SectionFragments } from "@/types/PageTypes";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState<PageSections>("PROJECTS");
+
   const projectsRef = useRef<HTMLDivElement | null>(null);
   const workRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
   const widgetRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToFragment = (fragmentName: PageSections) => {
+    setActiveTab(fragmentName);
+
     const sectionFragments: SectionFragments = {
       PROJECTS: projectsRef,
       WORK: workRef,
@@ -96,7 +100,10 @@ export default function Home() {
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
               <h2 className="text-white text-nowrap text-3xl">Projects</h2>
-              <SelectBar onChange={scrollToFragment}></SelectBar>
+              <SelectBar
+                active={activeTab}
+                onChange={scrollToFragment}
+              ></SelectBar>
             </div>
             <div className="overflow-auto flex flex-col flex-1 px-8 gray-scroll mb-4">
               <div ref={projectsRef}>
