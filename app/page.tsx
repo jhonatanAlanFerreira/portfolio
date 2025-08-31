@@ -4,7 +4,7 @@ import Work from "@/components/pageComponents/Work";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
 import { PageSections, SectionFragments } from "@/types/PageTypes";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
@@ -17,21 +17,51 @@ export default function Home() {
   const contactRef = useRef<HTMLDivElement | null>(null);
   const widgetRef = useRef<HTMLDivElement | null>(null);
 
+  const sectionFragments: SectionFragments = {
+    PROJECTS: projectsRef,
+    WORK: workRef,
+    CONTACT: contactRef,
+    WIDGETS: widgetRef,
+  };
+
   const scrollToFragment = (fragmentName: PageSections) => {
     setActiveTab(fragmentName);
-
-    const sectionFragments: SectionFragments = {
-      PROJECTS: projectsRef,
-      WORK: workRef,
-      CONTACT: contactRef,
-      WIDGETS: widgetRef,
-    };
 
     sectionFragments[fragmentName].current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
   };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible) {
+          const id = visible.target.getAttribute(
+            "data-section"
+          ) as PageSections;
+          if (id && id !== activeTab) {
+            setActiveTab(id);
+          }
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    Object.entries(sectionFragments).forEach(([key, ref]) => {
+      if (ref.current) {
+        ref.current.setAttribute("data-section", key);
+        observer.observe(ref.current);
+      }
+    });
+
+    return () => {
+      Object.values(sectionFragments).forEach((ref) => {
+        if (ref.current) observer.unobserve(ref.current);
+      });
+    };
+  }, []);
 
   return (
     <div className="flex h-screen">
@@ -49,7 +79,7 @@ export default function Home() {
             </div>
           </div>
           <div className="w-full px-2 mb-3 flex-1 place-items-center overflow-hidden z-10">
-            <TechCarousel></TechCarousel>
+            <TechCarousel />
             <div className="flex flex-col w-full pt-4 text-sm">
               <div className="space-y-1 font-medium text-gray-400">
                 <div className="flex justify-between">
@@ -100,17 +130,24 @@ export default function Home() {
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
               <h2 className="text-white text-nowrap text-3xl">Projects</h2>
-              <SelectBar
-                active={activeTab}
-                onChange={scrollToFragment}
-              ></SelectBar>
+              <SelectBar active={activeTab} onChange={scrollToFragment} />
             </div>
             <div className="overflow-auto flex flex-col flex-1 px-8 gray-scroll mb-4">
               <div ref={projectsRef}>
-                <Projects></Projects>
+                <Projects />
               </div>
               <div ref={workRef}>
-                <Work></Work>
+                <Work />
+              </div>
+              <div ref={contactRef}>
+                <div className="h-screen flex items-center justify-center text-white">
+                  Contact Section
+                </div>
+              </div>
+              <div ref={widgetRef}>
+                <div className="h-screen flex items-center justify-center text-white">
+                  Widgets Section
+                </div>
               </div>
             </div>
           </div>
