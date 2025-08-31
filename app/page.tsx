@@ -24,26 +24,37 @@ export default function Home() {
     WIDGETS: widgetRef,
   };
 
+  const isManualScroll = useRef(false);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
   const scrollToFragment = (fragmentName: PageSections) => {
+    isManualScroll.current = true;
     setActiveTab(fragmentName);
 
     sectionFragments[fragmentName].current?.scrollIntoView({
       behavior: "smooth",
       block: "start",
     });
+
+    setTimeout(() => {
+      isManualScroll.current = false;
+    }, 500);
   };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting);
-        if (visible) {
-          const id = visible.target.getAttribute(
-            "data-section"
-          ) as PageSections;
-          if (id && id !== activeTab) {
+        if (isManualScroll.current) return;
+
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("data-section") as PageSections;
+          if (entry.isIntersecting) {
             setActiveTab(id);
           }
+        });
+
+        if (scrollContainerRef.current?.scrollTop === 0) {
+          setActiveTab("PROJECTS");
         }
       },
       { threshold: 0.5 }
@@ -56,11 +67,7 @@ export default function Home() {
       }
     });
 
-    return () => {
-      Object.values(sectionFragments).forEach((ref) => {
-        if (ref.current) observer.unobserve(ref.current);
-      });
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -128,11 +135,13 @@ export default function Home() {
       <main className="flex flex-3">
         <section className="w-full">
           <div className="flex flex-col h-screen">
-            <div className="flex flex-row py-5 px-8">
-              <h2 className="text-white text-nowrap text-3xl">Projects</h2>
+            <div className="flex py-5 px-8">
               <SelectBar active={activeTab} onChange={scrollToFragment} />
             </div>
-            <div className="overflow-auto flex flex-col flex-1 px-8 gray-scroll mb-4">
+            <div
+              ref={scrollContainerRef}
+              className="overflow-auto flex flex-col flex-1 px-8 gray-scroll mb-4"
+            >
               <div ref={projectsRef}>
                 <Projects />
               </div>
