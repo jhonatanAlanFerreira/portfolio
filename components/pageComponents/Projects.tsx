@@ -46,11 +46,9 @@ export default function Projects() {
                     >
                       <BiFullscreen
                         size={25}
-                        className="text-gray-400/50 opacity-0 group-hover:opacity-100"
+                        className="text-gray-400/50"
                       ></BiFullscreen>
-                      <span className="text-gray-400 hidden group-hover:flex">
-                        Full Screen
-                      </span>
+                      <span className="text-gray-400">Full Screen</span>
                     </div>
                   </div>
                 </div>
