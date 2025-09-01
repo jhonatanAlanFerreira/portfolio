@@ -4,27 +4,37 @@ import Work from "@/components/pageComponents/Work";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
 import { PageTab } from "@/types/PageTypes";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<PageTab>("PROJECTS");
 
   const renderSelectedTabContent = () => {
-    switch (activeTab) {
-      case "PROJECTS":
-        return <Projects />;
-      case "WORK":
-        return <Work />;
-      case "CONTACT":
-        return null;
-      case "WIDGETS":
-        return null;
-      default:
-        return null;
-    }
+    const TAB_CONTENT: Record<PageTab, JSX.Element> = {
+      PROJECTS: <Projects />,
+      WORK: <Work />,
+      CONTACT: <div>Contact Section</div>,
+      WIDGETS: <div>Widgets Section</div>,
+    };
+
+    return (
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial={{ rotateY: 90, opacity: 0 }}
+          animate={{ rotateY: 0, opacity: 1 }}
+          exit={{ rotateY: -90, opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          style={{ transformOrigin: "center" }}
+        >
+          {TAB_CONTENT[activeTab]}
+        </motion.div>
+      </AnimatePresence>
+    );
   };
 
   const renderSelectedTabTitle = () => {
@@ -35,7 +45,20 @@ export default function Home() {
       WIDGETS: "Nice Widgets",
     };
 
-    return TAB_TITLES[activeTab];
+    return (
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={activeTab}
+          initial={{ rotateY: 90, opacity: 0 }}
+          animate={{ rotateY: 0, opacity: 1 }}
+          exit={{ rotateY: -90, opacity: 0 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
+          style={{ transformOrigin: "center" }}
+        >
+          {TAB_TITLES[activeTab]}
+        </motion.div>
+      </AnimatePresence>
+    );
   };
 
   return (
