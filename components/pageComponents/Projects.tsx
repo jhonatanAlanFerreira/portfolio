@@ -5,25 +5,8 @@ import { GrGithub } from "react-icons/gr";
 import { BsArrowRight } from "react-icons/bs";
 import { ProjectsData } from "./ProjectsData";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 },
-  },
-};
-
-const cardVariants = (fromLeft: boolean): Variants => ({
-  hidden: { opacity: 0, x: fromLeft ? -80 : 80, y: 20 },
-  show: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-});
+import { motion, AnimatePresence } from "framer-motion";
+import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{
