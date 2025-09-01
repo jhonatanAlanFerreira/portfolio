@@ -5,7 +5,25 @@ import { GrGithub } from "react-icons/gr";
 import { BsArrowRight } from "react-icons/bs";
 import { ProjectsData } from "./ProjectsData";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const cardVariants = (fromLeft: boolean): Variants => ({
+  hidden: { opacity: 0, x: fromLeft ? -80 : 80, y: 20 },
+  show: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+});
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{
@@ -19,11 +37,17 @@ export default function Projects() {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="w-full flex flex-col gap-3">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="w-full flex flex-col gap-6"
+      >
         {ProjectsData.map((pd, index) => (
-          <div
+          <motion.div
             key={index}
-            className="w-full h-80 bg-black rounded-lg  border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 transition-colors duration-300"
+            variants={cardVariants(index % 2 === 0)}
+            className="w-full h-80 bg-black rounded-lg border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300"
           >
             <div className="flex h-full gap-5 p-4">
               {pd.img && (
@@ -39,16 +63,13 @@ export default function Projects() {
                         imgClasses="max-h-50"
                         gifs={pd.gifs}
                         gifAlt={pd.gifAlt}
-                      ></ImageCarousel>
+                      />
                     </div>
                     <div
                       onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
                       className="flex justify-start gap-1 mt-3 w-fit cursor-pointer"
                     >
-                      <BiFullscreen
-                        size={25}
-                        className="text-gray-400/50"
-                      ></BiFullscreen>
+                      <BiFullscreen size={25} className="text-gray-400/50" />
                       <span className="text-gray-400">Full Screen</span>
                     </div>
                   </div>
@@ -104,9 +125,9 @@ export default function Projects() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {projectModal.imgs.length > 0 && (

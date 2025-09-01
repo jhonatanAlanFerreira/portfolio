@@ -131,7 +131,7 @@ export default function Home() {
               </h2>
               <SelectBar onChange={setActiveTab} />
             </div>
-            <div className="overflow-auto flex-1 px-8 gray-scroll mb-4">
+            <div className="overflow-y-auto overflow-x-hidden flex-1 px-8 gray-scroll mb-4">
               {renderSelectedTabContent()}
             </div>
           </div>
