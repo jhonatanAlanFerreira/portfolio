@@ -9,7 +9,7 @@ export const containerVariants = {
 };
 
 export const cardVariants = (fromLeft: boolean): Variants => ({
-  hidden: { opacity: 0, x: fromLeft ? -80 : 80, y: 20 },
+  hidden: { opacity: 0, x: fromLeft ? -500 : 500, y: 300 },
   show: {
     opacity: 1,
     x: 0,
