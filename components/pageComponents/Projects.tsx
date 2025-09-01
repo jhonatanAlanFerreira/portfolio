@@ -130,7 +130,7 @@ export default function Projects() {
             >
               <div className="flex items-center justify-center w-full p-4">
                 <ImageCarousel
-                  imgClasses="h-[calc(100vh-1rem)]"
+                  imgClasses="max-h-[calc(100vh-1rem)]"
                   gifs={projectModal.imgs}
                   gifAlt={projectModal.imgAlt}
                 />
