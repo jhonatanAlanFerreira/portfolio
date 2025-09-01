@@ -5,6 +5,7 @@ import { GrGithub } from "react-icons/gr";
 import { BsArrowRight } from "react-icons/bs";
 import { ProjectsData } from "./ProjectsData";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{
@@ -107,27 +108,41 @@ export default function Projects() {
         ))}
       </div>
 
-      {projectModal.imgs.length && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-          <div className="relative bg-black/98 rounded-lg shadow-xl w-full h-full flex justify-between">
-            <div className="flex items-center justify-center w-full p-4">
-              <ImageCarousel
-                imgClasses="max-h-140"
-                gifs={projectModal.imgs}
-                gifAlt={projectModal.imgAlt}
-              ></ImageCarousel>
-            </div>
-            <div>
-              <button
-                onClick={() => setProjectModal({ imgs: [], imgAlt: "" })}
-                className="cursor-pointer text-gray-200 hover:text-gray-400 hover:scale-110 text-4xl mr-3"
-              >
-                &times;
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {projectModal.imgs.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed inset-0 z-50 flex items-center justify-center"
+          >
+            <motion.div
+              className="relative bg-black/95 rounded-lg shadow-xl w-full h-full flex justify-between"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <div className="flex items-center justify-center w-full p-4">
+                <ImageCarousel
+                  imgClasses="max-h-140"
+                  gifs={projectModal.imgs}
+                  gifAlt={projectModal.imgAlt}
+                />
+              </div>
+              <div>
+                <button
+                  onClick={() => setProjectModal({ imgs: [], imgAlt: "" })}
+                  className="cursor-pointer text-gray-200 hover:text-gray-400 hover:scale-110 text-4xl mr-3"
+                >
+                  &times;
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

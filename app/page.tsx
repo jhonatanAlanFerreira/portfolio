@@ -25,11 +25,10 @@ export default function Home() {
       <AnimatePresence mode="wait">
         <motion.div
           key={activeTab}
-          initial={{ rotateY: 90, opacity: 0 }}
-          animate={{ rotateY: 0, opacity: 1 }}
-          exit={{ rotateY: -90, opacity: 0 }}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          style={{ transformOrigin: "center" }}
         >
           {TAB_CONTENT[activeTab]}
         </motion.div>
