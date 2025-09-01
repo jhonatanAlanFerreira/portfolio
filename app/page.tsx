@@ -40,7 +40,6 @@ export default function Home() {
     if (!container) return;
 
     const handleScroll = () => {
-      console.log(container.scrollTop);
       if (container.scrollTop === 0) {
         setActiveTab("PROJECTS");
       }
@@ -154,7 +153,7 @@ export default function Home() {
             </div>
             <div
               ref={scrollContainerRef}
-              className="overflow-auto flex flex-col flex-1 px-8 gray-scroll mb-4"
+              className="overflow-auto flex flex-col gap-52 flex-1 px-8 gray-scroll mb-4"
             >
               <div ref={projectsRef}>
                 <Projects />
