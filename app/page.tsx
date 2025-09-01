@@ -3,85 +3,40 @@ import Projects from "@/components/pageComponents/Projects";
 import Work from "@/components/pageComponents/Work";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
-import { PageSections, SectionFragments } from "@/types/PageTypes";
-import { useEffect, useRef, useState } from "react";
+import { PageTab } from "@/types/PageTypes";
+import { useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<PageSections>("PROJECTS");
+  const [activeTab, setActiveTab] = useState<PageTab>("PROJECTS");
 
-  const projectsRef = useRef<HTMLDivElement | null>(null);
-  const workRef = useRef<HTMLDivElement | null>(null);
-  const contactRef = useRef<HTMLDivElement | null>(null);
-  const widgetRef = useRef<HTMLDivElement | null>(null);
-
-  const sectionFragments: SectionFragments = {
-    PROJECTS: projectsRef,
-    WORK: workRef,
-    CONTACT: contactRef,
-    WIDGETS: widgetRef,
+  const renderSelectedTabContent = () => {
+    switch (activeTab) {
+      case "PROJECTS":
+        return <Projects />;
+      case "WORK":
+        return <Work />;
+      case "CONTACT":
+        return null;
+      case "WIDGETS":
+        return null;
+      default:
+        return null;
+    }
   };
 
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollToFragment = (fragmentName: PageSections) => {
-    setActiveTab(fragmentName);
-
-    sectionFragments[fragmentName].current?.scrollIntoView({
-      behavior: "instant",
-      block: "start",
-    });
-  };
-
-  const attachScrollTopListener = () => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-
-    const handleScroll = () => {
-      if (container.scrollTop === 0) {
-        setActiveTab("PROJECTS");
-      }
+  const renderSelectedTabTitle = () => {
+    const TAB_TITLES: Record<PageTab, string> = {
+      PROJECTS: "My Projects",
+      WORK: "My Work",
+      CONTACT: "Contact Me",
+      WIDGETS: "Nice Widgets",
     };
 
-    container.addEventListener("scroll", handleScroll);
-
-    return () => container.removeEventListener("scroll", handleScroll);
+    return TAB_TITLES[activeTab];
   };
-
-  const initSectionObserver = () => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const id = entry.target.getAttribute("data-section") as PageSections;
-          if (entry.isIntersecting) {
-            setActiveTab(id);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    Object.entries(sectionFragments).forEach(([key, ref]) => {
-      if (ref.current) {
-        ref.current.setAttribute("data-section", key);
-        observer.observe(ref.current);
-      }
-    });
-
-    return () => observer.disconnect();
-  };
-
-  useEffect(() => {
-    const cleanupObserver = initSectionObserver();
-    const cleanupScroll = attachScrollTopListener();
-
-    return () => {
-      cleanupObserver?.();
-      cleanupScroll?.();
-    };
-  }, []);
 
   return (
     <div className="flex h-screen">
@@ -148,29 +103,14 @@ export default function Home() {
       <main className="flex flex-3">
         <section className="w-full">
           <div className="flex flex-col h-screen">
-            <div className="flex py-5 px-8">
-              <SelectBar active={activeTab} onChange={scrollToFragment} />
+            <div className="flex flex-row py-5 px-8">
+              <h2 className="text-white text-nowrap text-3xl">
+                {renderSelectedTabTitle()}
+              </h2>
+              <SelectBar onChange={setActiveTab} />
             </div>
-            <div
-              ref={scrollContainerRef}
-              className="overflow-auto flex flex-col gap-52 flex-1 px-8 gray-scroll mb-4"
-            >
-              <div ref={projectsRef}>
-                <Projects />
-              </div>
-              <div ref={workRef}>
-                <Work />
-              </div>
-              <div ref={contactRef}>
-                <div className="h-screen flex items-center justify-center text-white">
-                  Contact Section
-                </div>
-              </div>
-              <div ref={widgetRef}>
-                <div className="h-screen flex items-center justify-center text-white">
-                  Widgets Section
-                </div>
-              </div>
+            <div className="overflow-auto flex-1 px-8 gray-scroll mb-4">
+              {renderSelectedTabContent()}
             </div>
           </div>
         </section>

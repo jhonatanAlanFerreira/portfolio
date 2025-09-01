@@ -17,11 +17,8 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex flex-col w-full bg-black rounded-lg shadow-lg shadow-black">
-      <div className="bg-black/90 p-2 text-center top-0 z-10 sticky">
-        <h2 className="text-white text-3xl font-bold">My Projects</h2>
-      </div>
-      <div className="w-full flex flex-col gap-3 p-10">
+    <div className="flex flex-col w-full">
+      <div className="w-full flex flex-col gap-3">
         {ProjectsData.map((pd, index) => (
           <div
             key={index}
