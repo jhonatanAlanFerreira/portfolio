@@ -24,38 +24,42 @@ export default function Home() {
     WIDGETS: widgetRef,
   };
 
-  const isManualScroll = useRef(false);
   const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   const scrollToFragment = (fragmentName: PageSections) => {
-    isManualScroll.current = true;
     setActiveTab(fragmentName);
 
     sectionFragments[fragmentName].current?.scrollIntoView({
-      behavior: "smooth",
+      behavior: "instant",
       block: "start",
     });
-
-    setTimeout(() => {
-      isManualScroll.current = false;
-    }, 500);
   };
 
-  useEffect(() => {
+  const attachScrollTopListener = () => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      console.log(container.scrollTop);
+      if (container.scrollTop === 0) {
+        setActiveTab("PROJECTS");
+      }
+    };
+
+    container.addEventListener("scroll", handleScroll);
+
+    return () => container.removeEventListener("scroll", handleScroll);
+  };
+
+  const initSectionObserver = () => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (isManualScroll.current) return;
-
         entries.forEach((entry) => {
           const id = entry.target.getAttribute("data-section") as PageSections;
           if (entry.isIntersecting) {
             setActiveTab(id);
           }
         });
-
-        if (scrollContainerRef.current?.scrollTop === 0) {
-          setActiveTab("PROJECTS");
-        }
       },
       { threshold: 0.5 }
     );
@@ -68,6 +72,16 @@ export default function Home() {
     });
 
     return () => observer.disconnect();
+  };
+
+  useEffect(() => {
+    const cleanupObserver = initSectionObserver();
+    const cleanupScroll = attachScrollTopListener();
+
+    return () => {
+      cleanupObserver?.();
+      cleanupScroll?.();
+    };
   }, []);
 
   return (
