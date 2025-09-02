@@ -29,7 +29,7 @@ export default function Work() {
                 </div>
                 <p className="italic text-gray-400 mt-1 flex items-center gap-1">
                   <MdLocationOn className="text-gray-500" />
-                  {wd.company}, {wd.location}
+                  {wd.company} | {wd.location}
                 </p>
 
                 <ul className="list-disc list-inside text-gray-500 text-sm mt-2 space-y-1">
