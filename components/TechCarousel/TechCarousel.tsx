@@ -29,7 +29,7 @@ export default function TechCarousel() {
         className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:animate-none group-hover:p-2 group-hover:w-[95%]"
       >
         <div className="flex flex-row group-hover:flex-col">
-          {icons.map((tech, index) => (
+          {Object.values(icons).map((tech, index) => (
             <a
               key={index}
               href={tech.link}
@@ -54,7 +54,7 @@ export default function TechCarousel() {
 
       <div className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:hidden">
         <div className="flex flex-row">
-          {icons.map((tech, index) => (
+          {Object.values(icons).map((tech, index) => (
             <div key={index} className="flex flex-row">
               <div className="flex items-center justify-center w-15 h-15 grayscale">
                 {React.cloneElement(tech.icon, { size: 40 })}

@@ -36,19 +36,6 @@ export const ProjectsData = [
     stackIcons: react_native_simple_todo_icons,
   },
   {
-    name: "Microservices Dotnet (2023)",
-    language: "English",
-    gifs: [],
-    gifAlt: "",
-    img: null,
-    imgAlt: "",
-    sourceCode: "https://github.com/jhonatanAlanFerreira/microservices-dotnet6",
-    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                mi pretium tellus duis convallis.`,
-    stackIcons: microservices_dotnet_icons,
-  },
-  {
     name: "Git Search (2022)",
     language: "Portuguese",
     gifs: ["/git_search.png"],
