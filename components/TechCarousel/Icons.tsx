@@ -28,8 +28,10 @@ import {
   SiPrisma,
   SiSqlite,
   SiReact,
+  SiVercel,
 } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
+import { VscAzure } from "react-icons/vsc";
 
 export const icons = {
   react: {
@@ -186,6 +188,16 @@ export const icons = {
     icon: <TbSql className="text-blue-600" />,
     name: "SQL",
     link: "https://www.w3schools.com/sql/",
+  },
+  azure: {
+    icon: <VscAzure className="text-blue-600" />,
+    name: "Microsoft Azure",
+    link: "https://azure.microsoft.com/en-us/services/",
+  },
+  vercel: {
+    icon: <SiVercel className="text-gray-800" />,
+    name: "Vercel",
+    link: "https://vercel.com/docs",
   },
 };
 

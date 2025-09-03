@@ -29,6 +29,7 @@ export const WorkData = [
       icons.scrum,
       icons.tailwind,
       icons.typescript,
+      icons.azure
     ],
   },
   {
