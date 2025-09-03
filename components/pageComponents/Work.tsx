@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { MdLocationOn } from "react-icons/md";
+import { FaGlobe } from "react-icons/fa"; // 👈 globe for language
 import { WorkData } from "./WorkData";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 import React from "react";
@@ -17,29 +18,38 @@ export default function Work() {
           <motion.div
             key={index}
             variants={cardVariants(index % 2 === 0)}
-            className="w-full h-auto bg-black/80 border-l-2 border-slate-600"
+            className="w-full h-auto bg-black/80 rounded-sm border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300"
           >
             <div className="flex h-full gap-5 p-4">
               <div className="flex flex-col space-y-5 flex-3 text-gray-400">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-xl font-semibold text-gray-400">
                     {wd.role}
                   </h3>
-                  <span className="text-sm text-gray-400">{wd.period}</span>
+                  <span className="text-gray-400">{wd.period}</span>
                 </div>
-                <p className="italic text-gray-400 mt-1 flex items-center gap-1">
-                  <MdLocationOn className="text-gray-500" />
-                  {wd.company} | {wd.location}
-                </p>
 
-                <ul className="list-disc list-inside text-gray-500 text-sm mt-2 space-y-1">
+                <div className="flex flex-col text-gray-400 text-lg gap-0">
+                  <span className="flex items-center gap-1">
+                    <MdLocationOn className="text-gray-500" />
+                    <span className="text-white">{wd.company}</span> |{" "}
+                    {wd.location}
+                  </span>
+                  <span className="pl-5">
+                    <span>Language:</span> {wd.language}
+                  </span>
+                </div>
+
+                <ul className="list-disc list-inside text-gray-500 mt-2 space-y-1">
                   {wd.responsibilities.map((r, idx) => (
                     <li key={idx}>{r}</li>
                   ))}
                 </ul>
 
                 <div>
-                  <h3 className="text-xl font-medium">Tech Stack</h3>
+                  <h3 className="text-xl font-medium text-gray-400">
+                    Tech Stack
+                  </h3>
                   <div className="flex">
                     {wd.stack.map((tech, index) => (
                       <a

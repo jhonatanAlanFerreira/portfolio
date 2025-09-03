@@ -7,6 +7,7 @@ export const WorkData = [
     role: "Full Stack Developer",
     period: formatWorkPeriod("2022-01"),
     location: "São Paulo, SP, Brazil | Remote",
+    language: "Portuguese",
     responsibilities: [
       "Developed and maintained full-stack applications for accounting solutions",
       "Collaborated with cross-functional teams using Scrum methodologies",
@@ -31,10 +32,31 @@ export const WorkData = [
     ],
   },
   {
-    company: "Guardiã Digital",
+    company: "Act Like You Matter",
+    role: "Volunteer Frontend Developer",
+    period: formatWorkPeriod("2025-05"),
+    location: "San Diego, CA, United States | Remote",
+    language: "English",
+    responsibilities: [
+      "Developed an interactive frontend page for a web game with animated elements and engaging user interactions",
+    ],
+    stack: [
+      icons.css,
+      icons.git,
+      icons.html,
+      icons.tailwind,
+      icons.typescript,
+      icons.react,
+      icons.nextjs,
+      icons.figma,
+    ],
+  },
+  {
+    company: "Guardião Digital",
     role: "Full Stack Developer",
     period: formatWorkPeriod("2019-05", "2021-11"),
     location: "São José do Rio Preto, SP, Brazil | On-site",
+    language: "Portuguese",
     responsibilities: [
       "Built and maintained digital document management systems",
       "Optimized legacy applications and improved usability",

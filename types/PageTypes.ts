@@ -1,1 +1,1 @@
-export type PageTab = "PROJECTS" | "WORK" | "CONTACT" | "WIDGETS";
+export type PageTab = "WORK" | "PROJECTS" | "CONTACT" | "WIDGETS";

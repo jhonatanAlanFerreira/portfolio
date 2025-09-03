@@ -8,8 +8,8 @@ export default function SelectBar({
 }: {
   onChange: (tab: PageTab) => void;
 }) {
-  const [active, setActive] = useState<PageTab>("PROJECTS");
-  const tabs: PageTab[] = ["PROJECTS", "WORK", "CONTACT", "WIDGETS"];
+  const [active, setActive] = useState<PageTab>("WORK");
+  const tabs: PageTab[] = ["WORK", "PROJECTS", "CONTACT", "WIDGETS"];
 
   const onClick = (tab: PageTab) => {
     setActive(tab);

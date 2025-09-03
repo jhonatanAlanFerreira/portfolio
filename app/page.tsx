@@ -11,7 +11,7 @@ import { PiLinkedinLogo } from "react-icons/pi";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<PageTab>("PROJECTS");
+  const [activeTab, setActiveTab] = useState<PageTab>("WORK");
 
   const renderSelectedTabContent = () => {
     const TAB_CONTENT: Record<PageTab, JSX.Element> = {
