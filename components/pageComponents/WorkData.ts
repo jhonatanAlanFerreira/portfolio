@@ -29,7 +29,7 @@ export const WorkData = [
       icons.scrum,
       icons.tailwind,
       icons.typescript,
-      icons.azure
+      icons.azure,
     ],
   },
   {
@@ -40,6 +40,7 @@ export const WorkData = [
     language: "English",
     responsibilities: [
       "Developed an interactive frontend page for a web game with animated elements and engaging user interactions",
+      "Contributed to technology and design decisions to optimize frontend architecture and user experience",
     ],
     stack: [
       icons.css,
