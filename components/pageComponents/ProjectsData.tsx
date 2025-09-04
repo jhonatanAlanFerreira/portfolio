@@ -2,6 +2,7 @@ import {
   developer_manager_icons,
   financial_manager_icons,
   git_search_icons,
+  portfolio,
   react_native_simple_todo_icons,
 } from "./ProjectsIcons";
 
@@ -59,5 +60,18 @@ export const ProjectsData = [
                 faucibus ex sapien vitae pellentesque sem placerat. In id cursus
                 mi pretium tellus duis convallis.`,
     stackIcons: developer_manager_icons,
+  },
+  {
+    name: "Portfolio (2025)",
+    language: "English",
+    gifs: [],
+    gifAlt: null,
+    img: null,
+    imgAlt: null,
+    sourceCode: "https://github.com/jhonatanAlanFerreira/portfolio",
+    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
+                mi pretium tellus duis convallis.`,
+    stackIcons: portfolio,
   },
 ];

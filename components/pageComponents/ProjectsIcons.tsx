@@ -48,3 +48,13 @@ export const developer_manager_icons = [
   icons.bootstrap,
   icons.express,
 ];
+
+export const portfolio = [
+  icons.react,
+  icons.git,
+  icons.nextjs,
+  icons.html,
+  icons.css,
+  icons.tailwind,
+  icons.typescript,
+];
