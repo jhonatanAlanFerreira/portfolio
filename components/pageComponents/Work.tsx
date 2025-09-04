@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { MdLocationOn } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa"; // 👈 globe for language
 import { WorkData } from "./WorkData";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 import React from "react";

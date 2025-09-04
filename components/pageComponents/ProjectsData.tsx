@@ -2,7 +2,6 @@ import {
   developer_manager_icons,
   financial_manager_icons,
   git_search_icons,
-  microservices_dotnet_icons,
   react_native_simple_todo_icons,
 } from "./ProjectsIcons";
 
