@@ -37,7 +37,7 @@ export const ProjectsData = [
   {
     name: "Git Search (2022)",
     language: "Portuguese",
-    gifs: ["/git_search.png"],
+    gifs: ["/git_search.gif"],
     gifAlt: "Git Search Screen",
     img: "/git_search.png",
     imgAlt: "Git Search Screen",
@@ -50,7 +50,7 @@ export const ProjectsData = [
   {
     name: "Developer Manager (2022)",
     language: "Portuguese",
-    gifs: ["/developer_manager.png"],
+    gifs: ["/developer_manager.gif", "/developer_manager_show_list.gif"],
     gifAlt: "Developer Manager Screen",
     img: "/developer_manager.png",
     imgAlt: "Developer Manager Screen",
