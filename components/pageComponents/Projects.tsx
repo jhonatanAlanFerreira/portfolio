@@ -36,17 +36,19 @@ export default function Projects() {
               {pd.img && (
                 <div className="flex-2">
                   <div className="w-full max-h-full p-4 content-center rounded-lg bg-slate-800/10 opacity-50 hover:opacity-100 group">
-                    <img
-                      className="group-hover:hidden max-h-50"
-                      src={pd.img}
-                      alt={pd.imgAlt}
-                    />
-                    <div className="hidden group-hover:flex">
-                      <ImageCarousel
-                        imgClasses="max-h-50"
-                        gifs={pd.gifs}
-                        gifAlt={pd.gifAlt}
+                    <div className="flex justify-center">
+                      <img
+                        className="group-hover:hidden max-h-50"
+                        src={pd.img}
+                        alt={pd.imgAlt}
                       />
+                      <div className="hidden group-hover:flex w-full">
+                        <ImageCarousel
+                          imgClasses="max-h-50 place-self-center"
+                          gifs={pd.gifs}
+                          gifAlt={pd.gifAlt}
+                        />
+                      </div>
                     </div>
                     <div
                       onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
@@ -130,7 +132,7 @@ export default function Projects() {
             >
               <div className="flex items-center justify-center w-full p-4">
                 <ImageCarousel
-                  imgClasses="max-h-[calc(100vh-1rem)]"
+                  imgClasses="max-h-[calc(100vh-1rem)] place-self-center"
                   gifs={projectModal.imgs}
                   gifAlt={projectModal.imgAlt}
                 />
