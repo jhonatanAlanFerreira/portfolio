@@ -24,10 +24,10 @@ export const ProjectsData = [
   {
     name: "React Native Simple Todo (2025)",
     language: "English",
-    gifs: [],
+    gifs: ["/todo-app.gif", "/todo-app-scrolling.gif"],
     gifAlt: "",
-    img: null,
-    imgAlt: "",
+    img: "/todo-app-scrolling.gif",
+    imgAlt: "Todo App Screen",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/react-native-simple-to-do",
     description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
