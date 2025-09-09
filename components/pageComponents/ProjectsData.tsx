@@ -26,7 +26,7 @@ export const ProjectsData = [
     language: "English",
     gifs: ["/todo-app.gif", "/todo-app-scrolling.gif"],
     gifAlt: "",
-    img: "/todo-app-scrolling.gif",
+    img: "/todo-app.png",
     imgAlt: "Todo App Screen",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/react-native-simple-to-do",
