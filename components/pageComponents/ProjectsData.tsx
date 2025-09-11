@@ -16,9 +16,7 @@ export const ProjectsData = [
     imgAlt: "Finalcial Manager Screen",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/financial_manager_remix",
-    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                mi pretium tellus duis convallis.`,
+    description: `A personal financial manager built with Remix and React. It allows users to manage expenses, income, transactions, and balances in a simple and organized way.`,
     stackIcons: financial_manager_icons,
   },
   {
@@ -30,9 +28,7 @@ export const ProjectsData = [
     imgAlt: "Todo App Screen",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/react-native-simple-to-do",
-    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                mi pretium tellus duis convallis.`,
+    description: `A Todo app built with React Native that supports multiple lists. It allows users to create, update, and organize tasks across different lists, with persistent storage powered by SQLite for offline access.`,
     stackIcons: react_native_simple_todo_icons,
   },
   {
@@ -43,9 +39,7 @@ export const ProjectsData = [
     img: "/git_search.png",
     imgAlt: "Git Search Screen",
     sourceCode: "https://github.com/jhonatanAlanFerreira/Git-Search",
-    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                mi pretium tellus duis convallis.`,
+    description: `A GitHub search app built with React that allows users to find repositories and developers through GitHub API integration.`,
     stackIcons: git_search_icons,
   },
   {
@@ -56,9 +50,7 @@ export const ProjectsData = [
     img: "/developer_manager.png",
     imgAlt: "Developer Manager Screen",
     sourceCode: "https://github.com/jhonatanAlanFerreira/Developer-Manager",
-    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                mi pretium tellus duis convallis.`,
+    description: `A Developer Manager app built with Angular and Node.js as part of a company assessment. It demonstrates handling CRUD operations, structured data management, and front-end/back-end integration.`,
     stackIcons: developer_manager_icons,
   },
   {
@@ -69,9 +61,7 @@ export const ProjectsData = [
     img: null,
     imgAlt: null,
     sourceCode: "https://github.com/jhonatanAlanFerreira/portfolio",
-    description: `Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
-                faucibus ex sapien vitae pellentesque sem placerat. In id cursus
-                mi pretium tellus duis convallis.`,
+    description: `This portfolio, built with React, showcases my projects and full-stack development skills.`,
     stackIcons: portfolio,
   },
 ];
