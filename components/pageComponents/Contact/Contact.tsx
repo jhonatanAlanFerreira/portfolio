@@ -1,5 +1,12 @@
 import { useForm } from "react-hook-form";
 
 export default function Contact() {
-  return <div></div>;
+  return (
+    <div className="w-full h-full bg-black/50 p-4 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-lg text-center">
+      <p className="text-gray-400">
+        Whether you’d like to share feedback or simply say hi, feel free to
+        reach out.
+      </p>
+    </div>
+  );
 }
