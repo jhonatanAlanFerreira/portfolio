@@ -1,26 +1,25 @@
 import { forwardRef, useId } from "react";
-import { InputTextPropsInterface } from "./InputTextProps";
+import { TextAreaPropsInterface } from "./TextAreaProps";
 
-export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
+export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaPropsInterface>(
   ({ label, errorMessage, ...rest }, ref) => {
     const inputId = useId();
 
     return (
       <div className="relative float-label-input">
-        <input
-          type="text"
+        <textarea
+          ref={ref}
           id={inputId}
           placeholder=" "
           className={`block w-full bg-black/50 focus:outline-none focus:shadow-outline border hover:border-slate-400/50 transition-colors duration-300 rounded-md py-3 px-3 appearance-none leading-normal text-white ${
             errorMessage ? "!border-rose-500" : "border-slate-600/60"
           }`}
           autoComplete="off"
-          ref={ref}
           {...rest}
-        />
+        ></textarea>
         <label
           htmlFor={inputId}
-          className={`absolute top-3 left-0 pointer-events-none transition duration-200 ease-in-out px-1 ${
+          className={`absolute top-3 left-0 pl-1 pointer-events-none transition duration-200 ease-in-outbg-white ${
             errorMessage ? "text-rose-500" : "text-gray-400 opacity-60 ml-1"
           }`}
         >
@@ -32,4 +31,4 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
   }
 );
 
-InputText.displayName = "InputText";
+TextArea.displayName = "TextArea";
