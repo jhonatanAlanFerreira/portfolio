@@ -1,4 +1,4 @@
-import { icons, reactNativeIcons } from "../TechCarousel/Icons";
+import { icons, reactNativeIcons } from "../../TechCarousel/Icons";
 
 export const financial_manager_icons = [
   icons.react,

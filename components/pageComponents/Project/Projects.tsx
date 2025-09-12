@@ -3,10 +3,10 @@ import { BiFullscreen } from "react-icons/bi";
 import React, { useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { BsArrowRight } from "react-icons/bs";
-import { ProjectsData } from "./ProjectsData";
-import ImageCarousel from "../ImageCarousel/ImageCarousel";
+import ImageCarousel from "../../ImageCarousel/ImageCarousel";
 import { motion, AnimatePresence } from "framer-motion";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
+import { ProjectsData } from "./ProjectsData";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{

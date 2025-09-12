@@ -1,6 +1,6 @@
 "use client";
-import Projects from "@/components/pageComponents/Projects";
-import Work from "@/components/pageComponents/Work";
+import Projects from "@/components/pageComponents/Project/Projects";
+import Work from "@/components/pageComponents/Work/Work";
 import SelectBar from "@/components/SelectBar/SelectBar";
 import TechCarousel from "@/components/TechCarousel/TechCarousel";
 import { PageTab } from "@/types/PageTypes";
@@ -9,6 +9,8 @@ import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
 import { motion, AnimatePresence } from "framer-motion";
+import Contact from "@/components/pageComponents/Contact/Contact";
+import Widgets from "@/components/pageComponents/Widgets/Widgets";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<PageTab>("WORK");
@@ -17,8 +19,8 @@ export default function Home() {
     const TAB_CONTENT: Record<PageTab, JSX.Element> = {
       PROJECTS: <Projects />,
       WORK: <Work />,
-      CONTACT: <div>Contact Section</div>,
-      WIDGETS: <div>Widgets Section</div>,
+      CONTACT: <Contact />,
+      WIDGETS: <Widgets />,
     };
 
     return (
