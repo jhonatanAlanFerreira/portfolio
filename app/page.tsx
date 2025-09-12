@@ -42,7 +42,7 @@ export default function Home() {
     const TAB_TITLES: Record<PageTab, string> = {
       PROJECTS: "My Projects",
       WORK: "My Work",
-      CONTACT: "Contact Me",
+      CONTACT: "Get in Touch",
       WIDGETS: "Nice Widgets",
     };
 
@@ -128,7 +128,7 @@ export default function Home() {
         <section className="w-full">
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
-              <h2 className="text-white text-nowrap text-3xl">
+              <h2 className="text-white font-bold text-nowrap text-3xl">
                 {renderSelectedTabTitle()}
               </h2>
               <SelectBar onChange={setActiveTab} />
