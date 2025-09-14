@@ -28,15 +28,11 @@
     background-color: rgba(148, 163, 184, 0.7);
 }
 
-.float-label-input {
-  margin: 1rem 0;
-}
-
 .float-label-input:focus-within label,
-.float-label-input input:not(:placeholder-shown) + label,
-.float-label-input textarea:not(:placeholder-shown) + label,
+.float-label-input input:not(:placeholder-shown)+label,
+.float-label-input textarea:not(:placeholder-shown)+label,
 label.has-value {
-  transform: translateY(-1.5rem) scale(0.75);
-  background-color: black;
-  opacity: 1;
+    transform: translateY(-1.5rem) scale(0.75);
+    background-color: black;
+    opacity: 1;
 }
