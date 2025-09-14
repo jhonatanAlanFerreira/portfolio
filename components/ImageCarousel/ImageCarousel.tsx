@@ -38,9 +38,9 @@ export default function ImageCarousel({
         <div
           title="Next Image"
           onClick={changeGif}
-          className="absolute items-center flex top-0 right-0 w-10 h-full bg-black/20 cursor-pointer"
+          className="group/arrow absolute items-center flex top-0 right-0 w-10 h-full bg-black/20 cursor-pointer"
         >
-          <BsArrowRight className="w-5 h-5 ml-2 text-white" />
+          <BsArrowRight className="w-5 h-5 ml-2 text-white group-hover/arrow:scale-130" />
         </div>
       )}
     </div>
