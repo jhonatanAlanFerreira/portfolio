@@ -1,17 +1,29 @@
+"use client";
 import { InputText } from "@/components/InputText/InputText";
 import { TextArea } from "@/components/TextArea/TextArea";
 import { useForm } from "react-hook-form";
 import { ContactData } from "./ContactInterfaces";
+import { sendEmailAction } from "./ContactActions";
+import { useState } from "react";
 
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<ContactData>();
 
   const sendEmail = (data: ContactData) => {
-    console.log(data);
+    sendEmailAction(data).then((res) => {
+      if (res.success) {
+        reset();
+        return;
+      }
+      return;
+    });
   };
 
   return (
