@@ -25,7 +25,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaPropsInterface>(
         >
           {label}
         </label>
-        {errorMessage && <p className="text-rose-500">* {errorMessage}</p>}
+        {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
       </div>
     );
   }

@@ -26,7 +26,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
         >
           {label}
         </label>
-        {errorMessage && <p className="text-rose-500">* {errorMessage}</p>}
+        {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
       </div>
     );
   }
