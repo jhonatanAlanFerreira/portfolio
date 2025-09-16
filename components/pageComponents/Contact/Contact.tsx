@@ -6,9 +6,12 @@ import { ContactData } from "./ContactInterfaces";
 import { sendEmailAction } from "./ContactActions";
 import { useState } from "react";
 import PageLoading from "@/components/PageLoading/PageLoading";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaIsValid, setCaptchaIsValid] = useState(false);
 
   const {
     register,
@@ -18,71 +21,82 @@ export default function Contact() {
   } = useForm<ContactData>();
 
   const sendEmail = (data: ContactData) => {
+    if (!captchaToken) return;
     setLoading(true);
 
-    sendEmailAction(data).then((res) => {
+    sendEmailAction({ ...data, captchaToken }).then((res) => {
       if (res.success) {
         reset();
-        setLoading(false);
-        return;
+        setCaptchaIsValid(false);
       }
       setLoading(false);
-      return;
     });
   };
 
   return (
     <div className="relative w-full h-full">
-      <form
-        className="h-full"
-        onSubmit={handleSubmit((data) => sendEmail(data))}
-      >
+      <form className="h-full" onSubmit={handleSubmit(sendEmail)}>
         <div className="flex flex-col gap-3 w-full h-full bg-black/80 p-4 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-lg text-center">
           <p className="text-gray-400 font-bold text-lg">
             Whether you’d like to share feedback or simply say hi, feel free to
             reach out.
           </p>
+
           <div className="mt-10 flex w-full gap-3">
-            <div className="flex-1">
-              <InputText
-                errorMessage={errors.name && errors.name.message?.toString()}
-                {...register("name", { required: "Name is required" })}
-                label="Name"
-              ></InputText>
-            </div>
-            <div className="flex-1">
-              <InputText
-                errorMessage={errors.email && errors.email.message?.toString()}
-                {...register("email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "Invalid email address",
-                  },
-                })}
-                label="Email"
-              ></InputText>
-            </div>
+            <InputText
+              errorMessage={errors.name?.message}
+              {...register("name", { required: "Name is required" })}
+              label="Name"
+            />
+            <InputText
+              errorMessage={errors.email?.message}
+              {...register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address",
+                },
+              })}
+              label="Email"
+            />
           </div>
-          <div className="flex-1">
-            <TextArea
-              errorMessage={
-                errors.message && errors.message.message?.toString()
-              }
-              {...register("message", { required: "Message is required" })}
-              label="Message"
-            ></TextArea>
-          </div>
+
+          <TextArea
+            errorMessage={errors.message?.message}
+            {...register("message", { required: "Message is required" })}
+            label="Message"
+          />
+
           <div className="flex justify-end grayscale">
-            {loading && (
+            {loading ? (
               <div className="pt-2">
-                <PageLoading loading={loading}></PageLoading>
+                <PageLoading loading={loading} />
               </div>
-            )}
-            {!loading && (
-              <button className="hover:scale-105 cursor-pointer text-white h-10 relative px-6 py-2 rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20">
-                Send
-              </button>
+            ) : (
+              <>
+                {captchaIsValid && (
+                  <button
+                    disabled={!captchaToken}
+                    className="hover:scale-105 cursor-pointer text-white h-10 relative px-6 py-2 rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20"
+                  >
+                    Send
+                  </button>
+                )}
+                <div hidden={captchaIsValid}>
+                  <ReCAPTCHA
+                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                    onExpired={() => setCaptchaIsValid(false)}
+                    onChange={(token) => {
+                      if (token) {
+                        setCaptchaToken(token);
+                        return setTimeout(() => setCaptchaIsValid(true), 500);
+                      }
+
+                      setCaptchaIsValid(false);
+                    }}
+                  />
+                </div>
+              </>
             )}
           </div>
         </div>

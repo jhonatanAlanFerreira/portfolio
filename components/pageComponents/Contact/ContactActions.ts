@@ -2,16 +2,35 @@
 import { ServerResponse } from "@/types/ServerResponse";
 import { ContactData } from "./ContactInterfaces";
 import { Resend } from "resend";
+import { getGoogleCaptchaLink } from "@/utils";
 
 export async function sendEmailAction(
-  data: ContactData
+  data: ContactData & { captchaToken: string }
 ): Promise<ServerResponse> {
-  const { name, email, message } = data;
-  const { RESEND_FROM_EMAIL, RESEND_TO_EMAIL, RESEND_API_KEY } = process.env;
+  const { name, email, message, captchaToken } = data;
+  const {
+    RESEND_FROM_EMAIL,
+    RESEND_TO_EMAIL,
+    RESEND_API_KEY,
+    RECAPTCHA_SECRET_KEY,
+  } = process.env;
 
-  if (!RESEND_FROM_EMAIL || !RESEND_TO_EMAIL || !RESEND_API_KEY) {
+  if (
+    !RESEND_FROM_EMAIL ||
+    !RESEND_TO_EMAIL ||
+    !RESEND_API_KEY ||
+    !RECAPTCHA_SECRET_KEY
+  ) {
     console.error("Env variable missing");
     return { success: false, message: "Failed to send email." };
+  }
+
+  const verifyRes = await fetch(getGoogleCaptchaLink(captchaToken), {
+    method: "POST",
+  });
+  const verifyData = await verifyRes.json();
+  if (!verifyData.success) {
+    return { success: false, message: "Captcha verification failed." };
   }
 
   const resend = new Resend(RESEND_API_KEY);

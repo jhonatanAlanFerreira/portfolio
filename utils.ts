@@ -35,3 +35,13 @@ export function formatWorkPeriod(startDate: string, endDate?: string): string {
     endYearStr ? " " + endYearStr : ""
   }${duration}`;
 }
+
+export function getGoogleCaptchaLink(token: string): string {
+  const { RECAPTCHA_SECRET_KEY, RECAPTCHA_VERIFY_URL } = process.env;
+
+  if (!RECAPTCHA_SECRET_KEY || !RECAPTCHA_VERIFY_URL) {
+    throw new Error("Captcha env variables missing");
+  }
+
+  return `${RECAPTCHA_VERIFY_URL}?secret=${RECAPTCHA_SECRET_KEY}&response=${token}`;
+}
