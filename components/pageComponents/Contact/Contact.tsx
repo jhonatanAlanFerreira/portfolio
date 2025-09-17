@@ -7,6 +7,7 @@ import { sendEmailAction } from "./ContactActions";
 import { useState } from "react";
 import PageLoading from "@/components/PageLoading/PageLoading";
 import ReCAPTCHA from "react-google-recaptcha";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
@@ -28,6 +29,9 @@ export default function Contact() {
       if (res.success) {
         reset();
         setCaptchaIsValid(false);
+        toast.success(res.message);
+      } else {
+        toast.error(res.message);
       }
       setLoading(false);
     });
@@ -35,6 +39,8 @@ export default function Contact() {
 
   return (
     <div className="relative w-full h-full">
+      <Toaster position="top-right" />
+
       <form className="h-full" onSubmit={handleSubmit(sendEmail)}>
         <div className="flex flex-col gap-3 w-full h-full bg-black/80 p-4 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-lg text-center">
           <p className="text-gray-400 font-bold text-lg">
@@ -91,7 +97,6 @@ export default function Contact() {
                         setCaptchaToken(token);
                         return setTimeout(() => setCaptchaIsValid(true), 500);
                       }
-
                       setCaptchaIsValid(false);
                     }}
                   />
