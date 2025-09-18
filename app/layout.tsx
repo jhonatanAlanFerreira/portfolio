@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SplashCursor from "@/components/SplashCursor";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,6 +16,15 @@ export default function RootLayout({
     <html lang="en">
       <body className=" bg-black overflow-hidden [background-image:radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px),radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px)] [background-position:0_0,0.5rem_0.5rem] [background-size:1rem_1rem]">
         {children}
+        <div className="splash-cursor">
+          <SplashCursor
+            SPLAT_RADIUS={0.02}
+            DENSITY_DISSIPATION={10}
+            VELOCITY_DISSIPATION={5}
+            BACK_COLOR={{ r: 0, g: 0, b: 0 }}
+            TRANSPARENT={false}
+          />
+        </div>
       </body>
     </html>
   );
