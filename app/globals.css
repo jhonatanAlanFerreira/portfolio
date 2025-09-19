@@ -36,3 +36,7 @@ label.has-value {
     background-color: black;
     opacity: 1;
 }
+
+.splash-cursor canvas {
+    filter: brightness(0.6);
+}
