@@ -88,18 +88,23 @@ export default function Contact() {
                     Send
                   </button>
                 )}
-                <div hidden={captchaIsValid}>
-                  <ReCAPTCHA
-                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                    onExpired={() => setCaptchaIsValid(false)}
-                    onChange={(token) => {
-                      if (token) {
-                        setCaptchaToken(token);
-                        return setTimeout(() => setCaptchaIsValid(true), 500);
-                      }
-                      setCaptchaIsValid(false);
-                    }}
-                  />
+                <div className="relative min-h-5" hidden={captchaIsValid}>
+                  <div className="absolute right-1 pt-2">
+                    <PageLoading loading={true}></PageLoading>
+                  </div>
+                  <div className="relative z-2">
+                    <ReCAPTCHA
+                      sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                      onExpired={() => setCaptchaIsValid(false)}
+                      onChange={(token) => {
+                        if (token) {
+                          setCaptchaToken(token);
+                          return setTimeout(() => setCaptchaIsValid(true), 500);
+                        }
+                        setCaptchaIsValid(false);
+                      }}
+                    />
+                  </div>
                 </div>
               </>
             )}
