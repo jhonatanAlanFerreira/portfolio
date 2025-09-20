@@ -20,7 +20,7 @@ export default function ImageCarousel({
   };
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full grid">
       <AnimatePresence mode="wait">
         <motion.img
           key={gifIndex}
