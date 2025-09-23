@@ -25,11 +25,17 @@ export async function sendEmailAction(
     return { success: false, message: "Failed to send email." };
   }
 
-  const verifyRes = await fetch(getGoogleCaptchaLink(captchaToken), {
-    method: "POST",
-  });
-  const verifyData = await verifyRes.json();
-  if (!verifyData.success) {
+  try {
+    const verifyRes = await fetch(getGoogleCaptchaLink(captchaToken), {
+      method: "POST",
+    });
+
+    const verifyData = await verifyRes.json();
+
+    if (!verifyData.success) {
+      return { success: false, message: "Captcha verification failed." };
+    }
+  } catch (error) {
     return { success: false, message: "Captcha verification failed." };
   }
 
