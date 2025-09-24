@@ -35,7 +35,7 @@ export default function TechCarousel() {
               href={tech.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link flex flex-row items-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110 cursor-pointer relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-slate-800 after:transition-all after:duration-300 hover:after:w-full"
+              className="group/link flex flex-row pl-2 items-center grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110 cursor-pointer relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-slate-800 after:transition-all after:duration-300 hover:after:w-full"
             >
               <div className="flex items-center justify-center w-15 h-15">
                 {React.cloneElement(tech.icon, { size: 40 })}
