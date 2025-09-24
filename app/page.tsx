@@ -44,7 +44,7 @@ export default function Home() {
       PROJECTS: "My Projects",
       WORK: "My Work",
       CONTACT: "Get in Touch",
-      WIDGETS: "Nice Widgets",
+      WIDGETS: "Just Some Widgets",
     };
 
     return (
