@@ -10,9 +10,12 @@ export const ProjectsData = [
   {
     name: "Financial Manager (2025)",
     language: "English",
-    gifs: ["/financial_manager.gif", "/financial_manager_login.gif"],
+    gifs: [
+      "/screenshots/financialManager/financial_manager.gif",
+      "/screenshots/financialManager/financial_manager_login.gif",
+    ],
     gifAlt: "Finalcial Manager Screen Recorded",
-    img: "/financial_manager.png",
+    img: "/screenshots/financialManager/financial_manager.png",
     imgAlt: "Finalcial Manager Screen",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/financial_manager_remix",
@@ -22,9 +25,12 @@ export const ProjectsData = [
   {
     name: "React Native Simple Todo (2025)",
     language: "English",
-    gifs: ["/todo-app.gif", "/todo-app-scrolling.gif"],
+    gifs: [
+      "/screenshots/todoApp/todo-app.gif",
+      "/screenshots/todoApp/todo-app-scrolling.gif",
+    ],
     gifAlt: "",
-    img: "/todo-app.png",
+    img: "/screenshots/todoApp/todo-app.png",
     imgAlt: "Todo App Screen",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/react-native-simple-to-do",
@@ -34,9 +40,9 @@ export const ProjectsData = [
   {
     name: "Git Search (2022)",
     language: "Portuguese",
-    gifs: ["/git_search.gif"],
+    gifs: ["/screenshots/gitSearch/git_search.gif"],
     gifAlt: "Git Search Screen",
-    img: "/git_search.png",
+    img: "/screenshots/gitSearch/git_search.png",
     imgAlt: "Git Search Screen",
     sourceCode: "https://github.com/jhonatanAlanFerreira/Git-Search",
     description: `A GitHub search app built with React that allows users to find repositories and developers through GitHub API integration.`,
@@ -45,9 +51,12 @@ export const ProjectsData = [
   {
     name: "Developer Manager (2022)",
     language: "Portuguese",
-    gifs: ["/developer_manager.gif", "/developer_manager_show_list.gif"],
+    gifs: [
+      "/screenshots/developerManager/developer_manager.gif",
+      "/screenshots/developerManager/developer_manager_show_list.gif",
+    ],
     gifAlt: "Developer Manager Screen",
-    img: "/developer_manager.png",
+    img: "/screenshots/developerManager/developer_manager.png",
     imgAlt: "Developer Manager Screen",
     sourceCode: "https://github.com/jhonatanAlanFerreira/Developer-Manager",
     description: `A Developer Manager app built with Angular and Node.js as part of a company assessment. It demonstrates handling CRUD operations, structured data management, and front-end/back-end integration.`,
