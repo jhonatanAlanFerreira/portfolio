@@ -23,15 +23,30 @@ export default function TechCarousel() {
       <p className="pl-1 absolute pt-2 text-[11px] font-semibold text-gray-500 tracking-widest after:block after:h-px after:w-8 after:mt-1 after:bg-slate-600/40 group-hover:hidden">
         TECH STACK
       </p>
-
       <div
         ref={firstItemRef}
-        className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:animate-none group-hover:p-2 group-hover:w-[95%]"
+        className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:animate-none group-hover:p-2 group-hover:w-[95%] flex min-w-max"
       >
-        <div className="flex flex-row group-hover:flex-col">
+        <div className="flex flex-row group-hover:hidden">
+          {Object.values(icons).map((tech, index) => (
+            <div key={`marquee1-${index}`} className="flex flex-row">
+              <div className="flex items-center justify-center w-15 h-15 grayscale">
+                {React.cloneElement(tech.icon, { size: 40 })}
+              </div>
+            </div>
+          ))}
+          {Object.values(icons).map((tech, index) => (
+            <div key={`marquee2-${index}`} className="flex flex-row">
+              <div className="flex items-center justify-center w-15 h-15 grayscale">
+                {React.cloneElement(tech.icon, { size: 40 })}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="hidden group-hover:flex flex-col w-full">
           {Object.values(icons).map((tech, index) => (
             <a
-              key={index}
+              key={`hover-${index}`}
               href={tech.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -48,18 +63,6 @@ export default function TechCarousel() {
                 />
               </span>
             </a>
-          ))}
-        </div>
-      </div>
-
-      <div className="text-white pt-8 [animation:marquee-content_10s_linear_infinite] group-hover:hidden">
-        <div className="flex flex-row">
-          {Object.values(icons).map((tech, index) => (
-            <div key={index} className="flex flex-row">
-              <div className="flex items-center justify-center w-15 h-15 grayscale">
-                {React.cloneElement(tech.icon, { size: 40 })}
-              </div>
-            </div>
           ))}
         </div>
       </div>
