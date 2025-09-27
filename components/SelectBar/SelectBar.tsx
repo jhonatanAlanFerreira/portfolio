@@ -18,12 +18,12 @@ export default function SelectBar({
 
   return (
     <div className="flex justify-end items-center w-full">
-      <div className="flex bg-black/80 gap-5 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-full px-4 pt-2 pb-2.5 space-x-2 backdrop-blur-md">
+      <div className="flex bg-black/80 lg:gap-5 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-full px-2 lg:px-4 pt-1 lg:pt-2 pb-1.5 lg:pb-2.5 space-x-2 backdrop-blur-md">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => onClick(tab)}
-            className={`bg-slate-800/10 relative cursor-pointer px-5 py-2 rounded-xl text-xs font-semibold tracking-wider transition-all duration-300
+            className={`bg-slate-800/10 relative cursor-pointer px-2 py-1 lg:px-5 lg:py-2 rounded-xl text-[5px] lg:text-xs font-semibold tracking-wider transition-all duration-300
               ${
                 active === tab
                   ? "bg-gradient-to-b from-gray-800/50 to-black text-white shadow-[0_0_10px_rgba(255,255,255,0.1)]"

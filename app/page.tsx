@@ -103,16 +103,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="grayscale size-5/6 relative h-15 bottom-0 border-t border-gray-400/90 lg:mb-6">
+          <div className="grayscale size-5/6 relative h-10 lg:h-5 2xl:h-12 bottom-0 border-t border-gray-400/90 lg:mb-6">
             <div className="flex justify-around pt-2">
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <GrGithub className="w-5 h-5 lg:w-10 lg:h-10 text-sky-400 group-hover:text-sky-300" />
+                <GrGithub className="w-3 h-3 2xl:w-10 2xl:h-10 text-sky-400 group-hover:text-sky-300" />
               </div>
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <MdEmail className="w-5 h-5 lg:w-10 lg:h-10 text-sky-400 group-hover:text-sky-300" />
+                <MdEmail className="w-3 h-3 2xl:w-10 2xl:h-10 text-sky-400 group-hover:text-sky-300" />
               </div>
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <PiLinkedinLogo className="w-5 h-5 lg:w-10 lg:h-10 text-sky-400 group-hover:text-sky-300" />
+                <PiLinkedinLogo className="w-3 h-3 2xl:w-10 2xl:h-10 text-sky-400 group-hover:text-sky-300" />
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function Home() {
         <section className="w-full">
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
-              <h2 className="text-white font-bold text-nowrap text-3xl">
+              <h2 className="text-white font-bold text-nowrap text-lg lg:text-3xl">
                 {renderSelectedTabTitle()}
               </h2>
               <SelectBar onChange={setActiveTab} />
