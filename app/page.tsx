@@ -65,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="flex h-screen">
-      <aside className="flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
+      <aside className="min-w-40 flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
         <div className="w-full flex flex-col gap-4 items-center">
           <div className="flex flex-col items-center pt-5">
             <div className="overflow-hidden rounded-sm h-20 w-20 lg:h-30 lg:w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">

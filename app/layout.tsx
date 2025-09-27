@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html className="overflow-hidden" lang="en">
       <body className=" bg-black overflow-hidden [background-image:radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px),radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px)] [background-position:0_0,0.5rem_0.5rem] [background-size:1rem_1rem]">
         {children}
         <div className="splash-cursor">
