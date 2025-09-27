@@ -68,19 +68,21 @@ export default function Home() {
       <aside className="flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
         <div className="w-full flex flex-col gap-4 items-center">
           <div className="flex flex-col items-center pt-5">
-            <div className="overflow-hidden rounded-sm h-30 w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">
+            <div className="overflow-hidden rounded-sm h-20 w-20 lg:h-30 lg:w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">
               <img src="profile.png" alt="Profile Picture" />
             </div>
             <div className="flex flex-col items-center">
-              <h1 className="text-white text-3xl font-bold">
+              <h1 className="text-white text-lg lg:text-3xl font-bold">
                 Jhonatan Ferreira
               </h1>
-              <p className="text-gray-500">Full Stack Developer</p>
+              <p className="text-gray-500 text-sm lg:text-lg">
+                Full Stack Developer
+              </p>
             </div>
           </div>
           <div className="w-full px-2 mb-3 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel />
-            <div className="flex flex-col w-full pt-4 text-sm">
+            <div className="flex flex-col w-full pt-4 text-[10px] lg:text-sm">
               <div className="space-y-1 font-medium text-gray-400">
                 <div className="flex justify-between">
                   <span>Location:</span>
@@ -101,25 +103,16 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="grayscale size-5/6 relative h-15 bottom-0 border-t border-gray-400/90">
+          <div className="grayscale size-5/6 relative h-15 bottom-0 border-t border-gray-400/90 lg:mb-6">
             <div className="flex justify-around pt-2">
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <GrGithub
-                  size={25}
-                  className="text-sky-400 group-hover:text-sky-300"
-                />
+                <GrGithub className="w-5 h-5 lg:w-10 lg:h-10 text-sky-400 group-hover:text-sky-300" />
               </div>
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <MdEmail
-                  size={25}
-                  className="text-sky-400 group-hover:text-sky-300"
-                />
+                <MdEmail className="w-5 h-5 lg:w-10 lg:h-10 text-sky-400 group-hover:text-sky-300" />
               </div>
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <PiLinkedinLogo
-                  size={25}
-                  className="text-sky-400 group-hover:text-sky-300"
-                />
+                <PiLinkedinLogo className="w-5 h-5 lg:w-10 lg:h-10 text-sky-400 group-hover:text-sky-300" />
               </div>
             </div>
           </div>
