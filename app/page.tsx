@@ -72,17 +72,17 @@ export default function Home() {
               <img src="profile.png" alt="Profile Picture" />
             </div>
             <div className="flex flex-col text-center">
-              <h1 className="text-white text-lg lg:text-3xl font-bold">
+              <h1 className="text-white text-lg 2xl:text-3xl font-bold">
                 Jhonatan Ferreira
               </h1>
-              <p className="text-gray-500 text-sm lg:text-lg">
+              <p className="text-gray-500 text-sm 2xl:text-lg">
                 Full Stack Developer
               </p>
             </div>
           </div>
           <div className="w-full px-2 mb-3 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel />
-            <div className="flex flex-col w-full pt-4 text-[10px] xl:text-lg">
+            <div className="flex flex-col w-full pt-4 text-[10px] 2xl:text-lg">
               <div className="space-y-1 font-medium text-gray-400">
                 <div className="flex justify-between">
                   <span>Location:</span>
@@ -106,13 +106,13 @@ export default function Home() {
           <div className="grayscale size-5/6 relative h-10 lg:h-5 2xl:h-12 bottom-0 border-t border-gray-400/90 lg:mb-6">
             <div className="flex justify-around pt-2">
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <GrGithub className="w-3 h-3 2xl:w-10 2xl:h-10 text-sky-400 group-hover:text-sky-300" />
+                <GrGithub className="w-3 h-3 2xl:w-8 2xl:h-8 text-sky-400 group-hover:text-sky-300" />
               </div>
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <MdEmail className="w-3 h-3 2xl:w-10 2xl:h-10 text-sky-400 group-hover:text-sky-300" />
+                <MdEmail className="w-3 h-3 2xl:w-8 2xl:h-8 text-sky-400 group-hover:text-sky-300" />
               </div>
               <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                <PiLinkedinLogo className="w-3 h-3 2xl:w-10 2xl:h-10 text-sky-400 group-hover:text-sky-300" />
+                <PiLinkedinLogo className="w-3 h-3 2xl:w-8 2xl:h-8 text-sky-400 group-hover:text-sky-300" />
               </div>
             </div>
           </div>

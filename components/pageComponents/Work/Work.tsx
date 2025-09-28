@@ -22,13 +22,15 @@ export default function Work() {
             <div className="flex h-full gap-5 p-4">
               <div className="flex flex-col space-y-5 flex-3 text-gray-400">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-xl font-semibold text-gray-400">
+                  <h3 className="text-md lg:text-xl font-semibold text-gray-400">
                     {wd.role}
                   </h3>
-                  <span className="text-gray-400">{wd.period}</span>
+                  <span className="text-gray-400 text-sm lg:text-lg">
+                    {wd.period}
+                  </span>
                 </div>
 
-                <div className="flex flex-col text-gray-400 text-lg gap-0">
+                <div className="flex flex-col text-gray-400 text-sm lg:text-lg gap-0">
                   <span className="flex items-center gap-1">
                     <MdLocationOn className="text-gray-500" />
                     <span className="text-white">{wd.company}</span> |{" "}
@@ -39,14 +41,14 @@ export default function Work() {
                   </span>
                 </div>
 
-                <ul className="list-disc list-inside text-gray-500 mt-2 space-y-1">
+                <ul className="list-disc list-inside text-gray-500 lg:mt-2 space-y-1 text-[10px] lg:text-lg">
                   {wd.responsibilities.map((r, idx) => (
                     <li key={idx}>{r}</li>
                   ))}
                 </ul>
 
                 <div>
-                  <h3 className="text-xl font-medium text-gray-400">
+                  <h3 className="text-sm lg:text-lg font-medium text-gray-400">
                     Tech Stack
                   </h3>
                   <div className="flex">
@@ -59,8 +61,10 @@ export default function Work() {
                         title={tech.name}
                         className="cursor-pointer grayscale hover:scale-110 hover:grayscale-0"
                       >
-                        <div className="flex items-center justify-center w-10 h-10">
-                          {React.cloneElement(tech.icon, { size: 25 })}
+                        <div className="flex items-center justify-center w-8 h-7 lg:w-15 lg:h-10">
+                          {React.cloneElement(tech.icon, {
+                            className: `${tech.icon.props.className} w-5 h-5 lg:w-8 lg:h-8`,
+                          })}
                         </div>
                       </a>
                     ))}
