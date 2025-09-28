@@ -43,12 +43,12 @@ export default function Contact() {
 
       <form className="h-full" onSubmit={handleSubmit(sendEmail)}>
         <div className="flex flex-col gap-3 w-full h-full bg-black/80 p-4 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-lg text-center">
-          <p className="text-gray-400 font-bold text-lg">
+          <p className="text-gray-400 font-bold text-sm lg:text-lg">
             Whether you’d like to share feedback or simply say hi, feel free to
             reach out.
           </p>
 
-          <div className="mt-10 flex w-full gap-3">
+          <div className="lg:mt-10 flex w-full gap-3">
             <InputText
               errorMessage={errors.name?.message}
               {...register("name", { required: "Name is required" })}

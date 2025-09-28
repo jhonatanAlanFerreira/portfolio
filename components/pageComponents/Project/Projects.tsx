@@ -60,20 +60,22 @@ export default function Projects() {
                   </div>
                 </div>
               )}
-              <div className="flex flex-col space-y-5 flex-3 text-gray-400">
+              <div className="flex flex-col space-y-2 lg:space-y-5 flex-3 text-gray-400">
                 <div>
-                  <h3 className="text-xl font-medium">{pd.name}</h3>
-                  <p className="text-white/80 text-sm">{pd.description}</p>
+                  <h3 className="text-md lg:text-xl font-medium">{pd.name}</h3>
+                  <p className="text-white/80 text-[10px] lg:text-sm">
+                    {pd.description}
+                  </p>
                 </div>
-                <div className="font-medium text-gray-400">
+                <div className="font-medium text-sm lg:text-xl text-gray-400">
                   <div className="flex flex-col">
                     <span>Language</span>
                     <span className="text-white/80">{pd.language}</span>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium">Tech Stack</h3>
-                  <div className="flex">
+                  <h3 className="text-sm lg:text-xl font-medium">Tech Stack</h3>
+                  <div className="flex flex-wrap">
                     {pd.stackIcons.map((tech, index) => (
                       <a
                         key={index}
@@ -83,8 +85,10 @@ export default function Projects() {
                         title={tech.name}
                         className="cursor-pointer grayscale hover:scale-110 hover:grayscale-0"
                       >
-                        <div className="flex items-center justify-center w-10 h-10">
-                          {React.cloneElement(tech.icon, { size: 25 })}
+                        <div className="flex items-center justify-center w-8 h-7 lg:w-15 lg:h-10">
+                          {React.cloneElement(tech.icon, {
+                            className: `${tech.icon.props.className} w-5 h-5 lg:w-8 lg:h-8`,
+                          })}
                         </div>
                       </a>
                     ))}
@@ -95,16 +99,16 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     href={pd.sourceCode}
-                    className="h-10 group relative inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20 overflow-hidden"
+                    className="text-[8px] lg:text-lg h-5 lg:h-10 group relative inline-flex items-center gap-2 px-3 lg:px-6 py-2 rounded-sm lg:rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20 overflow-hidden"
                   >
                     <span className="flex items-center gap-2 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
-                      <GrGithub className="text-white w-5 h-5" />
+                      <GrGithub className="text-white w-2 h-2 lg:w-5 lg:h-5" />
                       Code
                     </span>
                     <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 translate-x-12 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                      <GrGithub className="text-white w-5 h-5" />
+                      <GrGithub className="text-white w-2 h-2 lg:w-5 lg:h-5" />
                       Code
-                      <BsArrowRight className="w-5 h-5 text-white" />
+                      <BsArrowRight className="w-2 h-2 lg:w-5 lg:h-5 text-white" />
                     </span>
                   </a>
                 </div>
