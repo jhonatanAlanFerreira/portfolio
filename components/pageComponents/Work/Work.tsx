@@ -6,7 +6,7 @@ import { WorkData } from "./WorkData";
 
 export default function Work() {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full pb-3">
       <motion.div
         variants={containerVariants}
         initial="hidden"
