@@ -65,8 +65,8 @@ export default function Home() {
 
   return (
     <div className="flex h-screen">
-      <aside className="hidden sm:flex min-w-42 flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
-        <div className="w-full flex flex-col gap-4 items-center">
+      <aside className="absolute sm:relative w-40 sm:w-full h-full z-2 sm:flex min-w-42 flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
+        <div className="w-full h-full flex flex-col gap-4 items-center">
           <div className="flex flex-col items-center pt-5">
             <div className="overflow-hidden rounded-sm h-20 w-20 lg:h-30 lg:w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">
               <img src="profile.png" alt="Profile Picture" />
@@ -128,7 +128,9 @@ export default function Home() {
               <SelectBar onChange={setActiveTab} />
             </div>
             <div className="overflow-auto flex-1 px-8 gray-scroll">
-              <div className="min-w-128 pb-4 pr-4 h-full">{renderSelectedTabContent()}</div>
+              <div className="min-w-128 pb-4 pr-4 h-full">
+                {renderSelectedTabContent()}
+              </div>
             </div>
           </div>
         </section>
