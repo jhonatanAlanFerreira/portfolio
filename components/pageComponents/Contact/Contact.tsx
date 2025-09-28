@@ -38,7 +38,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full pb-10 sm:pb-0">
       <Toaster position="top-right" />
 
       <form className="h-full" onSubmit={handleSubmit(sendEmail)}>

@@ -24,7 +24,7 @@ export default function Projects() {
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="w-full flex flex-col gap-6"
+        className="w-full flex flex-col gap-6 pb-10 sm:pb-0"
       >
         {ProjectsData.map((pd, index) => (
           <motion.div
