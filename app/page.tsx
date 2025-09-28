@@ -65,13 +65,13 @@ export default function Home() {
 
   return (
     <div className="flex h-screen">
-      <aside className="min-w-40 flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
+      <aside className="min-w-42 flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300 overflow-hidden">
         <div className="w-full flex flex-col gap-4 items-center">
           <div className="flex flex-col items-center pt-5">
             <div className="overflow-hidden rounded-sm h-20 w-20 lg:h-30 lg:w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">
               <img src="profile.png" alt="Profile Picture" />
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col text-center">
               <h1 className="text-white text-lg lg:text-3xl font-bold">
                 Jhonatan Ferreira
               </h1>
@@ -82,7 +82,7 @@ export default function Home() {
           </div>
           <div className="w-full px-2 mb-3 flex-1 place-items-center overflow-hidden z-10">
             <TechCarousel />
-            <div className="flex flex-col w-full pt-4 text-[10px] lg:text-sm">
+            <div className="flex flex-col w-full pt-4 text-[10px] xl:text-lg">
               <div className="space-y-1 font-medium text-gray-400">
                 <div className="flex justify-between">
                   <span>Location:</span>
