@@ -51,7 +51,7 @@ export default function Work() {
                   <h3 className="text-sm lg:text-lg font-medium text-gray-400">
                     Tech Stack
                   </h3>
-                  <div className="flex">
+                  <div className="flex flex-wrap">
                     {wd.stack.map((tech, index) => (
                       <a
                         key={index}

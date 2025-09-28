@@ -118,7 +118,7 @@ export default function Home() {
           </div>
         </div>
       </aside>
-      <main className="flex flex-3">
+      <main className="flex flex-3 overflow-hidden">
         <section className="w-full">
           <div className="flex flex-col h-screen">
             <div className="flex flex-row py-5 px-8">
