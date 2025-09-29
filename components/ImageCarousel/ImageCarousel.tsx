@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
+import ImageCarouselProps from "./ImageCarouselProps";
 
 export default function ImageCarousel({
   gifs,
   gifAlt,
   imgClasses,
-}: {
-  gifs: string[];
-  gifAlt: string;
-  imgClasses?: string;
-}) {
+}: ImageCarouselProps) {
   const [gifIndex, setGifIndex] = useState<number>(0);
 
   const changeGif = () => {

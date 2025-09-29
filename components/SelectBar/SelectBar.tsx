@@ -2,12 +2,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PageTab } from "@/types/PageTypes";
+import SelectBarProps from "./SelectBarProps";
 
-export default function SelectBar({
-  onChange,
-}: {
-  onChange: (tab: PageTab) => void;
-}) {
+export default function SelectBar({ onChange }: SelectBarProps) {
   const [active, setActive] = useState<PageTab>("WORK");
   const tabs: PageTab[] = ["WORK", "PROJECTS", "CONTACT", "WIDGETS"];
 
