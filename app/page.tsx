@@ -131,7 +131,9 @@ export default function Home() {
                     </div>
                     <div className="flex justify-between">
                       <span>Experience:</span>
-                      <span className="text-white/80">6 years full-stack</span>
+                      <span className="text-white/80 text-end">
+                        6 years as Full-Stack Developer
+                      </span>
                     </div>
                   </div>
                 </div>
