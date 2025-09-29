@@ -49,7 +49,7 @@ export default function Work() {
 
                 <div>
                   <h3 className="text-sm lg:text-lg font-medium text-gray-400">
-                    Tech Stack
+                    Stack
                   </h3>
                   <div className="flex flex-wrap">
                     {wd.stack.map((tech, index) => (

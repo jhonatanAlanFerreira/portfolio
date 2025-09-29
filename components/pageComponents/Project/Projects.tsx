@@ -74,7 +74,7 @@ export default function Projects() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm lg:text-xl font-medium">Tech Stack</h3>
+                  <h3 className="text-sm lg:text-xl font-medium">Stack</h3>
                   <div className="flex flex-wrap">
                     {pd.stackIcons.map((tech, index) => (
                       <a
