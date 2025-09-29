@@ -86,7 +86,7 @@ export default function Home() {
             animate={{ rotate: asideVisible ? 0 : 180 }}
             transition={{ duration: 0.3 }}
           >
-            <FiChevronLeft size={20} className="text-sky-800" />
+            <FiChevronLeft size={20} className="text-white" />
           </motion.div>
         </button>
         <AnimatePresence>
