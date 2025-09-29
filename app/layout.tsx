@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="overflow-hidden" lang="en">
-      <body className=" bg-black overflow-hidden [background-image:radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px),radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px)] [background-position:0_0,0.5rem_0.5rem] [background-size:1rem_1rem]">
+      <body className="overflow-hidden bg-black [background-image:radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px),radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px)] [background-size:1rem_1rem] [background-position:0_0,0.5rem_0.5rem]">
         {children}
         <div className="splash-cursor">
           <AnimatedCursor

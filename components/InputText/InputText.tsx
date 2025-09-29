@@ -6,12 +6,12 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
     const inputId = useId();
 
     return (
-      <div className="relative float-label-input">
+      <div className="float-label-input relative">
         <input
           type="text"
           id={inputId}
           placeholder=" "
-          className={`block w-full bg-black/50 focus:outline-none focus:shadow-outline border hover:border-slate-400/50 transition-colors duration-300 rounded-md py-3 px-3 appearance-none leading-normal text-white ${
+          className={`focus:shadow-outline block w-full appearance-none rounded-md border bg-black/50 px-3 py-3 leading-normal text-white transition-colors duration-300 hover:border-slate-400/50 focus:outline-none ${
             errorMessage ? "!border-rose-500" : "border-slate-600/60"
           }`}
           autoComplete="off"
@@ -20,8 +20,8 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
         />
         <label
           htmlFor={inputId}
-          className={`absolute top-3 left-0 pointer-events-none transition duration-200 ease-in-out px-1 ${
-            errorMessage ? "text-rose-500" : "text-gray-400 opacity-60 ml-1"
+          className={`pointer-events-none absolute top-3 left-0 px-1 transition duration-200 ease-in-out ${
+            errorMessage ? "text-rose-500" : "ml-1 text-gray-400 opacity-60"
           }`}
         >
           {label}
@@ -29,7 +29,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
         {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
       </div>
     );
-  }
+  },
 );
 
 InputText.displayName = "InputText";

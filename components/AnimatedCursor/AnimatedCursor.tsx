@@ -17,7 +17,7 @@ export default function AnimatedCursor(
     COLOR_UPDATE_SPEED: 10,
     BACK_COLOR: { r: 0.5, g: 0, b: 0 },
     TRANSPARENT: true,
-  }
+  },
 ) {
   return <SplashCursor {...props} />;
 }

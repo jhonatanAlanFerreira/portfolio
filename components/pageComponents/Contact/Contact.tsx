@@ -38,17 +38,17 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full h-full pb-10 sm:pb-0">
+    <div className="relative h-full w-full pb-10 sm:pb-0">
       <Toaster position="top-right" />
 
       <form className="h-full" onSubmit={handleSubmit(sendEmail)}>
-        <div className="flex flex-col gap-3 w-full h-full bg-black/80 p-4 border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300 rounded-lg text-center">
-          <p className="text-gray-400 font-bold text-sm lg:text-lg">
+        <div className="flex h-full w-full flex-col gap-3 rounded-lg border border-slate-600/60 bg-black/80 p-4 text-center transition-colors duration-300 hover:border-slate-400/50">
+          <p className="text-sm font-bold text-gray-400 lg:text-lg">
             Whether you’d like to share feedback or simply say hi, feel free to
             reach out.
           </p>
 
-          <div className="lg:mt-10 flex w-full gap-3">
+          <div className="flex w-full gap-3 lg:mt-10">
             <InputText
               errorMessage={errors.name?.message}
               {...register("name", { required: "Name is required" })}
@@ -83,7 +83,7 @@ export default function Contact() {
                 {captchaIsValid && (
                   <button
                     disabled={!captchaToken}
-                    className="hover:scale-105 cursor-pointer text-white h-10 relative px-6 py-2 rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20"
+                    className="relative h-10 cursor-pointer rounded-lg bg-slate-950/80 px-6 py-2 text-white transition duration-300 hover:scale-105 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20"
                   >
                     Send
                   </button>

@@ -1,42 +1,42 @@
 @import "tailwindcss";
 
 @keyframes marquee-content {
-    from {
-        transform: translateX(0%);
-    }
+  from {
+    transform: translateX(0%);
+  }
 
-    to {
-        transform: translateX(-50%);
-    }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .gray-scroll::-webkit-scrollbar {
-    height: 0.5rem;
-    width: 0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
 .gray-scroll::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 .gray-scroll::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    background-color: rgba(100, 116, 139, 0.6);
+  border-radius: 8px;
+  background-color: rgba(100, 116, 139, 0.6);
 }
 
 .gray-scroll:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(148, 163, 184, 0.7);
+  background-color: rgba(148, 163, 184, 0.7);
 }
 
 .float-label-input:focus-within label,
-.float-label-input input:not(:placeholder-shown)+label,
-.float-label-input textarea:not(:placeholder-shown)+label,
+.float-label-input input:not(:placeholder-shown) + label,
+.float-label-input textarea:not(:placeholder-shown) + label,
 label.has-value {
-    transform: translateY(-1.5rem) scale(0.75);
-    background-color: black;
-    opacity: 1;
+  transform: translateY(-1.5rem) scale(0.75);
+  background-color: black;
+  opacity: 1;
 }
 
 .splash-cursor canvas {
-    filter: brightness(0.6);
+  filter: brightness(0.6);
 }

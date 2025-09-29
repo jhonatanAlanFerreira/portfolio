@@ -6,12 +6,12 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaPropsInterface>(
     const inputId = useId();
 
     return (
-      <div className="relative float-label-input h-full">
+      <div className="float-label-input relative h-full">
         <textarea
           ref={ref}
           id={inputId}
           placeholder=" "
-          className={`h-full block w-full bg-black/50 focus:outline-none focus:shadow-outline border hover:border-slate-400/50 transition-colors duration-300 rounded-md py-3 px-3 appearance-none leading-normal text-white ${
+          className={`focus:shadow-outline block h-full w-full appearance-none rounded-md border bg-black/50 px-3 py-3 leading-normal text-white transition-colors duration-300 hover:border-slate-400/50 focus:outline-none ${
             errorMessage ? "!border-rose-500" : "border-slate-600/60"
           }`}
           autoComplete="off"
@@ -19,8 +19,8 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaPropsInterface>(
         ></textarea>
         <label
           htmlFor={inputId}
-          className={`absolute top-3 left-0 pl-1 pointer-events-none transition duration-200 ease-in-outbg-white ${
-            errorMessage ? "text-rose-500" : "text-gray-400 opacity-60 ml-1"
+          className={`ease-in-outbg-white pointer-events-none absolute top-3 left-0 pl-1 transition duration-200 ${
+            errorMessage ? "text-rose-500" : "ml-1 text-gray-400 opacity-60"
           }`}
         >
           {label}
@@ -28,7 +28,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaPropsInterface>(
         {errorMessage && <p className="text-rose-500">{errorMessage}</p>}
       </div>
     );
-  }
+  },
 );
 
 TextArea.displayName = "TextArea";

@@ -5,7 +5,7 @@ export function formatWorkPeriod(startDate: string, endDate?: string): string {
     ? new Date(
         endDate.split("-").map(Number)[0],
         Number(endDate.split("-")[1]) - 1,
-        1
+        1,
       )
     : new Date();
 

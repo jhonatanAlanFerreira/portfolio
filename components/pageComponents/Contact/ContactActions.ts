@@ -5,7 +5,7 @@ import { Resend } from "resend";
 import { getGoogleCaptchaLink } from "@/utils";
 
 export async function sendEmailAction(
-  data: ContactData & { captchaToken: string }
+  data: ContactData & { captchaToken: string },
 ): Promise<ServerResponse> {
   const { name, email, message, captchaToken } = data;
   const {

@@ -17,7 +17,7 @@ export default function ImageCarousel({
   };
 
   return (
-    <div className="relative w-full grid">
+    <div className="relative grid w-full">
       <AnimatePresence mode="wait">
         <motion.img
           key={gifIndex}
@@ -35,9 +35,9 @@ export default function ImageCarousel({
         <div
           title="Next Image"
           onClick={changeGif}
-          className="group/arrow absolute items-center flex top-0 right-0 w-10 h-full bg-black/20 cursor-pointer"
+          className="group/arrow absolute top-0 right-0 flex h-full w-10 cursor-pointer items-center bg-black/20"
         >
-          <BsArrowRight className="w-5 h-5 ml-2 text-white group-hover/arrow:scale-130" />
+          <BsArrowRight className="ml-2 h-5 w-5 text-white group-hover/arrow:scale-130" />
         </div>
       )}
     </div>

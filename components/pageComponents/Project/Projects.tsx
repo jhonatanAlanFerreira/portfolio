@@ -19,30 +19,30 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex flex-col w-full pb-3">
+    <div className="flex w-full flex-col pb-3">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="show"
-        className="w-full flex flex-col gap-6 pb-10 sm:pb-0"
+        className="flex w-full flex-col gap-6 pb-10 sm:pb-0"
       >
         {ProjectsData.map((pd, index) => (
           <motion.div
             key={index}
             variants={cardVariants(index % 2 === 0)}
-            className="w-full h-auto bg-black rounded-sm border border-slate-600/60 hover:border-slate-400/50 transition-colors duration-300"
+            className="h-auto w-full rounded-sm border border-slate-600/60 bg-black transition-colors duration-300 hover:border-slate-400/50"
           >
             <div className="flex h-full gap-5 p-4">
               {pd.img && (
                 <div className="flex-2">
-                  <div className="w-full max-h-full p-4 content-center rounded-lg bg-slate-800/10 opacity-50 hover:opacity-100 group">
+                  <div className="group max-h-full w-full content-center rounded-lg bg-slate-800/10 p-4 opacity-50 hover:opacity-100">
                     <div className="flex justify-center">
                       <img
-                        className="group-hover:hidden max-h-50"
+                        className="max-h-50 group-hover:hidden"
                         src={pd.img}
                         alt={pd.imgAlt}
                       />
-                      <div className="hidden group-hover:flex w-full">
+                      <div className="hidden w-full group-hover:flex">
                         <ImageCarousel
                           imgClasses="max-h-50 place-self-center"
                           gifs={pd.gifs}
@@ -52,7 +52,7 @@ export default function Projects() {
                     </div>
                     <div
                       onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
-                      className="flex justify-start gap-1 mt-3 w-fit cursor-pointer"
+                      className="mt-3 flex w-fit cursor-pointer justify-start gap-1"
                     >
                       <BiFullscreen size={25} className="text-gray-400/50" />
                       <span className="text-gray-400">Full Screen</span>
@@ -60,21 +60,21 @@ export default function Projects() {
                   </div>
                 </div>
               )}
-              <div className="flex flex-col space-y-2 lg:space-y-5 flex-3 text-gray-400">
+              <div className="flex flex-3 flex-col space-y-2 text-gray-400 lg:space-y-5">
                 <div>
-                  <h3 className="text-md lg:text-xl font-medium">{pd.name}</h3>
-                  <p className="text-white/80 text-[10px] lg:text-sm">
+                  <h3 className="text-md font-medium lg:text-xl">{pd.name}</h3>
+                  <p className="text-[10px] text-white/80 lg:text-sm">
                     {pd.description}
                   </p>
                 </div>
-                <div className="font-medium text-sm lg:text-xl text-gray-400">
+                <div className="text-sm font-medium text-gray-400 lg:text-xl">
                   <div className="flex flex-col">
                     <span>Language</span>
                     <span className="text-white/80">{pd.language}</span>
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-sm lg:text-xl font-medium">Stack</h3>
+                  <h3 className="text-sm font-medium lg:text-xl">Stack</h3>
                   <div className="flex flex-wrap">
                     {pd.stackIcons.map((tech, index) => (
                       <a
@@ -85,7 +85,7 @@ export default function Projects() {
                         title={tech.name}
                         className="cursor-pointer grayscale hover:scale-110 hover:grayscale-0"
                       >
-                        <div className="flex items-center justify-center w-8 h-7 lg:w-15 lg:h-10">
+                        <div className="flex h-7 w-8 items-center justify-center lg:h-10 lg:w-15">
                           {React.cloneElement(tech.icon, {
                             className: `${tech.icon.props.className} w-5 h-5 lg:w-8 lg:h-8`,
                           })}
@@ -94,21 +94,21 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-1 justify-end items-end grayscale">
+                <div className="flex flex-1 items-end justify-end grayscale">
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={pd.sourceCode}
-                    className="text-[8px] lg:text-lg h-5 lg:h-10 group relative inline-flex items-center gap-2 px-3 lg:px-6 py-2 rounded-sm lg:rounded-lg bg-slate-950/80 transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20 overflow-hidden"
+                    className="group relative inline-flex h-5 items-center gap-2 overflow-hidden rounded-sm bg-slate-950/80 px-3 py-2 text-[8px] transition duration-300 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20 lg:h-10 lg:rounded-lg lg:px-6 lg:text-lg"
                   >
                     <span className="flex items-center gap-2 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
-                      <GrGithub className="text-white w-2 h-2 lg:w-5 lg:h-5" />
+                      <GrGithub className="h-2 w-2 text-white lg:h-5 lg:w-5" />
                       Code
                     </span>
-                    <span className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 translate-x-12 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                      <GrGithub className="text-white w-2 h-2 lg:w-5 lg:h-5" />
+                    <span className="absolute inset-0 flex translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                      <GrGithub className="h-2 w-2 text-white lg:h-5 lg:w-5" />
                       Code
-                      <BsArrowRight className="w-2 h-2 lg:w-5 lg:h-5 text-white" />
+                      <BsArrowRight className="h-2 w-2 text-white lg:h-5 lg:w-5" />
                     </span>
                   </a>
                 </div>
@@ -128,13 +128,13 @@ export default function Projects() {
             className="fixed inset-0 z-50 flex items-center justify-center"
           >
             <motion.div
-              className="relative bg-black/95 rounded-lg shadow-xl w-full h-full flex justify-between"
+              className="relative flex h-full w-full justify-between rounded-lg bg-black/95 shadow-xl"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="flex items-center justify-center w-full p-4">
+              <div className="flex w-full items-center justify-center p-4">
                 <ImageCarousel
                   imgClasses="max-h-[calc(100vh-1rem)] place-self-center"
                   gifs={projectModal.imgs}
@@ -144,7 +144,7 @@ export default function Projects() {
               <div>
                 <button
                   onClick={() => setProjectModal({ imgs: [], imgAlt: "" })}
-                  className="cursor-pointer text-gray-200 hover:text-gray-400 hover:scale-110 text-4xl mr-3"
+                  className="mr-3 cursor-pointer text-4xl text-gray-200 hover:scale-110 hover:text-gray-400"
                 >
                   &times;
                 </button>

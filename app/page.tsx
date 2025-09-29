@@ -74,12 +74,12 @@ export default function Home() {
           overflow: asideVisible ? "hidden" : "visible",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="absolute sm:relative sm:w-full h-full z-2 sm:flex flex-1 bg-black backdrop-blur-md border-r border-slate-600 hover:border-slate-400 transition-colors duration-300"
+        className="absolute z-2 h-full flex-1 border-r border-slate-600 bg-black backdrop-blur-md transition-colors duration-300 hover:border-slate-400 sm:relative sm:flex sm:w-full"
       >
         <button
           className={`${
             asideVisible ? "-right-3" : "-right-6"
-          } flex sm:hidden absolute cursor-pointer top-3 p-2 rounded-full bg-slate-900/70 hover:bg-slate-800/70 transition duration-300`}
+          } absolute top-3 flex cursor-pointer rounded-full bg-slate-900/70 p-2 transition duration-300 hover:bg-slate-800/70 sm:hidden`}
           onClick={() => setAsideVisible(!asideVisible)}
         >
           <motion.div
@@ -96,24 +96,24 @@ export default function Home() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="w-full h-full flex flex-col gap-4 items-center"
+              className="flex h-full w-full flex-col items-center gap-4"
             >
               <div className="flex flex-col items-center pt-5">
-                <div className="overflow-hidden rounded-sm h-20 w-20 lg:h-30 lg:w-30 border-1 border-slate-900 hover:border-slate-800 shadow-md">
+                <div className="h-20 w-20 overflow-hidden rounded-sm border-1 border-slate-900 shadow-md hover:border-slate-800 lg:h-30 lg:w-30">
                   <img src="profile.png" alt="Profile Picture" />
                 </div>
                 <div className="flex flex-col text-center">
-                  <h1 className="text-white text-lg 2xl:text-3xl font-bold">
+                  <h1 className="text-lg font-bold text-white 2xl:text-3xl">
                     Jhonatan Ferreira
                   </h1>
-                  <p className="text-gray-500 text-sm 2xl:text-lg">
+                  <p className="text-sm text-gray-500 2xl:text-lg">
                     Full Stack Developer
                   </p>
                 </div>
               </div>
-              <div className="w-full px-2 mb-3 flex-1 place-items-center overflow-hidden z-10">
+              <div className="z-10 mb-3 w-full flex-1 place-items-center overflow-hidden px-2">
                 <TechCarousel />
-                <div className="flex flex-col w-full pt-4 text-[10px] 2xl:text-lg">
+                <div className="flex w-full flex-col pt-4 text-[10px] 2xl:text-lg">
                   <div className="space-y-1 font-medium text-gray-400">
                     <div className="flex justify-between">
                       <span>Location:</span>
@@ -131,23 +131,23 @@ export default function Home() {
                     </div>
                     <div className="flex justify-between">
                       <span>Experience:</span>
-                      <span className="text-white/80 text-end">
+                      <span className="text-end text-white/80">
                         6 years as Full-Stack Developer
                       </span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="grayscale size-5/6 relative h-10 lg:h-5 2xl:h-12 bottom-0 border-t border-gray-400/90 lg:mb-6">
+              <div className="relative bottom-0 size-5/6 h-10 border-t border-gray-400/90 grayscale lg:mb-6 lg:h-5 2xl:h-12">
                 <div className="flex justify-around pt-2">
-                  <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                    <GrGithub className="w-3 h-3 2xl:w-8 2xl:h-8 text-sky-400 group-hover:text-sky-300" />
+                  <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
+                    <GrGithub className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
                   </div>
-                  <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                    <MdEmail className="w-3 h-3 2xl:w-8 2xl:h-8 text-sky-400 group-hover:text-sky-300" />
+                  <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
+                    <MdEmail className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
                   </div>
-                  <div className="cursor-pointer p-2 rounded-lg bg-slate-950/80 transition duration-300 group hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                    <PiLinkedinLogo className="w-3 h-3 2xl:w-8 2xl:h-8 text-sky-400 group-hover:text-sky-300" />
+                  <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
+                    <PiLinkedinLogo className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
                   </div>
                 </div>
               </div>
@@ -157,15 +157,15 @@ export default function Home() {
       </motion.aside>
       <main className="flex flex-3 overflow-hidden">
         <section className="w-full">
-          <div className="flex flex-col h-screen">
-            <div className="flex flex-row py-5 px-8">
-              <h2 className="hidden sm:flex text-white font-bold text-nowrap text-lg lg:text-3xl">
+          <div className="flex h-screen flex-col">
+            <div className="flex flex-row px-8 py-5">
+              <h2 className="hidden text-lg font-bold text-nowrap text-white sm:flex lg:text-3xl">
                 {renderSelectedTabTitle()}
               </h2>
               <SelectBar onChange={setActiveTab} />
             </div>
-            <div className="overflow-auto flex-1 px-8 gray-scroll">
-              <div className="min-w-128 pb-4 pr-4 h-full">
+            <div className="gray-scroll flex-1 overflow-auto px-8">
+              <div className="h-full min-w-128 pr-4 pb-4">
                 {renderSelectedTabContent()}
               </div>
             </div>
