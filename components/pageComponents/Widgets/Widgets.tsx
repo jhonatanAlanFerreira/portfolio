@@ -1,3 +1,9 @@
+import WeatherWidget from "@/components/WeatherWidget/WeatherWidget";
+
 export default function Widgets() {
-  return <div></div>;
+  return (
+    <div>
+      <WeatherWidget></WeatherWidget>
+    </div>
+  );
 }

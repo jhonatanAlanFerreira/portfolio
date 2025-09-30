@@ -12,6 +12,7 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
+    "@vercel/edge": "^1.2.2",
     "framer-motion": "^12.23.12",
     "next": "15.4.6",
     "react": "19.1.0",
