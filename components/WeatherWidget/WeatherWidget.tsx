@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { WiDayRain } from "react-icons/wi";
 
 interface WeatherData {
   city: string;
@@ -20,7 +21,6 @@ const mockData = {
     condition: "Moderate or heavy rain shower",
     wind: "7 km/h",
     humidity: "77%",
-    icon: "wi wi-rain",
   },
   forecast: [
     {
@@ -28,28 +28,36 @@ const mockData = {
       condition: "Moderate or heavy rain shower",
       min: 17,
       max: 27,
-      icon: "wi wi-rain",
     },
     {
       date: "Fri 24 August",
       condition: "Moderate or heavy rain shower",
       min: 11,
       max: 27,
-      icon: "wi wi-rain",
     },
     {
       date: "Sat 25 August",
       condition: "Heavy rain",
       min: 10,
       max: 11,
-      icon: "wi wi-rain-wind",
     },
     {
       date: "Sun 26 August",
       condition: "Patchy rain possible",
       min: 11,
       max: 19,
-      icon: "wi wi-showers",
+    },
+    {
+      date: "Sun 27 August",
+      condition: "Patchy rain possible",
+      min: 11,
+      max: 19,
+    },
+    {
+      date: "Sun 28 August",
+      condition: "Patchy rain possible",
+      min: 11,
+      max: 19,
     },
   ],
 };
@@ -85,44 +93,69 @@ export default function WeatherWidget() {
   const { city, isDay, current, forecast } = mockData;
 
   return (
-    <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-purple-700/30 bg-[#1a1a2e] text-white shadow-lg">
-      <div className="bg-gradient-to-r from-purple-800/80 to-purple-600/60 p-6">
-        <div className="flex items-start justify-between">
-          <div>
-            <h2 className="text-2xl font-bold">{city}</h2>
-            <p className="text-gray-300">{current.date}</p>
-            <p className="mt-1 text-sm text-purple-200 italic">
-              {isDay ? "☀️ Day" : "🌙 Night"}
-            </p>
-          </div>
-          <i
-            className={`${current.icon} text-6xl text-purple-200 opacity-90`}
-          ></i>
-        </div>
-
-        <div className="mt-4">
-          <h3 className="text-5xl font-extrabold">{current.temperature}°C</h3>
-          <p className="text-gray-300">
-            {current.max} / {current.min} °C
-          </p>
-          <p className="mt-2">{current.condition}</p>
-          <p className="mt-1 text-sm text-gray-400">
-            Wind: {current.wind} | Humidity: {current.humidity}
-          </p>
-        </div>
+    <div className="h-auto w-full rounded-md border border-slate-600/60 bg-black/90 bg-gradient-to-br p-5 shadow-xl transition-colors duration-300 hover:border-slate-400/50">
+      <div className="mb-4">
+        <h2 className="text-xl font-semibold text-white">
+          Weather Integration
+        </h2>
+        <p className="text-sm text-gray-400">
+          The data is provided by{" "}
+          <span className="text-gray-200">Weather API</span>.
+        </p>
       </div>
 
-      <div className="grid grid-cols-4 divide-x divide-purple-700/30 bg-[#11111f]">
-        {forecast.map((day, idx) => (
-          <div key={idx} className="p-3 text-center">
-            <p className="text-xs text-gray-400">{day.date}</p>
-            <i className={`${day.icon} my-2 text-3xl text-purple-300`}></i>
-            <p className="text-xs">{day.condition}</p>
-            <p className="mt-1 text-sm font-semibold">
-              {day.max} / {day.min} °C
-            </p>
+      <div className="p-8 opacity-60">
+        <div className="w-full max-w-4xl overflow-hidden rounded-lg border border-gray-700 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 text-white shadow-lg">
+          <div className="border-b border-gray-700">
+            <div className="flex flex-row">
+              <div className="flex-3 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold">{city}</h3>
+                    <p className="text-gray-400">{current.date}</p>
+                  </div>
+                </div>
+
+                <div className="mt-4 border-t border-gray-700 pt-4">
+                  <h4 className="text-5xl font-extrabold text-white">
+                    {current.temperature}°C
+                  </h4>
+                  <p className="text-gray-400">
+                    {current.max} / {current.min} °C
+                  </p>
+                  <p className="mt-2">{current.condition}</p>
+                  <p className="mt-1 text-sm text-gray-500">
+                    Wind: {current.wind} | Humidity: {current.humidity}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex-1">
+                <div className="flex h-full items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+                  <WiDayRain className="h-40 w-40 text-blue-400 drop-shadow-lg" />
+                </div>
+              </div>
+            </div>
           </div>
-        ))}
+
+          <div className="grid grid-cols-6 divide-x divide-gray-700 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+            {forecast.map((day, idx) => (
+              <div
+                key={idx}
+                className="p-3 text-center transition hover:bg-gray-800/40"
+              >
+                <p className="text-xs text-gray-400">{day.date}</p>
+                <div className="flex w-full justify-center">
+                  <WiDayRain className="h-16 w-16 text-blue-400 drop-shadow-md" />
+                </div>
+                <p className="text-xs text-gray-300">{day.condition}</p>
+                <p className="mt-1 text-sm font-semibold text-white">
+                  {day.max} / {day.min} °C
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import WeatherWidget from "@/components/WeatherWidget/WeatherWidget";
 
 export default function Widgets() {
   return (
-    <div>
+    <div className="pt-10">
       <WeatherWidget></WeatherWidget>
     </div>
   );
