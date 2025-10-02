@@ -19,14 +19,12 @@ export async function GET(req: Request) {
     const weatherRes = await fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m`,
     );
-    
+
     const weatherData = await weatherRes.json();
 
     return NextResponse.json({
-      ip,
       city,
-      coords: { latitude, longitude },
-      temperature: weatherData.current.temperature_2m,
+      weatherData,
     });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
