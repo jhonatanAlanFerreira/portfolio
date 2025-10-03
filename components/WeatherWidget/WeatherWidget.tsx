@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { WeatherData } from "./WeatherWidgetInterfaces";
 import { weatherCodeMaping } from "./WeatherWidgetIcons";
 
@@ -8,19 +8,25 @@ export default function WeatherWidget() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
+  const fetched = useRef(false);
+
   useEffect(() => {
-    async function fetchWeather() {
+    if (fetched.current) return;
+    fetched.current = true;
+
+    const fetchWeather = async () => {
       try {
-        const res = await fetch("/api/weather");
+        const res = await fetch("/api/weather", {
+          cache: "no-store",
+        });
         const data: WeatherData = await res.json();
         setWeather(data);
-        setError(false);
       } catch (err) {
         setError(true);
       } finally {
         setLoading(false);
       }
-    }
+    };
 
     fetchWeather();
   }, []);
