@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { WiDayRain } from "react-icons/wi";
 import { WeatherData } from "./WeatherWidgetInterfaces";
 import { weatherCodeMaping } from "./WeatherWidgetIcons";
 
