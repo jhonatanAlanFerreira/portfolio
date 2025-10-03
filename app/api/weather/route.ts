@@ -11,16 +11,24 @@ export async function GET(req: Request) {
       ip = await getFallbackIp();
     }
 
-    const geoRes = await fetch(`https://ipapi.co/${ip}/json/`);
+    const geoRes = await fetch(
+      `http://ip-api.com/json/${ip}?fields=status,message,city,lat,lon`,
+    );
     const geo = await geoRes.json();
 
-    const { latitude, longitude, city } = geo;
-    const URL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min&current=is_day,temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=auto`;
+    const { lat, lon, city } = geo;
+    const URL =
+      "https://api.open-meteo.com/v1/forecast?latitude=" +
+      lat +
+      "&longitude=" +
+      lon +
+      "&daily=weather_code,temperature_2m_max,temperature_2m_min&current=is_day,temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=auto";
 
     const weatherRes = await fetch(URL);
     const weatherAPIResponse: WeatherAPIResponse = await weatherRes.json();
     return NextResponse.json(formatWeatherData(weatherAPIResponse, city));
   } catch (err: any) {
+    console.error(err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
