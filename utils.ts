@@ -45,3 +45,19 @@ export function getGoogleCaptchaLink(token: string): string {
 
   return `${RECAPTCHA_VERIFY_URL}?secret=${RECAPTCHA_SECRET_KEY}&response=${token}`;
 }
+
+export function getTomorrowWeatherUrl(lat: number, lon: number): string {
+  const { TOMORROW_API_KEY, TOMORROW_URL } = process.env;
+
+  if (!TOMORROW_API_KEY || !TOMORROW_URL) {
+    throw new Error("Tomorrow.io env variables missing");
+  }
+
+  const params = new URLSearchParams({
+    location: `${lat},${lon}`,
+    apikey: TOMORROW_API_KEY,
+    timesteps: "1h,1d",
+  });
+
+  return `${TOMORROW_URL}?${params.toString()}`;
+}

@@ -13,7 +13,8 @@ export interface WeatherData {
   };
   daily: {
     time: string;
-    code: number;
+    code_max: number;
+    code_min: number;
     max_temperature: number;
     min_temperature: number;
   }[];

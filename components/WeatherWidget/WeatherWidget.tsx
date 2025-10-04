@@ -101,14 +101,19 @@ export default function WeatherWidget() {
                   );
                 })()}
               </div>
-
-              <div className="grid grid-cols-7 divide-x divide-gray-700 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+              <div className="grid grid-cols-6 divide-x divide-gray-700 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
                 {weather.daily.map((day, index) => {
                   const {
-                    icon: Icon,
-                    color,
-                    description,
-                  } = getDetailsFromCode(day.code, "day");
+                    icon: MaxIcon,
+                    color: maxColor,
+                    description: maxDescription,
+                  } = getDetailsFromCode(day.code_max, "day");
+
+                  const {
+                    icon: MinIcon,
+                    color: minColor,
+                    description: minDescription,
+                  } = getDetailsFromCode(day.code_min, "night");
 
                   return (
                     <div
@@ -116,12 +121,22 @@ export default function WeatherWidget() {
                       className="p-3 text-center transition hover:bg-gray-800/40"
                     >
                       <p className="text-xs text-gray-400">{day.time}</p>
-                      <div className="flex w-full justify-center">
-                        <Icon className={`h-16 w-16 ${color} drop-shadow-md`} />
+
+                      <div className="flex w-full items-center justify-center gap-2">
+                        <MaxIcon
+                          className={`h-8 w-8 ${maxColor} drop-shadow-md`}
+                        />
+                        <MinIcon
+                          className={`h-8 w-8 ${minColor} drop-shadow-md`}
+                        />
                       </div>
-                      <p className="text-xs text-gray-300">{description}</p>
+
+                      <p className="text-[0.7rem] text-gray-400">
+                        {maxDescription} / {minDescription}
+                      </p>
+
                       <p className="mt-1 text-sm font-semibold text-white">
-                        {day.max_temperature} / {day.min_temperature} °C
+                        {day.max_temperature}° / {day.min_temperature}°
                       </p>
                     </div>
                   );

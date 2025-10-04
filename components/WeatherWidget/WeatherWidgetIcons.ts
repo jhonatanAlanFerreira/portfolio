@@ -2,6 +2,7 @@ import {
   WiDaySunny,
   WiNightClear,
   WiDayCloudy,
+  WiNightAltCloudy,
   WiCloud,
   WiFog,
   WiDayShowers,
@@ -14,29 +15,36 @@ import {
   WiNightAltSleet,
   WiDayThunderstorm,
   WiNightAltThunderstorm,
-  WiNightAltCloudy,
   WiSnowflakeCold,
 } from "react-icons/wi";
 import { WeatherCodeMaping } from "./WeatherWidgetInterfaces";
 
 export const weatherCodeMaping: WeatherCodeMaping = {
   "0": {
-    day: { description: "Sunny", icon: WiDaySunny, color: "text-yellow-400" },
-    night: { description: "Clear", icon: WiNightClear, color: "text-blue-300" },
+    day: { description: "Unknown", icon: WiCloud, color: "text-gray-400" },
+    night: { description: "Unknown", icon: WiCloud, color: "text-gray-500" },
   },
-  "1": {
+  "1000": {
     day: {
-      description: "Mainly Sunny",
+      description: "Clear, Sunny",
       icon: WiDaySunny,
       color: "text-yellow-400",
     },
+    night: { description: "Clear", icon: WiNightClear, color: "text-blue-300" },
+  },
+  "1100": {
+    day: {
+      description: "Mostly Clear",
+      icon: WiDaySunny,
+      color: "text-yellow-300",
+    },
     night: {
-      description: "Mainly Clear",
+      description: "Mostly Clear",
       icon: WiNightClear,
-      color: "text-blue-300",
+      color: "text-blue-400",
     },
   },
-  "2": {
+  "1101": {
     day: {
       description: "Partly Cloudy",
       icon: WiDayCloudy,
@@ -48,131 +56,63 @@ export const weatherCodeMaping: WeatherCodeMaping = {
       color: "text-gray-400",
     },
   },
-  "3": {
+  "1102": {
+    day: {
+      description: "Mostly Cloudy",
+      icon: WiCloud,
+      color: "text-gray-400",
+    },
+    night: {
+      description: "Mostly Cloudy",
+      icon: WiCloud,
+      color: "text-gray-500",
+    },
+  },
+  "1001": {
     day: { description: "Cloudy", icon: WiCloud, color: "text-gray-400" },
     night: { description: "Cloudy", icon: WiCloud, color: "text-gray-500" },
   },
-  "45": {
-    day: { description: "Foggy", icon: WiFog, color: "text-gray-400" },
-    night: { description: "Foggy", icon: WiFog, color: "text-gray-500" },
+  "2000": {
+    day: { description: "Fog", icon: WiFog, color: "text-gray-400" },
+    night: { description: "Fog", icon: WiFog, color: "text-gray-500" },
   },
-  "48": {
-    day: { description: "Rime Fog", icon: WiFog, color: "text-gray-400" },
-    night: { description: "Rime Fog", icon: WiFog, color: "text-gray-500" },
+  "2100": {
+    day: { description: "Light Fog", icon: WiFog, color: "text-gray-400" },
+    night: { description: "Light Fog", icon: WiFog, color: "text-gray-500" },
   },
-  "51": {
-    day: {
-      description: "Light Drizzle",
-      icon: WiDayShowers,
-      color: "text-blue-300",
-    },
+  "4000": {
+    day: { description: "Drizzle", icon: WiDayShowers, color: "text-blue-300" },
     night: {
-      description: "Light Drizzle",
+      description: "Drizzle",
       icon: WiNightAltShowers,
       color: "text-blue-400",
     },
   },
-  "53": {
-    day: { description: "Drizzle", icon: WiDayShowers, color: "text-blue-400" },
-    night: {
-      description: "Drizzle",
-      icon: WiNightAltShowers,
-      color: "text-blue-500",
-    },
-  },
-  "55": {
-    day: {
-      description: "Heavy Drizzle",
-      icon: WiDayShowers,
-      color: "text-blue-500",
-    },
-    night: {
-      description: "Heavy Drizzle",
-      icon: WiNightAltShowers,
-      color: "text-blue-600",
-    },
-  },
-  "56": {
-    day: {
-      description: "Light Freezing Drizzle",
-      icon: WiDaySleet,
-      color: "text-cyan-300",
-    },
-    night: {
-      description: "Light Freezing Drizzle",
-      icon: WiNightAltSleet,
-      color: "text-cyan-400",
-    },
-  },
-  "57": {
-    day: {
-      description: "Freezing Drizzle",
-      icon: WiDaySleet,
-      color: "text-cyan-400",
-    },
-    night: {
-      description: "Freezing Drizzle",
-      icon: WiNightAltSleet,
-      color: "text-cyan-500",
-    },
-  },
-  "61": {
-    day: { description: "Light Rain", icon: WiDayRain, color: "text-blue-400" },
-    night: {
-      description: "Light Rain",
-      icon: WiNightAltRain,
-      color: "text-blue-500",
-    },
-  },
-  "63": {
-    day: { description: "Rain", icon: WiDayRain, color: "text-blue-500" },
+  "4001": {
+    day: { description: "Rain", icon: WiDayRain, color: "text-blue-400" },
     night: {
       description: "Rain",
       icon: WiNightAltRain,
-      color: "text-blue-600",
+      color: "text-blue-500",
     },
   },
-  "65": {
-    day: { description: "Heavy Rain", icon: WiDayRain, color: "text-blue-600" },
+  "4200": {
+    day: { description: "Light Rain", icon: WiDayRain, color: "text-blue-300" },
+    night: {
+      description: "Light Rain",
+      icon: WiNightAltRain,
+      color: "text-blue-400",
+    },
+  },
+  "4201": {
+    day: { description: "Heavy Rain", icon: WiDayRain, color: "text-blue-500" },
     night: {
       description: "Heavy Rain",
       icon: WiNightAltRain,
-      color: "text-blue-700",
+      color: "text-blue-600",
     },
   },
-  "66": {
-    day: {
-      description: "Light Freezing Rain",
-      icon: WiDaySleet,
-      color: "text-cyan-300",
-    },
-    night: {
-      description: "Light Freezing Rain",
-      icon: WiNightAltSleet,
-      color: "text-cyan-400",
-    },
-  },
-  "67": {
-    day: {
-      description: "Freezing Rain",
-      icon: WiDaySleet,
-      color: "text-cyan-400",
-    },
-    night: {
-      description: "Freezing Rain",
-      icon: WiNightAltSleet,
-      color: "text-cyan-500",
-    },
-  },
-  "71": {
-    day: { description: "Light Snow", icon: WiDaySnow, color: "text-gray-200" },
-    night: {
-      description: "Light Snow",
-      icon: WiNightAltSnow,
-      color: "text-gray-300",
-    },
-  },
-  "73": {
+  "5000": {
     day: { description: "Snow", icon: WiDaySnow, color: "text-gray-100" },
     night: {
       description: "Snow",
@@ -180,7 +120,23 @@ export const weatherCodeMaping: WeatherCodeMaping = {
       color: "text-gray-200",
     },
   },
-  "75": {
+  "5001": {
+    day: { description: "Flurries", icon: WiDaySnow, color: "text-gray-200" },
+    night: {
+      description: "Flurries",
+      icon: WiNightAltSnow,
+      color: "text-gray-300",
+    },
+  },
+  "5100": {
+    day: { description: "Light Snow", icon: WiDaySnow, color: "text-gray-200" },
+    night: {
+      description: "Light Snow",
+      icon: WiNightAltSnow,
+      color: "text-gray-300",
+    },
+  },
+  "5101": {
     day: { description: "Heavy Snow", icon: WiDaySnow, color: "text-white" },
     night: {
       description: "Heavy Snow",
@@ -188,71 +144,91 @@ export const weatherCodeMaping: WeatherCodeMaping = {
       color: "text-gray-100",
     },
   },
-  "77": {
+  "6000": {
     day: {
-      description: "Snow Grains",
-      icon: WiSnowflakeCold,
-      color: "text-cyan-200",
-    },
-    night: {
-      description: "Snow Grains",
-      icon: WiSnowflakeCold,
+      description: "Freezing Drizzle",
+      icon: WiDaySleet,
       color: "text-cyan-300",
     },
+    night: {
+      description: "Freezing Drizzle",
+      icon: WiNightAltSleet,
+      color: "text-cyan-400",
+    },
   },
-  "80": {
+  "6001": {
     day: {
-      description: "Light Showers",
-      icon: WiDayShowers,
-      color: "text-blue-300",
+      description: "Freezing Rain",
+      icon: WiDaySleet,
+      color: "text-cyan-400",
     },
     night: {
-      description: "Light Showers",
-      icon: WiNightAltShowers,
-      color: "text-blue-400",
+      description: "Freezing Rain",
+      icon: WiNightAltSleet,
+      color: "text-cyan-500",
     },
   },
-  "81": {
-    day: { description: "Showers", icon: WiDayShowers, color: "text-blue-400" },
-    night: {
-      description: "Showers",
-      icon: WiNightAltShowers,
-      color: "text-blue-500",
-    },
-  },
-  "82": {
+  "6200": {
     day: {
-      description: "Heavy Showers",
-      icon: WiDayShowers,
-      color: "text-blue-500",
+      description: "Light Freezing Rain",
+      icon: WiDaySleet,
+      color: "text-cyan-300",
     },
     night: {
-      description: "Heavy Showers",
-      icon: WiNightAltShowers,
-      color: "text-blue-600",
+      description: "Light Freezing Rain",
+      icon: WiNightAltSleet,
+      color: "text-cyan-400",
     },
   },
-  "85": {
+  "6201": {
     day: {
-      description: "Light Snow Showers",
-      icon: WiDaySnow,
-      color: "text-gray-200",
+      description: "Heavy Freezing Rain",
+      icon: WiDaySleet,
+      color: "text-cyan-400",
     },
     night: {
-      description: "Light Snow Showers",
-      icon: WiNightAltSnow,
-      color: "text-gray-300",
+      description: "Heavy Freezing Rain",
+      icon: WiNightAltSleet,
+      color: "text-cyan-500",
     },
   },
-  "86": {
-    day: { description: "Snow Showers", icon: WiDaySnow, color: "text-white" },
+  "7000": {
+    day: {
+      description: "Ice Pellets",
+      icon: WiDaySleet,
+      color: "text-cyan-300",
+    },
     night: {
-      description: "Snow Showers",
-      icon: WiNightAltSnow,
-      color: "text-gray-200",
+      description: "Ice Pellets",
+      icon: WiNightAltSleet,
+      color: "text-cyan-400",
     },
   },
-  "95": {
+  "7101": {
+    day: {
+      description: "Heavy Ice Pellets",
+      icon: WiDaySleet,
+      color: "text-cyan-400",
+    },
+    night: {
+      description: "Heavy Ice Pellets",
+      icon: WiNightAltSleet,
+      color: "text-cyan-500",
+    },
+  },
+  "7102": {
+    day: {
+      description: "Light Ice Pellets",
+      icon: WiDaySleet,
+      color: "text-cyan-300",
+    },
+    night: {
+      description: "Light Ice Pellets",
+      icon: WiNightAltSleet,
+      color: "text-cyan-400",
+    },
+  },
+  "8000": {
     day: {
       description: "Thunderstorm",
       icon: WiDayThunderstorm,
@@ -262,30 +238,6 @@ export const weatherCodeMaping: WeatherCodeMaping = {
       description: "Thunderstorm",
       icon: WiNightAltThunderstorm,
       color: "text-yellow-400",
-    },
-  },
-  "96": {
-    day: {
-      description: "Light Thunderstorms With Hail",
-      icon: WiDayThunderstorm,
-      color: "text-yellow-500",
-    },
-    night: {
-      description: "Light Thunderstorms With Hail",
-      icon: WiNightAltThunderstorm,
-      color: "text-yellow-400",
-    },
-  },
-  "99": {
-    day: {
-      description: "Thunderstorm With Hail",
-      icon: WiDayThunderstorm,
-      color: "text-yellow-600",
-    },
-    night: {
-      description: "Thunderstorm With Hail",
-      icon: WiNightAltThunderstorm,
-      color: "text-yellow-500",
     },
   },
 } as const;

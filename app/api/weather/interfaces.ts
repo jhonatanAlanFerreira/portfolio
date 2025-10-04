@@ -1,17 +1,23 @@
 export interface WeatherAPIResponse {
-  current: {
-    time: string;
-    temperature_2m: number;
-    relative_humidity_2m: number;
-    apparent_temperature: number;
-    weather_code: number;
-    wind_speed_10m: number;
-    is_day: number;
-  };
-  daily: {
-    time: string[];
-    weather_code: number[];
-    temperature_2m_max: number[];
-    temperature_2m_min: number[];
+  timelines: {
+    hourly: {
+      time: string;
+      values: {
+        temperature: number;
+        humidity: number;
+        temperatureApparent: number;
+        weatherCode: number;
+        windSpeed: number;
+      };
+    }[];
+    daily: {
+      time: string;
+      values: {
+        temperatureMax: number;
+        temperatureMin: number;
+        weatherCodeMax: number;
+        weatherCodeMin: number;
+      };
+    }[];
   };
 }
