@@ -6,7 +6,7 @@ import { HttpProxyAgent } from "http-proxy-agent";
 import { WeatherAPIResponse } from "./interfaces";
 import { WeatherData } from "@/components/WeatherWidget/WeatherWidgetInterfaces";
 
-const PROXY_URL = "http://127.0.0.1:8080";
+const PROXY_URL = "http://mitmproxy:8080";
 
 const httpsAgent = new HttpsProxyAgent(PROXY_URL, {});
 

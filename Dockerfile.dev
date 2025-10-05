@@ -1,0 +1,20 @@
+FROM node:20-bullseye
+
+WORKDIR /usr/src/app
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    dnsutils \
+    iproute2 \
+  && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /home/mitmproxy && chown -R node:node /home/mitmproxy
+
+USER node
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]
