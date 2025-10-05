@@ -13,7 +13,10 @@
   },
   "dependencies": {
     "@vercel/edge": "^1.2.2",
+    "axios": "^1.12.2",
     "framer-motion": "^12.23.12",
+    "http-proxy-agent": "^7.0.2",
+    "https-proxy-agent": "^7.0.6",
     "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
