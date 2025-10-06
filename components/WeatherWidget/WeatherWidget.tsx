@@ -1,13 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import dayjs from "dayjs";
 import { WeatherData } from "./WeatherWidgetInterfaces";
 import { weatherCodeMaping } from "./WeatherWidgetIcons";
+import { Loader2, AlertTriangle } from "lucide-react";
+import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 
 export default function WeatherWidget() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
   const fetched = useRef(false);
 
   useEffect(() => {
@@ -16,12 +19,12 @@ export default function WeatherWidget() {
 
     const fetchWeather = async () => {
       try {
-        const res = await fetch("/api/weather", {
-          cache: "no-store",
-        });
+        const res = await fetch("/api/weather", { cache: "no-store" });
+        if (!res.ok) throw new Error("Weather API error");
         const data: WeatherData = await res.json();
         setWeather(data);
       } catch (err) {
+        console.error(err);
         setError(true);
       } finally {
         setLoading(false);
@@ -31,117 +34,139 @@ export default function WeatherWidget() {
     fetchWeather();
   }, []);
 
-  const getDetailsFromCode = (
-    code: number,
-    period: "day" | "night" = "day",
-  ) => {
-    return weatherCodeMaping[code][period];
-  };
+  const getDetailsFromCode = (code: number, period: "day" | "night" = "day") =>
+    weatherCodeMaping[code][period];
 
-  const isDay = () => {
-    return weather?.current.period == "day";
-  };
+  const isDay = () => weather?.current.period === "day";
+
+  const formatDate = (date: string) => dayjs(date).format("ddd, MMM D");
+
+  if (loading) {
+    return (
+      <div className="flex h-60 w-full items-center justify-center rounded-lg border border-slate-600/60 bg-black/90 text-gray-300">
+        <Loader2 className="mr-2 h-6 w-6 animate-spin text-gray-400" />
+        Loading weather data...
+      </div>
+    );
+  }
+
+  if (error || !weather) {
+    return (
+      <div className="flex h-60 w-full flex-col items-center justify-center rounded-lg border border-slate-600/60 bg-black/90 text-red-400">
+        <AlertTriangle className="mb-2 h-8 w-8" />
+        Failed to load weather data.
+      </div>
+    );
+  }
+
+  const current = weather.current;
+  const {
+    icon: CurrentIcon,
+    color: currentColor,
+    description,
+  } = getDetailsFromCode(current.code, current.period);
 
   return (
-    <>
-      {weather && (
-        <div className="h-auto w-full rounded-md border border-slate-600/60 bg-black/90 bg-gradient-to-br p-5 shadow-xl transition-colors duration-300 hover:border-slate-400/50">
+    <div className="flex w-full flex-col pb-3">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="flex w-full flex-col gap-6 pb-10 sm:pb-0"
+      >
+        <motion.div
+          variants={cardVariants(true)}
+          className="h-auto w-full rounded-sm border border-slate-600/60 bg-black/80 p-4 transition-colors duration-300 hover:border-slate-400/50"
+        >
           <div className="mb-4">
-            <h2 className="text-xl font-semibold text-white">
+            <h2 className="text-lg font-semibold tracking-wide text-gray-200 uppercase">
               Weather Integration
             </h2>
-            <p className="text-sm text-gray-400">
-              The data is provided by{" "}
-              <span className="text-gray-200">Weather API</span>.
-            </p>
           </div>
 
-          <div className="p-8 opacity-60">
-            <div className="w-full max-w-4xl overflow-hidden rounded-lg border border-gray-700 bg-gradient-to-br from-gray-800 via-gray-900 to-gray-950 text-white shadow-lg">
-              <div className="border-b border-gray-700">
-                {(() => {
-                  const {
-                    icon: Icon,
-                    color,
-                    description,
-                  } = getDetailsFromCode(
-                    weather.current.code,
-                    weather.current.period,
-                  );
-                  return (
-                    <div className="flex flex-row">
-                      <div className="flex-3 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6">
-                        <div className="flex items-start justify-between">
-                          <div>
-                            <h3 className="text-2xl font-bold">
-                              {weather.city}
-                            </h3>
-                            <p className="text-gray-400">
-                              {weather.current.time}
-                            </p>
-                          </div>
-                        </div>
+          <div className="w-full max-w-4xl overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white shadow-lg">
+            <div className="flex flex-col sm:flex-row">
+              <div className="flex-2 p-6">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <h3 className="text-3xl font-bold">{weather.city}</h3>
+                    <p className="text-sm text-gray-400">
+                      {formatDate(current.time)} ·{" "}
+                      {dayjs(current.time).format("HH:mm")}
+                    </p>
+                  </div>
+                </div>
 
-                        <div className="mt-4 border-t border-gray-700 pt-4">
-                          {isDay() ? (
-                            <p className="mt-1 text-sm text-yellow-500 italic">
-                              ☀️ Day
-                            </p>
-                          ) : (
-                            <p className="mt-1 text-sm italic">🌙 Night</p>
-                          )}
-                          <h4 className="text-5xl font-extrabold text-white">
-                            {weather.current.temperature}°C
-                          </h4>
-                          <p className="mt-2">{description}</p>
-                          <p className="mt-1 text-sm text-gray-500">
-                            Wind: {weather.current.wind_speed} | Humidity:{" "}
-                            {weather.current.humidity}
-                          </p>
-                        </div>
-                      </div>
+                <div className="mt-5 border-t border-gray-800 pt-5">
+                  <p
+                    className={`mt-1 text-sm italic ${
+                      isDay() ? "text-yellow-500" : "text-blue-400"
+                    }`}
+                  >
+                    {isDay() ? "☀️ Daytime" : "🌙 Nighttime"}
+                  </p>
 
-                      <div className="flex-1">
-                        <div className="flex h-full items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
-                          <Icon
-                            className={`h-16 w-16 ${color} drop-shadow-md`}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })()}
+                  <h4 className="text-6xl font-extrabold tracking-tight">
+                    {current.temperature}°C
+                  </h4>
+                  <p className="mt-2 text-gray-200">{description}</p>
+
+                  <p className="mt-2 text-sm text-gray-400">
+                    💨 Wind: {current.wind_speed} km/h · 💧 Humidity:{" "}
+                    {current.humidity}%
+                  </p>
+                </div>
               </div>
 
-              <div className="grid grid-cols-7 divide-x divide-gray-700 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
-                {weather.daily.map((day, index) => {
-                  const {
-                    icon: Icon,
-                    color,
-                    description,
-                  } = getDetailsFromCode(day.code, "day");
-
-                  return (
-                    <div
-                      key={index}
-                      className="p-3 text-center transition hover:bg-gray-800/40"
-                    >
-                      <p className="text-xs text-gray-400">{day.time}</p>
-                      <div className="flex w-full justify-center">
-                        <Icon className={`h-16 w-16 ${color} drop-shadow-md`} />
-                      </div>
-                      <p className="text-xs text-gray-300">{description}</p>
-                      <p className="mt-1 text-sm font-semibold text-white">
-                        {day.max_temperature} / {day.min_temperature} °C
-                      </p>
-                    </div>
-                  );
-                })}
+              <div className="flex flex-1 items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 p-6">
+                <CurrentIcon
+                  className={`h-24 w-24 ${currentColor} drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]`}
+                />
               </div>
             </div>
+
+            <div className="grid grid-cols-2 divide-x divide-gray-800 border-t border-gray-800 bg-gray-950/60 sm:grid-cols-4 lg:grid-cols-7">
+              {weather.daily.map((day, index) => {
+                const {
+                  icon: Icon,
+                  color,
+                  description,
+                } = getDetailsFromCode(day.code, "day");
+                return (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    className="p-4 text-center transition-colors duration-200 hover:bg-gray-800/40"
+                  >
+                    <p className="text-xs text-gray-400">
+                      {formatDate(day.time)}
+                    </p>
+                    <div className="mt-2 flex justify-center">
+                      <Icon className={`h-10 w-10 ${color} drop-shadow-sm`} />
+                    </div>
+                    <p className="mt-1 text-xs text-gray-300">{description}</p>
+                    <p className="mt-1 text-sm font-semibold text-white">
+                      {day.max_temperature}° / {day.min_temperature}°
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      )}
-    </>
+          <p className="mt-2 text-right text-sm text-gray-400">
+            The data is provided by{" "}
+            <a
+              href="https://open-meteo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer text-gray-200"
+            >
+              Open-Meteo
+            </a>
+            .
+          </p>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 }
