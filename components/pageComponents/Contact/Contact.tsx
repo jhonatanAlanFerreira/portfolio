@@ -42,7 +42,7 @@ export default function Contact() {
       <Toaster position="top-right" />
 
       <form className="h-full" onSubmit={handleSubmit(sendEmail)}>
-        <div className="flex h-full w-full flex-col gap-3 rounded-lg border border-slate-600/60 bg-black/80 p-4 text-center transition-colors duration-300 hover:border-slate-400/50">
+        <div className="flex h-full w-full flex-col gap-3 rounded-sm border border-slate-600/60 bg-black/90 p-4 text-center transition-colors duration-300 hover:border-slate-400/50">
           <p className="text-sm font-bold text-gray-400 lg:text-lg">
             Whether you’d like to share feedback or simply say hi, feel free to
             reach out.

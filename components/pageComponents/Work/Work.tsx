@@ -17,7 +17,7 @@ export default function Work() {
           <motion.div
             key={index}
             variants={cardVariants(index % 2 === 0)}
-            className="h-auto w-full rounded-sm border border-slate-600/60 bg-black/80 transition-colors duration-300 hover:border-slate-400/50"
+            className="h-auto w-full rounded-sm border border-slate-600/60 bg-black/90 transition-colors duration-300 hover:border-slate-400/50"
           >
             <div className="flex h-full gap-5 p-4">
               <div className="flex flex-3 flex-col space-y-5 text-gray-400">
