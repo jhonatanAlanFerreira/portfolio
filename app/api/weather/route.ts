@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { ipAddress } from "@vercel/edge";
 import { WeatherAPIResponse } from "./interfaces";
 import { WeatherData } from "@/components/WeatherWidget/WeatherWidgetInterfaces";
+import { getIpApiUrl, getIpifyUrl, getOpenMeteoWeatherUrl } from "@/utils";
 
 export async function GET(req: Request) {
   try {
@@ -11,20 +12,16 @@ export async function GET(req: Request) {
       ip = await getFallbackIp();
     }
 
-    const geoRes = await fetch(
-      `http://ip-api.com/json/${ip}?fields=status,message,city,lat,lon`,
-    );
+    if (!ip) {
+      throw new Error("IP not found");
+    }
+
+    const geoRes = await fetch(getIpApiUrl(ip));
     const geo = await geoRes.json();
 
     const { lat, lon, city } = geo;
-    const URL =
-      "https://api.open-meteo.com/v1/forecast?latitude=" +
-      lat +
-      "&longitude=" +
-      lon +
-      "&daily=weather_code,temperature_2m_max,temperature_2m_min&current=is_day,temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=auto";
 
-    const weatherRes = await fetch(URL);
+    const weatherRes = await fetch(getOpenMeteoWeatherUrl(lat, lon));
     const weatherAPIResponse: WeatherAPIResponse = await weatherRes.json();
     return NextResponse.json(formatWeatherData(weatherAPIResponse, city));
   } catch (err: any) {
@@ -34,7 +31,7 @@ export async function GET(req: Request) {
 }
 
 async function getFallbackIp() {
-  const ipRes = await fetch("https://api64.ipify.org?format=json");
+  const ipRes = await fetch(getIpifyUrl());
   const ipData = await ipRes.json();
   return ipData.ip;
 }

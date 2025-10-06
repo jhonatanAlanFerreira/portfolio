@@ -45,3 +45,42 @@ export function getGoogleCaptchaLink(token: string): string {
 
   return `${RECAPTCHA_VERIFY_URL}?secret=${RECAPTCHA_SECRET_KEY}&response=${token}`;
 }
+
+export function getOpenMeteoWeatherUrl(lat: number, lon: number): string {
+  const { OPEN_METEO_URL } = process.env;
+
+  if (!OPEN_METEO_URL) {
+    throw new Error("Open-Meteo env variable missing");
+  }
+
+  const params = new URLSearchParams({
+    latitude: lat.toString(),
+    longitude: lon.toString(),
+    daily: "weather_code,temperature_2m_max,temperature_2m_min",
+    current:
+      "is_day,temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m",
+    timezone: "auto",
+  });
+
+  return `${OPEN_METEO_URL}?${params.toString()}`;
+}
+
+export function getIpifyUrl(): string {
+  const { IPIFY } = process.env;
+
+  if (!IPIFY) {
+    throw new Error("IPIFY env variable missing");
+  }
+
+  return IPIFY;
+}
+
+export function getIpApiUrl(ip: string): string {
+  const { IP_API_URL, IP_API_FIELDS } = process.env;
+
+  if (!IP_API_URL || !IP_API_FIELDS) {
+    throw new Error("IP API environment variables missing");
+  }
+
+  return `${IP_API_URL}/${ip}?fields=${IP_API_FIELDS}`;
+}
