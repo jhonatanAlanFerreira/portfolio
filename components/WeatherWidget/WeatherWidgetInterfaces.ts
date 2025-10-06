@@ -19,7 +19,7 @@ export interface WeatherData {
   }[];
 }
 
-export interface WeatherCodeMaping {
+export interface WeatherCodeMapping {
   [code: number]: {
     day: { description: string; icon: IconType; color: string };
     night: { description: string; icon: IconType; color: string };

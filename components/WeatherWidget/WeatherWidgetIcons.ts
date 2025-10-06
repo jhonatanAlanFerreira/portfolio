@@ -17,9 +17,9 @@ import {
   WiNightAltCloudy,
   WiSnowflakeCold,
 } from "react-icons/wi";
-import { WeatherCodeMaping } from "./WeatherWidgetInterfaces";
+import { WeatherCodeMapping } from "./WeatherWidgetInterfaces";
 
-export const weatherCodeMaping: WeatherCodeMaping = {
+export const weatherCodeMapping: WeatherCodeMapping = {
   "0": {
     day: { description: "Sunny", icon: WiDaySunny, color: "text-yellow-400" },
     night: { description: "Clear", icon: WiNightClear, color: "text-blue-300" },

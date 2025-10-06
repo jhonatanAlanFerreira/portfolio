@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import dayjs from "dayjs";
 import { WeatherData } from "./WeatherWidgetInterfaces";
-import { weatherCodeMaping } from "./WeatherWidgetIcons";
+import { weatherCodeMapping } from "./WeatherWidgetIcons";
 import { Loader2, AlertTriangle } from "lucide-react";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 
@@ -35,7 +35,7 @@ export default function WeatherWidget() {
   }, []);
 
   const getDetailsFromCode = (code: number, period: "day" | "night" = "day") =>
-    weatherCodeMaping[code][period];
+    weatherCodeMapping[code][period];
 
   const isDay = () => weather?.current.period === "day";
 
