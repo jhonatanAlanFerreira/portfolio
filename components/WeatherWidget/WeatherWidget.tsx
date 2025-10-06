@@ -38,6 +38,10 @@ export default function WeatherWidget() {
     return weatherCodeMaping[code][period];
   };
 
+  const isDay = () => {
+    return weather?.current.period == "day";
+  };
+
   return (
     <>
       {weather && (
@@ -79,6 +83,13 @@ export default function WeatherWidget() {
                         </div>
 
                         <div className="mt-4 border-t border-gray-700 pt-4">
+                          {isDay() ? (
+                            <p className="mt-1 text-sm text-yellow-500 italic">
+                              ☀️ Day
+                            </p>
+                          ) : (
+                            <p className="mt-1 text-sm italic">🌙 Night</p>
+                          )}
                           <h4 className="text-5xl font-extrabold text-white">
                             {weather.current.temperature}°C
                           </h4>
