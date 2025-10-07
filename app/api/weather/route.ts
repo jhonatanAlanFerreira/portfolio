@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 import { ipAddress } from "@vercel/edge";
 import { WeatherAPIResponse } from "./interfaces";
-import { WeatherData } from "@/components/WeatherWidget/WeatherWidgetInterfaces";
 import { getIpApiUrl, getIpifyUrl, getOpenMeteoWeatherUrl } from "@/utils";
+import { WeatherData } from "@/components/pageComponents/Widgets/WeatherWidget/WeatherWidgetInterfaces";
 
 export async function GET(req: Request) {
   try {
