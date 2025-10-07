@@ -36,8 +36,6 @@ export default function WeatherWidget() {
   const getDetailsFromCode = (code: number, period: "day" | "night" = "day") =>
     weatherCodeMapping[code][period];
 
-  const isDay = () => weather?.current.period === "day";
-
   const formatDate = (date: string) => dayjs(date).format("ddd, MMM D");
 
   const getComfortLevel = (apparent: number): string => {
@@ -107,13 +105,6 @@ export default function WeatherWidget() {
             </div>
 
             <div className="my-5 border-t border-gray-800" />
-
-            <p
-              className={`text-sm font-medium tracking-wide ${
-                isDay() ? "text-yellow-400/90" : "text-blue-400/90"
-              }`}
-            ></p>
-
             <div className="mt-3 flex items-baseline gap-3">
               <h4 className="text-6xl font-extrabold tracking-tight drop-shadow-md">
                 {current.temperature}°C
