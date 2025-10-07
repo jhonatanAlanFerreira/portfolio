@@ -40,6 +40,26 @@ export default function WeatherWidget() {
 
   const formatDate = (date: string) => dayjs(date).format("ddd, MMM D");
 
+  const getComfortLevel = (apparent: number): string => {
+    if (apparent >= 38) return "🔥 Scorching hot";
+    if (apparent >= 32) return "🥵 Very hot";
+    if (apparent >= 26) return "🌤️ Warm";
+    if (apparent >= 20) return "😊 Comfortable";
+    if (apparent >= 10) return "🥶 Cool";
+    return "❄️ Cold";
+  };
+
+  const getComfortColor = (apparent: number): string => {
+    if (typeof apparent !== "number" || isNaN(apparent)) return "text-gray-400";
+
+    if (apparent >= 38) return "text-red-400";
+    if (apparent >= 32) return "text-orange-300";
+    if (apparent >= 26) return "text-yellow-300";
+    if (apparent >= 20) return "text-green-300";
+    if (apparent >= 10) return "text-blue-300";
+    return "text-cyan-300";
+  };
+
   if (loading) {
     return (
       <div className="flex h-60 w-full items-center justify-center text-gray-300">
@@ -76,40 +96,55 @@ export default function WeatherWidget() {
       <div className="w-full max-w-4xl overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white shadow-lg">
         <div className="flex flex-col sm:flex-row">
           <div className="flex-2 p-6">
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="text-3xl font-bold">{weather.city}</h3>
-                <p className="text-sm text-gray-400">
-                  {formatDate(current.time)} ·{" "}
-                  {dayjs(current.time).format("HH:mm")}
-                </p>
-              </div>
+            <div>
+              <h3 className="text-3xl font-bold tracking-tight text-white">
+                {weather.city}
+              </h3>
+              <p className="mt-1 text-sm text-gray-400">
+                {formatDate(current.time)} ·{" "}
+                {dayjs(current.time).format("HH:mm")}
+              </p>
             </div>
 
-            <div className="mt-5 border-t border-gray-800 pt-5">
-              <p
-                className={`mt-1 text-sm italic ${
-                  isDay() ? "text-yellow-500" : "text-blue-400"
-                }`}
-              >
-                {isDay() ? "☀️ Daytime" : "🌙 Nighttime"}
-              </p>
+            <div className="my-5 border-t border-gray-800" />
 
-              <h4 className="text-6xl font-extrabold tracking-tight">
+            <p
+              className={`text-sm font-medium tracking-wide ${
+                isDay() ? "text-yellow-400/90" : "text-blue-400/90"
+              }`}
+            ></p>
+
+            <div className="mt-3 flex items-baseline gap-3">
+              <h4 className="text-6xl font-extrabold tracking-tight drop-shadow-md">
                 {current.temperature}°C
               </h4>
-              <p className="mt-2 text-gray-200">{description}</p>
+            </div>
 
-              <p className="mt-2 text-sm text-gray-400">
-                💨 Wind: {current.wind_speed} km/h · 💧 Humidity:{" "}
-                {current.humidity}%
+            <p
+              className={`mt-3 text-lg font-semibold tracking-wide drop-shadow-sm ${getComfortColor(
+                current.apparent_temperature,
+              )}`}
+            >
+              Feels like {current.apparent_temperature}°C{" "}
+              <span className="font-medium text-gray-300">
+                ({getComfortLevel(current.apparent_temperature)})
+              </span>
+            </p>
+
+            <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">
+              <p title={`Wind: ${current.wind_speed} Km/h`}>
+                💨 {current.wind_speed} km/h
+              </p>
+              <p title={`Humidity: ${current.humidity}%`}>
+                💧 {current.humidity}%
               </p>
             </div>
           </div>
 
-          <div className="flex flex-1 items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900 p-6">
+          <div className="flex flex-1 flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-950 to-black/5 p-6">
             <CurrentIcon
-              className={`h-24 w-24 ${currentColor} drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]`}
+              title={description}
+              className={`h-25 w-25 hover:scale-110 ${currentColor} drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]`}
             />
           </div>
         </div>
@@ -140,6 +175,7 @@ export default function WeatherWidget() {
           })}
         </div>
       </div>
+
       <p className="mt-2 text-right text-sm text-gray-400">
         The data is provided by{" "}
         <a
