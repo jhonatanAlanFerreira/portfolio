@@ -123,10 +123,16 @@ export default function WeatherWidget() {
             </p>
 
             <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">
-              <p title={`Wind: ${current.wind_speed} Km/h`}>
+              <p
+                className="hover:scale-110"
+                title={`Wind: ${current.wind_speed} Km/h`}
+              >
                 💨 {current.wind_speed} km/h
               </p>
-              <p title={`Humidity: ${current.humidity}%`}>
+              <p
+                className="hover:scale-110"
+                title={`Humidity: ${current.humidity}%`}
+              >
                 💧 {current.humidity}%
               </p>
             </div>
