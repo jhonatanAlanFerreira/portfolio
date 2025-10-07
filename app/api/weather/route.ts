@@ -19,11 +19,13 @@ export async function GET(req: Request) {
     const geoRes = await fetch(getIpApiUrl(ip));
     const geo = await geoRes.json();
 
-    const { lat, lon, city } = geo;
+    const { lat, lon, city, region } = geo;
 
     const weatherRes = await fetch(getOpenMeteoWeatherUrl(lat, lon));
     const weatherAPIResponse: WeatherAPIResponse = await weatherRes.json();
-    return NextResponse.json(formatWeatherData(weatherAPIResponse, city));
+    return NextResponse.json(
+      formatWeatherData(weatherAPIResponse, { city, region }),
+    );
   } catch (err: any) {
     console.error(err);
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -38,9 +40,10 @@ async function getFallbackIp() {
 
 function formatWeatherData(
   weatherAPIResponse: WeatherAPIResponse,
-  city: string,
+  location: { city: string; region: string },
 ): WeatherData {
   const { current, daily } = weatherAPIResponse;
+  const { city, region } = location;
 
   const dailyData: WeatherData["daily"] = daily.weather_code.map(
     (code, index) => ({
@@ -53,6 +56,7 @@ function formatWeatherData(
 
   return {
     city,
+    region,
     current: {
       time: current.time,
       apparent_temperature: current.apparent_temperature,

@@ -2,6 +2,7 @@ import { IconType } from "react-icons";
 
 export interface WeatherData {
   city: string;
+  region: string;
   current: {
     time: string;
     temperature: number;

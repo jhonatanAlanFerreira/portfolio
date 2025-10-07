@@ -96,7 +96,7 @@ export default function WeatherWidget() {
           <div className="flex-2 p-6">
             <div>
               <h3 className="text-3xl font-bold tracking-tight text-white">
-                {weather.city}
+                {weather.city}, {weather.region}
               </h3>
               <p className="mt-1 text-sm text-gray-400">
                 {formatDate(current.time)} ·{" "}
