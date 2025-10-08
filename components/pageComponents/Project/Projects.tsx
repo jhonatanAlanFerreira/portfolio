@@ -35,8 +35,8 @@ export default function Projects() {
             <div className="flex h-full gap-5 p-4">
               {pd.img && (
                 <div className="flex-2">
-                  <div className="group max-h-full w-full content-center rounded-lg bg-slate-800/10 p-4 opacity-50 hover:opacity-100">
-                    <div className="flex justify-center">
+                  <div className="group flex h-full w-full flex-col content-center justify-between rounded-lg bg-slate-800/10 p-4 opacity-50 hover:opacity-100">
+                    <div className="flex flex-1 items-center justify-center">
                       <img
                         className="max-h-50 group-hover:hidden"
                         src={pd.img}
@@ -45,13 +45,15 @@ export default function Projects() {
                       <div className="hidden w-full group-hover:flex">
                         <ImageCarousel
                           imgClasses="max-h-50 place-self-center"
-                          gifs={pd.gifs}
+                          gifs={pd.gifs.compressed}
                           gifAlt={pd.gifAlt}
                         />
                       </div>
                     </div>
                     <div
-                      onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
+                      onClick={() =>
+                        openProjectModal(pd.gifs.original, pd.gifAlt)
+                      }
                       className="mt-3 flex w-fit cursor-pointer justify-start gap-1"
                     >
                       <BiFullscreen size={25} className="text-gray-400/50" />
