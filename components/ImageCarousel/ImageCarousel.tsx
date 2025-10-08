@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import ImageCarouselProps from "./ImageCarouselProps";
@@ -9,12 +9,37 @@ export default function ImageCarousel({
   imgClasses,
 }: ImageCarouselProps) {
   const [gifIndex, setGifIndex] = useState<number>(0);
+  const [loaded, setLoaded] = useState<boolean>(false);
+
+  useEffect(() => preloadImages, [gifs]);
+
+  const preloadImages = () => {
+    const promises = gifs.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+        }),
+    );
+
+    Promise.all(promises).then(() => setLoaded(true));
+  };
 
   const changeGif = () => {
     const lastValidIndex = gifs.length - 1;
     const nextIndex = gifIndex === lastValidIndex ? 0 : gifIndex + 1;
     setGifIndex(nextIndex);
   };
+
+  if (!loaded) {
+    return (
+      <div className="flex h-full w-full items-center justify-center text-gray-400">
+        Loading...
+      </div>
+    );
+  }
 
   return (
     <div className="relative grid w-full">
