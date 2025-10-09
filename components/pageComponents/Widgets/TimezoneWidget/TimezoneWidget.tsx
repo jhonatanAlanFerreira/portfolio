@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Rnd } from "react-rnd";
+import { DraggableData, Rnd } from "react-rnd";
 
 export default function TimezoneWidget() {
   const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -25,8 +25,8 @@ export default function TimezoneWidget() {
     },
   ];
 
-  const handleDragStop = (e: any, d: any) => {
-    let snappedX = Math.round(d.x / boxWidth) * boxWidth;
+  const handleDragStop = (_e: any, data: DraggableData) => {
+    let snappedX = Math.round(data.x / boxWidth) * boxWidth;
 
     if (snappedX + range.width > maxWidth) {
       snappedX = maxWidth - range.width;
@@ -38,11 +38,11 @@ export default function TimezoneWidget() {
   };
 
   const handleResizeStop = (
-    e: any,
-    direction: any,
-    ref: any,
-    delta: any,
-    position: any,
+    _e: MouseEvent | TouchEvent,
+    _direction: string,
+    ref: HTMLElement,
+    _delta: { width: number; height: number },
+    position: { x: number; y: number },
   ) => {
     let snappedX = Math.round(position.x / boxWidth) * boxWidth;
     let snappedWidth =
