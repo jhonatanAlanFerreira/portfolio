@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Rnd } from "react-rnd";
 
 export default function TimezoneWidget() {
-  const boxWidth = 80;
   const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const boxWidth = 80;
+  const maxWidth = boxWidth * hours.length;
 
   const [range, setRange] = useState({
     x: boxWidth * 2,
@@ -25,7 +26,14 @@ export default function TimezoneWidget() {
   ];
 
   const handleDragStop = (e: any, d: any) => {
-    const snappedX = Math.round(d.x / boxWidth) * boxWidth;
+    let snappedX = Math.round(d.x / boxWidth) * boxWidth;
+
+    if (snappedX + range.width > maxWidth) {
+      snappedX = maxWidth - range.width;
+    }
+
+    if (snappedX < 0) snappedX = 0;
+
     setRange((prev) => ({ ...prev, x: snappedX }));
   };
 
@@ -36,10 +44,18 @@ export default function TimezoneWidget() {
     delta: any,
     position: any,
   ) => {
-    const snappedWidth =
+    let snappedX = Math.round(position.x / boxWidth) * boxWidth;
+    let snappedWidth =
       Math.round(parseInt(ref.style.width) / boxWidth) * boxWidth;
-    const snappedX = Math.round(position.x / boxWidth) * boxWidth;
-    setRange({ x: snappedX, width: snappedWidth });
+
+    if (snappedX + snappedWidth > maxWidth) {
+      snappedWidth = maxWidth - snappedX;
+    }
+
+    setRange({
+      x: snappedX,
+      width: snappedWidth,
+    });
   };
 
   return (
@@ -76,8 +92,8 @@ export default function TimezoneWidget() {
         <Rnd
           bounds="parent"
           size={{ width: range.width, height: 160 }}
-          maxWidth={boxWidth * 12}
-          minWidth={boxWidth / 2}
+          maxWidth={maxWidth}
+          minWidth={boxWidth}
           position={{ x: range.x, y: 0 }}
           onDragStop={handleDragStop}
           onResizeStop={handleResizeStop}
