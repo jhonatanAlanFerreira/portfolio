@@ -1,3 +1,5 @@
+import { InputSelect } from "@/components/InputSelect/InputSelect";
+
 export default function TimezoneWidget() {
   return (
     <>
@@ -7,8 +9,12 @@ export default function TimezoneWidget() {
         </h2>
       </div>
 
-      <div className="text-white">
-        <p>WIP</p>
+      <div>
+        <InputSelect
+          placeholder="Timezone"
+          options={[{ value: 1, label: "Timezone" }]}
+          isClearable
+        ></InputSelect>
       </div>
     </>
   );
