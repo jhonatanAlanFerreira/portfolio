@@ -2,11 +2,11 @@
 import { BiFullscreen } from "react-icons/bi";
 import React, { useState } from "react";
 import { GrGithub } from "react-icons/gr";
-import { BsArrowRight } from "react-icons/bs";
 import ImageCarousel from "../../ImageCarousel/ImageCarousel";
 import { motion, AnimatePresence } from "framer-motion";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 import { ProjectsData } from "./ProjectsData";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{
@@ -108,7 +108,7 @@ export default function Projects() {
                     <span className="absolute inset-0 flex translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                       <GrGithub className="h-2 w-2 text-white lg:h-5 lg:w-5" />
                       Code
-                      <BsArrowRight className="h-2 w-2 text-white lg:h-5 lg:w-5" />
+                      <FiExternalLink className="h-2 w-2 text-white lg:h-5 lg:w-5" />
                     </span>
                   </a>
                 </div>
