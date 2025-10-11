@@ -1,11 +1,8 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { PlusIcon } from "lucide-react";
 import { useState } from "react";
 import { TimezoneOptions } from "./TimezoneWidgetInterfaces";
 import { InputSelect } from "@/components/InputSelect/InputSelect";
 
 export default function TimezoneWidget() {
-  const [timezoneModal, setTimezoneModal] = useState(false);
   const [timezones, setTimezones] = useState<TimezoneOptions[]>([]);
 
   const fetchTimezones = async (search: string) => {
