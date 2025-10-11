@@ -50,40 +50,45 @@ export async function GET(req: NextRequest) {
   const query = searchParams.get("query") || "";
   const limit = parseInt(searchParams.get("limit") || "10");
 
-  if (!query) {
-    return NextResponse.json([]);
-  }
+  if (!query) return NextResponse.json([]);
 
   const normalizedQuery = normalize(query);
   const results = fuse.search(normalizedQuery, { limit });
 
-  const uniqueOptions = new Map<string, TimezoneOption>();
+  const seenLabels = new Set<string>();
+  const uniqueOptions: TimezoneOption[] = [];
 
   for (const { item } of results) {
-    const { location, timezone, timezoneShort } = item;
+    const { location, timezoneShort, timezone } = item;
     const currentTime = DateTime.now().setZone(location).toFormat("HH:mm");
 
-    if (!uniqueOptions.has(location)) {
-      uniqueOptions.set(location, {
-        label: `[${currentTime}] ${location} (${timezoneShort})`,
+    const gmtLabel = `[${currentTime}] ${timezoneShort}`;
+    if (!seenLabels.has(gmtLabel)) {
+      uniqueOptions.push({
+        label: gmtLabel,
         value: location,
       });
+      seenLabels.add(gmtLabel);
     }
 
-    if (!uniqueOptions.has(timezoneShort)) {
-      uniqueOptions.set(timezoneShort, {
-        label: `[${currentTime}] ${timezoneShort}`,
-        value: timezoneShort,
+    const fullLabel = `[${currentTime}] ${timezone}`;
+    if (!seenLabels.has(fullLabel)) {
+      uniqueOptions.push({
+        label: fullLabel,
+        value: location,
       });
+      seenLabels.add(fullLabel);
     }
 
-    if (!uniqueOptions.has(timezone)) {
-      uniqueOptions.set(timezone, {
-        label: `[${currentTime}] ${timezone}`,
-        value: timezone,
+    const locationLabel = `[${currentTime}] ${location} (${timezoneShort})`;
+    if (!seenLabels.has(locationLabel)) {
+      uniqueOptions.push({
+        label: locationLabel,
+        value: location,
       });
+      seenLabels.add(locationLabel);
     }
   }
 
-  return NextResponse.json(Array.from(uniqueOptions.values()));
+  return NextResponse.json(uniqueOptions);
 }
