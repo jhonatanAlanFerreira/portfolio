@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Fuse from "fuse.js";
 import { DateTime } from "luxon";
 import timezones from "@/data/timezones.json";
-import ct from "countries-and-timezones";
+import { getAllCountries } from "countries-and-timezones";
 import { TimezoneOption } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
 const normalize = (str: string) =>
@@ -14,7 +14,7 @@ const normalize = (str: string) =>
 const enrichedTimezones = timezones.map((tz) => {
   const aliases: string[] = [];
 
-  for (const country of Object.values(ct.getAllCountries())) {
+  for (const country of Object.values(getAllCountries())) {
     if ((country.timezones as string[]).includes(tz.location)) {
       aliases.push(country.name.toLowerCase());
     }
@@ -66,15 +66,17 @@ export async function GET(req: NextRequest) {
     if (!seenLabels.has(gmtLabel)) {
       uniqueOptions.push({
         label: gmtLabel,
+        name: timezoneShort,
         value: location,
       });
       seenLabels.add(gmtLabel);
     }
 
-    const fullLabel = `[${currentTime}] ${timezone}`;
+    const fullLabel = `[${currentTime}] ${timezone} (${timezoneShort})`;
     if (!seenLabels.has(fullLabel)) {
       uniqueOptions.push({
         label: fullLabel,
+        name: `${timezone} (${timezoneShort})`,
         value: location,
       });
       seenLabels.add(fullLabel);
@@ -84,6 +86,7 @@ export async function GET(req: NextRequest) {
     if (!seenLabels.has(locationLabel)) {
       uniqueOptions.push({
         label: locationLabel,
+        name: `${location} (${timezoneShort})`,
         value: location,
       });
       seenLabels.add(locationLabel);
