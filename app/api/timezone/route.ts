@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Fuse from "fuse.js";
 import { DateTime } from "luxon";
 import timezones from "@/data/timezones.json";
+import ct from "countries-and-timezones";
 import { TimezoneOption } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
 const normalize = (str: string) =>
@@ -10,15 +11,37 @@ const normalize = (str: string) =>
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 
-const normalizedTimezones = timezones.map((tz) => ({
-  ...tz,
-  locationNormalized: normalize(tz.location),
-  timezoneNormalized: normalize(tz.timezone),
-  timezoneShortNormalized: normalize(tz.timezoneShort),
-}));
+const enrichedTimezones = timezones.map((tz) => {
+  const aliases: string[] = [];
 
-const fuse = new Fuse(normalizedTimezones, {
-  keys: ["locationNormalized", "timezoneNormalized", "timezoneShortNormalized"],
+  for (const country of Object.values(ct.getAllCountries())) {
+    if ((country.timezones as string[]).includes(tz.location)) {
+      aliases.push(country.name.toLowerCase());
+    }
+  }
+
+  aliases.push(
+    ...tz.location
+      .split("/")
+      .map((part) => part.toLowerCase().replace(/_/g, " ")),
+  );
+
+  return {
+    ...tz,
+    locationNormalized: normalize(tz.location),
+    timezoneNormalized: normalize(tz.timezone),
+    timezoneShortNormalized: normalize(tz.timezoneShort),
+    aliases,
+  };
+});
+
+const fuse = new Fuse(enrichedTimezones, {
+  keys: [
+    "locationNormalized",
+    "timezoneNormalized",
+    "timezoneShortNormalized",
+    "aliases",
+  ],
   threshold: 0.3,
 });
 
@@ -34,33 +57,33 @@ export async function GET(req: NextRequest) {
   const normalizedQuery = normalize(query);
   const results = fuse.search(normalizedQuery, { limit });
 
-  const uniqueLocations = new Map<string, TimezoneOption>();
-  const uniqueTimezones = new Map<string, TimezoneOption>();
+  const uniqueOptions = new Map<string, TimezoneOption>();
 
   for (const { item } of results) {
     const { location, timezone, timezoneShort } = item;
+    const currentTime = DateTime.now().setZone(location).toFormat("HH:mm");
 
-    const currentTime = DateTime.now().setZone(item.location).toFormat("HH:mm");
-
-    if (!uniqueLocations.has(location)) {
-      uniqueLocations.set(location, {
+    if (!uniqueOptions.has(location)) {
+      uniqueOptions.set(location, {
         label: `[${currentTime}] ${location} (${timezoneShort})`,
         value: location,
       });
     }
 
-    if (!uniqueTimezones.has(timezoneShort)) {
-      uniqueTimezones.set(timezoneShort, {
+    if (!uniqueOptions.has(timezoneShort)) {
+      uniqueOptions.set(timezoneShort, {
         label: `[${currentTime}] ${timezoneShort}`,
         value: timezoneShort,
       });
     }
+
+    if (!uniqueOptions.has(timezone)) {
+      uniqueOptions.set(timezone, {
+        label: `[${currentTime}] ${timezone}`,
+        value: timezone,
+      });
+    }
   }
 
-  const combined = [
-    ...Array.from(uniqueLocations.values()),
-    ...Array.from(uniqueTimezones.values()),
-  ];
-
-  return NextResponse.json(combined);
+  return NextResponse.json(Array.from(uniqueOptions.values()));
 }
