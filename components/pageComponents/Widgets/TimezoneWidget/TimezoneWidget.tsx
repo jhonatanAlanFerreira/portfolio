@@ -63,8 +63,8 @@ export default function TimezoneWidget() {
           <InputSelect
             placeholder="Add New Timezone"
             noOptionsCustomMessage={{
-              empty: "No timezones found",
-              beforeTyping: "Start typing to list timezones",
+              empty: "No matching timezones found",
+              beforeTyping: "Type to search for a timezone",
             }}
             options={timezones}
             onInputChange={onTimezoneInputChange}
