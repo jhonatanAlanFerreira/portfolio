@@ -91,85 +91,89 @@ export default function WeatherWidget() {
         </h2>
       </div>
 
-      <div className="w-full max-w-4xl overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white shadow-lg">
-        <div className="flex flex-col sm:flex-row">
-          <div className="flex-2 p-6">
-            <div>
-              <h3 className="text-3xl font-bold tracking-tight text-white">
-                {weather.city}, {weather.region}
-              </h3>
-              <p className="mt-1 text-sm text-gray-400">
-                {formatDate(current.time)} ·{" "}
-                {dayjs(current.time).format("HH:mm")}
-              </p>
-            </div>
-
-            <div className="my-5 border-t border-gray-800" />
-            <div className="mt-3 flex items-baseline gap-3">
-              <h4 className="text-6xl font-extrabold tracking-tight drop-shadow-md">
-                {current.temperature}°C
-              </h4>
-            </div>
-
-            <p
-              className={`mt-3 text-lg font-semibold tracking-wide drop-shadow-sm ${getComfortColor(
-                current.apparent_temperature,
-              )}`}
-            >
-              Feels like {current.apparent_temperature}°C{" "}
-              <span className="font-medium text-gray-300">
-                ({getComfortLevel(current.apparent_temperature)})
-              </span>
-            </p>
-
-            <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">
-              <p
-                className="hover:scale-110"
-                title={`Wind: ${current.wind_speed} Km/h`}
-              >
-                💨 {current.wind_speed} km/h
-              </p>
-              <p
-                className="hover:scale-110"
-                title={`Humidity: ${current.humidity}%`}
-              >
-                💧 {current.humidity}%
-              </p>
-            </div>
-          </div>
-
-          <div className="flex flex-1 flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-950 to-black/5 p-6">
-            <CurrentIcon
-              title={description}
-              className={`h-25 w-25 hover:scale-110 ${currentColor} drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]`}
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 divide-x divide-gray-800 border-t border-gray-800 bg-gray-950/60 sm:grid-cols-4 lg:grid-cols-7">
-          {weather.daily.map((day, index) => {
-            const {
-              icon: Icon,
-              color,
-              description,
-            } = getDetailsFromCode(day.code, "day");
-            return (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="p-4 text-center transition-colors duration-200 hover:bg-gray-800/40"
-              >
-                <p className="text-xs text-gray-400">{formatDate(day.time)}</p>
-                <div className="mt-2 flex justify-center">
-                  <Icon className={`h-10 w-10 ${color} drop-shadow-sm`} />
-                </div>
-                <p className="mt-1 text-xs text-gray-300">{description}</p>
-                <p className="mt-1 text-sm font-semibold text-white">
-                  {day.max_temperature}° / {day.min_temperature}°
+      <div className="p-5">
+        <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black text-white shadow-lg">
+          <div className="flex flex-col sm:flex-row">
+            <div className="flex-2 p-6">
+              <div>
+                <h3 className="text-3xl font-bold tracking-tight text-white">
+                  {weather.city}, {weather.region}
+                </h3>
+                <p className="mt-1 text-sm text-gray-400">
+                  {formatDate(current.time)} ·{" "}
+                  {dayjs(current.time).format("HH:mm")}
                 </p>
-              </motion.div>
-            );
-          })}
+              </div>
+
+              <div className="my-5 border-t border-gray-800" />
+              <div className="mt-3 flex items-baseline gap-3">
+                <h4 className="text-6xl font-extrabold tracking-tight drop-shadow-md">
+                  {current.temperature}°C
+                </h4>
+              </div>
+
+              <p
+                className={`mt-3 text-lg font-semibold tracking-wide drop-shadow-sm ${getComfortColor(
+                  current.apparent_temperature,
+                )}`}
+              >
+                Feels like {current.apparent_temperature}°C{" "}
+                <span className="font-medium text-gray-300">
+                  ({getComfortLevel(current.apparent_temperature)})
+                </span>
+              </p>
+
+              <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-gray-400">
+                <p
+                  className="hover:scale-110"
+                  title={`Wind: ${current.wind_speed} Km/h`}
+                >
+                  💨 {current.wind_speed} km/h
+                </p>
+                <p
+                  className="hover:scale-110"
+                  title={`Humidity: ${current.humidity}%`}
+                >
+                  💧 {current.humidity}%
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-1 flex-col items-center justify-center bg-gradient-to-br from-gray-900 via-gray-950 to-black/5 p-6">
+              <CurrentIcon
+                title={description}
+                className={`h-25 w-25 hover:scale-110 ${currentColor} drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]`}
+              />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 divide-x divide-gray-800 border-t border-gray-800 bg-gray-950/60 sm:grid-cols-4 lg:grid-cols-7">
+            {weather.daily.map((day, index) => {
+              const {
+                icon: Icon,
+                color,
+                description,
+              } = getDetailsFromCode(day.code, "day");
+              return (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="p-4 text-center transition-colors duration-200 hover:bg-gray-800/40"
+                >
+                  <p className="text-xs text-gray-400">
+                    {formatDate(day.time)}
+                  </p>
+                  <div className="mt-2 flex justify-center">
+                    <Icon className={`h-10 w-10 ${color} drop-shadow-sm`} />
+                  </div>
+                  <p className="mt-1 text-xs text-gray-300">{description}</p>
+                  <p className="mt-1 text-sm font-semibold text-white">
+                    {day.max_temperature}° / {day.min_temperature}°
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
 

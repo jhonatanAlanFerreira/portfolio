@@ -1,0 +1,2092 @@
+[
+  {
+    "location": "Africa/Abidjan",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Accra",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Addis_Ababa",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Algiers",
+    "timezone": "Central European Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Asmera",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Bamako",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Bangui",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Banjul",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Bissau",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Blantyre",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Brazzaville",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Bujumbura",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Cairo",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Casablanca",
+    "timezone": "GMT+01:00",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Ceuta",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Conakry",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Dakar",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Dar_es_Salaam",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Djibouti",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Douala",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/El_Aaiun",
+    "timezone": "GMT+01:00",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Freetown",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Gaborone",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Harare",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Johannesburg",
+    "timezone": "South Africa Standard Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Juba",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Kampala",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Khartoum",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Kigali",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Kinshasa",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Lagos",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Libreville",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Lome",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Luanda",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Lubumbashi",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Lusaka",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Malabo",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Maputo",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Maseru",
+    "timezone": "South Africa Standard Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Mbabane",
+    "timezone": "South Africa Standard Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Mogadishu",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Monrovia",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Nairobi",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Africa/Ndjamena",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Niamey",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Nouakchott",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Ouagadougou",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Porto-Novo",
+    "timezone": "West Africa Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Sao_Tome",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Africa/Tripoli",
+    "timezone": "Eastern European Standard Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Africa/Tunis",
+    "timezone": "Central European Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Africa/Windhoek",
+    "timezone": "Central Africa Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "America/Adak",
+    "timezone": "Hawaii-Aleutian Daylight Time",
+    "timezoneShort": "HADT"
+  },
+  {
+    "location": "America/Anchorage",
+    "timezone": "Alaska Daylight Time",
+    "timezoneShort": "AKDT"
+  },
+  {
+    "location": "America/Anguilla",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Antigua",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Araguaina",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/La_Rioja",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/Rio_Gallegos",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/Salta",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/San_Juan",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/San_Luis",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/Tucuman",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Argentina/Ushuaia",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Aruba",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Asuncion",
+    "timezone": "Paraguay Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Bahia",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Bahia_Banderas",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Barbados",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Belem",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Belize",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Blanc-Sablon",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Boa_Vista",
+    "timezone": "Amazon Standard Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Bogota",
+    "timezone": "Colombia Standard Time",
+    "timezoneShort": "GMT-5"
+  },
+  {
+    "location": "America/Boise",
+    "timezone": "Mountain Daylight Time",
+    "timezoneShort": "MDT"
+  },
+  {
+    "location": "America/Buenos_Aires",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Cambridge_Bay",
+    "timezone": "Mountain Daylight Time",
+    "timezoneShort": "MDT"
+  },
+  {
+    "location": "America/Campo_Grande",
+    "timezone": "Amazon Standard Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Cancun",
+    "timezone": "Eastern Standard Time",
+    "timezoneShort": "EST"
+  },
+  {
+    "location": "America/Caracas",
+    "timezone": "Venezuela Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Catamarca",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Cayenne",
+    "timezone": "French Guiana Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Cayman",
+    "timezone": "Eastern Standard Time",
+    "timezoneShort": "EST"
+  },
+  {
+    "location": "America/Chicago",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Chihuahua",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Ciudad_Juarez",
+    "timezone": "Mountain Daylight Time",
+    "timezoneShort": "MDT"
+  },
+  {
+    "location": "America/Coral_Harbour",
+    "timezone": "Eastern Standard Time",
+    "timezoneShort": "EST"
+  },
+  {
+    "location": "America/Cordoba",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Costa_Rica",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Coyhaique",
+    "timezone": "GMT-03:00",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Creston",
+    "timezone": "Mountain Standard Time",
+    "timezoneShort": "MST"
+  },
+  {
+    "location": "America/Cuiaba",
+    "timezone": "Amazon Standard Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Curacao",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Danmarkshavn",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "America/Dawson",
+    "timezone": "Yukon Time",
+    "timezoneShort": "GMT-7"
+  },
+  {
+    "location": "America/Dawson_Creek",
+    "timezone": "Mountain Standard Time",
+    "timezoneShort": "MST"
+  },
+  {
+    "location": "America/Denver",
+    "timezone": "Mountain Daylight Time",
+    "timezoneShort": "MDT"
+  },
+  {
+    "location": "America/Detroit",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Dominica",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Edmonton",
+    "timezone": "Mountain Daylight Time",
+    "timezoneShort": "MDT"
+  },
+  {
+    "location": "America/Eirunepe",
+    "timezone": "Acre Standard Time",
+    "timezoneShort": "GMT-5"
+  },
+  {
+    "location": "America/El_Salvador",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Fort_Nelson",
+    "timezone": "Mountain Standard Time",
+    "timezoneShort": "MST"
+  },
+  {
+    "location": "America/Fortaleza",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Glace_Bay",
+    "timezone": "Atlantic Daylight Time",
+    "timezoneShort": "ADT"
+  },
+  {
+    "location": "America/Godthab",
+    "timezone": "Greenland Summer Time",
+    "timezoneShort": "GMT-1"
+  },
+  {
+    "location": "America/Goose_Bay",
+    "timezone": "Atlantic Daylight Time",
+    "timezoneShort": "ADT"
+  },
+  {
+    "location": "America/Grand_Turk",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Grenada",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Guadeloupe",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Guatemala",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Guayaquil",
+    "timezone": "Ecuador Time",
+    "timezoneShort": "GMT-5"
+  },
+  {
+    "location": "America/Guyana",
+    "timezone": "Guyana Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Halifax",
+    "timezone": "Atlantic Daylight Time",
+    "timezoneShort": "ADT"
+  },
+  {
+    "location": "America/Havana",
+    "timezone": "Cuba Daylight Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Hermosillo",
+    "timezone": "Mexican Pacific Standard Time",
+    "timezoneShort": "GMT-7"
+  },
+  {
+    "location": "America/Indiana/Knox",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Indiana/Marengo",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Indiana/Petersburg",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Indiana/Tell_City",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Indiana/Vevay",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Indiana/Vincennes",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Indiana/Winamac",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Indianapolis",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Inuvik",
+    "timezone": "Mountain Daylight Time",
+    "timezoneShort": "MDT"
+  },
+  {
+    "location": "America/Iqaluit",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Jamaica",
+    "timezone": "Eastern Standard Time",
+    "timezoneShort": "EST"
+  },
+  {
+    "location": "America/Jujuy",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Juneau",
+    "timezone": "Alaska Daylight Time",
+    "timezoneShort": "AKDT"
+  },
+  {
+    "location": "America/Kentucky/Monticello",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Kralendijk",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/La_Paz",
+    "timezone": "Bolivia Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Lima",
+    "timezone": "Peru Standard Time",
+    "timezoneShort": "GMT-5"
+  },
+  {
+    "location": "America/Los_Angeles",
+    "timezone": "Pacific Daylight Time",
+    "timezoneShort": "PDT"
+  },
+  {
+    "location": "America/Louisville",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Lower_Princes",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Maceio",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Managua",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Manaus",
+    "timezone": "Amazon Standard Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Marigot",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Martinique",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Matamoros",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Mazatlan",
+    "timezone": "Mexican Pacific Standard Time",
+    "timezoneShort": "GMT-7"
+  },
+  {
+    "location": "America/Mendoza",
+    "timezone": "Argentina Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Menominee",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Merida",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Metlakatla",
+    "timezone": "Alaska Daylight Time",
+    "timezoneShort": "AKDT"
+  },
+  {
+    "location": "America/Mexico_City",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Miquelon",
+    "timezone": "St. Pierre & Miquelon Daylight Time",
+    "timezoneShort": "GMT-2"
+  },
+  {
+    "location": "America/Moncton",
+    "timezone": "Atlantic Daylight Time",
+    "timezoneShort": "ADT"
+  },
+  {
+    "location": "America/Monterrey",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Montevideo",
+    "timezone": "Uruguay Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Montserrat",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Nassau",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/New_York",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Nome",
+    "timezone": "Alaska Daylight Time",
+    "timezoneShort": "AKDT"
+  },
+  {
+    "location": "America/Noronha",
+    "timezone": "Fernando de Noronha Standard Time",
+    "timezoneShort": "GMT-2"
+  },
+  {
+    "location": "America/North_Dakota/Beulah",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/North_Dakota/Center",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/North_Dakota/New_Salem",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Ojinaga",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Panama",
+    "timezone": "Eastern Standard Time",
+    "timezoneShort": "EST"
+  },
+  {
+    "location": "America/Paramaribo",
+    "timezone": "Suriname Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Phoenix",
+    "timezone": "Mountain Standard Time",
+    "timezoneShort": "MST"
+  },
+  {
+    "location": "America/Port-au-Prince",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Port_of_Spain",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Porto_Velho",
+    "timezone": "Amazon Standard Time",
+    "timezoneShort": "GMT-4"
+  },
+  {
+    "location": "America/Puerto_Rico",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Punta_Arenas",
+    "timezone": "GMT-03:00",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Rankin_Inlet",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Recife",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Regina",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Resolute",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Rio_Branco",
+    "timezone": "Acre Standard Time",
+    "timezoneShort": "GMT-5"
+  },
+  {
+    "location": "America/Santarem",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Santiago",
+    "timezone": "Chile Summer Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Santo_Domingo",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Sao_Paulo",
+    "timezone": "Brasilia Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "America/Scoresbysund",
+    "timezone": "Greenland Summer Time",
+    "timezoneShort": "GMT-1"
+  },
+  {
+    "location": "America/Sitka",
+    "timezone": "Alaska Daylight Time",
+    "timezoneShort": "AKDT"
+  },
+  {
+    "location": "America/St_Barthelemy",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/St_Johns",
+    "timezone": "Newfoundland Daylight Time",
+    "timezoneShort": "GMT-2:30"
+  },
+  {
+    "location": "America/St_Kitts",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/St_Lucia",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/St_Thomas",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/St_Vincent",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Swift_Current",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Tegucigalpa",
+    "timezone": "Central Standard Time",
+    "timezoneShort": "CST"
+  },
+  {
+    "location": "America/Thule",
+    "timezone": "Atlantic Daylight Time",
+    "timezoneShort": "ADT"
+  },
+  {
+    "location": "America/Tijuana",
+    "timezone": "Pacific Daylight Time",
+    "timezoneShort": "PDT"
+  },
+  {
+    "location": "America/Toronto",
+    "timezone": "Eastern Daylight Time",
+    "timezoneShort": "EDT"
+  },
+  {
+    "location": "America/Tortola",
+    "timezone": "Atlantic Standard Time",
+    "timezoneShort": "AST"
+  },
+  {
+    "location": "America/Vancouver",
+    "timezone": "Pacific Daylight Time",
+    "timezoneShort": "PDT"
+  },
+  {
+    "location": "America/Whitehorse",
+    "timezone": "Yukon Time",
+    "timezoneShort": "GMT-7"
+  },
+  {
+    "location": "America/Winnipeg",
+    "timezone": "Central Daylight Time",
+    "timezoneShort": "CDT"
+  },
+  {
+    "location": "America/Yakutat",
+    "timezone": "Alaska Daylight Time",
+    "timezoneShort": "AKDT"
+  },
+  {
+    "location": "Antarctica/Casey",
+    "timezone": "Australian Western Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Antarctica/Davis",
+    "timezone": "Davis Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Antarctica/DumontDUrville",
+    "timezone": "Dumont d’Urville Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Antarctica/Macquarie",
+    "timezone": "Australian Eastern Daylight Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Antarctica/Mawson",
+    "timezone": "Mawson Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Antarctica/McMurdo",
+    "timezone": "New Zealand Daylight Time",
+    "timezoneShort": "GMT+13"
+  },
+  {
+    "location": "Antarctica/Palmer",
+    "timezone": "GMT-03:00",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "Antarctica/Rothera",
+    "timezone": "Rothera Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "Antarctica/Syowa",
+    "timezone": "Syowa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Antarctica/Troll",
+    "timezone": "GMT+02:00",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Antarctica/Vostok",
+    "timezone": "Vostok Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Arctic/Longyearbyen",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Asia/Aden",
+    "timezone": "Arabian Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Almaty",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Amman",
+    "timezone": "GMT+03:00",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Anadyr",
+    "timezone": "Anadyr Standard Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Asia/Aqtau",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Aqtobe",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Ashgabat",
+    "timezone": "Turkmenistan Standard Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Atyrau",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Baghdad",
+    "timezone": "Arabian Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Bahrain",
+    "timezone": "Arabian Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Baku",
+    "timezone": "Azerbaijan Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Asia/Bangkok",
+    "timezone": "Indochina Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Barnaul",
+    "timezone": "GMT+07:00",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Beirut",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Bishkek",
+    "timezone": "Kyrgyzstan Time",
+    "timezoneShort": "GMT+6"
+  },
+  {
+    "location": "Asia/Brunei",
+    "timezone": "Brunei Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Calcutta",
+    "timezone": "India Standard Time",
+    "timezoneShort": "GMT+5:30"
+  },
+  {
+    "location": "Asia/Chita",
+    "timezone": "Yakutsk Standard Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Colombo",
+    "timezone": "India Standard Time",
+    "timezoneShort": "GMT+5:30"
+  },
+  {
+    "location": "Asia/Damascus",
+    "timezone": "GMT+03:00",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Dhaka",
+    "timezone": "Bangladesh Standard Time",
+    "timezoneShort": "GMT+6"
+  },
+  {
+    "location": "Asia/Dili",
+    "timezone": "Timor-Leste Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Dubai",
+    "timezone": "Gulf Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Asia/Dushanbe",
+    "timezone": "Tajikistan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Famagusta",
+    "timezone": "GMT+03:00",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Gaza",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Hebron",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Hong_Kong",
+    "timezone": "Hong Kong Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Hovd",
+    "timezone": "Hovd Standard Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Irkutsk",
+    "timezone": "Irkutsk Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Jakarta",
+    "timezone": "Western Indonesia Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Jayapura",
+    "timezone": "Eastern Indonesia Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Jerusalem",
+    "timezone": "Israel Daylight Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Kabul",
+    "timezone": "Afghanistan Time",
+    "timezoneShort": "GMT+4:30"
+  },
+  {
+    "location": "Asia/Kamchatka",
+    "timezone": "Kamchatka Standard Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Asia/Karachi",
+    "timezone": "Pakistan Standard Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Katmandu",
+    "timezone": "Nepal Time",
+    "timezoneShort": "GMT+5:45"
+  },
+  {
+    "location": "Asia/Khandyga",
+    "timezone": "Yakutsk Standard Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Krasnoyarsk",
+    "timezone": "Krasnoyarsk Standard Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Kuala_Lumpur",
+    "timezone": "Malaysia Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Kuching",
+    "timezone": "Malaysia Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Kuwait",
+    "timezone": "Arabian Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Macau",
+    "timezone": "China Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Magadan",
+    "timezone": "Magadan Standard Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Asia/Makassar",
+    "timezone": "Central Indonesia Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Manila",
+    "timezone": "Philippine Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Muscat",
+    "timezone": "Gulf Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Asia/Nicosia",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Novokuznetsk",
+    "timezone": "Krasnoyarsk Standard Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Novosibirsk",
+    "timezone": "Novosibirsk Standard Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Omsk",
+    "timezone": "Omsk Standard Time",
+    "timezoneShort": "GMT+6"
+  },
+  {
+    "location": "Asia/Oral",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Phnom_Penh",
+    "timezone": "Indochina Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Pontianak",
+    "timezone": "Western Indonesia Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Pyongyang",
+    "timezone": "Korean Standard Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Qatar",
+    "timezone": "Arabian Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Qostanay",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Qyzylorda",
+    "timezone": "Kazakhstan Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Rangoon",
+    "timezone": "Myanmar Time",
+    "timezoneShort": "GMT+6:30"
+  },
+  {
+    "location": "Asia/Riyadh",
+    "timezone": "Arabian Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Asia/Saigon",
+    "timezone": "Indochina Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Sakhalin",
+    "timezone": "Sakhalin Standard Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Asia/Samarkand",
+    "timezone": "Uzbekistan Standard Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Seoul",
+    "timezone": "Korean Standard Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Shanghai",
+    "timezone": "China Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Singapore",
+    "timezone": "Singapore Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Srednekolymsk",
+    "timezone": "GMT+11:00",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Asia/Taipei",
+    "timezone": "Taiwan Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Tashkent",
+    "timezone": "Uzbekistan Standard Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Tbilisi",
+    "timezone": "Georgia Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Asia/Tehran",
+    "timezone": "Iran Standard Time",
+    "timezoneShort": "GMT+3:30"
+  },
+  {
+    "location": "Asia/Thimphu",
+    "timezone": "Bhutan Time",
+    "timezoneShort": "GMT+6"
+  },
+  {
+    "location": "Asia/Tokyo",
+    "timezone": "Japan Standard Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Tomsk",
+    "timezone": "GMT+07:00",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Ulaanbaatar",
+    "timezone": "Ulaanbaatar Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Asia/Urumqi",
+    "timezone": "GMT+06:00",
+    "timezoneShort": "GMT+6"
+  },
+  {
+    "location": "Asia/Ust-Nera",
+    "timezone": "Vladivostok Standard Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Asia/Vientiane",
+    "timezone": "Indochina Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Asia/Vladivostok",
+    "timezone": "Vladivostok Standard Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Asia/Yakutsk",
+    "timezone": "Yakutsk Standard Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Asia/Yekaterinburg",
+    "timezone": "Yekaterinburg Standard Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Asia/Yerevan",
+    "timezone": "Armenia Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Atlantic/Azores",
+    "timezone": "Azores Summer Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Atlantic/Bermuda",
+    "timezone": "Atlantic Daylight Time",
+    "timezoneShort": "ADT"
+  },
+  {
+    "location": "Atlantic/Canary",
+    "timezone": "Western European Summer Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Atlantic/Cape_Verde",
+    "timezone": "Cape Verde Standard Time",
+    "timezoneShort": "GMT-1"
+  },
+  {
+    "location": "Atlantic/Faeroe",
+    "timezone": "Western European Summer Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Atlantic/Madeira",
+    "timezone": "Western European Summer Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Atlantic/Reykjavik",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Atlantic/South_Georgia",
+    "timezone": "South Georgia Time",
+    "timezoneShort": "GMT-2"
+  },
+  {
+    "location": "Atlantic/St_Helena",
+    "timezone": "Greenwich Mean Time",
+    "timezoneShort": "GMT"
+  },
+  {
+    "location": "Atlantic/Stanley",
+    "timezone": "Falkland Islands Standard Time",
+    "timezoneShort": "GMT-3"
+  },
+  {
+    "location": "Australia/Adelaide",
+    "timezone": "Australian Central Daylight Time",
+    "timezoneShort": "GMT+10:30"
+  },
+  {
+    "location": "Australia/Brisbane",
+    "timezone": "Australian Eastern Standard Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Australia/Broken_Hill",
+    "timezone": "Australian Central Daylight Time",
+    "timezoneShort": "GMT+10:30"
+  },
+  {
+    "location": "Australia/Darwin",
+    "timezone": "Australian Central Standard Time",
+    "timezoneShort": "GMT+9:30"
+  },
+  {
+    "location": "Australia/Eucla",
+    "timezone": "Australian Central Western Standard Time",
+    "timezoneShort": "GMT+8:45"
+  },
+  {
+    "location": "Australia/Hobart",
+    "timezone": "Australian Eastern Daylight Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Australia/Lindeman",
+    "timezone": "Australian Eastern Standard Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Australia/Lord_Howe",
+    "timezone": "Lord Howe Daylight Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Australia/Melbourne",
+    "timezone": "Australian Eastern Daylight Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Australia/Perth",
+    "timezone": "Australian Western Standard Time",
+    "timezoneShort": "GMT+8"
+  },
+  {
+    "location": "Australia/Sydney",
+    "timezone": "Australian Eastern Daylight Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Europe/Amsterdam",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Andorra",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Astrakhan",
+    "timezone": "GMT+04:00",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Europe/Athens",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Belgrade",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Berlin",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Bratislava",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Brussels",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Bucharest",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Budapest",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Busingen",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Chisinau",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Copenhagen",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Dublin",
+    "timezone": "Irish Standard Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Europe/Gibraltar",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Guernsey",
+    "timezone": "GMT+01:00",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Europe/Helsinki",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Isle_of_Man",
+    "timezone": "GMT+01:00",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Europe/Istanbul",
+    "timezone": "GMT+03:00",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Jersey",
+    "timezone": "GMT+01:00",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Europe/Kaliningrad",
+    "timezone": "Eastern European Standard Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Kiev",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Kirov",
+    "timezone": "GMT+03:00",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Lisbon",
+    "timezone": "Western European Summer Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Europe/Ljubljana",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/London",
+    "timezone": "British Summer Time",
+    "timezoneShort": "GMT+1"
+  },
+  {
+    "location": "Europe/Luxembourg",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Madrid",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Malta",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Mariehamn",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Minsk",
+    "timezone": "Moscow Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Monaco",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Moscow",
+    "timezone": "Moscow Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Oslo",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Paris",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Podgorica",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Prague",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Riga",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Rome",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Samara",
+    "timezone": "Samara Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Europe/San_Marino",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Sarajevo",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Saratov",
+    "timezone": "GMT+04:00",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Europe/Simferopol",
+    "timezone": "Moscow Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Skopje",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Sofia",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Stockholm",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Tallinn",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Tirane",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Ulyanovsk",
+    "timezone": "GMT+04:00",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Europe/Vaduz",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Vatican",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Vienna",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Vilnius",
+    "timezone": "Eastern European Summer Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Volgograd",
+    "timezone": "Volgograd Standard Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Europe/Warsaw",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Zagreb",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Europe/Zurich",
+    "timezone": "Central European Summer Time",
+    "timezoneShort": "GMT+2"
+  },
+  {
+    "location": "Indian/Antananarivo",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Indian/Chagos",
+    "timezone": "Indian Ocean Time",
+    "timezoneShort": "GMT+6"
+  },
+  {
+    "location": "Indian/Christmas",
+    "timezone": "Christmas Island Time",
+    "timezoneShort": "GMT+7"
+  },
+  {
+    "location": "Indian/Cocos",
+    "timezone": "Cocos Islands Time",
+    "timezoneShort": "GMT+6:30"
+  },
+  {
+    "location": "Indian/Comoro",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Indian/Kerguelen",
+    "timezone": "French Southern & Antarctic Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Indian/Mahe",
+    "timezone": "Seychelles Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Indian/Maldives",
+    "timezone": "Maldives Time",
+    "timezoneShort": "GMT+5"
+  },
+  {
+    "location": "Indian/Mauritius",
+    "timezone": "Mauritius Standard Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Indian/Mayotte",
+    "timezone": "East Africa Time",
+    "timezoneShort": "GMT+3"
+  },
+  {
+    "location": "Indian/Reunion",
+    "timezone": "Réunion Time",
+    "timezoneShort": "GMT+4"
+  },
+  {
+    "location": "Pacific/Apia",
+    "timezone": "Samoa Standard Time",
+    "timezoneShort": "GMT+13"
+  },
+  {
+    "location": "Pacific/Auckland",
+    "timezone": "New Zealand Daylight Time",
+    "timezoneShort": "GMT+13"
+  },
+  {
+    "location": "Pacific/Bougainville",
+    "timezone": "GMT+11:00",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Pacific/Chatham",
+    "timezone": "Chatham Daylight Time",
+    "timezoneShort": "GMT+13:45"
+  },
+  {
+    "location": "Pacific/Easter",
+    "timezone": "Easter Island Summer Time",
+    "timezoneShort": "GMT-5"
+  },
+  {
+    "location": "Pacific/Efate",
+    "timezone": "Vanuatu Standard Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Pacific/Enderbury",
+    "timezone": "Phoenix Islands Time",
+    "timezoneShort": "GMT+13"
+  },
+  {
+    "location": "Pacific/Fakaofo",
+    "timezone": "Tokelau Time",
+    "timezoneShort": "GMT+13"
+  },
+  {
+    "location": "Pacific/Fiji",
+    "timezone": "Fiji Standard Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Funafuti",
+    "timezone": "Tuvalu Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Galapagos",
+    "timezone": "Galapagos Time",
+    "timezoneShort": "GMT-6"
+  },
+  {
+    "location": "Pacific/Gambier",
+    "timezone": "Gambier Time",
+    "timezoneShort": "GMT-9"
+  },
+  {
+    "location": "Pacific/Guadalcanal",
+    "timezone": "Solomon Islands Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Pacific/Guam",
+    "timezone": "Chamorro Standard Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Pacific/Honolulu",
+    "timezone": "Hawaii-Aleutian Standard Time",
+    "timezoneShort": "HST"
+  },
+  {
+    "location": "Pacific/Kiritimati",
+    "timezone": "Line Islands Time",
+    "timezoneShort": "GMT+14"
+  },
+  {
+    "location": "Pacific/Kosrae",
+    "timezone": "Kosrae Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Pacific/Kwajalein",
+    "timezone": "Marshall Islands Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Majuro",
+    "timezone": "Marshall Islands Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Marquesas",
+    "timezone": "Marquesas Time",
+    "timezoneShort": "GMT-9:30"
+  },
+  {
+    "location": "Pacific/Midway",
+    "timezone": "American Samoa Standard Time",
+    "timezoneShort": "GMT-11"
+  },
+  {
+    "location": "Pacific/Nauru",
+    "timezone": "Nauru Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Niue",
+    "timezone": "Niue Time",
+    "timezoneShort": "GMT-11"
+  },
+  {
+    "location": "Pacific/Norfolk",
+    "timezone": "Norfolk Island Daylight Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Noumea",
+    "timezone": "New Caledonia Standard Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Pacific/Pago_Pago",
+    "timezone": "American Samoa Standard Time",
+    "timezoneShort": "GMT-11"
+  },
+  {
+    "location": "Pacific/Palau",
+    "timezone": "Palau Time",
+    "timezoneShort": "GMT+9"
+  },
+  {
+    "location": "Pacific/Pitcairn",
+    "timezone": "Pitcairn Time",
+    "timezoneShort": "GMT-8"
+  },
+  {
+    "location": "Pacific/Ponape",
+    "timezone": "Pohnpei Time",
+    "timezoneShort": "GMT+11"
+  },
+  {
+    "location": "Pacific/Port_Moresby",
+    "timezone": "Papua New Guinea Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Pacific/Rarotonga",
+    "timezone": "Cook Islands Standard Time",
+    "timezoneShort": "GMT-10"
+  },
+  {
+    "location": "Pacific/Saipan",
+    "timezone": "Chamorro Standard Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Pacific/Tahiti",
+    "timezone": "Tahiti Time",
+    "timezoneShort": "GMT-10"
+  },
+  {
+    "location": "Pacific/Tarawa",
+    "timezone": "Gilbert Islands Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Tongatapu",
+    "timezone": "Tonga Standard Time",
+    "timezoneShort": "GMT+13"
+  },
+  {
+    "location": "Pacific/Truk",
+    "timezone": "Chuuk Time",
+    "timezoneShort": "GMT+10"
+  },
+  {
+    "location": "Pacific/Wake",
+    "timezone": "Wake Island Time",
+    "timezoneShort": "GMT+12"
+  },
+  {
+    "location": "Pacific/Wallis",
+    "timezone": "Wallis & Futuna Time",
+    "timezoneShort": "GMT+12"
+  }
+]
