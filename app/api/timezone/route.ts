@@ -3,8 +3,21 @@ import Fuse from "fuse.js";
 import timezones from "@/data/timezones.json";
 import { TimezoneOption } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
-const fuse = new Fuse(timezones, {
-  keys: ["location", "timezone", "timezoneShort"],
+const normalize = (str: string) =>
+  str
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+
+const normalizedTimezones = timezones.map((tz) => ({
+  ...tz,
+  locationNormalized: normalize(tz.location),
+  timezoneNormalized: normalize(tz.timezone),
+  timezoneShortNormalized: normalize(tz.timezoneShort),
+}));
+
+const fuse = new Fuse(normalizedTimezones, {
+  keys: ["locationNormalized", "timezoneNormalized", "timezoneShortNormalized"],
   threshold: 0.3,
 });
 
@@ -17,7 +30,8 @@ export async function GET(req: NextRequest) {
     return NextResponse.json([]);
   }
 
-  const results = fuse.search(query, { limit });
+  const normalizedQuery = normalize(query);
+  const results = fuse.search(normalizedQuery, { limit });
 
   const uniqueLocations = new Map<string, TimezoneOption>();
   const uniqueTimezones = new Map<string, TimezoneOption>();
