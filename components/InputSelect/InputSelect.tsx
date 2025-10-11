@@ -4,6 +4,7 @@ import ReactSelect, {
   StylesConfig,
   ActionMeta,
   GroupBase,
+  InputActionMeta,
 } from "react-select";
 
 import Select from "react-select/base";
@@ -12,16 +13,33 @@ import { TimezoneOption } from "../pageComponents/Widgets/TimezoneWidget/Timezon
 
 export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
   (
-    { dropdownPosition = "relative", placeholder = "", onChange, ...rest },
+    {
+      dropdownPosition = "relative",
+      placeholder = "",
+      onChange,
+      onInputChange,
+      ...rest
+    },
     ref,
   ) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
+    const [search, setSearch] = useState("");
 
     const inputId = useId();
 
     const handleChange = (value: unknown, actionMeta: ActionMeta<unknown>) => {
       if (onChange) {
         onChange(value, actionMeta);
+      }
+    };
+
+    const onInternalInputChange = (
+      value: string,
+      actionMeta: InputActionMeta,
+    ) => {
+      setSearch(value);
+      if (onInputChange) {
+        onInputChange(value, actionMeta);
       }
     };
 
@@ -81,8 +99,10 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
           ref={ref as React.Ref<Select<unknown, boolean, GroupBase<unknown>>>}
           inputId={inputId}
           {...rest}
+          defaultInputValue={search}
           styles={styles}
           onChange={handleChange}
+          onInputChange={onInternalInputChange}
           placeholder={placeholder}
         />
       </div>
