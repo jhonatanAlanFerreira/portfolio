@@ -1,4 +1,4 @@
-export interface TimezoneOptions {
+export interface TimezoneOption {
   label: string;
   value: string;
 }

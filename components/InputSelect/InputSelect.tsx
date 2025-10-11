@@ -1,4 +1,4 @@
-import { forwardRef, useId } from "react";
+import { forwardRef, useId, useState } from "react";
 import ReactSelect, {
   SelectInstance,
   StylesConfig,
@@ -8,12 +8,15 @@ import ReactSelect, {
 
 import Select from "react-select/base";
 import { InputSelectProps } from "./InputSelectProps";
+import { TimezoneOption } from "../pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
 export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
   (
     { dropdownPosition = "relative", placeholder = "", onChange, ...rest },
     ref,
   ) => {
+    const [menuIsOpen, setMenuIsOpen] = useState(false);
+
     const inputId = useId();
 
     const handleChange = (value: unknown, actionMeta: ActionMeta<unknown>) => {
@@ -69,6 +72,12 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
     return (
       <div className="float-label-input relative">
         <ReactSelect
+          key={(rest.options as TimezoneOption[])
+            .map((opt) => opt.value)
+            .join(",")}
+          onMenuOpen={() => setMenuIsOpen(true)}
+          onMenuClose={() => setMenuIsOpen(false)}
+          menuIsOpen={menuIsOpen}
           ref={ref as React.Ref<Select<unknown, boolean, GroupBase<unknown>>>}
           inputId={inputId}
           {...rest}

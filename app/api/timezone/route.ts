@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Fuse from "fuse.js";
 import timezones from "@/data/timezones.json";
-import { TimezoneOptions } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
+import { TimezoneOption } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
 const fuse = new Fuse(timezones, {
   keys: ["location", "timezone", "timezoneShort"],
@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
 
   const results = fuse.search(query, { limit });
 
-  const items: TimezoneOptions[] = results.flatMap((r) => {
+  const items: TimezoneOption[] = results.flatMap((r) => {
     const { location, timezone, timezoneShort } = r.item;
 
     return [
