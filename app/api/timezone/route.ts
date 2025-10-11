@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Fuse from "fuse.js";
+import { DateTime } from "luxon";
 import timezones from "@/data/timezones.json";
 import { TimezoneOption } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
@@ -39,16 +40,18 @@ export async function GET(req: NextRequest) {
   for (const { item } of results) {
     const { location, timezone, timezoneShort } = item;
 
+    const currentTime = DateTime.now().setZone(item.location).toFormat("HH:mm");
+
     if (!uniqueLocations.has(location)) {
       uniqueLocations.set(location, {
-        label: `${location} (${timezoneShort})`,
+        label: `[${currentTime}] ${location} (${timezoneShort})`,
         value: location,
       });
     }
 
     if (!uniqueTimezones.has(timezoneShort)) {
       uniqueTimezones.set(timezoneShort, {
-        label: timezoneShort,
+        label: `[${currentTime}] ${timezoneShort}`,
         value: timezoneShort,
       });
     }
