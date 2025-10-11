@@ -19,15 +19,31 @@ export async function GET(req: NextRequest) {
 
   const results = fuse.search(query, { limit });
 
-  const items: TimezoneOption[] = results.flatMap((r) => {
-    const { location, timezone, timezoneShort } = r.item;
+  const uniqueLocations = new Map<string, TimezoneOption>();
+  const uniqueTimezones = new Map<string, TimezoneOption>();
 
-    return [
-      { label: location, value: location },
-      { label: timezone, value: location },
-      { label: timezoneShort, value: location },
-    ];
-  });
+  for (const { item } of results) {
+    const { location, timezone, timezoneShort } = item;
 
-  return NextResponse.json(items);
+    if (!uniqueLocations.has(location)) {
+      uniqueLocations.set(location, {
+        label: `${location} (${timezoneShort})`,
+        value: location,
+      });
+    }
+
+    if (!uniqueTimezones.has(timezoneShort)) {
+      uniqueTimezones.set(timezoneShort, {
+        label: timezoneShort,
+        value: timezoneShort,
+      });
+    }
+  }
+
+  const combined = [
+    ...Array.from(uniqueLocations.values()),
+    ...Array.from(uniqueTimezones.values()),
+  ];
+
+  return NextResponse.json(combined);
 }
