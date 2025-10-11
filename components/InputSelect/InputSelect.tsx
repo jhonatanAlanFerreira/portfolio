@@ -77,7 +77,7 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
       option: (styles, state) => ({
         ...styles,
         color: "#FFFFFF",
-        backgroundColor: "#00000080",
+        backgroundColor: state.isFocused ? "#00000010" : "#00000080",
       }),
       menu: (styles) => ({
         ...styles,
