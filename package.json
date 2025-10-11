@@ -15,6 +15,7 @@
     "@vercel/edge": "^1.2.2",
     "dayjs": "^1.11.18",
     "framer-motion": "^12.23.12",
+    "fuse.js": "^7.1.0",
     "lucide-react": "^0.545.0",
     "luxon": "^3.7.2",
     "next": "15.4.6",

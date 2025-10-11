@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useId, useState } from "react";
+import { forwardRef, useId } from "react";
 import ReactSelect, {
   SelectInstance,
   StylesConfig,
@@ -10,23 +10,16 @@ import Select from "react-select/base";
 import { InputSelectProps } from "./InputSelectProps";
 
 export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
-  ({ dropdownPosition = "relative", onChange, ...rest }, ref) => {
+  (
+    { dropdownPosition = "relative", placeholder = "", onChange, ...rest },
+    ref,
+  ) => {
     const inputId = useId();
-    const [hasValue, setHasValue] = useState<boolean>(false);
-
-    useEffect(() => {
-      checkHasValue(rest.value);
-    }, [rest.value]);
 
     const handleChange = (value: unknown, actionMeta: ActionMeta<unknown>) => {
-      checkHasValue(value);
       if (onChange) {
         onChange(value, actionMeta);
       }
-    };
-
-    const checkHasValue = (value: unknown) => {
-      setHasValue(!!value && (Array.isArray(value) ? !!value.length : true));
     };
 
     const styles: StylesConfig = {
@@ -41,6 +34,10 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
         ...styles,
         color: "#FFFFFF",
       }),
+      input: (styles) => ({
+        ...styles,
+        color: "#FFFFFF",
+      }),
       dropdownIndicator: (styles) => ({
         ...styles,
         color: "#FFFFFF",
@@ -51,7 +48,7 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
       }),
       placeholder: (styles) => ({
         ...styles,
-        color: "#FFFFFF",
+        color: "gray",
         opacity: "0.8",
       }),
       option: (styles, state) => ({
@@ -77,16 +74,8 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
           {...rest}
           styles={styles}
           onChange={handleChange}
-          placeholder=" "
+          placeholder={placeholder}
         />
-        <label
-          htmlFor={inputId}
-          className={`${
-            hasValue ? "has-value" : ""
-          } pointer-events-none absolute top-3 left-0 ml-2 text-gray-400 opacity-60 transition duration-200 ease-in-out`}
-        >
-          {rest.placeholder}
-        </label>
       </div>
     );
   },
