@@ -16,8 +16,10 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
     {
       dropdownPosition = "relative",
       placeholder = "",
+      isLoading,
       onChange,
       onInputChange,
+      noOptionsCustomMessage,
       ...rest
     },
     ref,
@@ -104,6 +106,14 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
           onChange={handleChange}
           onInputChange={onInternalInputChange}
           placeholder={placeholder}
+          isLoading={isLoading}
+          noOptionsMessage={({ inputValue }) =>
+            isLoading
+              ? "Searching..."
+              : inputValue
+                ? noOptionsCustomMessage?.empty
+                : noOptionsCustomMessage?.beforeTyping
+          }
         />
       </div>
     );

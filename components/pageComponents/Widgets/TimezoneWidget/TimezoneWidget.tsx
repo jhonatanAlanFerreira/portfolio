@@ -8,9 +8,6 @@ export default function TimezoneWidget() {
   const [loading, setLoading] = useState(false);
 
   const fetchTimezones = async (search: string) => {
-    if (!search) {
-      return;
-    }
     setLoading(true);
 
     try {
@@ -28,9 +25,17 @@ export default function TimezoneWidget() {
     }
   };
 
-  const onTimezoneInputChange = useDebouncedCallback(async (value: string) => {
-    fetchTimezones(value);
-  }, 1000);
+  const onTimezoneInputChange = (value: string) => {
+    setLoading(true);
+    onTimezoneInputChangeDebounced(value);
+  };
+
+  const onTimezoneInputChangeDebounced = useDebouncedCallback(
+    async (value: string) => {
+      fetchTimezones(value);
+    },
+    1000,
+  );
 
   return (
     <>
@@ -44,7 +49,10 @@ export default function TimezoneWidget() {
         <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-5 text-white shadow-lg">
           <InputSelect
             placeholder="New Timezone"
-            noOptionsMessage={() => "Start typing to list timezones"}
+            noOptionsCustomMessage={{
+              empty: "No timezones found",
+              beforeTyping: "Start typing to list timezones",
+            }}
             options={timezones}
             onInputChange={onTimezoneInputChange}
             isLoading={loading}
