@@ -8,6 +8,10 @@ export default function TimezoneWidget() {
   const [loading, setLoading] = useState(false);
 
   const fetchTimezones = async (search: string) => {
+    if (!search) {
+      return setLoading(false);
+    }
+
     setLoading(true);
 
     try {
@@ -17,7 +21,6 @@ export default function TimezoneWidget() {
       if (!res.ok) throw new Error("Timezone API error");
       const data: TimezoneOption[] = await res.json();
       setTimezones(data);
-      console.log(timezones);
     } catch (err) {
       console.error(err);
     } finally {
@@ -37,6 +40,16 @@ export default function TimezoneWidget() {
     1000,
   );
 
+  const resetTimezoneSelect = () => {
+    setLoading(false);
+    setTimezones([]);
+  };
+
+  const onTimezoneSelectedChange = (timezone: TimezoneOption) => {
+    resetTimezoneSelect();
+    console.log("Added new timezone: " + timezone.value); //WIP
+  };
+
   return (
     <>
       <div className="mb-4">
@@ -48,7 +61,7 @@ export default function TimezoneWidget() {
       <div className="p-5">
         <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-5 text-white shadow-lg">
           <InputSelect
-            placeholder="New Timezone"
+            placeholder="Add New Timezone"
             noOptionsCustomMessage={{
               empty: "No timezones found",
               beforeTyping: "Start typing to list timezones",
@@ -57,6 +70,9 @@ export default function TimezoneWidget() {
             onInputChange={onTimezoneInputChange}
             isLoading={loading}
             filterOption={null}
+            onChange={(timezone) =>
+              onTimezoneSelectedChange(timezone as TimezoneOption)
+            }
           ></InputSelect>
         </div>
       </div>
