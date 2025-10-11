@@ -114,6 +114,9 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
                 ? noOptionsCustomMessage?.empty
                 : noOptionsCustomMessage?.beforeTyping
           }
+          classNames={{
+            menuList: () => "gray-scroll",
+          }}
         />
       </div>
     );
