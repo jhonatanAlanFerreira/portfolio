@@ -84,7 +84,7 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
         border: "1px solid #47556999",
         position: dropdownPosition,
         width: "95%",
-        background: "#00000080",
+        background: "#020409",
         marginLeft: "2.5%",
       }),
     };
