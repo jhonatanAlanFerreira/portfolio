@@ -3,15 +3,10 @@ import { InputSelect } from "@/components/InputSelect/InputSelect";
 import { useDebouncedCallback } from "@/clientUtils";
 import { SelectedTimezone, TimezoneOption } from "./TimezoneWidgetInterfaces";
 import { DateTime } from "luxon";
-import Clock from "react-clock";
-import {
-  DndContext,
-  useDraggable,
-  useDroppable,
-  DragEndEvent,
-} from "@dnd-kit/core";
+import { DndContext, DragEndEvent } from "@dnd-kit/core";
 import "react-clock/dist/Clock.css";
 import { v4 as uuidv4 } from "uuid";
+import TimezoneCard from "./TimezoneCard/TimezoneCard";
 
 export default function TimezoneWidget() {
   const comparisonText = "Drag to compare with another timezone";
@@ -19,7 +14,6 @@ export default function TimezoneWidget() {
   const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
   const [loading, setLoading] = useState(false);
   const [now, setNow] = useState(DateTime.now());
-  const [sameTimezone, setSameTimezone] = useState(false);
   const [selectedTimezones, setSelectedTimezones] = useState<
     SelectedTimezone[]
   >([
@@ -50,7 +44,6 @@ export default function TimezoneWidget() {
 
     setSelectedTimezones((prev) => {
       const exists = prev.some((tz) => tz.value === clientZone);
-      setSameTimezone(exists);
       return exists ? prev : [...prev, clientTimezone];
     });
 
@@ -97,100 +90,47 @@ export default function TimezoneWidget() {
     ]);
   };
 
+  const getTimezoneComparisonText = (
+    draggedTz: SelectedTimezone,
+    targetTz: SelectedTimezone,
+  ): string => {
+    const now = DateTime.now();
+    const draggedOffset = now.setZone(draggedTz.value).offset;
+    const targetOffset = now.setZone(targetTz.value).offset;
+
+    const diffMinutes = draggedOffset - targetOffset;
+    const absHours = Math.floor(Math.abs(diffMinutes) / 60);
+    const absMinutes = Math.abs(diffMinutes) % 60;
+
+    if (diffMinutes > 0)
+      return `${absHours}h ${absMinutes}m ahead of ${targetTz.name}`;
+    if (diffMinutes < 0)
+      return `${absHours}h ${absMinutes}m behind ${targetTz.name}`;
+    return `Same time as ${targetTz.name}`;
+  };
+
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
 
     if (over) {
-      setSelectedTimezones((prev) => {
-        return prev.map((tz) => {
+      setSelectedTimezones((prev) =>
+        prev.map((tz) => {
           if (tz.id === active.id) {
             const draggedTz = prev.find((t) => t.id === active.id);
             const targetTz = prev.find((t) => t.id === over.id);
 
             if (draggedTz && targetTz) {
-              const now = DateTime.now();
-              const draggedOffset = now.setZone(draggedTz.value).offset;
-              const targetOffset = now.setZone(targetTz.value).offset;
-
-              const diffMinutes = draggedOffset - targetOffset;
-              const absHours = Math.floor(Math.abs(diffMinutes) / 60);
-              const absMinutes = Math.abs(diffMinutes) % 60;
-
-              let comparisonText = "";
-              if (diffMinutes > 0) {
-                comparisonText = `${absHours}h ${absMinutes}m ahead of ${targetTz.name}`;
-              } else if (diffMinutes < 0) {
-                comparisonText = `${absHours}h ${absMinutes}m behind ${targetTz.name}`;
-              } else {
-                comparisonText = `Same time as ${targetTz.name}`;
-              }
-
+              const comparisonText = getTimezoneComparisonText(
+                draggedTz,
+                targetTz,
+              );
               return { ...tz, comparisonText };
             }
           }
           return tz;
-        });
-      });
+        }),
+      );
     }
-  };
-
-  const TimezoneCard = ({ timezone }: { timezone: SelectedTimezone }) => {
-    const {
-      attributes,
-      listeners,
-      setNodeRef: setDragRef,
-      transform,
-    } = useDraggable({
-      id: timezone.id,
-    });
-
-    const { setNodeRef: setDropRef, isOver } = useDroppable({
-      id: timezone.id,
-    });
-
-    const style = {
-      transform: transform
-        ? `translate(${transform.x}px, ${transform.y}px)`
-        : undefined,
-      border: isOver ? "2px solid #38bdf8" : undefined,
-    };
-
-    const localTime = now.setZone(timezone.value);
-
-    return (
-      <div
-        ref={(node) => {
-          setDragRef(node);
-          setDropRef(node);
-        }}
-        {...listeners}
-        {...attributes}
-        style={style}
-        className="flex h-50 flex-col justify-between gap-4 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black/10 p-5 md:flex-row md:items-center"
-      >
-        <div className="flex flex-col md:flex-row md:items-center md:gap-6">
-          <div className="flex items-center justify-center">
-            <Clock
-              value={localTime.toFormat("HH:mm:ss")}
-              renderNumbers
-              className="drop-shadow-lg"
-            />
-          </div>
-
-          <div className="mt-4 md:mt-0">
-            <h2 className="text-base font-semibold text-gray-100">
-              {timezone.name}
-            </h2>
-            <p className="text-2xl font-bold text-blue-400">
-              {localTime.toFormat("HH:mm:ss")}
-            </p>
-            <p className="mt-1 text-sm text-gray-500">
-              {selectedTimezones.length > 1 && timezone.comparisonText}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
   };
 
   return (
@@ -206,7 +146,12 @@ export default function TimezoneWidget() {
           <div className="mt-2 grid grid-cols-1 gap-4">
             <DndContext onDragEnd={handleDragEnd}>
               {selectedTimezones.map((tz) => (
-                <TimezoneCard key={tz.id} timezone={tz} />
+                <TimezoneCard
+                  hasMoreThanOneCard={selectedTimezones.length > 1}
+                  key={tz.id}
+                  timezone={tz}
+                  currentTime={now}
+                />
               ))}
             </DndContext>
           </div>
