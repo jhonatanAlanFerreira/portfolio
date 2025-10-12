@@ -81,7 +81,7 @@ export default function TimezoneWidget() {
 
   const onTimezoneSelectedChange = (timezone: TimezoneOption) => {
     resetTimezoneSelect();
-    console.log("Added new timezone: " + timezone.value); //WIP
+    setSelectedTimezones([...selectedTimezones, timezone]);
   };
 
   return (
