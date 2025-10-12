@@ -42,19 +42,7 @@ export default function TimezoneWidget() {
       comparisonText,
     };
 
-    clientTimezone.comparisonText = getTimezoneComparisonText(
-      clientTimezone,
-      selectedTimezones[0],
-    );
-
-    setSelectedTimezones((prev) => {
-      const timezone = prev[0];
-      timezone.comparisonText = getTimezoneComparisonText(
-        timezone,
-        clientTimezone,
-      );
-      return [timezone];
-    });
+    compareInitialTimezones(clientTimezone);
 
     setSelectedTimezones((prev) => {
       const exists = prev.some((tz) => tz.value === clientZone);
@@ -79,6 +67,22 @@ export default function TimezoneWidget() {
     } finally {
       setLoading(false);
     }
+  };
+
+  const compareInitialTimezones = (clientTimezone: SelectedTimezone) => {
+    clientTimezone.comparisonText = getTimezoneComparisonText(
+      clientTimezone,
+      selectedTimezones[0],
+    );
+
+    setSelectedTimezones((prev) => {
+      const timezone = prev[0];
+      timezone.comparisonText = getTimezoneComparisonText(
+        timezone,
+        clientTimezone,
+      );
+      return [timezone];
+    });
   };
 
   const onTimezoneInputChange = (value: string) => {
