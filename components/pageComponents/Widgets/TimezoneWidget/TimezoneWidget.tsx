@@ -106,7 +106,7 @@ export default function TimezoneWidget() {
                   <div className="flex flex-col md:flex-row md:items-center md:gap-6">
                     <div className="flex items-center justify-center">
                       <Clock
-                        value={localTime.toJSDate()}
+                        value={localTime.toFormat("HH:mm:ss")}
                         renderNumbers={true}
                         className="drop-shadow-lg"
                       />
