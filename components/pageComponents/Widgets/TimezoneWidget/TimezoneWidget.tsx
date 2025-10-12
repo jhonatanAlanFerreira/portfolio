@@ -42,6 +42,20 @@ export default function TimezoneWidget() {
       comparisonText,
     };
 
+    clientTimezone.comparisonText = getTimezoneComparisonText(
+      clientTimezone,
+      selectedTimezones[0],
+    );
+
+    setSelectedTimezones((prev) => {
+      const timezone = prev[0];
+      timezone.comparisonText = getTimezoneComparisonText(
+        timezone,
+        clientTimezone,
+      );
+      return [timezone];
+    });
+
     setSelectedTimezones((prev) => {
       const exists = prev.some((tz) => tz.value === clientZone);
       return exists ? prev : [...prev, clientTimezone];
