@@ -119,7 +119,7 @@ export default function TimezoneWidget() {
             const draggedTz = prev.find((t) => t.id === active.id);
             const targetTz = prev.find((t) => t.id === over.id);
 
-            if (draggedTz && targetTz) {
+            if (draggedTz && targetTz && draggedTz.id !== targetTz.id) {
               const comparisonText = getTimezoneComparisonText(
                 draggedTz,
                 targetTz,
