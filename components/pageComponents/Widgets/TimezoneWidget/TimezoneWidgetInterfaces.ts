@@ -3,3 +3,8 @@ export interface TimezoneOption {
   value: string;
   name: string;
 }
+
+export interface SelectedTimezone extends TimezoneOption {
+  id: string;
+  comparisonText: string;
+}
