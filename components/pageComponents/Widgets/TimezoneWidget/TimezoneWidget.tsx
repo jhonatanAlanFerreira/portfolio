@@ -15,23 +15,50 @@ export default function TimezoneWidget() {
   const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
   const [loading, setLoading] = useState(false);
   const [now, setNow] = useState(DateTime.now());
+  const [timezoneLocalStorageEmptyData, setTimezoneLocalStorageEmptyData] =
+    useState(false);
   const [selectedTimezones, setSelectedTimezones] = useState<
     SelectedTimezone[]
-  >([
-    {
-      id: uuidv4(),
-      label: "America/Sao_Paulo (GMT-3)",
-      name: "America/Sao_Paulo (GMT-3)",
-      value: "America/Sao_Paulo",
-      comparisonText,
-    },
-  ]);
+  >(() => {
+    const savedTimezones = localStorage.getItem("timezoneData");
+    if (savedTimezones) {
+      return JSON.parse(savedTimezones);
+    }
+
+    setTimezoneLocalStorageEmptyData(true);
+    return [
+      {
+        id: uuidv4(),
+        label: "America/Sao_Paulo (GMT-3)",
+        name: "America/Sao_Paulo (GMT-3)",
+        value: "America/Sao_Paulo",
+        comparisonText,
+      },
+    ];
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
       setNow(DateTime.now());
     }, 1000);
 
+    if (timezoneLocalStorageEmptyData) {
+      const clientTimezone = createInitialClientTimezone();
+      compareInitialTimezones(clientTimezone);
+      setSelectedTimezones((prev) => {
+        const exists = prev.some((tz) => tz.value === clientTimezone.value);
+        return exists ? prev : [...prev, clientTimezone];
+      });
+    }
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("timezoneData", JSON.stringify(selectedTimezones));
+  }, [selectedTimezones]);
+
+  const createInitialClientTimezone = () => {
     const clientZone = DateTime.local().zoneName;
     const offset = DateTime.local().toFormat("ZZZZ");
 
@@ -43,15 +70,8 @@ export default function TimezoneWidget() {
       comparisonText,
     };
 
-    compareInitialTimezones(clientTimezone);
-
-    setSelectedTimezones((prev) => {
-      const exists = prev.some((tz) => tz.value === clientZone);
-      return exists ? prev : [...prev, clientTimezone];
-    });
-
-    return () => clearInterval(interval);
-  }, []);
+    return clientTimezone;
+  };
 
   const fetchTimezones = async (search: string) => {
     if (!search) return setLoading(false);
