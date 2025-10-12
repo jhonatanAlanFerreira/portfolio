@@ -7,6 +7,7 @@ import { DndContext, DragEndEvent, UniqueIdentifier } from "@dnd-kit/core";
 import "react-clock/dist/Clock.css";
 import { v4 as uuidv4 } from "uuid";
 import TimezoneCard from "./TimezoneCard/TimezoneCard";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function TimezoneWidget() {
   const comparisonText = "Drag to compare with another timezone";
@@ -171,15 +172,24 @@ export default function TimezoneWidget() {
         <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 text-white shadow-lg">
           <div className="mt-2 grid grid-cols-1 gap-4">
             <DndContext onDragEnd={handleDragEnd}>
-              {selectedTimezones.map((tz) => (
-                <TimezoneCard
-                  hasMoreThanOneCard={selectedTimezones.length > 1}
-                  key={tz.id}
-                  timezone={tz}
-                  currentTime={now}
-                  onRemove={onRemove}
-                />
-              ))}
+              <AnimatePresence>
+                {selectedTimezones.map((tz) => (
+                  <motion.div
+                    key={tz.id}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 100 }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                  >
+                    <TimezoneCard
+                      hasMoreThanOneCard={selectedTimezones.length > 1}
+                      timezone={tz}
+                      currentTime={now}
+                      onRemove={onRemove}
+                    />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </DndContext>
           </div>
 
