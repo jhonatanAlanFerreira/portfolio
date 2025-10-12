@@ -101,7 +101,7 @@ export default function TimezoneWidget() {
               return (
                 <div
                   key={index}
-                  className="flex h-50 flex-col justify-between gap-4 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-800/40 via-gray-900/70 to-black/60 p-5 md:flex-row md:items-center"
+                  className="flex h-50 flex-col justify-between gap-4 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black/10 p-5 md:flex-row md:items-center"
                 >
                   <div className="flex flex-col md:flex-row md:items-center md:gap-6">
                     <div className="flex items-center justify-center">
