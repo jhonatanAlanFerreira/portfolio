@@ -3,7 +3,7 @@ import { InputSelect } from "@/components/InputSelect/InputSelect";
 import { useDebouncedCallback } from "@/clientUtils";
 import { SelectedTimezone, TimezoneOption } from "./TimezoneWidgetInterfaces";
 import { DateTime } from "luxon";
-import { DndContext, DragEndEvent } from "@dnd-kit/core";
+import { DndContext, DragEndEvent, UniqueIdentifier } from "@dnd-kit/core";
 import "react-clock/dist/Clock.css";
 import { v4 as uuidv4 } from "uuid";
 import TimezoneCard from "./TimezoneCard/TimezoneCard";
@@ -155,6 +155,10 @@ export default function TimezoneWidget() {
     }
   };
 
+  const onRemove = (id: UniqueIdentifier) => {
+    setSelectedTimezones((prev) => prev.filter((tz) => tz.id !== id));
+  };
+
   return (
     <>
       <div className="mb-4">
@@ -173,6 +177,7 @@ export default function TimezoneWidget() {
                   key={tz.id}
                   timezone={tz}
                   currentTime={now}
+                  onRemove={onRemove}
                 />
               ))}
             </DndContext>
