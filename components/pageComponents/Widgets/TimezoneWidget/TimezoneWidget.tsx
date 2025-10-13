@@ -8,6 +8,7 @@ import "react-clock/dist/Clock.css";
 import { v4 as uuidv4 } from "uuid";
 import TimezoneCard from "./TimezoneCard/TimezoneCard";
 import { AnimatePresence, motion } from "framer-motion";
+import { FaArrowsLeftRight } from "react-icons/fa6";
 
 export default function TimezoneWidget() {
   const comparisonText = "Drag to compare with another timezone";
@@ -15,6 +16,7 @@ export default function TimezoneWidget() {
   const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
   const [loading, setLoading] = useState(false);
   const [now, setNow] = useState(DateTime.now());
+  const [rangeModal, setRangeModal] = useState(false);
   const [timezoneLocalStorageEmptyData, setTimezoneLocalStorageEmptyData] =
     useState(false);
   const [selectedTimezones, setSelectedTimezones] = useState<
@@ -190,13 +192,25 @@ export default function TimezoneWidget() {
 
   return (
     <>
-      <div className="mb-4">
+      <div className="mb-4 pr-5">
         <h2 className="text-lg font-semibold tracking-wide text-gray-200 uppercase">
           Timezone Integration
         </h2>
+
+        {hasMoreThanOneCard() && (
+          <div className="flex justify-end">
+            <button
+              onClick={() => setRangeModal(true)}
+              className="flex cursor-pointer items-center gap-2 rounded-md border border-gray-700 bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-1 text-gray-200 transition-all duration-200 hover:border-blue-500 hover:text-blue-400"
+            >
+              <FaArrowsLeftRight className="h-4 w-4" />
+              <span>Compare Time Ranges</span>
+            </button>
+          </div>
+        )}
       </div>
 
-      <div className="p-5">
+      <div className={`px-5 pb-5 ${hasMoreThanOneCard() ? "" : "pt-5"}`}>
         <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 text-white shadow-lg">
           <div className="mt-2 grid grid-cols-1 gap-4">
             <DndContext onDragEnd={handleDragEnd}>
@@ -239,6 +253,40 @@ export default function TimezoneWidget() {
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {rangeModal && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="fixed inset-0 z-50 flex h-full w-full items-center justify-center"
+          >
+            <motion.div
+              className="relative flex h-4/5 w-4/5 justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <div className="flex w-full justify-between p-4">
+                <div className="flex w-full">
+                  <h2 className="text-white">WIP</h2>
+                </div>
+                <div>
+                  <button
+                    onClick={() => setRangeModal(false)}
+                    className="mr-3 cursor-pointer text-4xl text-gray-200 hover:scale-110 hover:text-gray-400"
+                  >
+                    &times;
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
