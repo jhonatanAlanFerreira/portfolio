@@ -180,6 +180,14 @@ export default function TimezoneWidget() {
     setSelectedTimezones((prev) => prev.filter((tz) => tz.id !== id));
   };
 
+  const hasMoreThanOneCard = () => {
+    return selectedTimezones.length > 1;
+  };
+
+  const showComparisonText = (timezone: SelectedTimezone) => {
+    return hasMoreThanOneCard() || timezone.comparisonText !== comparisonText;
+  };
+
   return (
     <>
       <div className="mb-4">
@@ -202,7 +210,7 @@ export default function TimezoneWidget() {
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
                     <TimezoneCard
-                      hasMoreThanOneCard={selectedTimezones.length > 1}
+                      showComparisonText={showComparisonText(tz)}
                       timezone={tz}
                       currentTime={now}
                       onRemove={onRemove}

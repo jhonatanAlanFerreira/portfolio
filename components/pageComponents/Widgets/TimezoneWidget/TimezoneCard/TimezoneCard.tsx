@@ -5,7 +5,7 @@ import Clock from "react-clock";
 export default function TimezoneCard({
   timezone,
   currentTime,
-  hasMoreThanOneCard,
+  showComparisonText,
   onRemove,
 }: TimezoneCardProps) {
   const {
@@ -59,7 +59,7 @@ export default function TimezoneCard({
               {localTime.toFormat("HH:mm:ss")}
             </p>
             <p className="mt-1 text-sm text-gray-500">
-              {hasMoreThanOneCard && timezone.comparisonText}
+              {showComparisonText && timezone.comparisonText}
             </p>
           </div>
           <div className="flex h-full">

@@ -5,6 +5,6 @@ import { UniqueIdentifier } from "@dnd-kit/core";
 export interface TimezoneCardProps {
   timezone: SelectedTimezone;
   currentTime: DateTime;
-  hasMoreThanOneCard: boolean;
+  showComparisonText: boolean;
   onRemove: (id: UniqueIdentifier) => void;
 }
