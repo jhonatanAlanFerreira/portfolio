@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from "uuid";
 import TimezoneCard from "./TimezoneCard/TimezoneCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaArrowsLeftRight } from "react-icons/fa6";
+import HoursRangeSelect from "./HoursRangeSelect/HoursRangeSelect";
 
 export default function TimezoneWidget() {
   const comparisonText = "Drag to compare with another timezone";
@@ -264,23 +265,28 @@ export default function TimezoneWidget() {
             className="fixed inset-0 z-50 flex h-full w-full items-center justify-center"
           >
             <motion.div
-              className="relative flex h-4/5 w-4/5 justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
+              className="relative m-1 flex h-full w-full justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="flex w-full justify-between p-4">
-                <div className="flex w-full">
-                  <h2 className="text-white">WIP</h2>
-                </div>
-                <div>
+              <div className="flex w-full flex-col px-5 py-3">
+                <div className="flex justify-between align-middle">
+                  <h2 className="mb-4 text-2xl font-semibold tracking-wide text-gray-200">
+                    Compare Time Ranges
+                  </h2>
                   <button
                     onClick={() => setRangeModal(false)}
                     className="mr-3 cursor-pointer text-4xl text-gray-200 hover:scale-110 hover:text-gray-400"
                   >
                     &times;
                   </button>
+                </div>
+                <div className="flex w-full pt-10">
+                  <HoursRangeSelect
+                    timezones={selectedTimezones}
+                  ></HoursRangeSelect>
                 </div>
               </div>
             </motion.div>

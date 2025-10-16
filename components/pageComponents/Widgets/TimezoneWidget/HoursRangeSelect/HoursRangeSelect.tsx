@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { DraggableData, Rnd } from "react-rnd";
+import HoursRangeSelectProps from "./HoursRangeSelectProps";
 
-export default function HoursRangeSelect() {
-  const hours = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
+  const hours = Array.from({ length: 24 }, (_, i) => ++i);
   const boxWidth = 80;
   const maxWidth = boxWidth * hours.length;
 
@@ -10,20 +11,6 @@ export default function HoursRangeSelect() {
     x: boxWidth * 2,
     width: boxWidth * 3,
   });
-
-  const timezonesMock = [
-    {
-      city: "São José do Rio Preto",
-      country: "Brazil",
-      timezone: "America/Sao_Paulo",
-      currentTime: "2025-10-08T23:17:00-03:00",
-      selectedTimeRange: "22:00 - 02:30",
-      compareWith: {
-        timezone: "America/New_York",
-        offset: "+01:00",
-      },
-    },
-  ];
 
   const handleDragStop = (_e: any, data: DraggableData) => {
     let snappedX = Math.round(data.x / boxWidth) * boxWidth;
@@ -59,29 +46,32 @@ export default function HoursRangeSelect() {
   };
 
   return (
-    <div>
-      <div className="relative mt-10 w-fit">
-        <div className="flex text-2xl text-white">
-          {hours.map((h) => (
-            <div
-              key={h}
-              className="flex h-20 w-20 items-center justify-center border border-gray-700"
+    <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
+      <div>
+        <ul className="text-nowrap">
+          {timezones.map((tz, index) => (
+            <li
+              key={index}
+              className="flex h-20 place-content-end items-center"
             >
-              {h}
-            </div>
+              {tz.name}
+            </li>
           ))}
-        </div>
-
-        <div className="flex text-2xl text-white">
-          {hours.map((h) => (
-            <div
-              key={h}
-              className="flex h-20 w-20 items-center justify-center border border-gray-700"
-            >
-              {h}
-            </div>
-          ))}
-        </div>
+        </ul>
+      </div>
+      <div className="gray-scroll overflow-auto">
+        {timezones.map((tz, index) => (
+          <div key={index} className="flex text-2xl text-white">
+            {hours.map((hour) => (
+              <div
+                key={hour}
+                className="flex h-20 w-20 items-center justify-center border border-gray-700"
+              >
+                {hour}
+              </div>
+            ))}
+          </div>
+        ))}
 
         <Rnd
           bounds="parent"
@@ -99,16 +89,6 @@ export default function HoursRangeSelect() {
             backgroundColor: "rgba(34,197,94,0.1)",
           }}
         />
-
-        <div className="mt-4 text-white">
-          <p>
-            Start hour: <strong>{Math.round(range.x / boxWidth) + 1}</strong>
-          </p>
-          <p>
-            End hour:{" "}
-            <strong>{Math.round((range.x + range.width) / boxWidth)}</strong>
-          </p>
-        </div>
       </div>
     </div>
   );
