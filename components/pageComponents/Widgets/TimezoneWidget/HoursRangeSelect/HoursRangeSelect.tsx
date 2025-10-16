@@ -5,6 +5,7 @@ import HoursRangeSelectProps from "./HoursRangeSelectProps";
 export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
   const hours = Array.from({ length: 24 }, (_, i) => ++i);
   const boxWidth = 80;
+  const boxHeight = 80;
   const maxWidth = boxWidth * hours.length;
 
   const [range, setRange] = useState({
@@ -75,7 +76,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
 
         <Rnd
           bounds="parent"
-          size={{ width: range.width, height: 160 }}
+          size={{ width: range.width, height: boxHeight * timezones.length }}
           maxWidth={maxWidth}
           minWidth={boxWidth}
           position={{ x: range.x, y: 0 }}
