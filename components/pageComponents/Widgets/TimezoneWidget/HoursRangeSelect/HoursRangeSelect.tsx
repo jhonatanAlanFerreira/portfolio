@@ -60,13 +60,13 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
           ))}
         </ul>
       </div>
-      <div className="gray-scroll overflow-auto">
+      <div className="gray-scroll overflow-auto pb-4">
         {timezones.map((tz, index) => (
           <div key={index} className="flex text-2xl text-white">
             {hours.map((hour) => (
               <div
                 key={hour}
-                className="flex h-20 w-20 items-center justify-center border border-gray-700"
+                className="flex h-20 w-20 flex-shrink-0 items-center justify-center border border-gray-700"
               >
                 {hour}
               </div>
