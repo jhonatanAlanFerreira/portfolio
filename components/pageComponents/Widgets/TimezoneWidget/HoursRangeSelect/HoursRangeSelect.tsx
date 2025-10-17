@@ -8,6 +8,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
   const boxWidth = 80;
   const boxHeight = 80;
   const maxWidth = boxWidth * hours.length;
+  const snapStep = boxWidth / 2;
 
   const [range, setRange] = useState({
     x: boxWidth * 2,
@@ -22,7 +23,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
   }, []);
 
   const handleDragStop = (_e: any, data: DraggableData) => {
-    let snappedX = Math.round(data.x / boxWidth) * boxWidth;
+    let snappedX = Math.round(data.x / snapStep) * snapStep;
 
     if (snappedX + range.width > maxWidth) snappedX = maxWidth - range.width;
     if (snappedX < 0) snappedX = 0;
@@ -37,9 +38,9 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
     _delta: { width: number; height: number },
     position: { x: number; y: number },
   ) => {
-    let snappedX = Math.round(position.x / boxWidth) * boxWidth;
+    let snappedX = Math.round(position.x / snapStep) * snapStep;
     let snappedWidth =
-      Math.round(parseInt(ref.style.width) / boxWidth) * boxWidth;
+      Math.round(parseInt(ref.style.width) / snapStep) * snapStep;
 
     if (snappedX + snappedWidth > maxWidth) {
       snappedWidth = maxWidth - snappedX;
