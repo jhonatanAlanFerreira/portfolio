@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
 
@@ -12,6 +12,13 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
     x: boxWidth * 2,
     width: boxWidth * 3,
   });
+
+  const [layoutReady, setLayoutReady] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setLayoutReady(true), 500);
+    return () => clearTimeout(timeout);
+  }, []);
 
   const handleDragStop = (_e: any, data: DraggableData) => {
     let snappedX = Math.round(data.x / boxWidth) * boxWidth;
@@ -74,23 +81,25 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
           </div>
         ))}
 
-        <Rnd
-          bounds="parent"
-          size={{ width: range.width, height: boxHeight * timezones.length }}
-          maxWidth={maxWidth}
-          minWidth={boxWidth}
-          position={{ x: range.x, y: 0 }}
-          onDragStop={handleDragStop}
-          onResizeStop={handleResizeStop}
-          enableResizing={{ left: true, right: true }}
-          dragAxis="x"
-          style={{
-            border: "2px solid rgba(56,189,248,1)",
-            borderRadius: 8,
-            backgroundColor: "rgba(56,189,248,0.08)",
-            boxShadow: "0 6px 24px rgba(56,189,248,0.06)",
-          }}
-        />
+        {layoutReady && (
+          <Rnd
+            bounds="parent"
+            size={{ width: range.width, height: boxHeight * timezones.length }}
+            maxWidth={maxWidth}
+            minWidth={boxWidth}
+            position={{ x: range.x, y: 0 }}
+            onDragStop={handleDragStop}
+            onResizeStop={handleResizeStop}
+            enableResizing={{ left: true, right: true }}
+            dragAxis="x"
+            style={{
+              border: "2px solid rgba(56,189,248,1)",
+              borderRadius: 8,
+              backgroundColor: "rgba(56,189,248,0.08)",
+              boxShadow: "0 6px 24px rgba(56,189,248,0.06)",
+            }}
+          />
+        )}
       </div>
     </div>
   );
