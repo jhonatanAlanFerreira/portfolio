@@ -85,9 +85,10 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
           enableResizing={{ left: true, right: true }}
           dragAxis="x"
           style={{
-            border: "2px solid #22c55e",
-            borderRadius: "8px",
-            backgroundColor: "rgba(34,197,94,0.1)",
+            border: "2px solid rgba(56,189,248,1)",
+            borderRadius: 8,
+            backgroundColor: "rgba(56,189,248,0.08)",
+            boxShadow: "0 6px 24px rgba(56,189,248,0.06)",
           }}
         />
       </div>
