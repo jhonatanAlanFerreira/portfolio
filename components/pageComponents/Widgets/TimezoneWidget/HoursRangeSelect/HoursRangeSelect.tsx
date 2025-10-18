@@ -47,14 +47,13 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
   };
 
   const getHoursForTimezone = (tz: string) => {
-    const hours: number[] = [];
+    const hours: string[] = [];
     for (let h = 0; h < 24; h++) {
       const dt = DateTime.utc().startOf("day").plus({ hours: h }).setZone(tz);
-      hours.push(dt.hour);
+      hours.push(dt.toFormat("h a").toLowerCase());
     }
     return hours;
   };
-
   return (
     <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
       <div>
@@ -77,14 +76,18 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
         >
           {timezones.map((tz, index) => (
             <div key={index} className="flex text-2xl text-white">
-              {getHoursForTimezone(tz.value).map((hour) => (
-                <div
-                  key={hour}
-                  className="flex h-20 w-20 flex-shrink-0 items-center justify-center border border-gray-700"
-                >
-                  {hour}
-                </div>
-              ))}
+              {getHoursForTimezone(tz.value).map((hourLabel, hourIndex) => {
+                const [hour, meridiem] = hourLabel.split(" ");
+                return (
+                  <div
+                    key={hourIndex}
+                    className="flex h-20 w-20 flex-shrink-0 flex-col items-center justify-center border border-gray-700"
+                  >
+                    <span className="text-xl">{hour}</span>
+                    <span className="text-sm lowercase">{meridiem}</span>
+                  </div>
+                );
+              })}
             </div>
           ))}
 
