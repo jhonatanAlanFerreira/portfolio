@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import { motion } from "framer-motion";
+import { DateTime } from "luxon";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
 
 export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
-  const hours = Array.from({ length: 24 }, (_, i) => ++i);
   const boxWidth = 80;
   const boxHeight = 80;
-  const maxWidth = boxWidth * hours.length;
   const snapStep = boxWidth / 2;
+  const maxWidth = boxWidth * 24;
 
   const [range, setRange] = useState({
-    x: boxWidth * 2,
+    x: 0,
     width: boxWidth * 3,
   });
   const [layoutReady, setLayoutReady] = useState(false);
@@ -25,10 +25,8 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
 
   const handleDragStop = (_e: any, data: DraggableData) => {
     let snappedX = Math.round(data.x / snapStep) * snapStep;
-
     if (snappedX + range.width > maxWidth) snappedX = maxWidth - range.width;
     if (snappedX < 0) snappedX = 0;
-
     setRange((prev) => ({ ...prev, x: snappedX }));
   };
 
@@ -42,13 +40,19 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
     let snappedX = Math.round(position.x / snapStep) * snapStep;
     let snappedWidth =
       Math.round(parseInt(ref.style.width) / snapStep) * snapStep;
-
-    if (snappedX + snappedWidth > maxWidth) {
-      snappedWidth = maxWidth - snappedX;
-    }
+    if (snappedX + snappedWidth > maxWidth) snappedWidth = maxWidth - snappedX;
 
     setRange({ x: snappedX, width: snappedWidth });
     setForceRemount((prev) => !prev);
+  };
+
+  const getHoursForTimezone = (tz: string) => {
+    const hours: number[] = [];
+    for (let h = 0; h < 24; h++) {
+      const dt = DateTime.utc().startOf("day").plus({ hours: h }).setZone(tz);
+      hours.push(dt.hour);
+    }
+    return hours;
   };
 
   return (
@@ -73,7 +77,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
         >
           {timezones.map((tz, index) => (
             <div key={index} className="flex text-2xl text-white">
-              {hours.map((hour) => (
+              {getHoursForTimezone(tz.value).map((hour) => (
                 <div
                   key={hour}
                   className="flex h-20 w-20 flex-shrink-0 items-center justify-center border border-gray-700"
