@@ -54,6 +54,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
     }
     return hours;
   };
+  
   return (
     <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
       <div>
