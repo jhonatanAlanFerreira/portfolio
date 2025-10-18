@@ -16,6 +16,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
   });
   const [layoutReady, setLayoutReady] = useState(false);
   const [animationDone, setAnimationDone] = useState(false);
+  const [forceRemount, setForceRemount] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => setLayoutReady(true), 300);
@@ -47,6 +48,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
     }
 
     setRange({ x: snappedX, width: snappedWidth });
+    setForceRemount((prev) => !prev);
   };
 
   return (
@@ -85,6 +87,7 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
           {layoutReady &&
             (animationDone ? (
               <Rnd
+                key={forceRemount.toString()}
                 bounds="#hours-container"
                 size={{
                   width: range.width,
