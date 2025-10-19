@@ -42,7 +42,7 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
   const getSelectedRangeText = () => {
     const totalHours = range.width / boxWidth;
     const startHour = range.x / boxWidth;
-    const endHour = startHour + totalHours - 1;
+    const endHour = startHour + totalHours;
 
     const nowUtc = DateTime.utc().startOf("hour");
 
@@ -59,7 +59,7 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
           .toFormat("h:mm a")
           .toLowerCase();
 
-        const formattedRange = start == end ? start : `${start} - ${end}`;
+        const formattedRange = `${start} - ${end}`;
 
         return {
           ...tz,
