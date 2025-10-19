@@ -7,6 +7,7 @@ import HoursRangeSelectProps from "./HoursRangeSelectProps";
 export default function HoursRangeSelect({
   timezones,
   currentTime,
+  updateSelectedRangeDuration,
 }: HoursRangeSelectProps) {
   const boxWidth = 80;
   const boxHeight = 80;
@@ -25,6 +26,26 @@ export default function HoursRangeSelect({
     const timeout = setTimeout(() => setLayoutReady(true), 300);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    formatDuration();
+  }, [range.width]);
+
+  const formatDuration = () => {
+    const totalHours = range.width / boxWidth;
+    const hours = Math.floor(totalHours);
+    const minutes = Math.round((totalHours - hours) * 60);
+
+    if (hours === 0) {
+      return updateSelectedRangeDuration(`${minutes} minutes`);
+    }
+    if (minutes === 0) {
+      return updateSelectedRangeDuration(
+        `${hours} hour${hours > 1 ? "s" : ""}`,
+      );
+    }
+    return updateSelectedRangeDuration(`${hours}h ${minutes}m`);
+  };
 
   const handleDragStop = (_e: any, data: DraggableData) => {
     let snappedX = Math.round(data.x / snapStep) * snapStep;

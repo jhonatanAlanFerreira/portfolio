@@ -18,6 +18,9 @@ export default function TimezoneWidget() {
   const [loading, setLoading] = useState(false);
   const [now, setNow] = useState(DateTime.now());
   const [rangeModal, setRangeModal] = useState(false);
+  const [selectedRangeDuration, setSelectedRangeDuration] = useState<
+    null | string
+  >(null);
   const [timezoneLocalStorageEmptyData, setTimezoneLocalStorageEmptyData] =
     useState(false);
   const [selectedTimezones, setSelectedTimezones] = useState<
@@ -283,11 +286,17 @@ export default function TimezoneWidget() {
                     &times;
                   </button>
                 </div>
-                <div className="flex w-full pt-10">
-                  <HoursRangeSelect
-                    currentTime={now}
-                    timezones={selectedTimezones}
-                  ></HoursRangeSelect>
+                <div className="flex flex-col pt-10">
+                  <div className="flex w-full justify-center">
+                    <p className="text-white">{selectedRangeDuration}</p>
+                  </div>
+                  <div className="flex w-full">
+                    <HoursRangeSelect
+                      currentTime={now}
+                      timezones={selectedTimezones}
+                      updateSelectedRangeDuration={setSelectedRangeDuration}
+                    ></HoursRangeSelect>
+                  </div>
                 </div>
               </div>
             </motion.div>
