@@ -93,7 +93,7 @@ export default function HoursRangeSelect({
               >
                 <span className="text-lg">{tz.name}</span>
                 <span className="text-sm text-gray-500">
-                  <b>Current time:</b>{" "}
+                  <b>Current Time:</b>{" "}
                   {localTime.toFormat("h:m:s a").toLowerCase()}
                 </span>
               </li>
