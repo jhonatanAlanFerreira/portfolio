@@ -101,7 +101,7 @@ export default function WeatherWidget() {
                 </h3>
                 <p className="mt-1 text-sm text-gray-400">
                   {formatDate(current.time)} ·{" "}
-                  {dayjs(current.time).format("h a").toLowerCase()}
+                  {dayjs(current.time).format("h:mm a").toLowerCase()}
                 </p>
               </div>
 
