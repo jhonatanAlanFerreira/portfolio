@@ -18,7 +18,14 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
   const snapStep = boxWidth / 2;
   const maxWidth = boxWidth * 24;
 
-  const [range, setRange] = useState({ x: 0, width: boxWidth * 3 });
+  const [range, setRange] = useState<{ x: number; width: number }>(() => {
+    const savedRangeSelect = localStorage.getItem("selectRangeData");
+    if (savedRangeSelect) {
+      return JSON.parse(savedRangeSelect);
+    }
+
+    return { x: 0, width: boxWidth * 3 };
+  });
   const [layoutReady, setLayoutReady] = useState(false);
   const [animationDone, setAnimationDone] = useState(false);
   const [forceRemount, setForceRemount] = useState(false);
@@ -60,6 +67,8 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
         };
       }),
     );
+
+    localStorage.setItem("selectRangeData", JSON.stringify(range));
   };
 
   useImperativeHandle(ref, () => ({
