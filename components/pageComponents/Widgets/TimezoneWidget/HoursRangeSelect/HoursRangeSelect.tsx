@@ -33,11 +33,32 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
   }, [range.width]);
 
   const getSelectedRangeText = () => {
+    const totalHours = range.width / boxWidth;
+    const startHour = range.x / boxWidth;
+    const endHour = startHour + totalHours - 1;
+
+    const nowUtc = DateTime.utc().startOf("hour");
+
     updateSelectedTimezoneRangeDuration(
-      timezones.map((tz) => ({
-        ...tz,
-        selectedTimezoneDuration: `Selected range: ${range.width / boxWidth}h approx. [WIP]`,
-      })),
+      timezones.map((tz) => {
+        const start = nowUtc
+          .plus({ hours: startHour })
+          .setZone(tz.value)
+          .toFormat("h:mm a")
+          .toLowerCase();
+        const end = nowUtc
+          .plus({ hours: endHour })
+          .setZone(tz.value)
+          .toFormat("h:mm a")
+          .toLowerCase();
+
+        const formattedRange = start == end ? start : `${start} - ${end}`;
+
+        return {
+          ...tz,
+          selectedTimezoneDuration: formattedRange,
+        };
+      }),
     );
   };
 
@@ -148,7 +169,7 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
                   height: boxHeight * timezones.length,
                 }}
                 maxWidth={maxWidth}
-                minWidth={boxWidth / 2}
+                minWidth={boxWidth}
                 position={{ x: range.x, y: 0 }}
                 onDragStop={handleDragStop}
                 onResizeStop={handleResizeStop}
