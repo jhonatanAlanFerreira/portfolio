@@ -56,7 +56,7 @@ export default function TimezoneCard({
               {timezone.name}
             </h2>
             <p className="text-2xl font-bold text-blue-400">
-              {localTime.toFormat("HH:mm:ss")}
+              {localTime.toFormat("h:m:s a").toLowerCase()}
             </p>
             <p className="mt-1 text-sm text-gray-500">
               {showComparisonText && timezone.comparisonText}
