@@ -334,6 +334,19 @@ export default function TimezoneWidget() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <p className="mt-2 text-right text-sm text-gray-400">
+        Time calculations abstracted with{" "}
+        <a
+          href="https://moment.github.io/luxon/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cursor-pointer text-gray-200"
+        >
+          Luxon
+        </a>
+        .
+      </p>
     </>
   );
 }
