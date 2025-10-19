@@ -10,6 +10,7 @@ import TimezoneCard from "./TimezoneCard/TimezoneCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaArrowsLeftRight } from "react-icons/fa6";
 import HoursRangeSelect from "./HoursRangeSelect/HoursRangeSelect";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function TimezoneWidget() {
   const comparisonText = "Drag to compare with another timezone";
@@ -286,16 +287,25 @@ export default function TimezoneWidget() {
                     &times;
                   </button>
                 </div>
+
                 <div className="gray-scroll flex flex-col overflow-auto pt-10">
-                  <div className="flex w-full justify-center">
-                    <p className="text-white">{selectedRangeDuration}</p>
+                  <div className="mb-2 flex w-full items-center justify-center">
+                    <div className="relative flex w-40 items-center justify-center">
+                      <div className="absolute top-1/2 left-0 h-px w-full bg-gray-400" />
+                      <ChevronLeft className="absolute left-0 h-3 w-3 -translate-x-2 text-gray-400" />
+                      <ChevronRight className="absolute right-0 h-3 w-3 translate-x-2 text-gray-400" />
+                      <span className="relative z-10 bg-black/99 px-2 text-sm text-gray-300">
+                        {selectedRangeDuration}
+                      </span>
+                    </div>
                   </div>
+
                   <div className="flex w-full">
                     <HoursRangeSelect
                       currentTime={now}
                       timezones={selectedTimezones}
                       updateSelectedRangeDuration={setSelectedRangeDuration}
-                    ></HoursRangeSelect>
+                    />
                   </div>
                 </div>
               </div>
