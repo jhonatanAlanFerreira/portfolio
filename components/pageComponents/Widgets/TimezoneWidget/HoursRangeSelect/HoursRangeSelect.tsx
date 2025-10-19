@@ -1,23 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, forwardRef, useImperativeHandle } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import { motion } from "framer-motion";
 import { DateTime } from "luxon";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
 
-export default function HoursRangeSelect({
-  timezones,
-  currentTime,
-  updateSelectedRangeDuration,
-}: HoursRangeSelectProps) {
+const HoursRangeSelect = forwardRef(function HoursRangeSelect(
+  {
+    timezones,
+    currentTime,
+    updateSelectedRangeDuration,
+    updateSelectedTimezoneRangeDuration,
+  }: HoursRangeSelectProps,
+  ref,
+) {
   const boxWidth = 80;
   const boxHeight = 80;
   const snapStep = boxWidth / 2;
   const maxWidth = boxWidth * 24;
 
-  const [range, setRange] = useState({
-    x: 0,
-    width: boxWidth * 3,
-  });
+  const [range, setRange] = useState({ x: 0, width: boxWidth * 3 });
   const [layoutReady, setLayoutReady] = useState(false);
   const [animationDone, setAnimationDone] = useState(false);
   const [forceRemount, setForceRemount] = useState(false);
@@ -30,6 +31,19 @@ export default function HoursRangeSelect({
   useEffect(() => {
     formatDuration();
   }, [range.width]);
+
+  const getSelectedRangeText = () => {
+    updateSelectedTimezoneRangeDuration(
+      timezones.map((tz) => ({
+        ...tz,
+        selectedTimezoneDuration: `Selected range: ${range.width / boxWidth}h approx. [WIP]`,
+      })),
+    );
+  };
+
+  useImperativeHandle(ref, () => ({
+    getSelectedRangeText,
+  }));
 
   const formatDuration = () => {
     const totalHours = range.width / boxWidth;
@@ -57,13 +71,13 @@ export default function HoursRangeSelect({
   const handleResizeStop = (
     _e: MouseEvent | TouchEvent,
     _direction: string,
-    ref: HTMLElement,
+    refEl: HTMLElement,
     _delta: { width: number; height: number },
     position: { x: number; y: number },
   ) => {
     let snappedX = Math.round(position.x / snapStep) * snapStep;
     let snappedWidth =
-      Math.round(parseInt(ref.style.width) / snapStep) * snapStep;
+      Math.round(parseInt(refEl.style.width) / snapStep) * snapStep;
     if (snappedX + snappedWidth > maxWidth) snappedWidth = maxWidth - snappedX;
 
     setRange({ x: snappedX, width: snappedWidth });
@@ -102,7 +116,7 @@ export default function HoursRangeSelect({
         </ul>
       </div>
 
-      <div className="gray-scroll relative overflow-auto pb-4">
+      <div className="gray-scroll relative overflow-auto pb-10">
         <div
           id="hours-container"
           style={{ position: "relative", width: `${maxWidth}px` }}
@@ -170,4 +184,6 @@ export default function HoursRangeSelect({
       </div>
     </div>
   );
-}
+});
+
+export default HoursRangeSelect;

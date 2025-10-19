@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { InputSelect } from "@/components/InputSelect/InputSelect";
 import { useDebouncedCallback } from "@/clientUtils";
 import { SelectedTimezone, TimezoneOption } from "./TimezoneWidgetInterfaces";
@@ -13,6 +13,8 @@ import HoursRangeSelect from "./HoursRangeSelect/HoursRangeSelect";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function TimezoneWidget() {
+  const hoursRangeRef = useRef<{ getSelectedRangeText: () => void }>(null);
+
   const comparisonText = "Drag to compare with another timezone";
   const initialTimezone: SelectedTimezone = {
     id: uuidv4(),
@@ -194,6 +196,11 @@ export default function TimezoneWidget() {
     return hasMoreThanOneCard() || timezone.comparisonText !== comparisonText;
   };
 
+  const saveRange = () => {
+    hoursRangeRef.current?.getSelectedRangeText();
+    setRangeModal(false);
+  };
+
   return (
     <>
       <div className="mb-4 pr-5">
@@ -229,6 +236,10 @@ export default function TimezoneWidget() {
                   >
                     <TimezoneCard
                       showComparisonText={showComparisonText(tz)}
+                      showSelectedRangeText={
+                        hasMoreThanOneCard() &&
+                        !!selectedTimezones[0].selectedTimezoneDuration
+                      }
                       timezone={tz}
                       currentTime={now}
                       onRemove={onRemove}
@@ -265,10 +276,10 @@ export default function TimezoneWidget() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex h-full w-full items-center justify-center"
+            className="fixed inset-0 z-50 flex h-full w-full items-center justify-center backdrop-blur-md"
           >
             <motion.div
-              className="relative m-1 flex h-full w-full justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
+              className="relative m-1 flex h-4/5 w-[98%] justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -287,7 +298,7 @@ export default function TimezoneWidget() {
                   </button>
                 </div>
 
-                <div className="gray-scroll flex flex-col overflow-auto pt-10">
+                <div className="gray-scroll flex h-full flex-col overflow-auto pt-10">
                   <div className="mb-2 flex w-full items-center justify-center">
                     <div className="relative flex w-40 items-center justify-center">
                       <div className="absolute top-1/2 left-0 h-px w-full bg-gray-400" />
@@ -299,12 +310,23 @@ export default function TimezoneWidget() {
                     </div>
                   </div>
 
-                  <div className="flex w-full">
+                  <div className="flex h-full w-full flex-col justify-between">
                     <HoursRangeSelect
+                      ref={hoursRangeRef}
                       currentTime={now}
                       timezones={selectedTimezones}
                       updateSelectedRangeDuration={setSelectedRangeDuration}
+                      updateSelectedTimezoneRangeDuration={setSelectedTimezones}
                     />
+
+                    <div className="flex w-full justify-end p-5">
+                      <button
+                        onClick={saveRange}
+                        className="cursor-pointer rounded-md border border-slate-700 bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-2 text-gray-200 transition-all hover:border-blue-500 hover:text-blue-400"
+                      >
+                        Save Range
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

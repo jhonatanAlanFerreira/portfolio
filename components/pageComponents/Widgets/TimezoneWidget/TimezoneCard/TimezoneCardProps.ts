@@ -6,5 +6,6 @@ export interface TimezoneCardProps {
   timezone: SelectedTimezone;
   currentTime: DateTime;
   showComparisonText: boolean;
+  showSelectedRangeText: boolean;
   onRemove: (id: UniqueIdentifier) => void;
 }

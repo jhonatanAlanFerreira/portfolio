@@ -6,6 +6,7 @@ export default function TimezoneCard({
   timezone,
   currentTime,
   showComparisonText,
+  showSelectedRangeText,
   onRemove,
 }: TimezoneCardProps) {
   const {
@@ -51,16 +52,26 @@ export default function TimezoneCard({
         </div>
 
         <div className="mt-4 flex h-full w-full justify-between md:mt-0">
-          <div className="flex flex-col justify-center">
-            <h2 className="text-base font-semibold text-gray-100">
-              {timezone.name}
-            </h2>
-            <p className="text-2xl font-bold text-blue-400">
-              {localTime.toFormat("h:m:s a").toLowerCase()}
-            </p>
-            <p className="mt-1 text-sm text-gray-500">
-              {showComparisonText && timezone.comparisonText}
-            </p>
+          <div
+            className={`flex flex-col ${showSelectedRangeText ? "justify-between" : "justify-center"}`}
+          >
+            <div>
+              <h2 className="text-base font-semibold text-gray-100">
+                {timezone.name}
+              </h2>
+              <p className="text-2xl font-bold text-blue-400">
+                {localTime.toFormat("h:m:s a").toLowerCase()}
+              </p>
+              <p className="mt-1 text-sm text-gray-500">
+                {showComparisonText && timezone.comparisonText}
+              </p>
+            </div>
+            {showSelectedRangeText && (
+              <p className="mt-1 text-sm text-gray-500">
+                <b>Selected Time Range: </b>
+                {timezone.selectedTimezoneDuration}
+              </p>
+            )}
           </div>
           <div className="flex h-full">
             <span
