@@ -134,7 +134,7 @@ export default function HoursRangeSelect({
                   height: boxHeight * timezones.length,
                 }}
                 maxWidth={maxWidth}
-                minWidth={boxWidth}
+                minWidth={boxWidth / 2}
                 position={{ x: range.x, y: 0 }}
                 onDragStop={handleDragStop}
                 onResizeStop={handleResizeStop}
