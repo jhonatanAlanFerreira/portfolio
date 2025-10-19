@@ -14,6 +14,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function TimezoneWidget() {
   const comparisonText = "Drag to compare with another timezone";
+  const initialTimezone: SelectedTimezone = {
+    id: uuidv4(),
+    label: "America/Sao_Paulo (GMT-3)",
+    name: "America/Sao_Paulo (GMT-3)",
+    value: "America/Sao_Paulo",
+    comparisonText,
+  };
 
   const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
   const [loading, setLoading] = useState(false);
@@ -33,15 +40,7 @@ export default function TimezoneWidget() {
     }
 
     setTimezoneLocalStorageEmptyData(true);
-    return [
-      {
-        id: uuidv4(),
-        label: "America/Sao_Paulo (GMT-3)",
-        name: "America/Sao_Paulo (GMT-3)",
-        value: "America/Sao_Paulo",
-        comparisonText,
-      },
-    ];
+    return [initialTimezone];
   });
 
   useEffect(() => {
