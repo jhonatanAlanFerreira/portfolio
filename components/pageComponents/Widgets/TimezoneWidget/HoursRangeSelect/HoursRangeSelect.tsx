@@ -49,12 +49,12 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
   const getHoursForTimezone = (tz: string) => {
     const hours: string[] = [];
     for (let h = 0; h < 24; h++) {
-      const dt = DateTime.utc().startOf("day").plus({ hours: h }).setZone(tz);
+      const dt = DateTime.utc().plus({ hours: h }).setZone(tz);
       hours.push(dt.toFormat("h a").toLowerCase());
     }
     return hours;
   };
-  
+
   return (
     <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
       <div>
