@@ -285,6 +285,7 @@ export default function TimezoneWidget() {
                 </div>
                 <div className="flex w-full pt-10">
                   <HoursRangeSelect
+                    currentTime={now}
                     timezones={selectedTimezones}
                   ></HoursRangeSelect>
                 </div>

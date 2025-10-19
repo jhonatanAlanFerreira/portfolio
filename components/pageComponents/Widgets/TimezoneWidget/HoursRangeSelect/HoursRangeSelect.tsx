@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 import { DateTime } from "luxon";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
 
-export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
+export default function HoursRangeSelect({
+  timezones,
+  currentTime,
+}: HoursRangeSelectProps) {
   const boxWidth = 80;
   const boxHeight = 80;
   const snapStep = boxWidth / 2;
@@ -59,14 +62,22 @@ export default function HoursRangeSelect({ timezones }: HoursRangeSelectProps) {
     <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
       <div>
         <ul className="text-nowrap">
-          {timezones.map((tz, index) => (
-            <li
-              key={index}
-              className="flex h-20 place-content-end items-center"
-            >
-              {tz.name}
-            </li>
-          ))}
+          {timezones.map((tz, index) => {
+            const localTime = currentTime.setZone(tz.value);
+
+            return (
+              <li
+                key={index}
+                className="flex h-20 flex-col content-end justify-center border-b border-b-slate-500/10"
+              >
+                <span className="text-lg">{tz.name}</span>
+                <span className="text-sm text-gray-500">
+                  <b>Current time:</b>{" "}
+                  {localTime.toFormat("h:m:s a").toLowerCase()}
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
