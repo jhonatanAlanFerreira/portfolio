@@ -286,7 +286,7 @@ export default function TimezoneWidget() {
                     &times;
                   </button>
                 </div>
-                <div className="flex flex-col pt-10">
+                <div className="gray-scroll flex flex-col overflow-auto pt-10">
                   <div className="flex w-full justify-center">
                     <p className="text-white">{selectedRangeDuration}</p>
                   </div>
