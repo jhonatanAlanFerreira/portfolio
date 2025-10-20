@@ -208,7 +208,7 @@ export default function TimezoneWidget() {
           Timezone Integration
         </h2>
 
-        {hasMoreThanOneCard() && (
+        {selectedTimezones.length && (
           <div className="flex justify-end">
             <button
               onClick={() => setRangeModal(true)}
@@ -221,7 +221,7 @@ export default function TimezoneWidget() {
         )}
       </div>
 
-      <div className={`px-5 pb-5 ${hasMoreThanOneCard() ? "" : "pt-5"}`}>
+      <div className={`px-5 pb-5 ${selectedTimezones.length ? "" : "pt-5"}`}>
         <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 text-white shadow-lg">
           <div className="mt-2 grid grid-cols-1 gap-4">
             <DndContext onDragEnd={handleDragEnd}>
@@ -237,7 +237,7 @@ export default function TimezoneWidget() {
                     <TimezoneCard
                       showComparisonText={showComparisonText(tz)}
                       showSelectedRangeText={
-                        hasMoreThanOneCard() &&
+                        !!selectedTimezones.length &&
                         !!selectedTimezones[0].selectedTimezoneDuration
                       }
                       timezone={tz}
