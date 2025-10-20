@@ -15,8 +15,9 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
 ) {
   const boxWidth = 80;
   const boxHeight = 80;
+  const hoursAmount = 48;
   const snapStep = boxWidth / 2;
-  const maxWidth = boxWidth * 24;
+  const maxWidth = boxWidth * hoursAmount;
 
   const [range, setRange] = useState<{ x: number; width: number }>(() => {
     const savedRangeSelect = localStorage.getItem("selectRangeData");
@@ -116,7 +117,7 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
 
   const getHoursForTimezone = (tz: string) => {
     const hours: string[] = [];
-    for (let h = 0; h < 24; h++) {
+    for (let h = 0; h < hoursAmount; h++) {
       const dt = DateTime.utc().plus({ hours: h }).setZone(tz);
       hours.push(dt.toFormat("h a").toLowerCase());
     }
