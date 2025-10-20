@@ -1,7 +1,6 @@
 import { useEffect, useState, forwardRef, useImperativeHandle } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import { motion } from "framer-motion";
-import { DateTime } from "luxon";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
 
 const HoursRangeSelect = forwardRef(function HoursRangeSelect(
@@ -45,16 +44,16 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
     const startHour = range.x / boxWidth;
     const endHour = startHour + totalHours;
 
-    const nowUtc = DateTime.utc().startOf("hour");
-
     updateSelectedTimezoneRangeDuration(
       timezones.map((tz) => {
-        const start = nowUtc
+        const start = currentTime
+          .startOf("day")
           .plus({ hours: startHour })
           .setZone(tz.value)
           .toFormat("h:mm a")
           .toLowerCase();
-        const end = nowUtc
+        const end = currentTime
+          .startOf("day")
           .plus({ hours: endHour })
           .setZone(tz.value)
           .toFormat("h:mm a")
@@ -118,7 +117,7 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
   const getHoursForTimezone = (tz: string) => {
     const hours: string[] = [];
     for (let h = 0; h < hoursAmount; h++) {
-      const dt = DateTime.utc().plus({ hours: h }).setZone(tz);
+      const dt = currentTime.startOf("day").plus({ hours: h }).setZone(tz);
       hours.push(dt.toFormat("h a").toLowerCase());
     }
     return hours;
