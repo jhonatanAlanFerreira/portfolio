@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import { motion } from "framer-motion";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
@@ -15,6 +15,8 @@ export default function HoursRangeSelect({
   currentTime,
   updateSelectedRangeDuration,
 }: HoursRangeSelectProps) {
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
   const [layoutReady, setLayoutReady] = useState(false);
   const [animationDone, setAnimationDone] = useState(false);
   const [forceRemount, setForceRemount] = useState(false);
@@ -35,6 +37,19 @@ export default function HoursRangeSelect({
   useEffect(() => {
     formatDuration();
   }, [getSelectedRange()]);
+
+  useEffect(() => {
+    if (!layoutReady || !scrollContainerRef.current) return;
+
+    const container = scrollContainerRef.current;
+    const { x, width } = getSelectedRange();
+    const scrollPosition = x - container.clientWidth / 2 + width / 2;
+
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: "smooth",
+    });
+  }, [layoutReady]);
 
   const formatDuration = () => {
     const totalHours = getSelectedRange().width / boxWidth;
@@ -109,7 +124,10 @@ export default function HoursRangeSelect({
         </ul>
       </div>
 
-      <div className="gray-scroll relative overflow-auto pb-10">
+      <div
+        ref={scrollContainerRef}
+        className="gray-scroll relative overflow-auto pb-10"
+      >
         <div
           id="hours-container"
           style={{ position: "relative", width: `${maxWidth}px` }}
