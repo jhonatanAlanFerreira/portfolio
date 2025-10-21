@@ -1,6 +1,7 @@
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { TimezoneCardProps } from "./TimezoneCardProps";
 import Clock from "react-clock";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function TimezoneCard({
   timezone,
@@ -66,12 +67,21 @@ export default function TimezoneCard({
                 {showComparisonText && timezone.comparisonText}
               </p>
             </div>
-            {showSelectedRangeText && (
-              <p className="mt-1 text-sm text-gray-500">
-                <b>Selected Time Range: </b>
-                {timezone.selectedTimezoneDuration}
-              </p>
-            )}
+            <AnimatePresence>
+              {showSelectedRangeText && (
+                <motion.p
+                  key="selected-range-text"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5, ease: "easeInOut" }}
+                  className="mt-1 text-sm text-gray-500"
+                >
+                  <b>Selected Time Range: </b>
+                  {timezone.selectedTimezoneDuration}
+                </motion.p>
+              )}
+            </AnimatePresence>
           </div>
           <div className="flex h-full">
             <span
