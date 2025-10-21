@@ -101,6 +101,18 @@ export default function HoursRangeSelect({
     return hours;
   };
 
+  const handleHourClick = (hourIndex: number) => {
+    const snappedX = hourIndex * boxWidth;
+    const currentRange = getSelectedRange();
+
+    const newX =
+      snappedX + currentRange.width > maxWidth
+        ? maxWidth - currentRange.width
+        : snappedX;
+
+    setSelectedRange({ ...currentRange, x: newX });
+  };
+
   return (
     <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
       <div>
@@ -139,7 +151,8 @@ export default function HoursRangeSelect({
                 return (
                   <div
                     key={hourIndex}
-                    className="flex h-20 w-20 flex-shrink-0 flex-col items-center justify-center border border-gray-700 select-none"
+                    onClick={() => handleHourClick(hourIndex)}
+                    className="flex h-20 w-20 flex-shrink-0 cursor-pointer flex-col items-center justify-center border border-gray-700 select-none"
                   >
                     <span className="text-xl">{hour}</span>
                     <span className="text-sm lowercase">{meridiem}</span>
