@@ -89,7 +89,7 @@ export default function TimezoneCard({
               onPointerDown={(e) => e.stopPropagation()}
               className="relative -top-2 h-fit cursor-pointer text-gray-300"
             >
-              <span className="text-xl">&times;</span> Remove
+              <span className="text-xl">&times;</span> Remove Card
             </span>
           </div>
         </div>
