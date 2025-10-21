@@ -26,10 +26,9 @@ export const createTimezoneWidgetStore = create<TimezoneWidgetStore>(
         get().updateSelectedTimezoneDurations();
       },
       updateSelectedTimezoneDurations: () => {
-        const selectedRangeFromLocalstorage =
-          localStorage.getItem("selectedRange");
+        const selectedRangeFromLocalstorage = localStorage.getItem("selectedRange");
         const { selectedTimezones } = get();
-
+      
         if (!selectedRangeFromLocalstorage) {
           return set({
             selectedTimezones: selectedTimezones.map((tz) => ({
@@ -38,37 +37,41 @@ export const createTimezoneWidgetStore = create<TimezoneWidgetStore>(
             })),
           });
         }
-
+      
         const selectedRange = JSON.parse(selectedRangeFromLocalstorage);
         const currentTime = DateTime.now();
-
+      
         const totalHours = selectedRange.width / boxWidth;
         const startHour = selectedRange.x / boxWidth;
         const endHour = startHour + totalHours;
-
+      
         const updated = selectedTimezones.map((tz) => {
-          const start = currentTime
+          const startDt = currentTime
             .startOf("day")
             .plus({ hours: startHour })
-            .setZone(tz.value)
-            .toFormat("ccc dd/LL h:mm a")
-            .toLowerCase();
-
-          const end = currentTime
+            .setZone(tz.value);
+      
+          const endDt = currentTime
             .startOf("day")
             .plus({ hours: endHour })
-            .setZone(tz.value)
-            .toFormat("ccc dd/LL h:mm a")
-            .toLowerCase();
-
+            .setZone(tz.value);
+      
+          const start = startDt.toFormat("h:mm a").toLowerCase();
+      
+          const end =
+            endDt.day !== startDt.day
+              ? `next day ${endDt.toFormat("h:mm a").toLowerCase()}`
+              : endDt.toFormat("h:mm a").toLowerCase();
+      
           return {
             ...tz,
             selectedTimezoneDuration: `${start} - ${end}`,
           };
         });
-
+      
         set({ selectedTimezones: updated });
-      },
+      }
+      ,
     };
   },
 );
