@@ -1,27 +1,27 @@
-import { useEffect, useState, forwardRef, useImperativeHandle } from "react";
+import { useEffect, useState } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import { motion } from "framer-motion";
 import HoursRangeSelectProps from "./HoursRangeSelectProps";
+import {
+  boxHeight,
+  boxWidth,
+  getSelectRangeData,
+  hoursAmount,
+  maxWidth,
+  setSelectRangeData,
+  snapStep,
+} from "../TimezoneWidgetService";
 
-const HoursRangeSelect = forwardRef(function HoursRangeSelect(
-  {
-    timezones,
-    currentTime,
-    updateSelectedRangeDuration,
-    updateSelectedTimezoneRangeDuration,
-  }: HoursRangeSelectProps,
-  ref,
-) {
-  const boxWidth = 80;
-  const boxHeight = 80;
-  const hoursAmount = 48;
-  const snapStep = boxWidth / 2;
-  const maxWidth = boxWidth * hoursAmount;
-
+export default function HoursRangeSelect({
+  timezones,
+  currentTime,
+  updateSelectedRangeDuration,
+}: HoursRangeSelectProps) {
   const [range, setRange] = useState<{ x: number; width: number }>(() => {
-    const savedRangeSelect = localStorage.getItem("selectRangeData");
+    const savedRangeSelect = getSelectRangeData();
+
     if (savedRangeSelect) {
-      return JSON.parse(savedRangeSelect);
+      return savedRangeSelect;
     }
 
     return { x: 0, width: boxWidth * 3 };
@@ -37,43 +37,8 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
 
   useEffect(() => {
     formatDuration();
-  }, [range.width]);
-
-  const getSelectedRangeText = () => {
-    const totalHours = range.width / boxWidth;
-    const startHour = range.x / boxWidth;
-    const endHour = startHour + totalHours;
-
-    updateSelectedTimezoneRangeDuration(
-      timezones.map((tz) => {
-        const start = currentTime
-          .startOf("day")
-          .plus({ hours: startHour })
-          .setZone(tz.value)
-          .toFormat("h:mm a")
-          .toLowerCase();
-        const end = currentTime
-          .startOf("day")
-          .plus({ hours: endHour })
-          .setZone(tz.value)
-          .toFormat("h:mm a")
-          .toLowerCase();
-
-        const formattedRange = `${start} - ${end}`;
-
-        return {
-          ...tz,
-          selectedTimezoneDuration: formattedRange,
-        };
-      }),
-    );
-
-    localStorage.setItem("selectRangeData", JSON.stringify(range));
-  };
-
-  useImperativeHandle(ref, () => ({
-    getSelectedRangeText,
-  }));
+    setSelectRangeData(range);
+  }, [range]);
 
   const formatDuration = () => {
     const totalHours = range.width / boxWidth;
@@ -214,6 +179,4 @@ const HoursRangeSelect = forwardRef(function HoursRangeSelect(
       </div>
     </div>
   );
-});
-
-export default HoursRangeSelect;
+}

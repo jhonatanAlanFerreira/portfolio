@@ -5,5 +5,4 @@ export default interface HoursRangeSelectProps {
   timezones: SelectedTimezone[];
   currentTime: DateTime;
   updateSelectedRangeDuration: (value: string) => void;
-  updateSelectedTimezoneRangeDuration: (timezones: SelectedTimezone[]) => void;
 }

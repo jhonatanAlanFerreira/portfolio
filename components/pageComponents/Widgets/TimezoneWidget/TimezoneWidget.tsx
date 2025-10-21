@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { InputSelect } from "@/components/InputSelect/InputSelect";
 import { useDebouncedCallback } from "@/clientUtils";
 import { SelectedTimezone, TimezoneOption } from "./TimezoneWidgetInterfaces";
@@ -11,10 +11,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FaArrowsLeftRight } from "react-icons/fa6";
 import HoursRangeSelect from "./HoursRangeSelect/HoursRangeSelect";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  getSelectedRangeText,
+  getTimezoneData,
+  setTimezoneData,
+} from "./TimezoneWidgetService";
 
 export default function TimezoneWidget() {
-  const hoursRangeRef = useRef<{ getSelectedRangeText: () => void }>(null);
-
   const comparisonText = "Drag to compare with another timezone";
   const initialTimezone: SelectedTimezone = {
     id: uuidv4(),
@@ -36,9 +39,10 @@ export default function TimezoneWidget() {
   const [selectedTimezones, setSelectedTimezones] = useState<
     SelectedTimezone[]
   >(() => {
-    const savedTimezones = localStorage.getItem("timezoneData");
+    const savedTimezones = getTimezoneData();
+
     if (savedTimezones) {
-      return JSON.parse(savedTimezones);
+      return savedTimezones;
     }
 
     setTimezoneLocalStorageEmptyData(true);
@@ -63,7 +67,7 @@ export default function TimezoneWidget() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("timezoneData", JSON.stringify(selectedTimezones));
+    setTimezoneData(selectedTimezones);
   }, [selectedTimezones]);
 
   const createInitialClientTimezone = () => {
@@ -135,10 +139,13 @@ export default function TimezoneWidget() {
 
   const onTimezoneSelectedChange = (timezone: TimezoneOption) => {
     resetTimezoneSelect();
-    setSelectedTimezones([
+
+    const allTimezones = [
       ...selectedTimezones,
       { ...timezone, id: uuidv4(), comparisonText },
-    ]);
+    ];
+
+    setSelectedTimezones(getSelectedRangeText(allTimezones));
   };
 
   const getTimezoneComparisonText = (
@@ -197,7 +204,7 @@ export default function TimezoneWidget() {
   };
 
   const saveRange = () => {
-    hoursRangeRef.current?.getSelectedRangeText();
+    setSelectedTimezones(getSelectedRangeText(selectedTimezones));
     setRangeModal(false);
   };
 
@@ -312,11 +319,9 @@ export default function TimezoneWidget() {
 
                   <div className="flex h-full w-full flex-col justify-between">
                     <HoursRangeSelect
-                      ref={hoursRangeRef}
                       currentTime={now}
                       timezones={selectedTimezones}
                       updateSelectedRangeDuration={setSelectedRangeDuration}
-                      updateSelectedTimezoneRangeDuration={setSelectedTimezones}
                     />
 
                     <div className="flex w-full justify-end p-5">
