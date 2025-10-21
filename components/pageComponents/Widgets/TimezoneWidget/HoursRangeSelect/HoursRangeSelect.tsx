@@ -123,7 +123,7 @@ export default function HoursRangeSelect({
                 return (
                   <div
                     key={hourIndex}
-                    className="flex h-20 w-20 flex-shrink-0 flex-col items-center justify-center border border-gray-700"
+                    className="flex h-20 w-20 flex-shrink-0 flex-col items-center justify-center border border-gray-700 select-none"
                   >
                     <span className="text-xl">{hour}</span>
                     <span className="text-sm lowercase">{meridiem}</span>
