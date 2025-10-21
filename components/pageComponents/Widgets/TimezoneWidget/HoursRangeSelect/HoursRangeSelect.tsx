@@ -5,43 +5,39 @@ import HoursRangeSelectProps from "./HoursRangeSelectProps";
 import {
   boxHeight,
   boxWidth,
-  getSelectRangeData,
+  createTimezoneWidgetStore,
   hoursAmount,
   maxWidth,
-  setSelectRangeData,
   snapStep,
-} from "../TimezoneWidgetService";
+} from "../TimezoneWidgetStore";
 
 export default function HoursRangeSelect({
-  timezones,
   currentTime,
   updateSelectedRangeDuration,
 }: HoursRangeSelectProps) {
-  const [range, setRange] = useState<{ x: number; width: number }>(() => {
-    const savedRangeSelect = getSelectRangeData();
-
-    if (savedRangeSelect) {
-      return savedRangeSelect;
-    }
-
-    return { x: 0, width: boxWidth * 3 };
-  });
   const [layoutReady, setLayoutReady] = useState(false);
   const [animationDone, setAnimationDone] = useState(false);
   const [forceRemount, setForceRemount] = useState(false);
 
+  const { getSelectedRange, setSelectedRange, getSelectedTimezones } =
+    createTimezoneWidgetStore();
+
   useEffect(() => {
+    const selectedRangeFromLocalstorage = localStorage.getItem("selectedRange");
+    if (selectedRangeFromLocalstorage) {
+      setSelectedRange(JSON.parse(selectedRangeFromLocalstorage));
+    }
+
     const timeout = setTimeout(() => setLayoutReady(true), 300);
     return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
     formatDuration();
-    setSelectRangeData(range);
-  }, [range]);
+  }, [getSelectedRange()]);
 
   const formatDuration = () => {
-    const totalHours = range.width / boxWidth;
+    const totalHours = getSelectedRange().width / boxWidth;
     const hours = Math.floor(totalHours);
     const minutes = Math.round((totalHours - hours) * 60);
 
@@ -58,9 +54,11 @@ export default function HoursRangeSelect({
 
   const handleDragStop = (_e: any, data: DraggableData) => {
     let snappedX = Math.round(data.x / snapStep) * snapStep;
-    if (snappedX + range.width > maxWidth) snappedX = maxWidth - range.width;
+    if (snappedX + getSelectedRange().width > maxWidth)
+      snappedX = maxWidth - getSelectedRange().width;
     if (snappedX < 0) snappedX = 0;
-    setRange((prev) => ({ ...prev, x: snappedX }));
+
+    setSelectedRange({ ...getSelectedRange(), x: snappedX });
   };
 
   const handleResizeStop = (
@@ -75,7 +73,7 @@ export default function HoursRangeSelect({
       Math.round(parseInt(refEl.style.width) / snapStep) * snapStep;
     if (snappedX + snappedWidth > maxWidth) snappedWidth = maxWidth - snappedX;
 
-    setRange({ x: snappedX, width: snappedWidth });
+    setSelectedRange({ x: snappedX, width: snappedWidth });
     setForceRemount((prev) => !prev);
   };
 
@@ -92,7 +90,7 @@ export default function HoursRangeSelect({
     <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
       <div>
         <ul className="text-nowrap">
-          {timezones.map((tz, index) => {
+          {getSelectedTimezones().map((tz, index) => {
             const localTime = currentTime.setZone(tz.value);
 
             return (
@@ -116,7 +114,7 @@ export default function HoursRangeSelect({
           id="hours-container"
           style={{ position: "relative", width: `${maxWidth}px` }}
         >
-          {timezones.map((tz, index) => (
+          {getSelectedTimezones().map((tz, index) => (
             <div key={index} className="flex text-2xl text-white">
               {getHoursForTimezone(tz.value).map((hourLabel, hourIndex) => {
                 const [hour, meridiem] = hourLabel.split(" ");
@@ -139,12 +137,12 @@ export default function HoursRangeSelect({
                 key={forceRemount.toString()}
                 bounds="#hours-container"
                 size={{
-                  width: range.width,
-                  height: boxHeight * timezones.length,
+                  width: getSelectedRange().width,
+                  height: boxHeight * getSelectedTimezones().length,
                 }}
                 maxWidth={maxWidth}
                 minWidth={boxWidth}
-                position={{ x: range.x, y: 0 }}
+                position={{ x: getSelectedRange().x, y: 0 }}
                 onDragStop={handleDragStop}
                 onResizeStop={handleResizeStop}
                 enableResizing={{ left: true, right: true }}
@@ -165,9 +163,9 @@ export default function HoursRangeSelect({
                 style={{
                   position: "absolute",
                   top: 0,
-                  left: range.x,
-                  width: range.width,
-                  height: boxHeight * timezones.length,
+                  left: getSelectedRange().x,
+                  width: getSelectedRange().width,
+                  height: boxHeight * getSelectedTimezones().length,
                   border: "2px solid rgba(56,189,248,1)",
                   borderRadius: 8,
                   backgroundColor: "rgba(56,189,248,0.08)",

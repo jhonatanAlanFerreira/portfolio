@@ -12,13 +12,26 @@ import { FaArrowsLeftRight } from "react-icons/fa6";
 import HoursRangeSelect from "./HoursRangeSelect/HoursRangeSelect";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
-  getSelectedRangeText,
-  getTimezoneData,
-  setTimezoneData,
-} from "./TimezoneWidgetService";
+  createTimezoneWidgetStore,
+  comparisonText,
+} from "./TimezoneWidgetStore";
 
 export default function TimezoneWidget() {
-  const comparisonText = "Drag to compare with another timezone";
+  const [loading, setLoading] = useState(false);
+  const [now, setNow] = useState(DateTime.now());
+  const [rangeModal, setRangeModal] = useState(false);
+  const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
+  const [selectedRangeDuration, setSelectedRangeDuration] = useState<
+    null | string
+  >(null);
+
+  const {
+    setSelectedTimezones,
+    getSelectedTimezones,
+    getSelectedRange,
+    updateSelectedTimezoneDurations,
+  } = createTimezoneWidgetStore();
+
   const initialTimezone: SelectedTimezone = {
     id: uuidv4(),
     label: "America/Sao_Paulo (GMT-3)",
@@ -27,48 +40,22 @@ export default function TimezoneWidget() {
     comparisonText,
   };
 
-  const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [now, setNow] = useState(DateTime.now());
-  const [rangeModal, setRangeModal] = useState(false);
-  const [selectedRangeDuration, setSelectedRangeDuration] = useState<
-    null | string
-  >(null);
-  const [timezoneLocalStorageEmptyData, setTimezoneLocalStorageEmptyData] =
-    useState(false);
-  const [selectedTimezones, setSelectedTimezones] = useState<
-    SelectedTimezone[]
-  >(() => {
-    const savedTimezones = getTimezoneData();
-
-    if (savedTimezones) {
-      return savedTimezones;
-    }
-
-    setTimezoneLocalStorageEmptyData(true);
-    return [initialTimezone];
-  });
-
   useEffect(() => {
     const interval = setInterval(() => {
       setNow(DateTime.now());
     }, 1000);
 
-    if (timezoneLocalStorageEmptyData) {
-      const clientTimezone = createInitialClientTimezone();
-      compareInitialTimezones(clientTimezone);
-      setSelectedTimezones((prev) => {
-        const exists = prev.some((tz) => tz.value === clientTimezone.value);
-        return exists ? prev : [...prev, clientTimezone];
-      });
-    }
+    getInitialTimezones();
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
-    setTimezoneData(selectedTimezones);
-  }, [selectedTimezones]);
+    localStorage.setItem(
+      "selectedTimezones",
+      JSON.stringify(getSelectedTimezones()),
+    );
+  }, [getSelectedTimezones()]);
 
   const createInitialClientTimezone = () => {
     const clientZone = DateTime.local().zoneName;
@@ -85,6 +72,22 @@ export default function TimezoneWidget() {
     return clientTimezone;
   };
 
+  const getInitialTimezones = () => {
+    const timezonesFromLocalStorage = localStorage.getItem("selectedTimezones");
+
+    if (timezonesFromLocalStorage) {
+      return setSelectedTimezones(JSON.parse(timezonesFromLocalStorage));
+    }
+
+    let initialTimezones = [initialTimezone];
+    const initialClientTimezone = createInitialClientTimezone();
+    if (initialClientTimezone.value != initialTimezone.value) {
+      initialTimezones.push(initialClientTimezone);
+    }
+
+    setSelectedTimezones(initialTimezones);
+  };
+
   const fetchTimezones = async (search: string) => {
     if (!search) return setLoading(false);
     setLoading(true);
@@ -99,26 +102,6 @@ export default function TimezoneWidget() {
       console.error(err);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const compareInitialTimezones = (clientTimezone: SelectedTimezone) => {
-    const firstTimeZone = selectedTimezones[0];
-
-    if (firstTimeZone.value != clientTimezone.value) {
-      clientTimezone.comparisonText = getTimezoneComparisonText(
-        clientTimezone,
-        firstTimeZone,
-      );
-
-      setSelectedTimezones((prev) => {
-        const timezone = prev[0];
-        timezone.comparisonText = getTimezoneComparisonText(
-          timezone,
-          clientTimezone,
-        );
-        return [timezone];
-      });
     }
   };
 
@@ -140,12 +123,12 @@ export default function TimezoneWidget() {
   const onTimezoneSelectedChange = (timezone: TimezoneOption) => {
     resetTimezoneSelect();
 
-    const allTimezones = [
-      ...selectedTimezones,
+    setSelectedTimezones([
+      ...getSelectedTimezones(),
       { ...timezone, id: uuidv4(), comparisonText },
-    ];
+    ]);
 
-    setSelectedTimezones(getSelectedRangeText(allTimezones));
+    updateSelectedTimezoneDurations();
   };
 
   const getTimezoneComparisonText = (
@@ -171,11 +154,15 @@ export default function TimezoneWidget() {
     const { active, over } = event;
 
     if (over) {
-      setSelectedTimezones((prev) =>
-        prev.map((tz) => {
+      setSelectedTimezones(
+        getSelectedTimezones().map((tz) => {
           if (tz.id === active.id) {
-            const draggedTz = prev.find((t) => t.id === active.id);
-            const targetTz = prev.find((t) => t.id === over.id);
+            const draggedTz = getSelectedTimezones().find(
+              (t) => t.id === active.id,
+            );
+            const targetTz = getSelectedTimezones().find(
+              (t) => t.id === over.id,
+            );
 
             if (draggedTz && targetTz && draggedTz.id !== targetTz.id) {
               const comparisonText = getTimezoneComparisonText(
@@ -192,11 +179,11 @@ export default function TimezoneWidget() {
   };
 
   const onRemove = (id: UniqueIdentifier) => {
-    setSelectedTimezones((prev) => prev.filter((tz) => tz.id !== id));
+    setSelectedTimezones(getSelectedTimezones().filter((tz) => tz.id !== id));
   };
 
   const hasMoreThanOneCard = () => {
-    return selectedTimezones.length > 1;
+    return getSelectedTimezones().length > 1;
   };
 
   const showComparisonText = (timezone: SelectedTimezone) => {
@@ -204,7 +191,8 @@ export default function TimezoneWidget() {
   };
 
   const saveRange = () => {
-    setSelectedTimezones(getSelectedRangeText(selectedTimezones));
+    localStorage.setItem("selectedRange", JSON.stringify(getSelectedRange()));
+    updateSelectedTimezoneDurations();
     setRangeModal(false);
   };
 
@@ -215,7 +203,7 @@ export default function TimezoneWidget() {
           Timezone Integration
         </h2>
 
-        {selectedTimezones.length && (
+        {getSelectedTimezones().length && (
           <div className="flex justify-end">
             <button
               onClick={() => setRangeModal(true)}
@@ -228,12 +216,14 @@ export default function TimezoneWidget() {
         )}
       </div>
 
-      <div className={`px-5 pb-5 ${selectedTimezones.length ? "" : "pt-5"}`}>
+      <div
+        className={`px-5 pb-5 ${getSelectedTimezones().length ? "" : "pt-5"}`}
+      >
         <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 text-white shadow-lg">
           <div className="mt-2 grid grid-cols-1 gap-4">
             <DndContext onDragEnd={handleDragEnd}>
               <AnimatePresence>
-                {selectedTimezones.map((tz) => (
+                {getSelectedTimezones().map((tz) => (
                   <motion.div
                     key={tz.id}
                     initial={{ opacity: 0, x: 50 }}
@@ -244,8 +234,8 @@ export default function TimezoneWidget() {
                     <TimezoneCard
                       showComparisonText={showComparisonText(tz)}
                       showSelectedRangeText={
-                        !!selectedTimezones.length &&
-                        !!selectedTimezones[0].selectedTimezoneDuration
+                        !!getSelectedTimezones().length &&
+                        !!getSelectedTimezones()[0].selectedTimezoneDuration
                       }
                       timezone={tz}
                       currentTime={now}
@@ -320,7 +310,6 @@ export default function TimezoneWidget() {
                   <div className="flex h-full w-full flex-col justify-between">
                     <HoursRangeSelect
                       currentTime={now}
-                      timezones={selectedTimezones}
                       updateSelectedRangeDuration={setSelectedRangeDuration}
                     />
 

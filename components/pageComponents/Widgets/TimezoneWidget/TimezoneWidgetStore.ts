@@ -1,0 +1,64 @@
+import { create } from "zustand";
+import { TimezoneWidgetStore } from "./TimezoneWidgetInterfaces";
+import { DateTime } from "luxon";
+
+export const boxWidth = 80;
+export const boxHeight = 80;
+export const hoursAmount = 48;
+export const snapStep = 40;
+export const maxWidth = 80 * 48;
+export const comparisonText = "Drag to compare with another timezone";
+
+export const createTimezoneWidgetStore = create<TimezoneWidgetStore>(
+  (set, get) => {
+    return {
+      selectedTimezones: [],
+      selectedRange: { x: 0, width: boxWidth * 3 },
+
+      setSelectedTimezones: (timezones) =>
+        set({ selectedTimezones: timezones }),
+      setSelectedRange: (range) => set({ selectedRange: range }),
+      getSelectedTimezones: () => get().selectedTimezones,
+      getSelectedRange: () => get().selectedRange,
+      updateSelectedTimezoneDurations: () => {
+        const selectedRangeFromLocalstorage =
+          localStorage.getItem("selectedRange");
+
+        if (!selectedRangeFromLocalstorage) {
+          return;
+        }
+
+        const { selectedTimezones } = get();
+        const selectedRange = JSON.parse(selectedRangeFromLocalstorage);
+        const currentTime = DateTime.now();
+
+        const totalHours = selectedRange.width / boxWidth;
+        const startHour = selectedRange.x / boxWidth;
+        const endHour = startHour + totalHours;
+
+        const updated = selectedTimezones.map((tz) => {
+          const start = currentTime
+            .startOf("day")
+            .plus({ hours: startHour })
+            .setZone(tz.value)
+            .toFormat("h:mm a")
+            .toLowerCase();
+
+          const end = currentTime
+            .startOf("day")
+            .plus({ hours: endHour })
+            .setZone(tz.value)
+            .toFormat("h:mm a")
+            .toLowerCase();
+
+          return {
+            ...tz,
+            selectedTimezoneDuration: `${start} - ${end}`,
+          };
+        });
+
+        set({ selectedTimezones: updated });
+      },
+    };
+  },
+);
