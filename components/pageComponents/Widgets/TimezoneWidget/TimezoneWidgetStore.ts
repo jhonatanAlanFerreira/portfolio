@@ -3,7 +3,7 @@ import { TimezoneWidgetStore } from "./TimezoneWidgetInterfaces";
 import { DateTime } from "luxon";
 
 export const boxWidth = 80;
-export const boxHeight = 80;
+export const boxHeight = 100;
 export const hoursAmount = 48;
 export const snapStep = 40;
 export const maxWidth = 80 * 48;
@@ -51,14 +51,14 @@ export const createTimezoneWidgetStore = create<TimezoneWidgetStore>(
             .startOf("day")
             .plus({ hours: startHour })
             .setZone(tz.value)
-            .toFormat("h:mm a")
+            .toFormat("ccc dd/LL h:mm a")
             .toLowerCase();
 
           const end = currentTime
             .startOf("day")
             .plus({ hours: endHour })
             .setZone(tz.value)
-            .toFormat("h:mm a")
+            .toFormat("ccc dd/LL h:mm a")
             .toLowerCase();
 
           return {

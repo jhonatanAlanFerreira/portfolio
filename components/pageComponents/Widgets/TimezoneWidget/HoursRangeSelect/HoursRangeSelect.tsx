@@ -123,7 +123,7 @@ export default function HoursRangeSelect({
             return (
               <li
                 key={index}
-                className="flex h-20 flex-col content-end justify-center border-b border-b-slate-500/10"
+                className="flex h-25 flex-col content-end justify-center border-b border-b-slate-500/10"
               >
                 <span className="text-lg">{tz.name}</span>
                 <span className="text-sm text-gray-500">
@@ -147,15 +147,27 @@ export default function HoursRangeSelect({
           {getSelectedTimezones().map((tz, index) => (
             <div key={index} className="flex text-2xl text-white">
               {getHoursForTimezone(tz.value).map((hourLabel, hourIndex) => {
-                const [hour, meridiem] = hourLabel.split(" ");
+                const dt = currentTime
+                  .startOf("day")
+                  .plus({ hours: hourIndex })
+                  .setZone(tz.value);
+                const dayLabel = dt.toFormat("ccc dd/LL");
+                const isNewDay = dt.hour === 0;
+
                 return (
                   <div
                     key={hourIndex}
                     onClick={() => handleHourClick(hourIndex)}
-                    className="flex h-20 w-20 flex-shrink-0 cursor-pointer flex-col items-center justify-center border border-gray-700 select-none"
+                    className={`flex h-25 w-20 flex-shrink-0 cursor-pointer flex-col items-center border border-gray-700 select-none ${
+                      isNewDay ? "border-l-2 border-cyan-400" : ""
+                    }`}
                   >
-                    <span className="text-xl">{hour}</span>
-                    <span className="text-sm lowercase">{meridiem}</span>
+                    <div className="flex flex-1 pt-1">
+                      <span className="text-xs text-gray-400">{dayLabel}</span>
+                    </div>
+                    <div className="flex flex-2">
+                      <span className="text-xl lowercase">{hourLabel}</span>
+                    </div>
                   </div>
                 );
               })}
