@@ -20,15 +20,25 @@ export const createTimezoneWidgetStore = create<TimezoneWidgetStore>(
       setSelectedRange: (range) => set({ selectedRange: range }),
       getSelectedTimezones: () => get().selectedTimezones,
       getSelectedRange: () => get().selectedRange,
+      resetSelectedRange: () => {
+        set({ selectedRange: { x: 0, width: boxWidth * 3 } });
+        localStorage.removeItem("selectedRange");
+        get().updateSelectedTimezoneDurations();
+      },
       updateSelectedTimezoneDurations: () => {
         const selectedRangeFromLocalstorage =
           localStorage.getItem("selectedRange");
+        const { selectedTimezones } = get();
 
         if (!selectedRangeFromLocalstorage) {
-          return;
+          return set({
+            selectedTimezones: selectedTimezones.map((tz) => ({
+              ...tz,
+              selectedTimezoneDuration: undefined,
+            })),
+          });
         }
 
-        const { selectedTimezones } = get();
         const selectedRange = JSON.parse(selectedRangeFromLocalstorage);
         const currentTime = DateTime.now();
 

@@ -10,7 +10,7 @@ import TimezoneCard from "./TimezoneCard/TimezoneCard";
 import { AnimatePresence, motion } from "framer-motion";
 import { FaArrowsLeftRight } from "react-icons/fa6";
 import HoursRangeSelect from "./HoursRangeSelect/HoursRangeSelect";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Ban, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   createTimezoneWidgetStore,
   comparisonText,
@@ -30,6 +30,7 @@ export default function TimezoneWidget() {
     getSelectedTimezones,
     getSelectedRange,
     updateSelectedTimezoneDurations,
+    resetSelectedRange,
   } = createTimezoneWidgetStore();
 
   const initialTimezone: SelectedTimezone = {
@@ -196,6 +197,11 @@ export default function TimezoneWidget() {
     setRangeModal(false);
   };
 
+  const clearRange = () => {
+    resetSelectedRange();
+    setRangeModal(false);
+  };
+
   return (
     <>
       <div className="mb-4 pr-5">
@@ -313,10 +319,17 @@ export default function TimezoneWidget() {
                       updateSelectedRangeDuration={setSelectedRangeDuration}
                     />
 
-                    <div className="flex w-full justify-end p-5">
+                    <div className="flex w-full justify-end gap-2 p-5">
+                      <button
+                        onClick={clearRange}
+                        className="flex cursor-pointer items-center gap-2 rounded-md border border-red-900 bg-gradient-to-br from-red-950 via-black to-black px-4 py-2 text-red-400 transition-all hover:border-red-700 hover:text-red-300"
+                      >
+                        <Ban className="h-4 w-4" />
+                        Clear Range
+                      </button>
                       <button
                         onClick={saveRange}
-                        className="cursor-pointer rounded-md border border-slate-700 bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-2 text-gray-200 transition-all hover:border-blue-500 hover:text-blue-400"
+                        className="flex cursor-pointer items-center gap-2 rounded-md border border-slate-700 bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-2 text-gray-200 transition-all hover:border-blue-500 hover:text-blue-400"
                       >
                         Save Range
                       </button>

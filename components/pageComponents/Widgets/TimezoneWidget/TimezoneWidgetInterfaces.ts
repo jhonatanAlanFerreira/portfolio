@@ -27,5 +27,6 @@ export interface TimezoneWidgetStore extends TimezoneWidgetState {
   setSelectedRange: (range: SelectedRange) => void;
   getSelectedTimezones: () => SelectedTimezone[];
   getSelectedRange: () => SelectedRange;
+  resetSelectedRange: () => void;
   updateSelectedTimezoneDurations: () => void;
 }
