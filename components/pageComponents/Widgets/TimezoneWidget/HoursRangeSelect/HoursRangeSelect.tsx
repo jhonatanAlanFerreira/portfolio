@@ -151,7 +151,16 @@ export default function HoursRangeSelect({
                   .startOf("day")
                   .plus({ hours: hourIndex })
                   .setZone(tz.value);
-                const dayLabel = dt.toFormat("ccc dd/LL");
+
+                const currentDay = currentTime.setZone(tz.value).day;
+                const hourDay = dt.day;
+                let dayStatusLabel = "";
+                if (hourDay < currentDay) {
+                  dayStatusLabel = "Past Day";
+                } else if (hourDay > currentDay) {
+                  dayStatusLabel = "Next Day";
+                }
+
                 const isNewDay = dt.hour === 0;
 
                 return (
@@ -163,7 +172,9 @@ export default function HoursRangeSelect({
                     }`}
                   >
                     <div className="flex flex-1 pt-1">
-                      <span className="text-xs text-gray-400">{dayLabel}</span>
+                      <span className="text-xs text-gray-400">
+                        {dayStatusLabel}
+                      </span>
                     </div>
                     <div className="flex flex-2">
                       <span className="text-xl lowercase">{hourLabel}</span>
