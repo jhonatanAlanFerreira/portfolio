@@ -9,6 +9,8 @@ export interface TimezoneOption {
 export interface SelectedTimezone extends TimezoneOption {
   id: string;
   comparisonText: string;
+  selectedTimezoneStart?: string;
+  selectedTimezoneEnd?: string;
   selectedTimezoneDuration?: string;
 }
 

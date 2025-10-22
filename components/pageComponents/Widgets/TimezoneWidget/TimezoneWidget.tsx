@@ -14,6 +14,7 @@ import { Ban, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   createTimezoneWidgetStore,
   comparisonText,
+  calculateTimezoneDurations,
 } from "./TimezoneWidgetStore";
 
 export default function TimezoneWidget() {
@@ -21,6 +22,9 @@ export default function TimezoneWidget() {
   const [now, setNow] = useState(DateTime.now());
   const [rangeModal, setRangeModal] = useState(false);
   const [timezones, setTimezones] = useState<TimezoneOption[]>([]);
+  const [timezonesForTable, setTimezonesForTable] = useState<
+    SelectedTimezone[]
+  >([]);
   const [selectedRangeDuration, setSelectedRangeDuration] = useState<
     null | string
   >(null);
@@ -57,6 +61,12 @@ export default function TimezoneWidget() {
       JSON.stringify(getSelectedTimezones()),
     );
   }, [getSelectedTimezones()]);
+
+  useEffect(() => {
+    setTimezonesForTable(
+      calculateTimezoneDurations(getSelectedRange(), getSelectedTimezones()),
+    );
+  }, [getSelectedRange()]);
 
   const createInitialClientTimezone = () => {
     const clientZone = DateTime.local().zoneName;
@@ -314,10 +324,52 @@ export default function TimezoneWidget() {
                   </div>
 
                   <div className="flex h-full w-full flex-col justify-between">
-                    <HoursRangeSelect
-                      currentTime={now}
-                      updateSelectedRangeDuration={setSelectedRangeDuration}
-                    />
+                    <div className="flex flex-col gap-5">
+                      <HoursRangeSelect
+                        currentTime={now}
+                        updateSelectedRangeDuration={setSelectedRangeDuration}
+                      />
+
+                      <div className="flex justify-start">
+                        <div className="w-1/2 rounded-lg border border-gray-800 bg-gradient-to-br from-gray-950 via-gray-900 to-black shadow-inner">
+                          <table className="w-full border-collapse text-left text-sm text-gray-300">
+                            <thead className="bg-gray-900/60 text-cyan-400">
+                              <tr>
+                                <th className="px-4 py-2 font-semibold">
+                                  Timezone
+                                </th>
+                                <th className="px-4 py-2 text-center font-semibold">
+                                  Begins At
+                                </th>
+                                <th className="px-4 py-2 text-center font-semibold">
+                                  Ends At
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {timezonesForTable.map((tz, index) => (
+                                <tr
+                                  key={index}
+                                  className={`border-t border-gray-800 transition-colors hover:bg-gray-800/40 ${
+                                    index % 2 === 0
+                                      ? "bg-gray-900/40"
+                                      : "bg-gray-950/40"
+                                  }`}
+                                >
+                                  <td className="px-4 py-2">{tz.name}</td>
+                                  <td className="px-4 py-2 text-center text-gray-300">
+                                    {tz.selectedTimezoneStart}
+                                  </td>
+                                  <td className="px-4 py-2 text-center text-gray-300">
+                                    {tz.selectedTimezoneEnd}
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
 
                     <div className="flex w-full justify-end gap-2 p-5">
                       <button
