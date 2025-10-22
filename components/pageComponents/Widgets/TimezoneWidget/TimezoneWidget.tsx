@@ -371,7 +371,7 @@ export default function TimezoneWidget() {
                       </div>
                     </div>
 
-                    <div className="flex w-full justify-end gap-2 p-5">
+                    <div className="flex w-full justify-end gap-5 p-5">
                       <button
                         onClick={clearRange}
                         className="flex cursor-pointer items-center gap-2 rounded-md border border-red-900 bg-gradient-to-br from-red-950 via-black to-black px-4 py-2 text-red-400 transition-all hover:border-red-700 hover:text-red-300"
