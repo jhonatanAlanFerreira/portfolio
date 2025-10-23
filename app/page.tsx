@@ -109,7 +109,7 @@ export default function Home() {
               className="flex h-full w-full flex-col items-center gap-4"
             >
               <div className="flex flex-col items-center pt-5">
-                <div className="h-20 w-20 overflow-hidden rounded-sm border-1 border-slate-900 shadow-md hover:border-slate-800 lg:h-30 lg:w-30">
+                <div className="h-15 w-15 overflow-hidden rounded-sm border-1 border-slate-900 shadow-md hover:border-slate-800 lg:h-30 lg:w-30 2xl:h-40 2xl:w-40">
                   <img src="profile.png" alt="Profile Picture" />
                 </div>
                 <div className="flex flex-col items-center text-center">
@@ -128,7 +128,7 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="z-10 mb-3 w-full flex-1 place-items-center overflow-hidden px-2">
+              <div className="z-10 mt-10 mb-3 w-full flex-1 place-items-center overflow-hidden px-2">
                 <TechCarousel />
                 <div className="flex w-full flex-col pt-4 text-[10px] 2xl:text-lg">
                   <div className="space-y-1 font-medium text-gray-400">
