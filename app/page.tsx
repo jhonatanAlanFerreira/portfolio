@@ -112,13 +112,20 @@ export default function Home() {
                 <div className="h-20 w-20 overflow-hidden rounded-sm border-1 border-slate-900 shadow-md hover:border-slate-800 lg:h-30 lg:w-30">
                   <img src="profile.png" alt="Profile Picture" />
                 </div>
-                <div className="flex flex-col text-center">
+                <div className="flex flex-col items-center text-center">
                   <h1 className="text-lg font-bold text-white 2xl:text-3xl">
                     Jhonatan Ferreira
                   </h1>
                   <p className="text-sm text-gray-500 2xl:text-lg">
                     Full Stack Developer
                   </p>
+                  <a
+                    download
+                    className="group relative mt-2 cursor-pointer overflow-hidden rounded-md border border-dotted border-slate-900/80 px-1 py-0.5 text-[5px] text-white/70 transition-colors duration-300 lg:px-3 lg:py-1 lg:text-[10px] 2xl:text-sm"
+                  >
+                    <span className="relative z-10">Download CV</span>
+                    <span className="border-trail"></span>
+                  </a>
                 </div>
               </div>
               <div className="z-10 mb-3 w-full flex-1 place-items-center overflow-hidden px-2">
