@@ -71,7 +71,8 @@ export default function WeatherWidget() {
     return (
       <div className="flex h-60 w-full flex-col items-center justify-center text-red-400">
         <AlertTriangle className="mb-2 h-8 w-8" />
-        Failed to load weather data.
+        <p>Failed to load weather data.</p>
+        <p>The API may have reached its limit or is temporarily unavailable.</p>
       </div>
     );
   }
