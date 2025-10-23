@@ -65,6 +65,16 @@ export default function Home() {
     );
   };
 
+  const renderExperienceLabel = (): string => {
+    const start = new Date("2019-05");
+    const now = new Date();
+    const years = now.getFullYear() - start.getFullYear();
+    const months = now.getMonth() - start.getMonth();
+    const totalYears = months < 0 ? years - 1 : years;
+
+    return `${totalYears} years as Full-Stack Developer`;
+  };
+
   return (
     <div className="flex h-screen">
       <motion.aside
@@ -132,7 +142,7 @@ export default function Home() {
                     <div className="flex justify-between">
                       <span>Experience:</span>
                       <span className="text-end text-white/80">
-                        6 years as Full-Stack Developer
+                        {renderExperienceLabel()}
                       </span>
                     </div>
                   </div>
