@@ -215,7 +215,7 @@ export default function TimezoneWidget() {
   return (
     <>
       <div className="mb-4 pr-5">
-        <h2 className="text-lg font-semibold tracking-wide text-gray-200 uppercase">
+        <h2 className="text-[13px] font-semibold tracking-wide text-gray-200 uppercase xl:text-lg">
           Timezone Integration
         </h2>
 
@@ -292,13 +292,13 @@ export default function TimezoneWidget() {
             className="fixed inset-0 z-50 flex h-full w-full items-center justify-center backdrop-blur-md"
           >
             <motion.div
-              className="relative m-1 flex h-4/5 w-[98%] justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
+              className="overflow-auto relative m-1 flex h-4/5 w-[98%] justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="flex w-full flex-col px-5 py-3">
+              <div className="flex w-full flex-col px-5 py-3 min-w-[50rem]">
                 <div className="flex justify-between align-middle">
                   <h2 className="mb-4 text-2xl font-semibold tracking-wide text-gray-200">
                     Compare Time Ranges
@@ -330,8 +330,8 @@ export default function TimezoneWidget() {
                         updateSelectedRangeDuration={setSelectedRangeDuration}
                       />
 
-                      <div className="flex justify-start">
-                        <div className="w-1/2 rounded-lg border border-gray-800 bg-gradient-to-br from-gray-950 via-gray-900 to-black shadow-inner">
+                      <div className="flex justify-start pr-5 xl:pr-0">
+                        <div className="w-full rounded-lg border border-gray-800 bg-gradient-to-br from-gray-950 via-gray-900 to-black shadow-inner xl:w-1/2">
                           <table className="w-full border-collapse text-left text-sm text-gray-300">
                             <thead className="bg-gray-900/60 text-cyan-400">
                               <tr>
@@ -394,7 +394,7 @@ export default function TimezoneWidget() {
         )}
       </AnimatePresence>
 
-      <p className="mt-2 text-right text-sm text-gray-400">
+      <p className="mt-2 text-right text-[10px] text-gray-400 xl:text-sm">
         Time calculations abstracted with{" "}
         <a
           href="https://moment.github.io/luxon/"

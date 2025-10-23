@@ -107,7 +107,7 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
           onInputChange={onInternalInputChange}
           placeholder={placeholder}
           isLoading={menuIsOpen && isLoading}
-          autoFocus={true}
+          autoFocus={menuIsOpen}
           noOptionsMessage={({ inputValue }) =>
             isLoading
               ? "Searching..."

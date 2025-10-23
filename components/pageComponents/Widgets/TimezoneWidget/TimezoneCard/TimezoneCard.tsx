@@ -41,9 +41,9 @@ export default function TimezoneCard({
       {...listeners}
       {...attributes}
       style={style}
-      className="flex h-50 flex-col justify-between gap-4 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black/10 p-5 md:flex-row md:items-center"
+      className="flex h-50 items-center justify-between gap-4 rounded-xl border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black/10 p-5"
     >
-      <div className="flex h-full w-full flex-col md:flex-row md:items-center md:gap-6">
+      <div className="flex h-full w-full items-center gap-6">
         <div className="flex items-center justify-center">
           <Clock
             value={localTime.toFormat("HH:mm:ss")}

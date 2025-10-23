@@ -8,7 +8,7 @@ export default function Widgets() {
   const widgets = [<WeatherWidget />, <TimezoneWidget />];
 
   return (
-    <div className="flex w-full flex-col pt-10 pb-3">
+    <div className="flex w-full min-w-[50rem] flex-col pt-10 pb-3">
       <motion.div
         variants={containerVariants}
         initial="hidden"

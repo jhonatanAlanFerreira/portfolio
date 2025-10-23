@@ -125,8 +125,8 @@ export default function HoursRangeSelect({
                 key={index}
                 className="flex h-25 flex-col content-end justify-center border-b border-b-slate-500/10"
               >
-                <span className="text-lg">{tz.name}</span>
-                <span className="text-sm text-gray-500">
+                <span className="text-sm xl:text-lg">{tz.name}</span>
+                <span className="text-[13px] text-gray-500 xl:text-sm">
                   <b>Current Time:</b>{" "}
                   {localTime.toFormat("h:mm:s a").toLowerCase()}
                 </span>
