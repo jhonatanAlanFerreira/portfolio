@@ -9,7 +9,7 @@ services:
       - ./:/usr/src/app:cached
     working_dir: /usr/src/app
     ports:
-      - "3000:3000"
+      - "${APP_PORT}:3000"
     command: sh -lc "npm install && npm run dev"
     environment:
       - NODE_ENV=development
