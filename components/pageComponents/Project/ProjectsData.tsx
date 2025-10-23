@@ -70,7 +70,7 @@ export const ProjectsData = [
     img: null,
     imgAlt: null,
     sourceCode: "https://github.com/jhonatanAlanFerreira/portfolio",
-    description: `This portfolio, built with React, showcases my projects and full-stack development skills.`,
+    description: `This portfolio, built with React, showcases my projects and highlights my full-stack development experience.`,
     stackIcons: portfolio,
   },
 ];
