@@ -292,13 +292,13 @@ export default function TimezoneWidget() {
             className="fixed inset-0 z-50 flex h-full w-full items-center justify-center backdrop-blur-md"
           >
             <motion.div
-              className="overflow-auto relative m-1 flex h-4/5 w-[98%] justify-between rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
+              className="relative m-1 flex h-4/5 w-[98%] justify-between overflow-auto rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="flex w-full flex-col px-5 py-3 min-w-[50rem]">
+              <div className="flex w-full min-w-[50rem] flex-col px-5 py-3">
                 <div className="flex justify-between align-middle">
                   <h2 className="mb-4 text-2xl font-semibold tracking-wide text-gray-200">
                     Compare Time Ranges
