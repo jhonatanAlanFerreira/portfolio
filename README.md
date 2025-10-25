@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Full Stack Portfolio
 
-## Getting Started
+This is a **personal portfolio project** built with [Next.js](https://nextjs.org), showcasing my work and projects as a **Full Stack Developer**.  
+It highlights practical experience in frontend and backend development and component architecture.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🕒 Timezone Data
+
+The `timezones.json` file, which contains all mapped timezones, is **auto-generated** by the script:
+
+```
+scripts/generateTimezones.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This script uses [Luxon](https://moment.github.io/luxon/) to handle timezone logic, ensuring accurate and up-to-date data.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌦️ API Integrations
 
-## Learn More
+### Timezone Component
 
-To learn more about Next.js, take a look at the following resources:
+- Does **not** use any external API.
+- Fully built with **Luxon abstractions** for time calculations and conversions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Weather Widget
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Uses `api64.ipify.org` for IP detection in **local development** and **Vercel’s IP service** in production.
+- Retrieves location data from `http://ip-api.com/json`.
+- Fetches weather data from `https://api.open-meteo.com`.
+- The entire widget is custom built in **React**, without external UI libraries.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ✨ Additional Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Cursor Effect:** Created using [React Bits](https://reactbits.dev/).
+- **Animated Interface:** Built with **Framer Motion** for transitions and effects.
+- **Responsive Design:** Works across devices with modern CSS and Tailwind utilities.
+
+---
+
+## 🧑‍💻 Author
+
+**Jhonatan Ferreira**  
+Full Stack Developer | React, Remix, Node.js, and TypeScript  
+[LinkedIn](https://www.linkedin.com/in/jhonatan-alan-ferreira)
