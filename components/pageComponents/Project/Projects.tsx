@@ -30,7 +30,7 @@ export default function Projects() {
           <motion.div
             key={index}
             variants={cardVariants(index % 2 === 0)}
-            className="h-auto w-full rounded-sm border border-slate-600/60 bg-black/90 transition-colors duration-300 hover:border-slate-400/50"
+            className="h-auto w-full rounded-lg border border-slate-600/60 bg-black/90 transition-colors duration-300 hover:border-slate-400/50"
           >
             <div className="flex h-full gap-5 p-4">
               {pd.img && (

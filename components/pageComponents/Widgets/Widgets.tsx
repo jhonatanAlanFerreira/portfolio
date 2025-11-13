@@ -19,7 +19,7 @@ export default function Widgets() {
           <motion.div
             key={index}
             variants={cardVariants(index % 2 === 0)}
-            className="h-auto w-full rounded-sm border border-slate-600/60 bg-black/80 p-4 transition-colors duration-300 hover:border-slate-400/50"
+            className="h-auto w-full rounded-lg border border-slate-600/60 bg-black/80 p-4 transition-colors duration-300 hover:border-slate-400/50"
           >
             {React.cloneElement(widget)}
           </motion.div>
