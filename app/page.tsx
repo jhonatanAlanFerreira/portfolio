@@ -120,6 +120,7 @@ export default function Home() {
                     Full Stack Developer
                   </p>
                   <a
+                    href="/jhonatan_ferreira_resume.pdf"
                     download
                     className="group relative mt-2 cursor-pointer overflow-hidden rounded-md border border-dotted border-slate-900/80 px-1 py-0.5 text-[5px] text-white/70 transition-colors duration-300 lg:px-3 lg:py-1 lg:text-[10px] 2xl:text-sm"
                   >
@@ -158,13 +159,28 @@ export default function Home() {
               <div className="relative bottom-0 size-5/6 h-10 border-t border-gray-400/90 grayscale lg:mb-6 lg:h-5 2xl:h-12">
                 <div className="flex justify-around pt-2">
                   <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                    <GrGithub className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
+                    <a
+                      href="https://github.com/jhonatanAlanFerreira"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      <GrGithub className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
+                    </a>
                   </div>
                   <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                    <MdEmail className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
+                    <a href="mailto:contact@jhonatanferreira.dev">
+                      <MdEmail className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
+                    </a>
                   </div>
                   <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
-                    <PiLinkedinLogo className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
+                    <a
+                      href="https://www.linkedin.com/in/jhonatan-alan-ferreira"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <PiLinkedinLogo className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
+                    </a>
                   </div>
                 </div>
               </div>
