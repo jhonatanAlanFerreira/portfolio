@@ -11,7 +11,9 @@ export default function ImageCarousel({
   const [gifIndex, setGifIndex] = useState<number>(0);
   const [loaded, setLoaded] = useState<boolean>(false);
 
-  useEffect(() => preloadImages, [gifs]);
+  useEffect(() => {
+    preloadImages();
+  }, [gifs]);
 
   const preloadImages = () => {
     const promises = gifs.map(
