@@ -1,37 +1,14 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import dayjs from "dayjs";
-import { WeatherData } from "./WeatherWidgetInterfaces";
 import { weatherCodeMapping } from "./WeatherWidgetIcons";
 import { Loader2, AlertTriangle } from "lucide-react";
+import { useWeatherData } from "./useWeatherData";
 
 export default function WeatherWidget() {
-  const [weather, setWeather] = useState<WeatherData | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
   const fetched = useRef(false);
-
-  useEffect(() => {
-    if (fetched.current) return;
-    fetched.current = true;
-
-    const fetchWeather = async () => {
-      try {
-        const res = await fetch("/api/weather", { cache: "no-store" });
-        if (!res.ok) throw new Error("Weather API error");
-        const data: WeatherData = await res.json();
-        setWeather(data);
-      } catch (err) {
-        console.error(err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchWeather();
-  }, []);
+  const { weather, error, loading } = useWeatherData();
 
   const getDetailsFromCode = (code: number, period: "day" | "night" = "day") =>
     weatherCodeMapping[code][period];
