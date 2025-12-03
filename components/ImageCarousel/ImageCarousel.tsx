@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import ImageCarouselProps from "./ImageCarouselProps";
@@ -8,26 +8,7 @@ export default function ImageCarousel({
   gifAlt,
   imgClasses,
 }: ImageCarouselProps) {
-  const [gifIndex, setGifIndex] = useState<number>(0);
-  const [loaded, setLoaded] = useState<boolean>(false);
-
-  useEffect(() => {
-    preloadImages();
-  }, [gifs]);
-
-  const preloadImages = () => {
-    const promises = gifs.map(
-      (src) =>
-        new Promise<void>((resolve) => {
-          const img = new Image();
-          img.src = src;
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-        }),
-    );
-
-    Promise.all(promises).then(() => setLoaded(true));
-  };
+  const [gifIndex, setGifIndex] = useState(0);
 
   const changeGif = () => {
     const lastValidIndex = gifs.length - 1;
@@ -35,22 +16,16 @@ export default function ImageCarousel({
     setGifIndex(nextIndex);
   };
 
-  if (!loaded) {
-    return (
-      <div className="flex h-full w-full items-center justify-center text-gray-400">
-        Loading...
-      </div>
-    );
-  }
-
   return (
     <div className="relative grid w-full">
       <AnimatePresence mode="wait">
-        <motion.img
+        <motion.video
+          autoPlay
+          loop
           key={gifIndex}
           className={imgClasses}
           src={gifs[gifIndex]}
-          alt={gifAlt}
+          aria-label={gifAlt}
           initial={{ rotateY: 90, opacity: 0 }}
           animate={{ rotateY: 0, opacity: 1 }}
           exit={{ rotateY: -90, opacity: 0 }}

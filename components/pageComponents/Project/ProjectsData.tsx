@@ -11,8 +11,8 @@ export const ProjectsData = [
     name: "Financial Manager (2025)",
     language: "English",
     gifs: [
-      "/screenshots/financialManager/financial_manager.webp",
-      "/screenshots/financialManager/financial_manager_login.webp",
+      "/screenshots/financialManager/financial_manager.mp4",
+      "/screenshots/financialManager/financial_manager_login.mp4",
     ],
     gifAlt: "Finalcial Manager Screen Recorded",
     img: "/screenshots/financialManager/financial_manager.png",
@@ -26,8 +26,8 @@ export const ProjectsData = [
     name: "React Native Simple Todo (2025)",
     language: "English",
     gifs: [
-      "/screenshots/todoApp/todo-app.webp",
-      "/screenshots/todoApp/todo-app-scrolling.webp",
+      "/screenshots/todoApp/todo-app.mp4",
+      "/screenshots/todoApp/todo-app-scrolling.mp4",
     ],
     gifAlt: "",
     img: "/screenshots/todoApp/todo-app.png",
@@ -40,7 +40,7 @@ export const ProjectsData = [
   {
     name: "Git Search (2022)",
     language: "Portuguese",
-    gifs: ["/screenshots/gitSearch/git_search.webp"],
+    gifs: ["/screenshots/gitSearch/git_search.mp4"],
     gifAlt: "Git Search Screen",
     img: "/screenshots/gitSearch/git_search.png",
     imgAlt: "Git Search Screenshot",
@@ -52,8 +52,8 @@ export const ProjectsData = [
     name: "Developer Manager (2022)",
     language: "Portuguese",
     gifs: [
-      "/screenshots/developerManager/developer_manager.webp",
-      "/screenshots/developerManager/developer_manager_show_list.webp",
+      "/screenshots/developerManager/developer_manager.mp4",
+      "/screenshots/developerManager/developer_manager_show_list.mp4",
     ],
     gifAlt: "Developer Manager Screenshot",
     img: "/screenshots/developerManager/developer_manager.png",
