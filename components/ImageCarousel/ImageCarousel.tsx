@@ -10,9 +10,11 @@ export default function ImageCarousel({
   onLoadingChange,
 }: ImageCarouselProps) {
   const [gifIndex, setGifIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const changeGif = () => {
     onLoadingChange?.(true);
+    setIsLoading(true);
 
     const lastValidIndex = gifs.length - 1;
     const nextIndex = gifIndex === lastValidIndex ? 0 : gifIndex + 1;
@@ -33,19 +35,22 @@ export default function ImageCarousel({
           animate={{ rotateY: 0, opacity: 1 }}
           exit={{ rotateY: -90, opacity: 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          onLoadedData={() => onLoadingChange?.(false)}
+          onLoadedData={() => {
+            onLoadingChange?.(false);
+            setIsLoading(false);
+          }}
         />
-      </AnimatePresence>
 
-      {gifs.length > 1 && (
-        <div
-          title="Next Image"
-          onClick={changeGif}
-          className="group/arrow absolute top-0 right-0 flex h-full w-10 cursor-pointer items-center bg-black/20"
-        >
-          <BsArrowRight className="ml-2 h-5 w-5 text-white group-hover/arrow:scale-130" />
-        </div>
-      )}
+        {gifs.length > 1 && !isLoading && (
+          <motion.div
+            title="Next Image"
+            onClick={changeGif}
+            className="group/arrow absolute top-0 right-0 flex h-full w-10 cursor-pointer items-center bg-black/20"
+          >
+            <BsArrowRight className="ml-2 h-5 w-5 text-white group-hover/arrow:scale-130" />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
