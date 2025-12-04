@@ -7,10 +7,13 @@ export default function ImageCarousel({
   gifs,
   gifAlt,
   imgClasses,
+  onLoadingChange,
 }: ImageCarouselProps) {
   const [gifIndex, setGifIndex] = useState(0);
 
   const changeGif = () => {
+    onLoadingChange?.(true);
+
     const lastValidIndex = gifs.length - 1;
     const nextIndex = gifIndex === lastValidIndex ? 0 : gifIndex + 1;
     setGifIndex(nextIndex);
@@ -30,6 +33,7 @@ export default function ImageCarousel({
           animate={{ rotateY: 0, opacity: 1 }}
           exit={{ rotateY: -90, opacity: 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
+          onLoadedData={() => onLoadingChange?.(false)}
         />
       </AnimatePresence>
 

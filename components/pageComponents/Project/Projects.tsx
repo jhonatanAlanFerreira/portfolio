@@ -13,6 +13,7 @@ export default function Projects() {
     imgs: string[];
     imgAlt: string;
   }>({ imgs: [], imgAlt: "" });
+  const [isImgLoading, setIsImgLoading] = useState<Record<number, boolean>>({});
 
   const openProjectModal = (imgs: string[], imgAlt: string) => {
     setProjectModal({ imgs, imgAlt });
@@ -35,7 +36,7 @@ export default function Projects() {
             <div className="flex h-full gap-5 p-4">
               {pd.img && (
                 <div className="flex-2">
-                  <div className="group max-h-full w-full content-center rounded-lg bg-slate-800/10 p-4 opacity-50 hover:opacity-100">
+                  <div className="group max-h-full w-full content-center rounded-lg p-4 opacity-50 hover:opacity-100">
                     <div className="flex justify-center">
                       <img
                         className="max-h-50 group-hover:hidden"
@@ -47,16 +48,33 @@ export default function Projects() {
                           imgClasses="max-h-50 place-self-center"
                           gifs={pd.gifs}
                           gifAlt={pd.gifAlt}
+                          onLoadingChange={(isLoading) =>
+                            setIsImgLoading({
+                              ...isImgLoading,
+                              [index]: isLoading,
+                            })
+                          }
                         />
                       </div>
                     </div>
-                    <div
-                      onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
-                      className="mt-3 flex w-fit cursor-pointer justify-start gap-1"
-                    >
-                      <BiFullscreen size={25} className="text-gray-400/50" />
-                      <span className="text-gray-400">Full Screen</span>
-                    </div>
+                    <AnimatePresence mode="wait">
+                      {!isImgLoading[index] && (
+                        <motion.div
+                          initial={{ rotateY: 90, opacity: 0 }}
+                          animate={{ rotateY: 0, opacity: 1 }}
+                          exit={{ rotateY: -90, opacity: 0 }}
+                          transition={{ duration: 0.2, ease: "easeInOut" }}
+                          onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
+                          className="mt-3 flex w-fit cursor-pointer justify-start gap-1"
+                        >
+                          <BiFullscreen
+                            size={25}
+                            className="text-gray-400/50"
+                          />
+                          <span className="text-gray-400">Full Screen</span>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               )}
