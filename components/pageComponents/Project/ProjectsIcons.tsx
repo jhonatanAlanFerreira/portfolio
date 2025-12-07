@@ -34,7 +34,7 @@ export const git_search_icons = [
   icons.git,
   icons.regex,
   icons.bootstrap,
-  icons.docker
+  icons.docker,
 ];
 
 export const developer_manager_icons = [
@@ -58,5 +58,5 @@ export const portfolio = [
   icons.css,
   icons.tailwind,
   icons.typescript,
-  icons.docker
+  icons.docker,
 ];
