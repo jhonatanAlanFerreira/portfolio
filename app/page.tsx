@@ -110,7 +110,7 @@ export default function Home() {
             >
               <div className="flex flex-col items-center pt-5">
                 <div className="h-15 w-15 overflow-hidden rounded-sm border-1 border-slate-900 shadow-md hover:border-slate-800 lg:h-30 lg:w-30 2xl:h-40 2xl:w-40">
-                  <img src="profile.png" alt="Profile Picture" />
+                  <img src="profile.jpeg" alt="Profile Picture" />
                 </div>
                 <div className="flex flex-col items-center text-center">
                   <h1 className="text-lg font-bold text-white 2xl:text-3xl">
