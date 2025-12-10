@@ -14,6 +14,7 @@ export default function Projects() {
     imgAlt: string;
   }>({ imgs: [], imgAlt: "" });
   const [isImgLoading, setIsImgLoading] = useState<Record<number, boolean>>({});
+  const [isModalImgLoading, setIsModalImgLoading] = useState(true);
 
   const openProjectModal = (imgs: string[], imgAlt: string) => {
     setProjectModal({ imgs, imgAlt });
@@ -35,7 +36,12 @@ export default function Projects() {
           >
             <div className="flex h-full gap-5 p-4">
               {pd.img && (
-                <div className="flex-2">
+                <div className="relative flex-2">
+                  {isImgLoading[index] && (
+                    <div className="absolute flex h-full w-full items-center justify-center">
+                      <span className="text-white opacity-50">Loading...</span>
+                    </div>
+                  )}
                   <div className="group max-h-full w-full content-center rounded-lg p-4 opacity-50 hover:opacity-100">
                     <div className="flex justify-center">
                       <img
@@ -152,11 +158,19 @@ export default function Projects() {
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
             >
-              <div className="flex w-full items-center justify-center p-4">
+              <div className="relative flex w-full items-center justify-center p-4">
+                <div className="absolute flex h-full w-full items-center justify-center">
+                  {isModalImgLoading && (
+                    <span className="text-white opacity-50">Loading...</span>
+                  )}
+                </div>
                 <ImageCarousel
                   imgClasses="max-h-[calc(100vh-1rem)] place-self-center"
                   gifs={projectModal.imgs}
                   gifAlt={projectModal.imgAlt}
+                  onLoadingChange={(isLoading) =>
+                    setIsModalImgLoading(isLoading)
+                  }
                 />
               </div>
               <div>
