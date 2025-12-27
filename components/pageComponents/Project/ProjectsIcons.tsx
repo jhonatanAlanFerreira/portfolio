@@ -60,3 +60,16 @@ export const portfolio = [
   icons.typescript,
   icons.docker,
 ];
+
+export const flowboard_icons = [
+  icons.angular,
+  icons.laravel,
+  icons.tailwind,
+  icons.php,
+  icons.html,
+  icons.css,
+  icons.typescript,
+  icons.mysql,
+  icons.docker,
+  icons.git,
+];

@@ -1,6 +1,7 @@
 import {
   developer_manager_icons,
   financial_manager_icons,
+  flowboard_icons,
   git_search_icons,
   portfolio,
   react_native_simple_todo_icons,
@@ -21,6 +22,20 @@ export const ProjectsData = [
       "https://github.com/jhonatanAlanFerreira/financial_manager_remix",
     description: `A personal financial manager built with Remix and React. It allows users to manage expenses, income, transactions, and balances in a simple and organized way.`,
     stackIcons: financial_manager_icons,
+  },
+  {
+    name: "Flowboard (2025)",
+    language: "English",
+    gifs: [
+      "/screenshots/flowboard/login.mp4",
+      "/screenshots/flowboard/dragging.mp4",
+    ],
+    gifAlt: "Flowboard Screen Recording",
+    img: "/screenshots/flowboard/flowboard.png",
+    imgAlt: "Flowboard Board Screenshot",
+    sourceCode: "https://github.com/jhonatanAlanFerreira/flowboard",
+    description: `A Trello-inspired project management application built with Laravel and Angular. Flowboard supports multiple users and workspaces, boards with lists and tasks, and Kanban-style drag & drop. It features server-side ordering to ensure consistency.`,
+    stackIcons: flowboard_icons,
   },
   {
     name: "React Native Simple Todo (2025)",
