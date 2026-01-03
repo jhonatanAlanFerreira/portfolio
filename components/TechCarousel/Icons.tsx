@@ -29,6 +29,7 @@ import {
   SiSqlite,
   SiReact,
   SiVercel,
+  SiPython,
 } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
 import { VscAzure } from "react-icons/vsc";
@@ -198,6 +199,11 @@ export const icons = {
     icon: <SiVercel className="text-gray-800" />,
     name: "Vercel",
     link: "https://vercel.com/docs",
+  },
+  python: {
+    icon: <SiPython className="text-yellow-500" />,
+    name: "Python",
+    link: "https://docs.python.org/3/",
   },
 };
 

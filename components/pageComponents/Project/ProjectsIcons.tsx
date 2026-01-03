@@ -62,6 +62,7 @@ export const portfolio = [
 ];
 
 export const flowboard_icons = [
+  icons.python,
   icons.angular,
   icons.laravel,
   icons.tailwind,
