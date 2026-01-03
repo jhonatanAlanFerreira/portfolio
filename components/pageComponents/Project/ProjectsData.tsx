@@ -9,6 +9,21 @@ import {
 
 export const ProjectsData = [
   {
+    name: "Flowboard (2025)",
+    language: "English",
+    gifs: [
+      "/screenshots/flowboard/ai_workspace_generate.mp4",
+      "/screenshots/flowboard/login_drag_drop.mp4",
+    ],
+    gifAlt: "Flowboard Screen Recording",
+    img: "/screenshots/flowboard/flowboard.png",
+    imgAlt: "Flowboard Board Screenshot",
+    sourceCode: "https://github.com/jhonatanAlanFerreira/flowboard",
+    description: `AI-powered Trello-inspired project manager built with Laravel, Angular, and a Python-based AI service.
+    Uses a local LLM to generate complete workspaces, supports multi-user Kanban boards with drag & drop, and enforces server-side ordering for consistency.`,
+    stackIcons: flowboard_icons,
+  },
+  {
     name: "Financial Manager (2025)",
     language: "English",
     gifs: [
@@ -22,21 +37,6 @@ export const ProjectsData = [
       "https://github.com/jhonatanAlanFerreira/financial_manager_remix",
     description: `A personal financial manager built with Remix and React. It allows users to manage expenses, income, transactions, and balances in a simple and organized way.`,
     stackIcons: financial_manager_icons,
-  },
-  {
-    name: "Flowboard (2025)",
-    language: "English",
-    gifs: [
-      "/screenshots/flowboard/ai_workspace_generate.mp4",
-      "/screenshots/flowboard/login_drag_drop.mp4",
-    ],
-    gifAlt: "Flowboard Screen Recording",
-    img: "/screenshots/flowboard/flowboard.png",
-    imgAlt: "Flowboard Board Screenshot",
-    sourceCode: "https://github.com/jhonatanAlanFerreira/flowboard",
-    description: `AI-powered Trello-inspired project manager built with Laravel and Angular.
-    Generates complete workspaces using a local LLM, supports multi-user Kanban boards with drag & drop, and enforces server-side ordering for consistency.`,
-    stackIcons: flowboard_icons,
   },
   {
     name: "React Native Simple Todo (2025)",
