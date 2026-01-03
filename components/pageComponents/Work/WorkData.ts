@@ -17,6 +17,7 @@ export const WorkData = [
       "Wrote and maintained automated feature tests to validate business-critical functionality",
     ],
     stack: [
+      icons.python,
       icons.angular,
       icons.css,
       icons.docker,
