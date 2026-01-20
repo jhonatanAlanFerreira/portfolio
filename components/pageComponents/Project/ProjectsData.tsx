@@ -6,8 +6,9 @@ import {
   portfolio,
   react_native_simple_todo_icons,
 } from "./ProjectsIcons";
+import { Project } from "./ProjectsInterfaces";
 
-export const ProjectsData = [
+export const ProjectsData: Project[] = [
   {
     name: "Flowboard (2025)",
     language: "English",

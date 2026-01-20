@@ -1,5 +1,4 @@
 "use client";
-import { BiFullscreen } from "react-icons/bi";
 import React, { useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import ImageCarousel from "../../ImageCarousel/ImageCarousel";
@@ -7,17 +6,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 import { ProjectsData } from "./ProjectsData";
 import { FiExternalLink } from "react-icons/fi";
+import { Project } from "./ProjectsInterfaces";
+import ImageCarouselWithThumbnails from "@/components/ImageCarouselWithThumbnails/ImageCarouselWithThumbnails";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{
-    imgs: string[];
-    imgAlt: string;
-  }>({ imgs: [], imgAlt: "" });
-  const [isImgLoading, setIsImgLoading] = useState<Record<number, boolean>>({});
+    gifs: string[];
+    gifAlt: string | null;
+  }>({ gifs: [], gifAlt: "" });
   const [isModalImgLoading, setIsModalImgLoading] = useState(true);
 
-  const openProjectModal = (imgs: string[], imgAlt: string) => {
-    setProjectModal({ imgs, imgAlt });
+  const openProjectModal = (project: Project) => {
+    const { gifs, gifAlt } = project;
+
+    setProjectModal({ gifs, gifAlt });
   };
 
   return (
@@ -36,53 +38,11 @@ export default function Projects() {
           >
             <div className="flex h-full gap-5 p-4">
               {pd.img && (
-                <div className="relative flex-2">
-                  {isImgLoading[index] && (
-                    <div className="absolute flex h-full w-full items-center justify-center">
-                      <span className="text-white opacity-50">Loading...</span>
-                    </div>
-                  )}
-                  <div className="group max-h-full w-full content-center rounded-lg p-4 opacity-50 hover:opacity-100">
-                    <div className="flex justify-center">
-                      <img
-                        className="max-h-50 group-hover:hidden"
-                        src={pd.img}
-                        alt={pd.imgAlt}
-                      />
-                      <div className="hidden w-full group-hover:flex">
-                        <ImageCarousel
-                          imgClasses="max-h-50 place-self-center"
-                          gifs={pd.gifs}
-                          gifAlt={pd.gifAlt}
-                          onLoadingChange={(isLoading) =>
-                            setIsImgLoading({
-                              ...isImgLoading,
-                              [index]: isLoading,
-                            })
-                          }
-                        />
-                      </div>
-                    </div>
-                    <AnimatePresence mode="wait">
-                      {!isImgLoading[index] && (
-                        <motion.div
-                          initial={{ rotateY: 90, opacity: 0 }}
-                          animate={{ rotateY: 0, opacity: 1 }}
-                          exit={{ rotateY: -90, opacity: 0 }}
-                          transition={{ duration: 0.2, ease: "easeInOut" }}
-                          onClick={() => openProjectModal(pd.gifs, pd.gifAlt)}
-                          className="mt-3 flex w-fit cursor-pointer justify-start gap-1"
-                        >
-                          <BiFullscreen
-                            size={25}
-                            className="text-gray-400/50"
-                          />
-                          <span className="text-gray-400">Full Screen</span>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                </div>
+                <ImageCarouselWithThumbnails
+                  key={index}
+                  project={pd}
+                  onFullScreen={openProjectModal}
+                ></ImageCarouselWithThumbnails>
               )}
               <div className="flex flex-3 flex-col space-y-2 text-gray-400 lg:space-y-5">
                 <div>
@@ -143,7 +103,7 @@ export default function Projects() {
       </motion.div>
 
       <AnimatePresence>
-        {projectModal.imgs.length > 0 && (
+        {projectModal.gifs.length > 0 && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -166,8 +126,8 @@ export default function Projects() {
                 </div>
                 <ImageCarousel
                   imgClasses="max-h-[calc(100vh-1rem)] place-self-center"
-                  gifs={projectModal.imgs}
-                  gifAlt={projectModal.imgAlt}
+                  gifs={projectModal.gifs}
+                  gifAlt={projectModal.gifAlt ?? ""}
                   onLoadingChange={(isLoading) =>
                     setIsModalImgLoading(isLoading)
                   }
@@ -175,7 +135,7 @@ export default function Projects() {
               </div>
               <div>
                 <button
-                  onClick={() => setProjectModal({ imgs: [], imgAlt: "" })}
+                  onClick={() => setProjectModal({ gifs: [], gifAlt: "" })}
                   className="mr-3 cursor-pointer text-4xl text-gray-200 hover:scale-110 hover:text-gray-400"
                 >
                   &times;
