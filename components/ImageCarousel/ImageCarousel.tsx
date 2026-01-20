@@ -10,7 +10,7 @@ export default function ImageCarousel({
   onLoadingChange,
 }: ImageCarouselProps) {
   const [gifIndex, setGifIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const changeGif = () => {
     onLoadingChange?.(true);
