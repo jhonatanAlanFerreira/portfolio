@@ -36,7 +36,7 @@ export const ProjectsData: Project[] = [
     imgAlt: "Finalcial Manager Screenshot",
     sourceCode:
       "https://github.com/jhonatanAlanFerreira/financial_manager_remix",
-    description: `A personal financial manager built with Remix and React. It allows users to manage expenses, income, transactions, and balances in a simple and organized way.`,
+    description: `A personal financial manager built with Remix and React. It enables users to manage expenses, income, transactions, and balances in a simple and organized way, and export filtered transactions as CSV for reporting and accounting purposes.`,
     stackIcons: financial_manager_icons,
   },
   {
