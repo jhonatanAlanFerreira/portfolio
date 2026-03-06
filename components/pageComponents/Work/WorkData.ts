@@ -36,7 +36,7 @@ export const WorkData = [
   {
     company: "Act Like You Matter",
     role: "Volunteer Frontend Developer",
-    period: formatWorkPeriod("2025-05"),
+    period: formatWorkPeriod("2025-05", "2025-07"),
     location: "San Diego, CA, United States | Remote",
     language: "English",
     responsibilities: [
