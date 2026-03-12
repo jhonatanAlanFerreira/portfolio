@@ -5,7 +5,7 @@ export const WorkData = [
   {
     company: "Ambra",
     role: "Full Stack Developer",
-    period: formatWorkPeriod("2022-01"),
+    period: formatWorkPeriod("2022-01", "2026-03"),
     location: "São Paulo, SP, Brazil | Remote",
     language: "Portuguese",
     responsibilities: [
