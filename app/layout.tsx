@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import AnimatedCursor from "@/components/AnimatedCursor/AnimatedCursor";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Jhonatan Ferreira | Full-Stack Developer",
@@ -15,6 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="overflow-hidden" lang="en">
+      <Analytics />
       <body className="overflow-hidden bg-black [background-image:radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px),radial-gradient(circle,hsla(0,0%,80%,0.1)_1px,transparent_1px)] [background-size:1rem_1rem] [background-position:0_0,0.5rem_0.5rem]">
         {children}
         <div className="splash-cursor">
