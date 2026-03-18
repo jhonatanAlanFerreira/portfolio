@@ -46,7 +46,7 @@ export default function Home() {
       PROJECTS: "My Projects",
       WORK: "My Work",
       CONTACT: "Get in Touch",
-      WIDGETS: "Just Some Cool API Stuff 😎",
+      WIDGETS: "Just Some Cool API Stuff",
     };
 
     return (
