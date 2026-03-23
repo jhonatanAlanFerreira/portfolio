@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Contact from "@/components/pageComponents/Contact/Contact";
 import Widgets from "@/components/pageComponents/Widgets/Widgets";
 import { FiChevronLeft } from "react-icons/fi";
+import ResumeDownload from "@/components/ResumeDownload/ResumeDownload";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<PageTab>("WORK");
@@ -119,14 +120,7 @@ export default function Home() {
                   <p className="text-sm text-gray-500 2xl:text-lg">
                     Full Stack Developer
                   </p>
-                  <a
-                    href="/jhonatan_ferreira_resume.pdf"
-                    download
-                    className="group relative mt-2 cursor-pointer overflow-hidden rounded-md border border-dotted border-slate-900/80 px-1 py-0.5 text-[5px] text-white/70 transition-colors duration-300 lg:px-3 lg:py-1 lg:text-[10px] 2xl:text-sm"
-                  >
-                    <span className="relative z-10">Download CV</span>
-                    <span className="border-trail"></span>
-                  </a>
+                  <ResumeDownload></ResumeDownload>
                 </div>
               </div>
               <div className="z-10 mt-10 mb-3 w-full flex-1 place-items-center overflow-hidden px-2">
