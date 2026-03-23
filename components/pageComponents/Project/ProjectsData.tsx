@@ -20,8 +20,7 @@ export const ProjectsData: Project[] = [
     img: "/screenshots/flowboard/flowboard.png",
     imgAlt: "Flowboard Board Screenshot",
     sourceCode: "https://github.com/jhonatanAlanFerreira/flowboard",
-    description: `AI-powered Trello-inspired project manager built with Laravel, Angular, and a Python-based AI service.
-    Uses a local LLM to generate complete workspaces, supports multi-user Kanban boards with drag & drop, and enforces server-side ordering for consistency.`,
+    description: `Flowboard is a full-stack project management application built with Angular, Laravel, and Python, designed to support multiple users and multiple workspaces. It features a drag-and-drop interface for task and column management, LLM-powered content generation via prompt engineering, and ongoing exploration of RAG (Retrieval-Augmented Generation) for enhanced context-aware capabilities. The project is containerized with Docker to ensure a consistent development environment.`,
     stackIcons: flowboard_icons,
   },
   {
