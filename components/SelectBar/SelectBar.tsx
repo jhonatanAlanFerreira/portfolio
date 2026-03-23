@@ -9,6 +9,11 @@ export default function SelectBar({ onChange }: SelectBarProps) {
   const tabs: PageTab[] = ["WORK", "PROJECTS", "CONTACT", "WIDGETS"];
 
   const onClick = (tab: PageTab) => {
+    window.va?.("event", {
+      name: "tab_change",
+      data: { tab },
+    });
+
     setActive(tab);
     onChange(tab);
   };
