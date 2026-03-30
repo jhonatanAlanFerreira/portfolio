@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
-import { icons } from "./Icons";
+import { techIcons } from "./techIcons";
 
 export default function TechCarousel() {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const firstItemRef = useRef<HTMLDivElement>(null);
   const [maxWidth, setMaxWidth] = useState<number | undefined>();
+  const icons = techIcons;
 
   useEffect(() => {
     if (firstItemRef.current) {
@@ -21,7 +22,7 @@ export default function TechCarousel() {
       className="gray-scroll group flex h-16 w-full overflow-hidden rounded-md bg-gradient-to-b from-black/10 to-slate-800/10 whitespace-nowrap backdrop-blur-md transition-[height] duration-50 hover:h-full hover:overflow-auto hover:from-slate-800/10 hover:to-black 2xl:h-26"
     >
       <p className="absolute pt-2 pl-1 text-[5px] font-semibold tracking-widest text-gray-500 group-hover:hidden after:mt-1 after:block after:h-px after:w-8 after:bg-slate-600/40 2xl:text-[11px]">
-        Tech & Workflow
+        Tech
       </p>
       <div
         ref={firstItemRef}

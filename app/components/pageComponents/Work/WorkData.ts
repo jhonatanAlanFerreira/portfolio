@@ -1,5 +1,5 @@
 import { formatWorkPeriod } from "@/utils";
-import { icons } from "../../TechCarousel/Icons";
+import { icons } from "../../../Icons";
 
 export const WorkData = [
   {

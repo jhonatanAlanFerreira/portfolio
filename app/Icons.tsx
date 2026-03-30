@@ -33,7 +33,7 @@ import {
 } from "react-icons/si";
 import { TbSql } from "react-icons/tb";
 import { VscAzure } from "react-icons/vsc";
-import { IconInterface } from "./IconsInterfaces";
+import { IconInterface } from "./components/TechCarousel/IconsInterfaces";
 
 export const icons: Record<string, IconInterface> = {
   react: {
