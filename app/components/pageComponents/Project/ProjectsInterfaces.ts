@@ -1,4 +1,4 @@
-import { IconInterface } from "@/components/TechCarousel/IconsInterfaces";
+import { IconInterface } from "@/app/components/TechCarousel/IconsInterfaces";
 
 export interface Project {
   name: string;

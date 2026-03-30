@@ -3,7 +3,7 @@ import Fuse from "fuse.js";
 import { DateTime } from "luxon";
 import timezones from "@/data/timezones.json";
 import { getAllCountries } from "countries-and-timezones";
-import { TimezoneOption } from "@/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
+import { TimezoneOption } from "@/app/components/pageComponents/Widgets/TimezoneWidget/TimezoneWidgetInterfaces";
 
 const normalize = (str: string) =>
   str

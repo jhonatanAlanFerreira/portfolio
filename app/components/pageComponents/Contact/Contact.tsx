@@ -1,11 +1,11 @@
 "use client";
-import { InputText } from "@/components/InputText/InputText";
-import { TextArea } from "@/components/TextArea/TextArea";
+import { InputText } from "@/app/components/InputText/InputText";
+import { TextArea } from "@/app/components/TextArea/TextArea";
 import { useForm } from "react-hook-form";
 import { ContactData } from "./ContactInterfaces";
 import { sendEmailAction } from "./ContactActions";
 import { useState } from "react";
-import PageLoading from "@/components/PageLoading/PageLoading";
+import PageLoading from "@/app/components/PageLoading/PageLoading";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast, { Toaster } from "react-hot-toast";
 

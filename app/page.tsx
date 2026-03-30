@@ -1,18 +1,18 @@
 "use client";
-import Projects from "@/components/pageComponents/Project/Projects";
-import Work from "@/components/pageComponents/Work/Work";
-import SelectBar from "@/components/SelectBar/SelectBar";
-import TechCarousel from "@/components/TechCarousel/TechCarousel";
+import Projects from "@/app/components/pageComponents/Project/Projects";
+import Work from "@/app/components/pageComponents/Work/Work";
+import SelectBar from "@/app/components/SelectBar/SelectBar";
+import TechCarousel from "@/app/components/TechCarousel/TechCarousel";
 import { PageTab } from "@/types/PageTypes";
 import { JSX, useState } from "react";
 import { GrGithub } from "react-icons/gr";
 import { MdEmail } from "react-icons/md";
 import { PiLinkedinLogo } from "react-icons/pi";
 import { motion, AnimatePresence } from "framer-motion";
-import Contact from "@/components/pageComponents/Contact/Contact";
-import Widgets from "@/components/pageComponents/Widgets/Widgets";
+import Contact from "@/app/components/pageComponents/Contact/Contact";
+import Widgets from "@/app/components/pageComponents/Widgets/Widgets";
 import { FiChevronLeft } from "react-icons/fi";
-import ResumeDownload from "@/components/ResumeDownload/ResumeDownload";
+import ResumeDownload from "@/app/components/ResumeDownload/ResumeDownload";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<PageTab>("WORK");

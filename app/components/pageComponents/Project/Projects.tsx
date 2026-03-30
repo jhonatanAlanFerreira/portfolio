@@ -7,7 +7,7 @@ import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 import { ProjectsData } from "./ProjectsData";
 import { FiExternalLink } from "react-icons/fi";
 import { Project } from "./ProjectsInterfaces";
-import ImageCarouselWithThumbnails from "@/components/ImageCarouselWithThumbnails/ImageCarouselWithThumbnails";
+import ImageCarouselWithThumbnails from "@/app/components/ImageCarouselWithThumbnails/ImageCarouselWithThumbnails";
 
 export default function Projects() {
   const [projectModal, setProjectModal] = useState<{

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { InputSelect } from "@/components/InputSelect/InputSelect";
+import { InputSelect } from "@/app/components/InputSelect/InputSelect";
 import { useDebouncedCallback } from "@/clientUtils";
 import { SelectedTimezone, TimezoneOption } from "./TimezoneWidgetInterfaces";
 import { DateTime } from "luxon";
