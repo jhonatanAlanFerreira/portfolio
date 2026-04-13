@@ -59,7 +59,7 @@ export default function Work() {
                         target="_blank"
                         rel="noopener noreferrer"
                         title={tech.name}
-                        className="cursor-pointer grayscale hover:scale-110 hover:grayscale-0"
+                        className="cursor-pointer grayscale-90 hover:scale-110 hover:grayscale-0"
                       >
                         <div className="flex h-7 w-8 items-center justify-center lg:h-10 lg:w-15">
                           {React.cloneElement(tech.icon, {
