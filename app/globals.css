@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --primary: #ffffff;
+    --muted: #7b8ca3;
+    --accent: #02dade;
+    --accent-dark: #172846;
+    --bg-dark: #060d16;
+    --bg-soft: #0b1623;
+    --border-subtle: rgba(120, 160, 200, 0.18);
+  }
+}
+
 @keyframes marquee-content {
   from {
     transform: translateX(0%);
@@ -33,7 +45,7 @@
 .float-label-input textarea:not(:placeholder-shown) + label,
 label.has-value {
   transform: translateY(-1.5rem) scale(0.75);
-  background-color: black;
+  background-color: var(--color-bg-dark);
   opacity: 1;
 }
 

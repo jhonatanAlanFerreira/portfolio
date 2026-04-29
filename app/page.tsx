@@ -43,12 +43,14 @@ export default function Home() {
   };
 
   const renderSelectedTabTitle = () => {
-    const TAB_TITLES: Record<PageTab, string> = {
-      PROJECTS: "My Projects",
-      WORK: "My Work",
-      CONTACT: "Get in Touch",
-      WIDGETS: "Just Some Cool API Integration",
+    const TAB_TITLES: Record<PageTab, { prefix: string; main: string }> = {
+      PROJECTS: { prefix: "My", main: "Projects" },
+      WORK: { prefix: "My", main: "Work" },
+      CONTACT: { prefix: "Get in", main: "Touch" },
+      WIDGETS: { prefix: "Just Some", main: "Cool API Integration" },
     };
+
+    const { prefix, main } = TAB_TITLES[activeTab];
 
     return (
       <AnimatePresence mode="wait">
@@ -59,8 +61,11 @@ export default function Home() {
           exit={{ rotateY: -90, opacity: 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
           style={{ transformOrigin: "center" }}
+          className="flex items-baseline gap-2"
         >
-          {TAB_TITLES[activeTab]}
+          <span className="text-[var(--primary)]">{prefix}</span>
+
+          <span className="text-[var(--accent)]">{main}</span>
         </motion.div>
       </AnimatePresence>
     );
@@ -85,7 +90,7 @@ export default function Home() {
           overflow: asideVisible ? "hidden" : "visible",
         }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="absolute z-2 h-full flex-1 border-r border-slate-600 bg-black backdrop-blur-md transition-colors duration-300 hover:border-slate-400 sm:relative sm:flex sm:w-full"
+        className="absolute z-2 h-full flex-1 border-r border-[var(--border-subtle)] bg-[rgba(11,22,35,0.6)] shadow-[4px_0_20px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-300 hover:border-[var(--accent)]/30 sm:relative sm:flex sm:w-full"
       >
         <button
           className={`${
@@ -117,7 +122,7 @@ export default function Home() {
                   <h1 className="text-lg font-bold text-white 2xl:text-3xl">
                     Jhonatan Ferreira
                   </h1>
-                  <p className="text-sm text-gray-500 2xl:text-lg">
+                  <p className="text-sm text-[var(--accent)]/80 2xl:text-lg">
                     Full Stack Developer
                   </p>
                   <ResumeDownload></ResumeDownload>
@@ -147,8 +152,8 @@ export default function Home() {
                 </div>
               </div>
               <div className="relative bottom-0 size-5/6 h-10 border-t border-gray-400/90 grayscale lg:mb-6 lg:h-5 2xl:h-12">
-                <div className="flex justify-around pt-2">
-                  <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
+                <div className="flex justify-around pt-3">
+                  <div className="group cursor-pointer rounded-full border border-slate-600/60 p-2 transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-slate-500/20">
                     <a
                       href="https://github.com/jhonatanAlanFerreira"
                       target="_blank"
@@ -158,12 +163,12 @@ export default function Home() {
                       <GrGithub className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
                     </a>
                   </div>
-                  <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
+                  <div className="group cursor-pointer rounded-full border border-slate-600/60 p-2 transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-slate-500/20">
                     <a href="mailto:contact@jhonatanferreira.dev">
                       <MdEmail className="h-3 w-3 text-sky-400 group-hover:text-sky-300 2xl:h-8 2xl:w-8" />
                     </a>
                   </div>
-                  <div className="group cursor-pointer rounded-lg bg-slate-950/80 p-2 transition duration-300 hover:scale-110 hover:bg-slate-900/50 hover:shadow-lg hover:shadow-slate-500/20">
+                  <div className="group cursor-pointer rounded-full border border-slate-600/60 p-2 transition duration-300 hover:scale-110 hover:shadow-lg hover:shadow-slate-500/20">
                     <a
                       href="https://www.linkedin.com/in/jhonatan-alan-ferreira"
                       target="_blank"
@@ -182,7 +187,7 @@ export default function Home() {
         <section className="w-full">
           <div className="flex h-screen flex-col">
             <div className="flex flex-row px-8 py-5">
-              <h2 className="hidden text-lg font-bold text-nowrap text-white sm:flex lg:text-3xl">
+              <h2 className="flex items-baseline gap-2 text-lg font-bold tracking-tight sm:flex lg:text-3xl">
                 {renderSelectedTabTitle()}
               </h2>
               <SelectBar onChange={setActiveTab} />
