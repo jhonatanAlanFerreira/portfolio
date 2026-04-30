@@ -45,7 +45,7 @@
 .float-label-input textarea:not(:placeholder-shown) + label,
 label.has-value {
   transform: translateY(-1.5rem) scale(0.75);
-  background-color: var(--color-bg-dark);
+  background-color: rgba(11, 22, 35);
   opacity: 1;
 }
 

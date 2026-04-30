@@ -42,8 +42,8 @@ export default function Contact() {
       <Toaster position="top-right" />
 
       <form className="h-full" onSubmit={handleSubmit(sendEmail)}>
-        <div className="flex h-full w-full flex-col gap-3 rounded-lg border border-slate-600/60 bg-black/90 p-4 text-center transition-colors duration-300 hover:border-slate-400/50">
-          <p className="text-sm font-bold text-gray-400 lg:text-lg">
+        <div className="flex h-full w-full flex-col gap-3 rounded-lg border border-[var(--border-subtle)] bg-[rgba(11,22,35,0.6)] p-4 text-center backdrop-blur-md transition-colors duration-300 hover:border-[var(--accent)]/40">
+          <p className="text-sm font-bold text-[var(--muted)] lg:text-lg">
             Whether you’d like to share feedback or simply say hi, feel free to
             reach out.
           </p>
@@ -57,7 +57,6 @@ export default function Contact() {
             <InputText
               errorMessage={errors.email?.message}
               {...register("email", {
-                required: "Email is required",
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   message: "Invalid email address",
@@ -83,7 +82,7 @@ export default function Contact() {
                 {captchaIsValid && (
                   <button
                     disabled={!captchaToken}
-                    className="relative h-10 cursor-pointer rounded-lg bg-slate-950/80 px-6 py-2 text-white transition duration-300 hover:scale-105 hover:bg-slate-950/70 hover:shadow-sm hover:shadow-slate-500/20"
+                    className="relative h-10 cursor-pointer rounded-lg bg-[rgba(255,255,255,0.05)] px-6 py-2 text-[var(--primary)] transition duration-300 hover:scale-105 hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_0_12px_rgba(2,218,222,0.2)]"
                   >
                     Send
                   </button>

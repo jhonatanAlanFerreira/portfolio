@@ -11,8 +11,8 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
           type="text"
           id={inputId}
           placeholder=" "
-          className={`focus:shadow-outline block w-full appearance-none rounded-md border bg-black/50 px-3 py-3 leading-normal text-white transition-colors duration-300 hover:border-slate-400/50 focus:outline-none ${
-            errorMessage ? "!border-rose-500" : "border-slate-600/60"
+          className={`focus:shadow-outline block w-full appearance-none rounded-md border px-3 py-3 leading-normal text-[var(--primary)] transition-colors duration-300 hover:border-[var(--accent)]/40 focus:outline-none ${
+            errorMessage ? "!border-rose-500" : "border-[var(--border-subtle)]"
           }`}
           autoComplete="off"
           ref={ref}
@@ -21,7 +21,9 @@ export const InputText = forwardRef<HTMLInputElement, InputTextPropsInterface>(
         <label
           htmlFor={inputId}
           className={`pointer-events-none absolute top-3 left-0 px-1 transition duration-200 ease-in-out ${
-            errorMessage ? "text-rose-500" : "ml-1 text-gray-400 opacity-60"
+            errorMessage
+              ? "text-rose-500"
+              : "ml-1 text-[var(--muted)] opacity-60"
           }`}
         >
           {label}
