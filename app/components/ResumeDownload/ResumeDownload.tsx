@@ -15,11 +15,11 @@ export default function ResumeDownload() {
       </button>
 
       {open && (
-        <div className="top absolute left-1/2 z-20 w-32 -translate-x-1/2 rounded-md border border-slate-700 bg-black/95 p-2 text-xs shadow-lg backdrop-blur-md">
+        <div className="top absolute left-1/2 z-20 w-32 -translate-x-1/2 rounded-md border border-slate-700 bg-[var(--bg-dark)] p-2 text-xs shadow-lg backdrop-blur-md">
           <a
             href="/jhonatan_ferreira_resume.pdf"
             download
-            className="block rounded px-2 py-1 text-gray-300 hover:bg-white/10 hover:text-white"
+            className="block rounded px-2 py-1 text-gray-300 hover:bg-[var(--bg-soft)] hover:text-white"
           >
             🇺🇸 English
           </a>
@@ -27,7 +27,7 @@ export default function ResumeDownload() {
           <a
             href="/jhonatan_ferreira_resume_pt.pdf"
             download
-            className="mt-1 block rounded px-2 py-1 text-gray-300 hover:bg-white/10 hover:text-white"
+            className="mt-1 block rounded px-2 py-1 text-gray-300 hover:bg-[var(--bg-soft)] hover:text-white"
           >
             🇧🇷 Português
           </a>
