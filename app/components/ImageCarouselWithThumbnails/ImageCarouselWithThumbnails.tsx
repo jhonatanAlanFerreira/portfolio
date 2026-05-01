@@ -19,7 +19,7 @@ export default function ImageCarouselWithThumbnails({
         </div>
       )}
       <div
-        className={`group max-h-full w-full content-center rounded-lg p-4 opacity-50 hover:opacity-100 ${isThumbLoading ? "pointer-events-none" : ""}`}
+        className={`group max-h-full w-full content-center rounded-lg p-4 ${isThumbLoading ? "pointer-events-none" : ""}`}
       >
         <div className="relative flex justify-center">
           <img

@@ -115,10 +115,10 @@ export default function Home() {
               className="flex h-full w-full flex-col items-center gap-4"
             >
               <div className="flex flex-col items-center pt-5">
-                <div className="h-15 w-15 overflow-hidden rounded-sm border-1 border-[var(--border-subtle)] hover:border-[var(--accent)]/40 lg:h-30 lg:w-30 2xl:h-40 2xl:w-40">
+                <div className="h-15 w-15 overflow-hidden rounded-full border-1 border-[var(--border-subtle)] hover:border-[var(--accent)]/40 lg:h-30 lg:w-30 2xl:h-40 2xl:w-40">
                   <img src="profile.jpeg" alt="Profile Picture" />
                 </div>
-                <div className="flex flex-col items-center text-center">
+                <div className="mt-2 flex flex-col items-center text-center">
                   <h1 className="text-lg font-bold text-white 2xl:text-3xl">
                     Jhonatan Ferreira
                   </h1>
@@ -187,7 +187,7 @@ export default function Home() {
         <section className="w-full">
           <div className="flex h-screen flex-col">
             <div className="flex flex-row px-8 py-5">
-              <h2 className="flex items-baseline gap-2 text-lg font-bold tracking-tight sm:flex lg:text-3xl">
+              <h2 className="flex w-full items-baseline gap-2 text-lg font-bold tracking-tight sm:flex lg:text-3xl">
                 {renderSelectedTabTitle()}
               </h2>
               <SelectBar onChange={setActiveTab} />
