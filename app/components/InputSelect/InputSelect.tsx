@@ -46,51 +46,87 @@ export const InputSelect = forwardRef<SelectInstance, InputSelectProps>(
     };
 
     const styles: StylesConfig = {
-      control: (styles) => ({
-        ...styles,
-        backgroundColor: "#00000080",
-        border: "1px solid #47556999 !important",
+      control: (base, state) => ({
+        ...base,
+        background:
+          "linear-gradient(135deg, rgba(11,22,35,0.75), rgba(15,27,46,0.65))",
+        border: `1px solid ${
+          state.isFocused
+            ? "rgba(56,189,248,0.6)"
+            : "rgba(71,85,105,0.4)"
+        }`,
+        boxShadow: state.isFocused
+          ? "0 0 0 1px rgba(56,189,248,0.4)"
+          : "none",
+        backdropFilter: "blur(10px)",
         minHeight: "3rem",
-        height: "auto",
+        transition: "all 0.2s ease",
+        ":hover": {
+          border: "1px solid rgba(56,189,248,0.4)",
+        },
       }),
-      singleValue: (styles) => ({
-        ...styles,
-        color: "#FFFFFF",
+
+      singleValue: (base) => ({
+        ...base,
+        color: "#e5e7eb",
       }),
-      input: (styles) => ({
-        ...styles,
-        color: "#FFFFFF",
+
+      input: (base) => ({
+        ...base,
+        color: "#e5e7eb",
       }),
-      dropdownIndicator: (styles) => ({
-        ...styles,
-        color: "#FFFFFF",
+
+      placeholder: (base) => ({
+        ...base,
+        color: "#94a3b8",
+        opacity: 0.7,
       }),
-      indicatorSeparator: (styles) => ({
-        ...styles,
-        backgroundColor: "#47556999",
+
+      dropdownIndicator: (base) => ({
+        ...base,
+        color: "#94a3b8",
+        ":hover": {
+          color: "#38bdf8",
+        },
       }),
-      placeholder: (styles) => ({
-        ...styles,
-        color: "gray",
-        opacity: "0.8",
+
+      indicatorSeparator: () => ({
+        display: "none",
       }),
-      option: (styles, state) => ({
-        ...styles,
-        color: "#FFFFFF",
-        backgroundColor: state.isFocused ? "#00000010" : "#00000080",
+
+      option: (base, state) => ({
+        ...base,
+        background: state.isFocused
+          ? "rgba(56,189,248,0.15)"
+          : "transparent",
+        color: "#e5e7eb",
+        cursor: "pointer",
+        ":active": {
+          background: "rgba(56,189,248,0.25)",
+        },
       }),
-      menu: (styles) => ({
-        ...styles,
-        border: "1px solid #47556999",
+
+      menu: (base) => ({
+        ...base,
+        background:
+          "linear-gradient(135deg, rgba(11,22,35,0.95), rgba(15,27,46,0.9))",
+        border: "1px solid rgba(71,85,105,0.4)",
+        backdropFilter: "blur(12px)",
+        borderRadius: "0.5rem",
+        overflow: "hidden",
         position: dropdownPosition,
-        width: "95%",
-        background: "#020409",
-        marginLeft: "2.5%",
+        width: "100%",
+        marginTop: "0.25rem",
+      }),
+
+      menuList: (base) => ({
+        ...base,
+        maxHeight: "200px",
       }),
     };
 
     return (
-      <div className="float-label-input relative">
+      <div className="relative">
         <ReactSelect
           key={(rest.options as TimezoneOption[])
             .map((opt) => opt.value)

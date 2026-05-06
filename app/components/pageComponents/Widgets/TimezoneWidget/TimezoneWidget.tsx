@@ -215,15 +215,15 @@ export default function TimezoneWidget() {
   return (
     <>
       <div className="mb-4 pr-5">
-        <h2 className="text-[13px] font-semibold tracking-wide text-gray-200 uppercase xl:text-lg">
+        <h2 className="text-[13px] font-semibold tracking-wide text-gray-300 uppercase xl:text-lg">
           Timezone Integration
         </h2>
 
-        {getSelectedTimezones().length && (
+        {!!getSelectedTimezones().length && (
           <div className="flex justify-end">
             <button
               onClick={() => setRangeModal(true)}
-              className="flex cursor-pointer items-center gap-2 rounded-md border border-gray-700 bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-1 text-gray-200 transition-all duration-200 hover:border-blue-500 hover:text-blue-400"
+              className="flex cursor-pointer items-center gap-2 rounded-md border border-slate-700 bg-[linear-gradient(135deg,rgba(11,22,35,0.9),rgba(15,27,46,0.85),rgba(2,218,222,0.12))] px-4 py-1 text-gray-200 transition-all duration-200 hover:border-sky-400 hover:text-sky-400"
             >
               <FaArrowsLeftRight className="h-4 w-4" />
               <span>Compare Time Ranges</span>
@@ -235,7 +235,7 @@ export default function TimezoneWidget() {
       <div
         className={`px-5 pb-5 ${getSelectedTimezones().length ? "" : "pt-5"}`}
       >
-        <div className="w-full overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 text-white shadow-lg">
+        <div className="w-full overflow-hidden rounded-md border border-slate-700 bg-[linear-gradient(135deg,rgba(11,22,35,0.85),rgba(15,27,46,0.8),rgba(2,218,222,0.08))] p-3 text-white shadow-lg">
           <div className="mt-2 grid grid-cols-1 gap-4">
             <DndContext onDragEnd={handleDragEnd}>
               <AnimatePresence>
@@ -281,7 +281,6 @@ export default function TimezoneWidget() {
           </div>
         </div>
       </div>
-
       <AnimatePresence>
         {rangeModal && (
           <motion.div
@@ -289,10 +288,10 @@ export default function TimezoneWidget() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex h-full w-full items-center justify-center backdrop-blur-md"
+            className="fixed inset-0 z-50 flex h-full w-full items-center justify-center bg-black/40 backdrop-blur-md"
           >
             <motion.div
-              className="relative m-1 flex h-4/5 w-[98%] justify-between overflow-auto rounded-lg border border-slate-600/60 bg-black/99 shadow-xl transition-colors duration-300 hover:border-slate-400/50"
+              className="relative m-1 flex h-4/5 w-[98%] justify-between overflow-auto rounded-xl border border-[var(--border-subtle)] bg-[linear-gradient(135deg,rgba(11,22,35,0.85),rgba(15,27,46,0.75),rgba(2,218,222,0.06))] shadow-xl backdrop-blur-xl transition-colors duration-300 hover:border-sky-400/40"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
@@ -300,12 +299,12 @@ export default function TimezoneWidget() {
             >
               <div className="flex w-full min-w-[50rem] flex-col px-5 py-3">
                 <div className="flex justify-between align-middle">
-                  <h2 className="mb-4 text-2xl font-semibold tracking-wide text-gray-200">
+                  <h2 className="mb-4 text-2xl font-semibold tracking-wide text-gray-100">
                     Compare Time Ranges
                   </h2>
                   <button
                     onClick={() => setRangeModal(false)}
-                    className="mr-3 cursor-pointer text-4xl text-gray-200 hover:scale-110 hover:text-gray-400"
+                    className="mr-3 cursor-pointer text-4xl text-gray-300 transition hover:scale-110 hover:text-red-400"
                   >
                     &times;
                   </button>
@@ -314,10 +313,10 @@ export default function TimezoneWidget() {
                 <div className="gray-scroll flex h-full flex-col overflow-auto pt-10">
                   <div className="mb-2 flex w-full items-center justify-center">
                     <div className="relative flex w-40 items-center justify-center">
-                      <div className="absolute top-1/2 left-0 h-px w-full bg-gray-400" />
-                      <ChevronLeft className="absolute left-0 h-3 w-3 -translate-x-2 text-gray-400" />
-                      <ChevronRight className="absolute right-0 h-3 w-3 translate-x-2 text-gray-400" />
-                      <span className="relative z-10 bg-black/99 px-2 text-sm text-gray-300">
+                      <div className="absolute top-1/2 left-0 h-px w-full bg-gray-700" />
+                      <ChevronLeft className="absolute left-0 h-3 w-3 -translate-x-2 text-gray-500" />
+                      <ChevronRight className="absolute right-0 h-3 w-3 translate-x-2 text-gray-500" />
+                      <span className="relative z-10 rounded bg-[rgba(11,22,35,0.9)] px-2 text-sm text-sky-400 backdrop-blur-sm">
                         {selectedRangeDuration}
                       </span>
                     </div>
@@ -331,9 +330,9 @@ export default function TimezoneWidget() {
                       />
 
                       <div className="flex justify-start pr-5 xl:pr-0">
-                        <div className="w-full rounded-lg border border-gray-800 bg-gradient-to-br from-gray-950 via-gray-900 to-black shadow-inner xl:w-1/2">
+                        <div className="w-full rounded-xl border border-[var(--border-subtle)] bg-[linear-gradient(135deg,rgba(11,22,35,0.7),rgba(15,27,46,0.65),rgba(2,218,222,0.05))] shadow-inner xl:w-1/2">
                           <table className="w-full border-collapse text-left text-sm text-gray-300">
-                            <thead className="bg-gray-900/60 text-cyan-400">
+                            <thead className="bg-white/5 text-sky-400">
                               <tr>
                                 <th className="px-4 py-2 font-semibold">
                                   Timezone
@@ -350,17 +349,19 @@ export default function TimezoneWidget() {
                               {timezonesForTable.map((tz, index) => (
                                 <tr
                                   key={index}
-                                  className={`border-t border-gray-800 transition-colors hover:bg-gray-800/40 ${
+                                  className={`border-t border-white/10 transition-colors hover:bg-white/5 ${
                                     index % 2 === 0
-                                      ? "bg-gray-900/40"
-                                      : "bg-gray-950/40"
+                                      ? "bg-white/[0.02]"
+                                      : "bg-transparent"
                                   }`}
                                 >
-                                  <td className="px-4 py-2">{tz.name}</td>
-                                  <td className="px-4 py-2 text-center text-gray-300">
+                                  <td className="px-4 py-2 text-gray-200">
+                                    {tz.name}
+                                  </td>
+                                  <td className="px-4 py-2 text-center text-gray-400">
                                     {tz.selectedTimezoneStart}
                                   </td>
-                                  <td className="px-4 py-2 text-center text-gray-300">
+                                  <td className="px-4 py-2 text-center text-gray-400">
                                     {tz.selectedTimezoneEnd}
                                   </td>
                                 </tr>
@@ -374,14 +375,15 @@ export default function TimezoneWidget() {
                     <div className="flex w-full justify-end gap-5 p-5">
                       <button
                         onClick={clearRange}
-                        className="flex cursor-pointer items-center gap-2 rounded-md border border-red-900 bg-gradient-to-br from-red-950 via-black to-black px-4 py-2 text-red-400 transition-all hover:border-red-700 hover:text-red-300"
+                        className="flex cursor-pointer items-center gap-2 rounded-md border border-red-900/50 bg-red-950/30 px-4 py-2 text-red-400 transition-all hover:border-red-500 hover:text-red-300"
                       >
                         <Ban className="h-4 w-4" />
                         Clear Range
                       </button>
+
                       <button
                         onClick={saveRange}
-                        className="flex cursor-pointer items-center gap-2 rounded-md border border-slate-700 bg-gradient-to-br from-gray-900 via-gray-950 to-black px-4 py-2 text-gray-200 transition-all hover:border-blue-500 hover:text-blue-400"
+                        className="flex cursor-pointer items-center gap-2 rounded-md border border-[var(--border-subtle)] bg-[rgba(11,22,35,0.6)] px-4 py-2 text-gray-200 transition-all hover:border-sky-400 hover:text-sky-400"
                       >
                         Save Range
                       </button>
@@ -400,7 +402,7 @@ export default function TimezoneWidget() {
           href="https://moment.github.io/luxon/"
           target="_blank"
           rel="noopener noreferrer"
-          className="cursor-pointer text-gray-200"
+          className="cursor-pointer text-sky-400 hover:text-sky-300"
         >
           Luxon
         </a>

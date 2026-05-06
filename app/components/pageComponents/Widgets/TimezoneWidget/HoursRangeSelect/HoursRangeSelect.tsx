@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState } from "react";
 import { DraggableData, Rnd } from "react-rnd";
 import { motion } from "framer-motion";
@@ -114,7 +116,7 @@ export default function HoursRangeSelect({
   };
 
   return (
-    <div className="flex w-full gap-3 overflow-hidden rounded-md border border-gray-800 bg-gradient-to-br from-gray-900 via-gray-950 to-black p-3 py-3 text-white shadow-lg">
+    <div className="flex w-full gap-3 overflow-hidden rounded-md border border-[var(--border-subtle)] bg-[linear-gradient(135deg,rgba(11,22,35,0.75),rgba(15,27,46,0.65),rgba(2,218,222,0.06))] p-3 text-white shadow-lg">
       <div>
         <ul className="text-nowrap">
           {getSelectedTimezones().map((tz, index) => {
@@ -123,11 +125,13 @@ export default function HoursRangeSelect({
             return (
               <li
                 key={index}
-                className="flex h-25 flex-col content-end justify-center border-b border-b-slate-500/10"
+                className="flex h-25 flex-col justify-center border-b border-white/5"
               >
-                <span className="text-sm xl:text-lg">{tz.name}</span>
-                <span className="text-[13px] text-gray-500 xl:text-sm">
-                  <b>Current Time:</b>{" "}
+                <span className="text-sm text-gray-200 xl:text-lg">
+                  {tz.name}
+                </span>
+                <span className="text-[13px] text-gray-400 xl:text-sm">
+                  <b className="text-gray-300">Current Time:</b>{" "}
                   {localTime.toFormat("h:mm:ss a").toLowerCase()}
                 </span>
               </li>
@@ -145,7 +149,7 @@ export default function HoursRangeSelect({
           style={{ position: "relative", width: `${maxWidth}px` }}
         >
           {getSelectedTimezones().map((tz, index) => (
-            <div key={index} className="flex text-2xl text-white">
+            <div key={index} className="flex">
               {getHoursForTimezone(tz.value).map((hourLabel, hourIndex) => {
                 const dt = currentTime
                   .startOf("day")
@@ -154,12 +158,10 @@ export default function HoursRangeSelect({
 
                 const currentDay = currentTime.setZone(tz.value).day;
                 const hourDay = dt.day;
+
                 let dayStatusLabel = "";
-                if (hourDay < currentDay) {
-                  dayStatusLabel = "Past Day";
-                } else if (hourDay > currentDay) {
-                  dayStatusLabel = "Next Day";
-                }
+                if (hourDay < currentDay) dayStatusLabel = "Past";
+                else if (hourDay > currentDay) dayStatusLabel = "Next";
 
                 const isNewDay = dt.hour === 0;
 
@@ -167,18 +169,17 @@ export default function HoursRangeSelect({
                   <div
                     key={hourIndex}
                     onClick={() => handleHourClick(hourIndex)}
-                    className={`flex h-25 w-20 flex-shrink-0 cursor-pointer flex-col items-center border border-gray-700 select-none ${
+                    className={`flex h-25 w-20 flex-shrink-0 cursor-pointer flex-col items-center justify-between border border-white/5 transition-colors hover:bg-white/5 ${
                       isNewDay ? "border-l-2 border-cyan-400" : ""
                     }`}
                   >
-                    <div className="flex flex-1 pt-1">
-                      <span className="text-xs text-gray-400">
-                        {dayStatusLabel}
-                      </span>
-                    </div>
-                    <div className="flex flex-2">
-                      <span className="text-xl lowercase">{hourLabel}</span>
-                    </div>
+                    <span className="pt-1 text-[10px] text-gray-500">
+                      {dayStatusLabel}
+                    </span>
+
+                    <span className="pb-2 text-lg text-gray-200">
+                      {hourLabel}
+                    </span>
                   </div>
                 );
               })}
@@ -202,17 +203,18 @@ export default function HoursRangeSelect({
                 enableResizing={{ left: true, right: true }}
                 dragAxis="x"
                 style={{
-                  border: "2px solid rgba(56,189,248,1)",
-                  borderRadius: 8,
-                  backgroundColor: "rgba(56,189,248,0.08)",
-                  boxShadow: "0 6px 24px rgba(56,189,248,0.06)",
+                  border: "2px solid rgba(56,189,248,0.9)",
+                  borderRadius: 10,
+                  background:
+                    "linear-gradient(135deg, rgba(56,189,248,0.12), rgba(2,218,222,0.08))",
+                  boxShadow: "0 8px 30px rgba(56,189,248,0.12)",
                 }}
               />
             ) : (
               <motion.div
-                initial={{ opacity: 0, x: 50, rotate: 15, scale: 0.9 }}
+                initial={{ opacity: 0, x: 50, rotate: 10, scale: 0.95 }}
                 animate={{ opacity: 1, x: 0, rotate: 0, scale: 1 }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 onAnimationComplete={() => setAnimationDone(true)}
                 style={{
                   position: "absolute",
@@ -220,10 +222,12 @@ export default function HoursRangeSelect({
                   left: getSelectedRange().x,
                   width: getSelectedRange().width,
                   height: boxHeight * getSelectedTimezones().length,
-                  border: "2px solid rgba(56,189,248,1)",
-                  borderRadius: 8,
-                  backgroundColor: "rgba(56,189,248,0.08)",
-                  boxShadow: "0 6px 24px rgba(56,189,248,0.06)",
+                  border: "2px solid rgba(56,189,248,0.9)",
+                  borderRadius: 10,
+                  background:
+                    "linear-gradient(135deg, rgba(56,189,248,0.12), rgba(2,218,222,0.08))",
+                  boxShadow: "0 8px 30px rgba(56,189,248,0.12)",
+                  backdropFilter: "blur(4px)",
                 }}
               />
             ))}
