@@ -28,7 +28,9 @@ export default function TimezoneCard({
     transform: transform
       ? `translate3d(${transform.x}px, ${transform.y}px, 0)`
       : undefined,
+    zIndex: isDragging ? 999 : "auto",
     willChange: "transform",
+    position: "relative" as const,
   };
 
   const localTime = currentTime.setZone(timezone.value);
