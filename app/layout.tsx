@@ -19,15 +19,7 @@ export default function RootLayout({
       <Analytics />
       <body className="overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(2,218,222,0.08),transparent_40%),radial-gradient(circle_at_80%_0%,rgba(2,218,222,0.06),transparent_40%),linear-gradient(135deg,#050a12,#07101a,#0b1623)]">
         {children}
-        <div className="splash-cursor">
-          <AnimatedCursor
-            SPLAT_RADIUS={0.04}
-            DENSITY_DISSIPATION={10}
-            VELOCITY_DISSIPATION={5}
-            BACK_COLOR={{ r: 0, g: 0, b: 0 }}
-            TRANSPARENT={true}
-          />
-        </div>
+        <div className="splash-cursor"></div>
       </body>
     </html>
   );
