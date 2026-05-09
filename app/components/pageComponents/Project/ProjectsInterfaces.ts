@@ -10,4 +10,6 @@ export interface Project {
   gifAlt: string | null;
   img: string | null;
   imgAlt: string | null;
+  type: "youtube" | "local";
+  youtubeLink?: string;
 }

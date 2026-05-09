@@ -36,14 +36,22 @@ export default function Projects() {
             className="h-auto w-full rounded-lg border border-[var(--border-subtle)] bg-[rgba(11,22,35,0.6)] backdrop-blur-md transition-colors duration-300 hover:border-[var(--accent)]/40"
           >
             <div className="flex h-full gap-5 p-4">
-              {pd.img && (
+              {pd.img && pd.type !== "youtube" && (
                 <ImageCarouselWithThumbnails
                   key={index}
                   project={pd}
                   onFullScreen={openProjectModal}
                 ></ImageCarouselWithThumbnails>
               )}
-
+              {pd.type === "youtube" && (
+                <div className="relative flex-2">
+                  <iframe
+                    className="aspect-video w-full rounded-lg"
+                    src={pd.youtubeLink}
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              )}
               <div className="flex flex-3 flex-col space-y-2 text-[var(--muted)] lg:space-y-5">
                 <div>
                   <h3 className="text-md font-medium text-[var(--primary)] lg:text-xl">
