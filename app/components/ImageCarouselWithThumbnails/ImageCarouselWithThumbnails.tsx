@@ -19,11 +19,11 @@ export default function ImageCarouselWithThumbnails({
         </div>
       )}
       <div
-        className={`group max-h-full w-full content-center rounded-lg p-4 ${isThumbLoading ? "pointer-events-none" : ""}`}
+        className={`group h-full w-full content-center rounded-lg ${isThumbLoading ? "pointer-events-none" : ""}`}
       >
         <div className="relative flex justify-center">
           <img
-            className={`max-h-50 group-hover:hidden ${isThumbLoading || isGifLoading ? "opacity-0" : ""}`}
+            className={`group-hover:hidden ${isThumbLoading || isGifLoading ? "opacity-0" : ""}`}
             src={project.img ?? ""}
             alt={project.imgAlt ?? ""}
             onLoadStart={() => setIsThumbLoading(true)}
@@ -36,7 +36,7 @@ export default function ImageCarouselWithThumbnails({
           )}
           <div className="hidden w-full group-hover:flex">
             <ImageCarousel
-              imgClasses="max-h-50 place-self-center"
+              imgClasses="place-self-center"
               gifs={project.gifs}
               gifAlt={project.gifAlt ?? ""}
               onLoadingChange={(isLoading) => setIsGifLoading(isLoading)}
