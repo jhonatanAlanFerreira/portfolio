@@ -79,8 +79,7 @@ export const WorkData = [
     language: "English",
     responsibilities: [
       "Collaborated with an international team in English-speaking meetings and asynchronous communicationvia Slack, contributing to technical and strategic decisions.",
-      "Developed web interfaces using React and Next.js for an interactive application.",
-      "Implemented features and improvements focused on user experience.",
+      "Engineered interactive, animated front-end components and code prototypes for a dynamic character UI, leveraging physics-based or frame-based layout movements as a Proof of Concept.",
     ],
     stack: [
       icons.css,
