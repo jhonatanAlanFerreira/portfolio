@@ -10,7 +10,7 @@ export default function ResumeDownload() {
       className="relative inline-block"
     >
       <button className="group relative mt-2 cursor-pointer overflow-hidden rounded-md border border-dotted border-slate-800 px-1 py-0.5 text-[5px] text-[var(--accent)] lg:px-3 lg:py-1 lg:text-[10px] 2xl:text-sm">
-        <span className="relative z-10">Download CV</span>
+        <span className="relative z-10">Download Resume</span>
         <span className="border-trail"></span>
       </button>
 
