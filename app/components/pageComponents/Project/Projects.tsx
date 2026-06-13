@@ -5,7 +5,7 @@ import ImageCarousel from "../../ImageCarousel/ImageCarousel";
 import { motion, AnimatePresence } from "framer-motion";
 import { cardVariants, containerVariants } from "@/types/CardEffectVariants";
 import { ProjectsData } from "./ProjectsData";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiGlobe } from "react-icons/fi";
 import { Project } from "./ProjectsInterfaces";
 import ImageCarouselWithThumbnails from "@/app/components/ImageCarouselWithThumbnails/ImageCarouselWithThumbnails";
 
@@ -95,23 +95,45 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="flex flex-1 items-end justify-end grayscale">
-                  <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={pd.sourceCode}
-                    className="group relative inline-flex h-5 items-center gap-2 overflow-hidden rounded-sm bg-[rgba(255,255,255,0.05)] px-3 py-2 text-[10px] text-[var(--primary)] transition duration-300 hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_0_12px_rgba(2,218,222,0.2)] lg:h-10 lg:rounded-lg lg:px-6 lg:text-lg"
-                  >
-                    <span className="flex items-center gap-2 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
-                      <GrGithub className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
-                      Code
-                    </span>
-                    <span className="absolute inset-0 flex translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                      <GrGithub className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
-                      Code
-                      <FiExternalLink className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
-                    </span>
-                  </a>
+                <div className="flex w-fit gap-2 place-self-end">
+                  <div className="flex flex-1 items-end justify-end grayscale">
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={pd.sourceCode}
+                      className="group relative inline-flex h-5 items-center gap-2 overflow-hidden rounded-sm bg-[rgba(255,255,255,0.05)] px-3 py-2 text-[10px] text-[var(--primary)] transition duration-300 hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_0_12px_rgba(2,218,222,0.2)] lg:h-10 lg:rounded-lg lg:px-6 lg:text-lg"
+                    >
+                      <span className="flex items-center gap-2 transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+                        <GrGithub className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
+                        Code
+                      </span>
+                      <span className="absolute inset-0 flex translate-x-12 items-center justify-center gap-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                        <GrGithub className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
+                        Code
+                        <FiExternalLink className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
+                      </span>
+                    </a>
+                  </div>
+                  {pd.liveDemoUrl && (
+                    <div className="flex flex-1 items-end justify-end grayscale">
+                      <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={pd.liveDemoUrl}
+                        className="group relative inline-flex h-5 items-center gap-2 overflow-hidden rounded-sm bg-[rgba(255,255,255,0.05)] px-3 py-2 text-[10px] text-[var(--primary)] transition duration-300 hover:bg-[rgba(255,255,255,0.08)] hover:shadow-[0_0_12px_rgba(2,218,222,0.2)] lg:h-10 lg:rounded-lg lg:px-6 lg:text-lg"
+                      >
+                        <span className="flex items-center gap-2 whitespace-nowrap transition-all duration-300 group-hover:translate-x-12 group-hover:opacity-0">
+                          <FiGlobe className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
+                          Live Demo
+                        </span>
+                        <span className="absolute inset-0 flex translate-x-12 items-center justify-center gap-2 whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+                          <FiGlobe className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
+                          Live Demo
+                          <FiExternalLink className="h-2 w-2 text-[var(--primary)] lg:h-5 lg:w-5" />
+                        </span>
+                      </a>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

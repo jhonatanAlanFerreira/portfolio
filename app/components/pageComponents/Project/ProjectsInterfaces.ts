@@ -12,4 +12,5 @@ export interface Project {
   imgAlt: string | null;
   type: "youtube" | "local";
   youtubeLink?: string;
+  liveDemoUrl?: string;
 }
