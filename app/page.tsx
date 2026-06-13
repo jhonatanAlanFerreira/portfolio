@@ -123,7 +123,7 @@ export default function Home() {
                     Jhonatan Ferreira
                   </h1>
                   <p className="text-sm text-[var(--accent)]/80 2xl:text-lg">
-                    Full Stack Developer
+                    Full Stack Engineer
                   </p>
                   <ResumeDownload></ResumeDownload>
                 </div>

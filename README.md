@@ -1,6 +1,6 @@
 # Full Stack Portfolio
 
-This is a **personal portfolio project** built with [Next.js](https://nextjs.org), showcasing my work and projects as a **Full Stack Developer**.  
+This is a **personal portfolio project** built with [Next.js](https://nextjs.org), showcasing my work and projects as a **Full Stack Engineer**.  
 It highlights practical experience in frontend and backend development and component architecture.
 
 ---
@@ -51,5 +51,5 @@ This script uses [Luxon](https://moment.github.io/luxon/) to handle timezone log
 ## 🧑‍💻 Author
 
 **Jhonatan Ferreira**  
-Full Stack Developer | React, Remix, Node.js, and TypeScript  
+Full Stack Engineer | React, Remix, Node.js, and TypeScript  
 [LinkedIn](https://www.linkedin.com/in/jhonatan-alan-ferreira)
