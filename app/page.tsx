@@ -78,7 +78,7 @@ export default function Home() {
     const months = now.getMonth() - start.getMonth();
     const totalYears = months < 0 ? years - 1 : years;
 
-    return `${totalYears} years as Full-Stack Developer`;
+    return `${totalYears} years as Full-Stack Engineer`;
   };
 
   return (

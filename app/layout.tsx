@@ -4,9 +4,9 @@ import AnimatedCursor from "@/app/components/AnimatedCursor/AnimatedCursor";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "Jhonatan Ferreira | Full-Stack Developer",
+  title: "Jhonatan Ferreira | Full-Stack Engineer",
   description:
-    "Full-stack developer with 6+ years of experience in web applications, APIs, and responsive design. Skilled in React, Remix, Angular, Node.js, and Laravel.",
+    "Full-stack Engineer with 6+ years of experience in web applications, APIs, and responsive design. Skilled in React, Remix, Angular, Node.js, and Laravel.",
 };
 
 export default function RootLayout({
