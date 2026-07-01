@@ -31,6 +31,5 @@ export const ProjectsData: Project[] = [
     description: `Financial management app with transaction tracking, analytics visualization, and CSV export for reporting. Built with Remix and React, focusing on performance and clean UI architecture.`,
     stackIcons: financial_manager_icons,
     type: "local",
-    liveDemoUrl: "https://financial-manager.jhonatanferreira.dev"
   },
 ];
